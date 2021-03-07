@@ -188,7 +188,3 @@ jobs:
         delete_tags: true
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        
-    - name: Telegram notification
-      if: steps.tag.outputs.status == 'success' && !cancelled()
-      run: curl -k --data chat_id="${{ secrets.TELEGRAM_CHAT_ID }}" --data "text=${{ env.FILE_NAME }}编译完成" "https://api.telegram.org/bot${{ secrets.TELEGRAM_BOT_TOKEN }}/sendMessage"
