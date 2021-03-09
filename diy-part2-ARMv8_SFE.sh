@@ -57,7 +57,7 @@ svn co https://github.com/linkease/ddnsto-openwrt/trunk/luci-app-ddnsto package/
 #sed -i "s/PKG_SOURCE_VERSION:=.*/PKG_SOURCE_VERSION:=f2f90a9a150be94d50af555b53657a2a4309f287/" package/openwrt-udp2raw/Makefile
 #sed -i "s/PKG_VERSION:=.*/PKG_VERSION:=20200920\.0/" package/openwrt-udp2raw/Makefile
 #qBittorrent
-sed -i "s/PKG_VERSION:=.*/PKG_VERSION:=4.3.3\.0/" package/lean/qBittorrent/Makefile
+sed -i "s/PKG_VERSION:=.*/PKG_VERSION:=4.3.3/" package/lean/qBittorrent/Makefile
 sed -i "s/PKG_HASH:=.*/PKG_HASH:=9144652FE742F7F7DD6657716E378DA60B751AAEDA8BEF8344B3EEFC4DB255F2/" package/lean/qBittorrent/Makefile
 
 #themes
