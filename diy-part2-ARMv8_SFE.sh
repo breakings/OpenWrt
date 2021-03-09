@@ -59,6 +59,13 @@ svn co https://github.com/linkease/ddnsto-openwrt/trunk/luci-app-ddnsto package/
 #qBittorrent
 sed -i "s/PKG_VERSION:=.*/PKG_VERSION:=4.3.3/" package/lean/qBittorrent/Makefile
 sed -i "s/PKG_HASH:=.*/PKG_HASH:=9144652FE742F7F7DD6657716E378DA60B751AAEDA8BEF8344B3EEFC4DB255F2/" package/lean/qBittorrent/Makefile
+#transmission
+sed -i "s/PKG_VERSION:=.*/PKG_VERSION:=3.00/" feeds/packages/net/transmission/Makefile
+sed -i "s/PKG_HASH:=.*/PKG_HASH:=9144652fe742f7f7dd6657716e378da60b751aaeda8bef8344b3eefc4db255f2/" feeds/packages/net/transmission/Makefile
+#transmission-web-control
+sed -i "s/PKG_SOURCE_DATE:=.*/PKG_SOURCE_DATE:=2020-09-13/" feeds/packages/net/transmission-web-control/Makefile
+sed -i "s/PKG_SOURCE_VERSION=.*/PKG_SOURCE_VERSION:=c26a0761e3a8fe3cff2480735ec363dc253c5105/" feeds/packages/net/transmission-web-control/Makefile
+sed -i "s/PKG_MIRROR_HASH=.*/PKG_MIRROR_HASH:=67e96008a0d9698b6529764c97120189a1c2dca046571bc11ea35b3132fffd46/" feeds/packages/net/transmission-web-control/Makefile
 
 #themes
 svn co https://github.com/rosywrt/luci-theme-rosy/trunk/luci-theme-rosy package/luci-theme-rosy
