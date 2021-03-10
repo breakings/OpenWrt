@@ -8,7 +8,7 @@
 # Description: Build OpenWrt using GitHub Actions
 #
 
-name: Build ARMv8_SFE OpenWrt
+name: Build ARMv8_FOL OpenWrt
 
 on:
   repository_dispatch:
