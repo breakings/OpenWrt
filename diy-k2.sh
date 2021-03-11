@@ -71,7 +71,7 @@ svn co https://github.com/fw876/helloworld/trunk/luci-app-ssr-plus package/luci-
 #sed -i 's/services/system/g'  package/lean/luci-app-cpufreq/luasrc/controller/cpufreq.lua
 
 #修改识别16M闪存
-sed -i 's/0x7b0000/0xfb0000/g'  source/target/linux/ramips/dts/mt7620a_phicomm_psg1218.dtsi
+sed -i 's/0x7b0000/0xfb0000/g' target/linux/ramips/dts/mt7620a_phicomm_psg1218.dtsi
 
 #replace coremark.sh with the new one
 rm package/lean/coremark/coremark.sh
