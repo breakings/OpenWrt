@@ -8,7 +8,7 @@ src-git telephony https://git.openwrt.org/feed/telephony.git
 #src-git oldpackages http://git.openwrt.org/packages.git
 #src-link custom /usr/src/openwrt/custom-feed
 #src-git helloworld https://github.com/fw876/helloworld
-src-git packages https://git.openwrt.org/feed/packages.git^90af10d01
+#src-git packages https://git.openwrt.org/feed/packages.git^90af10d01
 src-git luci https://git.openwrt.org/project/luci.git^34e0d656a
 src-git routing https://git.openwrt.org/feed/routing.git^e26b474
 src-git telephony https://git.openwrt.org/feed/telephony.git^6e019c9
