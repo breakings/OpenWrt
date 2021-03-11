@@ -58,10 +58,10 @@ svn co https://github.com/fw876/helloworld/trunk/luci-app-ssr-plus package/luci-
 #sed -i "s/PKG_VERSION:=.*/PKG_VERSION:=20200920\.0/" package/openwrt-udp2raw/Makefile
 
 #themes
-svn co https://github.com/rosywrt/luci-theme-rosy/trunk/luci-theme-rosy package/luci-theme-rosy
-git clone https://github.com/rosywrt/luci-theme-purple.git package/luci-theme-purple
-git clone https://github.com/Leo-Jo-My/luci-theme-opentomcat.git package/luci-theme-opentomcat
-git clone https://github.com/kevin-morgan/luci-theme-argon-dark.git package/luci-theme-argon-dark
+#svn co https://github.com/rosywrt/luci-theme-rosy/trunk/luci-theme-rosy package/luci-theme-rosy
+#git clone https://github.com/rosywrt/luci-theme-purple.git package/luci-theme-purple
+#git clone https://github.com/Leo-Jo-My/luci-theme-opentomcat.git package/luci-theme-opentomcat
+#git clone https://github.com/kevin-morgan/luci-theme-argon-dark.git package/luci-theme-argon-dark
 
 ./scripts/feeds update -a
 ./scripts/feeds install -a
@@ -69,6 +69,9 @@ git clone https://github.com/kevin-morgan/luci-theme-argon-dark.git package/luci
 #readd cpufreq for aarch64
 #sed -i 's/LUCI_DEPENDS.*/LUCI_DEPENDS:=\@\(arm\|\|aarch64\)/g' package/lean/luci-app-cpufreq/Makefile
 #sed -i 's/services/system/g'  package/lean/luci-app-cpufreq/luasrc/controller/cpufreq.lua
+
+#修改识别16M闪存
+sed -i 's/0x7b0000/0xfb0000/g'  source/target/linux/ramips/dts/mt7620a_phicomm_psg1218.dtsi
 
 #replace coremark.sh with the new one
 rm package/lean/coremark/coremark.sh
