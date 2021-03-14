@@ -32,11 +32,11 @@ svn co https://github.com/xiaorouji/openwrt-passwall/trunk/trojan-plus package/t
 #svn co https://github.com/project-openwrt/openwrt/trunk/package/lienol/luci-app-fileassistant package/luci-app-fileassistant
 svn co https://github.com/xiaorouji/openwrt-passwall/trunk/luci-app-passwall package/luci-app-passwall
 svn co https://github.com/xiaorouji/openwrt-passwall/trunk/shadowsocks-rust package/shadowsocks-rust
+svn co https://github.com/xiaorouji/openwrt-passwall/trunk/xray-core package/xray-core
+svn co https://github.com/xiaorouji/openwrt-passwall/trunk/xray-plugin package/xray-plugin
 svn co https://github.com/xiaorouji/openwrt-passwall/trunk/ssocks package/ssocks
 #svn co https://github.com/fw876/helloworld/trunk/xray-core package/xray-core
 #svn co https://github.com/fw876/helloworld/trunk/xray-plugin package/xray-plugin
-svn co https://github.com/xiaorouji/openwrt-passwall/trunk/xray-core package/xray-core
-svn co https://github.com/xiaorouji/openwrt-passwall/trunk/xray-plugin package/xray-plugin
 #svn co https://github.com/kenzok8/openwrt-packages/trunk/luci-app-gost package/luci-app-gost
 #svn co https://github.com/kenzok8/openwrt-packages/trunk/gost package/gost
 #svn co https://github.com/project-openwrt/openwrt/trunk/package/ctcgfw/luci-app-gost package/luci-app-gost
@@ -63,6 +63,7 @@ svn co https://github.com/rosywrt/luci-theme-rosy/trunk/luci-theme-rosy package/
 #git clone https://github.com/rosywrt/luci-theme-purple.git package/luci-theme-purple
 git clone https://github.com/Leo-Jo-My/luci-theme-opentomcat.git package/luci-theme-opentomcat
 git clone https://github.com/kevin-morgan/luci-theme-argon-dark.git package/luci-theme-argon-dark
+#svn co https://github.com/openwrt/luci/trunk/themes/luci-theme-openwrt-2020 package/luci-theme-openwrt-2020
 
 ./scripts/feeds update -a
 ./scripts/feeds install -a
