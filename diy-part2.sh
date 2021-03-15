@@ -54,6 +54,7 @@ svn co https://github.com/xiaorouji/openwrt-passwall/trunk/trojan package/trojan
 git clone https://github.com/tty228/luci-app-serverchan.git package/luci-app-serverchan
 svn co https://github.com/fw876/helloworld/trunk/luci-app-ssr-plus package/luci-app-ssr-plus
 svn co https://github.com/fw876/helloworld/trunk/naiveproxy package/naiveproxy
+git clone https://github.com/akamensky/redsocks2.git package/redsocks2
 
 #添加smartdns
 svn co https://github.com/project-openwrt/openwrt/trunk/package/ntlf9t/smartdns package/smartdns
