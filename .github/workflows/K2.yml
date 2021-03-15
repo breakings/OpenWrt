@@ -20,9 +20,9 @@ on:
         default: 'false'
 
 env:
-  REPO_URL: https://github.com/coolsnowwolf/lede
-  REPO_BRANCH: master
-  FEEDS_CONF: feeds.conf.default
+  REPO_URL: https://github.com/immortalwrt/immortalwrt
+  REPO_BRANCH: openwrt-21.02
+  FEEDS_CONF: openwrt-21.02.feeds.conf.default
   CONFIG_FILE: config.buildinfo
   DIY_P1_SH: diy-part1.sh
   DIY_P2_SH: diy-k2.sh
@@ -35,7 +35,7 @@ env:
 
 jobs:
   build:
-    runs-on: ubuntu-18.04
+    runs-on: ubuntu-20.04
 
     steps:
     - name: Checkout
