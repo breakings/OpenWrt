@@ -25,7 +25,7 @@ env:
   FEEDS_CONF: openwrt-21.02.feeds.conf.default
   CONFIG_FILE: openwrt-21.02.config
   DIY_P1_SH: diy-part1.sh
-  DIY_P2_SH: 21.02-diy-part2.sh
+  DIY_P2_SH: openwrt-21.02-diy-part2.sh
   UPLOAD_BIN_DIR: true
   UPLOAD_FIRMWARE: true
   UPLOAD_COWTRANSFER: false
