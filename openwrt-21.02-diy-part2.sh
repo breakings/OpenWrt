@@ -46,6 +46,7 @@ svn co https://github.com/xiaorouji/openwrt-passwall/trunk/kcptun package/kcptun
 svn co https://github.com/xiaorouji/openwrt-passwall/trunk/trojan package/trojan
 svn co https://github.com/coolsnowwolf/lede/trunk/package/lean/luci-app-cpufreq package/lean/luci-app-cpufreq
 svn co https://github.com/coolsnowwolf/lede/trunk/package/lean/coremark package/lean/coremark
+svn co https://github.com/coolsnowwolf/lede/trunk/package/lean/luci-app-docker package/lean/luci-app-docker
 
 #svn co https://github.com/fw876/helloworld/trunk/xray-core package/xray-core
 #svn co https://github.com/fw876/helloworld/trunk/xray-plugin package/xray-plugin
@@ -73,11 +74,11 @@ svn co https://github.com/project-openwrt/openwrt/trunk/package/ntlf9t/luci-app-
 #sed -i "s/PKG_VERSION:=.*/PKG_VERSION:=20200920\.0/" package/openwrt-udp2raw/Makefile
 
 #themes
-svn co https://github.com/rosywrt/luci-theme-rosy/trunk/luci-theme-rosy package/luci-theme-rosy
+#svn co https://github.com/rosywrt/luci-theme-rosy/trunk/luci-theme-rosy package/luci-theme-rosy
 #git clone https://github.com/rosywrt/luci-theme-purple.git package/luci-theme-purple
-git clone https://github.com/Leo-Jo-My/luci-theme-opentomcat.git package/luci-theme-opentomcat
-git clone https://github.com/kevin-morgan/luci-theme-argon-dark.git package/luci-theme-argon-dark
-#svn co https://github.com/openwrt/luci/trunk/themes/luci-theme-openwrt-2020 package/luci-theme-openwrt-2020
+#git clone https://github.com/Leo-Jo-My/luci-theme-opentomcat.git package/luci-theme-opentomcat
+#git clone https://github.com/kevin-morgan/luci-theme-argon-dark.git package/luci-theme-argon-dark
+svn co https://github.com/openwrt/luci/trunk/themes/luci-theme-openwrt-2020 package/luci-theme-openwrt-2020
 
 ./scripts/feeds update -a
 ./scripts/feeds install -a
