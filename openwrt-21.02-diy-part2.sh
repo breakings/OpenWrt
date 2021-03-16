@@ -93,7 +93,7 @@ rm package/lean/coremark/coremark.sh
 cp $GITHUB_WORKSPACE/general/coremark.sh package/lean/coremark/
 
 #同步官方kernel-version.mk
-rm include/kernel-version.mk
-svn co --depth=empty  https://github.com/openwrt/openwrt/trunk/include kerner-version
-cd kerner-version
-svn up kernel-version.mk
+#rm include/kernel-version.mk
+#svn co --depth=empty  https://github.com/openwrt/openwrt/trunk/include kerner-version
+#cd kerner-version
+#svn up kernel-version.mk
