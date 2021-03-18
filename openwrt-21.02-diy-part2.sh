@@ -14,7 +14,7 @@
 #sed -i 's/192.168.1.1/192.168.50.5/g' package/base-files/files/bin/config_generate
 
 #移除不用软件包    
-rm -rf feeds/packages/libs/libgd
+rm -rf feeds/packages/libs/libgd-full
 
 #添加额外软件包
 #git clone https://github.com/jerrykuku/luci-app-jd-dailybonus.git package/luci-app-jd-dailybonus
