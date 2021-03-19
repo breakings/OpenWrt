@@ -15,6 +15,7 @@
 
 #移除不用软件包    
 rm -rf feeds/packages/libs/libgd-full
+rm -rf luci/collections/luci-lib-docker
 
 #添加额外软件包
 #git clone https://github.com/jerrykuku/luci-app-jd-dailybonus.git package/luci-app-jd-dailybonus
@@ -62,6 +63,7 @@ svn co https://github.com/Lienol/openwrt/branches/21.02/package/lean/luci-app-ze
 svn co https://github.com/Lienol/openwrt/branches/21.02/package/network/fullconenat package/network/fullconenat 
 #svn co https://github.com/coolsnowwolf/lede/trunk/package/lean/luci-app-docker package/lean/luci-app-docker
 #svn co https://github.com/coolsnowwolf/packages/trunk/utils/docker-ce package/utils/docker-ce
+svn co https://github.com/Lienol/openwrt/branches/21.02/package/diy/luci-lib-docker package/luci-lib-docker
 
 #svn co https://github.com/fw876/helloworld/trunk/xray-core package/xray-core
 #svn co https://github.com/fw876/helloworld/trunk/xray-plugin package/xray-plugin
