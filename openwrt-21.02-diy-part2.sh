@@ -15,7 +15,7 @@
 
 #移除不用软件包    
 rm -rf feeds/packages/libs/libgd-full
-rm -rf luci/collections/luci-lib-docker
+rm -rf feeds/luci/collections/luci-lib-docker
 
 #添加额外软件包
 #git clone https://github.com/jerrykuku/luci-app-jd-dailybonus.git package/luci-app-jd-dailybonus
@@ -58,6 +58,7 @@ svn co https://github.com/Lienol/openwrt/branches/21.02/package/lean/luci-app-nf
 svn co https://github.com/Lienol/openwrt/branches/21.02/package/lean/luci-app-netdata package/lean/luci-app-netdata
 svn co https://github.com/Lienol/openwrt/branches/21.02/package/lean/luci-app-usb-printer package/lean/luci-app-usb-printer
 svn co https://github.com/Lienol/openwrt/branches/21.02/package/lean/luci-app-filetransfer package/lean/luci-app-filetransfer
+svn co https://github.com/Lienol/openwrt/branches/21.02/package/lean/luci-lib-fs package/lean/luci-lib-fs
 svn co https://github.com/Lienol/openwrt/branches/21.02/package/lean/luci-app-zerotier package/lean/luci-app-zerotier
 #svn co https://github.com/coolsnowwolf/lede/trunk/package/lean/coremark package/lean/coremark
 svn co https://github.com/Lienol/openwrt/branches/21.02/package/network/fullconenat package/network/fullconenat 
