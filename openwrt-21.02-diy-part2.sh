@@ -58,7 +58,7 @@ svn co https://github.com/Lienol/openwrt/branches/21.02/package/lean/luci-app-ne
 svn co https://github.com/Lienol/openwrt/branches/21.02/package/lean/luci-app-usb-printer package/lean/luci-app-usb-printer
 svn co https://github.com/Lienol/openwrt/branches/21.02/package/lean/luci-app-filetransfer package/lean/luci-app-filetransfer
 svn co https://github.com/Lienol/openwrt/branches/21.02/package/lean/luci-app-zerotier package/lean/luci-app-zerotier
-svn co https://github.com/coolsnowwolf/lede/trunk/package/lean/coremark package/lean/coremark
+#svn co https://github.com/coolsnowwolf/lede/trunk/package/lean/coremark package/lean/coremark
 svn co https://github.com/Lienol/openwrt/branches/21.02/package/network/fullconenat package/network/fullconenat 
 #svn co https://github.com/coolsnowwolf/lede/trunk/package/lean/luci-app-docker package/lean/luci-app-docker
 #svn co https://github.com/coolsnowwolf/packages/trunk/utils/docker-ce package/utils/docker-ce
