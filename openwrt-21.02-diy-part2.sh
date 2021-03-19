@@ -64,6 +64,7 @@ svn co https://github.com/Lienol/openwrt/branches/21.02/package/network/fullcone
 #svn co https://github.com/coolsnowwolf/lede/trunk/package/lean/luci-app-docker package/lean/luci-app-docker
 #svn co https://github.com/coolsnowwolf/packages/trunk/utils/docker-ce package/utils/docker-ce
 svn co https://github.com/Lienol/openwrt/branches/21.02/package/diy/luci-lib-docker package/luci-lib-docker
+svn co https://github.com/Lienol/openwrt/branches/21.02/package/lean/luci-app-openvpn-server package/lean/luci-app-openvpn-server
 
 #svn co https://github.com/fw876/helloworld/trunk/xray-core package/xray-core
 #svn co https://github.com/fw876/helloworld/trunk/xray-plugin package/xray-plugin
