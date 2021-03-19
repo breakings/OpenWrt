@@ -47,8 +47,17 @@ svn co https://github.com/xiaorouji/openwrt-passwall/trunk/shadowsocksr-libev pa
 svn co https://github.com/xiaorouji/openwrt-passwall/trunk/simple-obfs package/simple-obfs
 svn co https://github.com/xiaorouji/openwrt-passwall/trunk/kcptun package/kcptun
 svn co https://github.com/xiaorouji/openwrt-passwall/trunk/trojan package/trojan
+
+#菜单定制
 svn co https://github.com/immortalwrt/immortalwrt/branches/openwrt-21.02/package/lean/luci-app-cpufreq package/lean/luci-app-cpufreq
+#svn co https://github.com/immortalwrt/immortalwrt/branches/openwrt-21.02/package/lean/luci-app-airplay2 package/lean/luci-app-airplay2
 svn co https://github.com/Lienol/openwrt/branches/21.02/package/lean/luci-app-flowoffload package/lean/luci-app-flowoffload
+svn co https://github.com/Lienol/openwrt/branches/21.02/package/lean/luci-app-cifs-mount package/lean/luci-app-cifs-mount
+svn co https://github.com/Lienol/openwrt/branches/21.02/package/lean/luci-app-nfs package/lean/luci-app-nfs
+svn co https://github.com/Lienol/openwrt/branches/21.02/package/lean/luci-app-netdata package/lean/luci-app-netdata
+svn co https://github.com/Lienol/openwrt/branches/21.02/package/lean/luci-app-usb-printer package/lean/luci-app-usb-printer
+svn co https://github.com/Lienol/openwrt/branches/21.02/package/lean/luci-app-filetransfer package/lean/luci-app-filetransfer
+svn co https://github.com/Lienol/openwrt/branches/21.02/package/lean/luci-app-zerotier package/lean/luci-app-zerotier
 svn co https://github.com/coolsnowwolf/lede/trunk/package/lean/coremark package/lean/coremark
 #svn co https://github.com/coolsnowwolf/lede/trunk/package/lean/luci-app-docker package/lean/luci-app-docker
 #svn co https://github.com/coolsnowwolf/packages/trunk/utils/docker-ce package/utils/docker-ce
@@ -93,9 +102,18 @@ git clone https://github.com/jerrykuku/luci-theme-argon.git  package/luci-theme-
 sed -i 's/LUCI_DEPENDS.*/LUCI_DEPENDS:=\@\(arm\|\|aarch64\)/g' package/lean/luci-app-cpufreq/Makefile
 sed -i 's/services/system/g'  package/lean/luci-app-cpufreq/luasrc/controller/cpufreq.lua
 
+#默认设置
+#sed -i 's/\"services\"/\"nas\"/g' /usr/lib/lua/luci/controller/aria2.lua
+#sed -i 's/\"services\"/\"nas\"/g' /usr/lib/lua/luci/controller/usb_printer.lua
+#sed -i 's/services/nas/g' /root/usr/share/luci/menu.d/luci-app-p910nd.json
+#sed -i 's/services/nas/g' /root/usr/share/luci/menu.d/luci-app-minidlna.json
+#sed -i 's/services/nas/g' /root/usr/share/luci/menu.d/luci-app-hd-idle.json
+
 #replace coremark.sh with the new one
-rm package/lean/coremark/coremark.sh
-cp $GITHUB_WORKSPACE/general/coremark.sh package/lean/coremark/
+#rm package/lean/coremark/coremark.sh
+#cp $GITHUB_WORKSPACE/general/coremark.sh package/lean/coremark/
+cp $GITHUB_WORKSPACE/general/coremark.sh packages/utils/coremark/
+cp $GITHUB_WORKSPACE/general/coremark packages/utils/coremark/
 
 #同步官方kernel-version.mk
 #rm include/kernel-version.mk
