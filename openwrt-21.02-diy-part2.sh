@@ -59,6 +59,7 @@ svn co https://github.com/Lienol/openwrt/branches/21.02/package/lean/luci-app-us
 svn co https://github.com/Lienol/openwrt/branches/21.02/package/lean/luci-app-filetransfer package/lean/luci-app-filetransfer
 svn co https://github.com/Lienol/openwrt/branches/21.02/package/lean/luci-app-zerotier package/lean/luci-app-zerotier
 svn co https://github.com/coolsnowwolf/lede/trunk/package/lean/coremark package/lean/coremark
+svn co https://github.com/Lienol/openwrt/branches/21.02/package/network/fullconenat package/network/fullconenat 
 #svn co https://github.com/coolsnowwolf/lede/trunk/package/lean/luci-app-docker package/lean/luci-app-docker
 #svn co https://github.com/coolsnowwolf/packages/trunk/utils/docker-ce package/utils/docker-ce
 
@@ -73,7 +74,7 @@ git clone https://github.com/tty228/luci-app-serverchan.git package/luci-app-ser
 svn co https://github.com/fw876/helloworld/trunk/luci-app-ssr-plus package/luci-app-ssr-plus
 svn co https://github.com/fw876/helloworld/trunk/naiveproxy package/naiveproxy
 svn co https://github.com/coolsnowwolf/lede/trunk/package/lean/redsocks2 package/lean/redsocks2
-#svn co https://github.com/coolsnowwolf/lede/trunk/package/lean/openwrt-fullconenat package/lean/openwrt-fullconenat
+
 
 #添加smartdns
 svn co https://github.com/project-openwrt/openwrt/trunk/package/ntlf9t/smartdns package/smartdns
