@@ -120,9 +120,9 @@ sed -i 's/services/system/g'  package/lean/luci-app-cpufreq/luasrc/controller/cp
 #replace coremark.sh with the new one
 #rm package/lean/coremark/coremark.sh
 #cp $GITHUB_WORKSPACE/general/coremark.sh package/lean/coremark/
-svn co https://github.com/openwrt/packages/trunk/utils/coremark packages/utils/coremark
-cp $GITHUB_WORKSPACE/general/coremark.sh packages/utils/coremark/
-cp $GITHUB_WORKSPACE/general/coremark packages/utils/coremark/
+svn co https://github.com/openwrt/packages/trunk/utils/coremark package/utils/coremark
+cp $GITHUB_WORKSPACE/general/coremark.sh package/utils/coremark/
+cp $GITHUB_WORKSPACE/general/coremark package/utils/coremark/
 
 #同步官方kernel-version.mk
 #rm include/kernel-version.mk
