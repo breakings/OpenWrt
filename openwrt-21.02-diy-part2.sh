@@ -123,8 +123,8 @@ sed -i 's/option lang auto/option lang zh_cn/g' feeds/luci/modules/luci-base/roo
 #rm package/lean/coremark/coremark.sh
 #cp $GITHUB_WORKSPACE/general/coremark.sh package/lean/coremark/
 svn co https://github.com/openwrt/packages/trunk/utils/coremark package/utils/coremark
-cp $GITHUB_WORKSPACE/general/coremark.sh package/utils/coremark/ && sudo chmod +x package/utils/coremark/coremark.sh
-cp $GITHUB_WORKSPACE/general/coremark package/utils/coremark/ && sudo chmod +x package/utils/coremark/coremark
+cp $GITHUB_WORKSPACE/general/coremark.sh package/utils/coremark/
+cp $GITHUB_WORKSPACE/general/coremark package/utils/coremark/
 
 #同步官方kernel-version.mk
 #rm include/kernel-version.mk
