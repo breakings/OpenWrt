@@ -81,8 +81,6 @@ jobs:
         chmod +x $DIY_P2_SH
         cd openwrt
         $GITHUB_WORKSPACE/$DIY_P2_SH
-        chmod +x $GITHUB_WORKSPACE/general/zh_Hans.sh
-        bash $GITHUB_WORKSPACE/general/zh_Hans.sh
 
     - name: SSH connection to Actions
       uses: P3TERX/ssh2actions@v1.0.0
@@ -99,6 +97,8 @@ jobs:
         make download -j8
         find dl -size -1024c -exec ls -l {} \;
         find dl -size -1024c -exec rm -f {} \;
+        chmod +x $GITHUB_WORKSPACE/general/zh_Hans.sh
+        bash $GITHUB_WORKSPACE/general/zh_Hans.sh
 
     - name: Compile the firmware
       id: compile
