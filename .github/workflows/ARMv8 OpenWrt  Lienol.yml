@@ -8,7 +8,7 @@
 # Description: Build OpenWrt using GitHub Actions
 #
 
-name: Build ARMv8 OpenWrt 21.02
+name: Build ARMv8 OpenWrt Lienol
 
 on:
   repository_dispatch:
