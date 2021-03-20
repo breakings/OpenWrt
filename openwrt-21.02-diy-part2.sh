@@ -116,7 +116,7 @@ sed -i 's/services/system/g'  package/lean/luci-app-cpufreq/luasrc/controller/cp
 #sed -i 's/services/nas/g' /root/usr/share/luci/menu.d/luci-app-p910nd.json
 #sed -i 's/services/nas/g' /root/usr/share/luci/menu.d/luci-app-minidlna.json
 #sed -i 's/services/nas/g' /root/usr/share/luci/menu.d/luci-app-hd-idle.json
-sed -i 's/option lang auto/option lang zh-cn/g' feeds/luci/modules/luci-base/root/etc/config/luci
+#sed -i 's/option lang auto/option lang zh-cn/g' feeds/luci/modules/luci-base/root/etc/config/luci
 
 #replace coremark.sh with the new one
 #rm package/lean/coremark/coremark.sh
