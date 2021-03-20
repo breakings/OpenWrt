@@ -17,6 +17,7 @@
 rm -rf feeds/packages/libs/libgd-full
 rm -rf feeds/luci/collections/luci-lib-docker
 rm -rf package/network
+rm -rf feeds/luci/themes/luci-theme-argon
 
 #添加额外软件包
 #git clone https://github.com/jerrykuku/luci-app-jd-dailybonus.git package/luci-app-jd-dailybonus
