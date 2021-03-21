@@ -21,7 +21,7 @@ rm -rf feeds/luci/themes/luci-theme-argon
 
 # Prepare
 # Update feeds
-./scripts/feeds update -a && ./scripts/feeds install -a
+./scripts/feeds update -a
 # Irqbalance
 sed -i "s/enabled '0'/enabled '1'/g" feeds/packages/utils/irqbalance/files/irqbalance.config
 # Victoria's Secret
@@ -204,3 +204,5 @@ CONFIG_CRYPTO_SM4_ARM64_CE=y
 #svn co --depth=empty  https://github.com/openwrt/openwrt/trunk/include kerner-version
 #cd kerner-version
 #svn up kernel-version.mk
+
+./scripts/feeds install -a
