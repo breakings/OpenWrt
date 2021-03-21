@@ -93,22 +93,23 @@ svn co https://github.com/xiaorouji/openwrt-passwall/trunk/trojan package/trojan
 #菜单定制
 #svn co https://github.com/Lienol/openwrt/branches/21.02/package/network package/network
 svn co https://github.com/immortalwrt/immortalwrt/branches/openwrt-21.02/package/lean/luci-app-cpufreq package/lean/luci-app-cpufreq
-#svn co https://github.com/immortalwrt/immortalwrt/branches/openwrt-21.02/package/lean/luci-app-airplay2 package/lean/luci-app-airplay2
-svn co https://github.com/Lienol/openwrt/branches/21.02/package/lean/luci-app-flowoffload package/lean/luci-app-flowoffload
-svn co https://github.com/Lienol/openwrt/branches/21.02/package/lean/luci-app-cifs-mount package/lean/luci-app-cifs-mount
-svn co https://github.com/Lienol/openwrt/branches/21.02/package/lean/luci-app-nfs package/lean/luci-app-nfs
-svn co https://github.com/Lienol/openwrt/branches/21.02/package/lean/luci-app-netdata package/lean/luci-app-netdata
-svn co https://github.com/Lienol/openwrt/branches/21.02/package/lean/luci-app-usb-printer package/lean/luci-app-usb-printer
-svn co https://github.com/Lienol/openwrt/branches/21.02/package/lean/luci-app-filetransfer package/lean/luci-app-filetransfer
-svn co https://github.com/Lienol/openwrt/branches/21.02/package/lean/luci-lib-fs package/lean/luci-lib-fs
-svn co https://github.com/Lienol/openwrt/branches/21.02/package/lean/luci-app-zerotier package/lean/luci-app-zerotier
+svn co https://github.com/immortalwrt/immortalwrt/branches/openwrt-21.02/package/lean/luci-app-airplay2 package/lean/luci-app-airplay2
+svn co https://github.com/immortalwrt/immortalwrt//branches/openwrt-21.02/package/lean/luci-app-flowoffload package/lean/luci-app-flowoffload
+svn co https://github.com/immortalwrt/immortalwrt/branches/openwrt-21.02/package/lean/luci-app-cifs-mount package/lean/luci-app-cifs-mount
+svn co https://github.com/immortalwrt/immortalwrt//branches/openwrt-21.02/package/lean/luci-app-nfs package/lean/luci-app-nfs
+#svn co https://github.com/Lienol/openwrt/branches/21.02/package/lean/luci-app-netdata package/lean/luci-app-netdata
+svn co https://github.com/immortalwrt/immortalwrt/branches/openwrt-21.02/package/lean/luci-app-usb-printer package/lean/luci-app-usb-printer
+svn co https://github.com/immortalwrt/immortalwrt/branches/openwrt-21.02/package/lean/luci-app-filetransfer package/lean/luci-app-filetransfer
+svn co https://github.com/immortalwrt/immortalwrt/branches/openwrt-21.02/package/lean/luci-lib-fs package/lean/luci-lib-fs
+svn co https://github.com/immortalwrt/immortalwrt/branches/openwrt-21.02/package/lean/luci-app-zerotier package/lean/luci-app-zerotier
 #svn co https://github.com/coolsnowwolf/lede/trunk/package/lean/coremark package/lean/coremark
-svn co https://github.com/Lienol/openwrt/branches/21.02/package/network/fullconenat package/network/fullconenat 
+#svn co https://github.com/Lienol/openwrt/branches/21.02/package/network/fullconenat package/network/fullconenat 
 #svn co https://github.com/coolsnowwolf/lede/trunk/package/lean/luci-app-docker package/lean/luci-app-docker
 #svn co https://github.com/coolsnowwolf/packages/trunk/utils/docker-ce package/utils/docker-ce
 svn co https://github.com/Lienol/openwrt/branches/21.02/package/diy/luci-lib-docker package/luci-lib-docker
-svn co https://github.com/Lienol/openwrt/branches/21.02/package/lean/luci-app-openvpn-server package/lean/luci-app-openvpn-server
-svn co https://github.com/Lienol/openwrt/branches/21.02/package/lean/luci-app-autoreboot package/lean/luci-app-autoreboot
+svn co https://github.com/immortalwrt/immortalwrt/branches/openwrt-21.02/package/lean/luci-app-openvpn-server package/lean/luci-app-openvpn-server
+svn co https://github.com/immortalwrt/immortalwrt/branches/openwrt-21.02/package/lean/luci-app-autoreboot package/lean/luci-app-autoreboot
+svn co https://github.com/immortalwrt/immortalwrt/branches/openwrt-21.02/package/lean/luci-app-vlmcsd package/lean/luci-app-vlmcsd
 
 #svn co https://github.com/fw876/helloworld/trunk/xray-core package/xray-core
 #svn co https://github.com/fw876/helloworld/trunk/xray-plugin package/xray-plugin
