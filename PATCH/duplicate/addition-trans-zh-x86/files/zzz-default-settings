@@ -1,0 +1,64 @@
+#!/bin/sh
+
+#Set default lang
+uci set luci.main.lang='en'
+uci commit luci
+
+#Timezone UTC+8
+uci set system.@system[0].timezone=CST-8
+uci set system.@system[0].zonename=Asia/Shanghai
+uci commit system
+#Timezone UTC+10/+11
+#uci set system.@system[0].zonename=Australia/Melbourne
+#uci set system.@system[0].timezone=AEST-10AEDT,M10.1.0,M4.1.0/3
+#uci commit system
+
+#Feeds
+sed -i 's,downloads.openwrt.org,mirror.sjtu.edu.cn/openwrt,g' /etc/opkg/distfeeds.conf
+
+#uhttpd
+uci set uhttpd.main.rfc1918_filter=0
+uci set uhttpd.main.redirect_https=0
+uci commit uhttpd
+/etc/init.d/uhttpd restart
+
+#Remove IPv6
+uci delete network.lan.ip6assign
+uci delete network.wan6
+uci delete dhcp.lan.ra
+uci delete dhcp.lan.dhcpv6
+uci delete dhcp.lan.ndp
+uci commit dhcp
+
+#Packet Steering and Set Lan MTU
+uci set network.globals.packet_steering=1
+uci set network.lan.mtu='1492'
+uci commit network
+/etc/init.d/network restart
+
+#Firewall
+uci set firewall.@defaults[0].fullcone='1'
+uci commit firewall
+
+#dnsmasq
+sed -i '/log-facility/d' /etc/dnsmasq.conf
+echo "log-facility=/dev/null" >> /etc/dnsmasq.conf
+
+#SSRP
+uci set shadowsocksr.@global[0].gfwlist_url='https://raw.sevencdn.com/Loyalsoldier/v2ray-rules-dat/release/gfw.txt'
+uci set shadowsocksr.@global[0].chnroute_url='https://raw.sevencdn.com/QiuSimons/Chnroute/master/dist/chnroute/chnroute.txt'
+uci commit shadowsocksr
+
+#Others
+ln -sf /sbin/ip /usr/bin/ip
+ln -sf /usr/bin/wget /usr/bin/wget-ssl
+opkg flag hold luci-app-firewall
+opkg flag hold firewall
+opkg flag hold dnsmasq-full
+#sync; echo 3 > /proc/sys/vm/drop_caches
+
+#Flush LuCI cache
+rm -rf /tmp/luci-modulecache
+rm -f /tmp/luci-indexcache
+
+exit 0

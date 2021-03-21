@@ -1,0 +1,41 @@
+From 19f64b7950539e47dc71a58dccefccfbe6daccb6 Mon Sep 17 00:00:00 2001
+From: CN_SZTL <cnsztl@project-openwrt.eu.org>
+Date: Sat, 1 Aug 2020 11:56:29 +0000
+Subject: [PATCH] target/rockchip: swap nanopi-r2s lan/wan port
+
+---
+ target/linux/rockchip/armv8/base-files/etc/board.d/01_leds    | 4 ++--
+ target/linux/rockchip/armv8/base-files/etc/board.d/02_network | 2 +-
+ 2 files changed, 3 insertions(+), 3 deletions(-)
+
+diff --git a/target/linux/rockchip/armv8/base-files/etc/board.d/01_leds b/target/linux/rockchip/armv8/base-files/etc/board.d/01_leds
+index bba3e2aa5..35a13b22f 100755
+--- a/target/linux/rockchip/armv8/base-files/etc/board.d/01_leds
++++ b/target/linux/rockchip/armv8/base-files/etc/board.d/01_leds
+@@ -10,8 +10,8 @@ board_config_update
+ 
+ case $board in
+ friendlyarm,nanopi-r2s)
+-	ucidef_set_led_netdev "wan" "WAN" "$boardname:green:wan" "eth0"
+-	ucidef_set_led_netdev "lan" "LAN" "$boardname:green:lan" "eth1"
++	ucidef_set_led_netdev "wan" "WAN" "$boardname:green:wan" "eth1"
++	ucidef_set_led_netdev "lan" "LAN" "$boardname:green:lan" "eth0"
+ 	;;
+ esac
+ 
+diff --git a/target/linux/rockchip/armv8/base-files/etc/board.d/02_network b/target/linux/rockchip/armv8/base-files/etc/board.d/02_network
+index e129fd6a6..07cbdeee2 100755
+--- a/target/linux/rockchip/armv8/base-files/etc/board.d/02_network
++++ b/target/linux/rockchip/armv8/base-files/etc/board.d/02_network
+@@ -9,7 +9,7 @@ rockchip_setup_interfaces()
+ 
+ 	case "$board" in
+ 	friendlyarm,nanopi-r2s)
+-		ucidef_set_interfaces_lan_wan 'eth1' 'eth0'
++		ucidef_set_interfaces_lan_wan 'eth0' 'eth1'
+ 		;;
+ 	*)
+ 		ucidef_set_interface_lan 'eth0'
+-- 
+2.17.1
+
