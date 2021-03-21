@@ -94,9 +94,9 @@ svn co https://github.com/xiaorouji/openwrt-passwall/trunk/trojan package/trojan
 #svn co https://github.com/Lienol/openwrt/branches/21.02/package/network package/network
 svn co https://github.com/immortalwrt/immortalwrt/branches/openwrt-21.02/package/lean/luci-app-cpufreq package/lean/luci-app-cpufreq
 svn co https://github.com/immortalwrt/immortalwrt/branches/openwrt-21.02/package/lean/luci-app-airplay2 package/lean/luci-app-airplay2
-svn co https://github.com/immortalwrt/immortalwrt//branches/openwrt-21.02/package/lean/luci-app-flowoffload package/lean/luci-app-flowoffload
+svn co https://github.com/immortalwrt/immortalwrt/branches/openwrt-21.02/package/lean/luci-app-flowoffload package/lean/luci-app-flowoffload
 svn co https://github.com/immortalwrt/immortalwrt/branches/openwrt-21.02/package/lean/luci-app-cifs-mount package/lean/luci-app-cifs-mount
-svn co https://github.com/immortalwrt/immortalwrt//branches/openwrt-21.02/package/lean/luci-app-nfs package/lean/luci-app-nfs
+svn co https://github.com/immortalwrt/immortalwrt/branches/openwrt-21.02/package/lean/luci-app-nfs package/lean/luci-app-nfs
 #svn co https://github.com/Lienol/openwrt/branches/21.02/package/lean/luci-app-netdata package/lean/luci-app-netdata
 svn co https://github.com/immortalwrt/immortalwrt/branches/openwrt-21.02/package/lean/luci-app-usb-printer package/lean/luci-app-usb-printer
 svn co https://github.com/immortalwrt/immortalwrt/branches/openwrt-21.02/package/lean/luci-app-filetransfer package/lean/luci-app-filetransfer
@@ -110,6 +110,7 @@ svn co https://github.com/Lienol/openwrt/branches/21.02/package/diy/luci-lib-doc
 svn co https://github.com/immortalwrt/immortalwrt/branches/openwrt-21.02/package/lean/luci-app-openvpn-server package/lean/luci-app-openvpn-server
 svn co https://github.com/immortalwrt/immortalwrt/branches/openwrt-21.02/package/lean/luci-app-autoreboot package/lean/luci-app-autoreboot
 svn co https://github.com/immortalwrt/immortalwrt/branches/openwrt-21.02/package/lean/luci-app-vlmcsd package/lean/luci-app-vlmcsd
+svn co https://github.com/immortalwrt/immortalwrt/branches/openwrt-21.02/package/lean/luci-app-ramfree package/lean/luci-app-ramfree
 
 #svn co https://github.com/fw876/helloworld/trunk/xray-core package/xray-core
 #svn co https://github.com/fw876/helloworld/trunk/xray-plugin package/xray-plugin
