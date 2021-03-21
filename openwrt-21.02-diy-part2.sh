@@ -35,7 +35,7 @@ wget -P include/ https://github.com/immortalwrt/immortalwrt/raw/master/include/d
 wget -P target/linux/generic/pending-5.4 https://github.com/immortalwrt/immortalwrt/raw/master/target/linux/generic/hack-5.4/312-arm64-cpuinfo-Add-model-name-in-proc-cpuinfo-for-64bit-ta.patch
 
 # Patch jsonc
-patch -p1 < ../PATCH/new/package/use_json_object_new_int64.patch
+patch -p1 < $GITHUB_WORKSPACE/PATCH/new/package/use_json_object_new_int64.patch
 
 # Patch kernel to fix fullcone conflict
 pushd target/linux/generic/hack-5.4
@@ -45,9 +45,9 @@ popd
 mkdir package/network/config/firewall/patches
 wget -P package/network/config/firewall/patches/ https://github.com/immortalwrt/immortalwrt/raw/master/package/network/config/firewall/patches/fullconenat.patch
 # Patch LuCI to add fullcone button
-patch -p1 < ../PATCH/new/package/luci-app-firewall_add_fullcone.patch
+patch -p1 < $GITHUB_WORKSPACE/PATCH/new/package/luci-app-firewall_add_fullcone.patch
 # FullCone modules
-cp -rf ../PATCH/duplicate/fullconenat ./package/network/fullconenat
+cp -rf $GITHUB_WORKSPACE/PATCH/duplicate/fullconenat ./package/network/fullconenat
 
 #添加额外软件包
 
@@ -148,13 +148,13 @@ sed -i 's/LUCI_DEPENDS.*/LUCI_DEPENDS:=\@\(arm\|\|aarch64\)/g' package/lean/luci
 sed -i 's/services/system/g'  package/lean/luci-app-cpufreq/luasrc/controller/cpufreq.lua
 
 # Add cputemp.sh
-cp -rf ../PATCH/new/script/cputemp.sh ./package/base-files/files/bin/cputemp.sh
+cp -rf $GITHUB_WORKSPACE/PATCH/new/script/cputemp.sh ./package/base-files/files/bin/cputemp.sh
 
 # Conntrack_Max
 sed -i 's/16384/65535/g' package/kernel/linux/files/sysctl-nf-conntrack.conf
 
 # Mbedtls AES HW-Crypto
-cp -f ../PATCH/new/package/100-Implements-AES-and-GCM-with-ARMv8-Crypto-Extensions.patch ./package/libs/mbedtls/patches/100-Implements-AES-and-GCM-with-ARMv8-Crypto-Extensions.patch
+cp -f $GITHUB_WORKSPACE/PATCH/new/package/100-Implements-AES-and-GCM-with-ARMv8-Crypto-Extensions.patch ./package/libs/mbedtls/patches/100-Implements-AES-and-GCM-with-ARMv8-Crypto-Extensions.patch
 
 sed -i 's,-mcpu=generic,-march=armv8-a+crypto+crc -mabi=aarch64,g' include/target.mk
 # Crypto and Devfreq
