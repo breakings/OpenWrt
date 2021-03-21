@@ -159,7 +159,7 @@ sed -i 's/16384/65535/g' package/kernel/linux/files/sysctl-nf-conntrack.conf
 # Mbedtls AES HW-Crypto
 cp -f $GITHUB_WORKSPACE/PATCH/new/package/100-Implements-AES-and-GCM-with-ARMv8-Crypto-Extensions.patch ./package/libs/mbedtls/patches/100-Implements-AES-and-GCM-with-ARMv8-Crypto-Extensions.patch
 
-sed -i 's,-mcpu=generic,-march=armv8-a+crypto+crc -mabi=aarch64,g' include/target.mk
+#sed -i 's,-mcpu=generic,-march=armv8-a+crypto+crc -mabi=armairt,g' include/target.mk
 # Crypto and Devfreq
 echo '
 CONFIG_ARM64_CRYPTO=y
