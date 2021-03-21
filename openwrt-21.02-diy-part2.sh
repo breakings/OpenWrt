@@ -18,7 +18,7 @@
 #移除不用软件包    
 rm -rf feeds/packages/libs/libgd-full
 rm -rf feeds/luci/collections/luci-lib-docker
-rm -rf package/network
+#rm -rf package/network
 rm -rf feeds/luci/themes/luci-theme-argon
 
 # Prepare
@@ -91,7 +91,7 @@ svn co https://github.com/xiaorouji/openwrt-passwall/trunk/kcptun package/kcptun
 svn co https://github.com/xiaorouji/openwrt-passwall/trunk/trojan package/trojan
 
 #菜单定制
-svn co https://github.com/Lienol/openwrt/branches/21.02/package/network package/network
+#svn co https://github.com/Lienol/openwrt/branches/21.02/package/network package/network
 svn co https://github.com/immortalwrt/immortalwrt/branches/openwrt-21.02/package/lean/luci-app-cpufreq package/lean/luci-app-cpufreq
 #svn co https://github.com/immortalwrt/immortalwrt/branches/openwrt-21.02/package/lean/luci-app-airplay2 package/lean/luci-app-airplay2
 svn co https://github.com/Lienol/openwrt/branches/21.02/package/lean/luci-app-flowoffload package/lean/luci-app-flowoffload
@@ -118,9 +118,10 @@ svn co https://github.com/Lienol/openwrt/branches/21.02/package/lean/luci-app-au
 #svn co https://github.com/project-openwrt/openwrt/trunk/package/ctcgfw/gost package/gost
 #svn co https://github.com/kenzok8/openwrt-packages/trunk/luci-app-eqos package/luci-app-eqos
 git clone https://github.com/tty228/luci-app-serverchan.git package/luci-app-serverchan
-svn co https://github.com/fw876/helloworld/trunk/luci-app-ssr-plus package//lean/luci-app-ssr-plus
-#pushd package/lean
+svn co https://github.com/fw876/helloworld/trunk/luci-app-ssr-plus package/lean/luci-app-ssr-plus
+pushd package/lean
 #wget -qO - https://patch-diff.githubusercontent.com/raw/fw876/helloworld/pull/442.patch | patch -p1
+popd
 svn co https://github.com/fw876/helloworld/trunk/naiveproxy package/naiveproxy
 svn co https://github.com/coolsnowwolf/lede/trunk/package/lean/redsocks2 package/lean/redsocks2
 
@@ -197,9 +198,9 @@ CONFIG_CRYPTO_SM4_ARM64_CE=y
 #replace coremark.sh with the new one
 #rm package/lean/coremark/coremark.sh
 #cp $GITHUB_WORKSPACE/general/coremark.sh package/lean/coremark/
-#svn co https://github.com/openwrt/packages/trunk/utils/coremark package/utils/coremark
-#cp $GITHUB_WORKSPACE/general/coremark.sh package/utils/coremark/
-#cp $GITHUB_WORKSPACE/general/coremark package/utils/coremark/
+#svn co https://github.com/openwrt/packages/trunk/utils/coremark feeds/package/utils/coremark
+cp $GITHUB_WORKSPACE/general/coremark.sh feeds/package/utils/coremark/
+cp $GITHUB_WORKSPACE/general/coremark feeds/package/utils/coremark/
 
 #同步官方kernel-version.mk
 #rm include/kernel-version.mk
