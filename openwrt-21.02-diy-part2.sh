@@ -19,7 +19,44 @@ rm -rf feeds/luci/collections/luci-lib-docker
 rm -rf package/network
 rm -rf feeds/luci/themes/luci-theme-argon
 
+# Prepare
+# Update feeds
+./scripts/feeds update -a && ./scripts/feeds install -a
+# Irqbalance
+sed -i "s/enabled '0'/enabled '1'/g" feeds/packages/utils/irqbalance/files/irqbalance.config
+# Victoria's Secret
+rm -rf ./scripts/download.pl
+rm -rf ./include/download.mk
+wget -P scripts/ https://github.com/immortalwrt/immortalwrt/raw/master/scripts/download.pl
+wget -P include/ https://github.com/immortalwrt/immortalwrt/raw/master/include/download.mk
+
+# Important Patches
+# ARM64: Add CPU model name in proc cpuinfo
+wget -P target/linux/generic/pending-5.4 https://github.com/immortalwrt/immortalwrt/raw/master/target/linux/generic/hack-5.4/312-arm64-cpuinfo-Add-model-name-in-proc-cpuinfo-for-64bit-ta.patch
+
+# Patch jsonc
+patch -p1 < ../PATCH/new/package/use_json_object_new_int64.patch
+
+# Patch kernel to fix fullcone conflict
+pushd target/linux/generic/hack-5.4
+wget https://github.com/coolsnowwolf/lede/raw/master/target/linux/generic/hack-5.4/952-net-conntrack-events-support-multiple-registrant.patch
+popd
+# Patch firewall to enable fullcone
+mkdir package/network/config/firewall/patches
+wget -P package/network/config/firewall/patches/ https://github.com/immortalwrt/immortalwrt/raw/master/package/network/config/firewall/patches/fullconenat.patch
+# Patch LuCI to add fullcone button
+patch -p1 < ../PATCH/new/package/luci-app-firewall_add_fullcone.patch
+# FullCone modules
+cp -rf ../PATCH/duplicate/fullconenat ./package/network/fullconenat
+
 #添加额外软件包
+
+# Extra Packages
+# AutoCore
+svn co https://github.com/immortalwrt/immortalwrt/branches/master/package/lean/autocore package/lean/autocore
+rm -rf ./feeds/packages/utils/coremark
+svn co https://github.com/immortalwrt/packages/trunk/utils/coremark feeds/packages/utils/coremark
+
 #git clone https://github.com/jerrykuku/luci-app-jd-dailybonus.git package/luci-app-jd-dailybonus
 git clone https://github.com/jerrykuku/lua-maxminddb.git package/lua-maxminddb
 svn co https://github.com/vernesong/OpenClash/trunk/luci-app-openclash package/luci-app-openclash
@@ -79,7 +116,9 @@ svn co https://github.com/Lienol/openwrt/branches/21.02/package/lean/luci-app-au
 #svn co https://github.com/project-openwrt/openwrt/trunk/package/ctcgfw/gost package/gost
 #svn co https://github.com/kenzok8/openwrt-packages/trunk/luci-app-eqos package/luci-app-eqos
 git clone https://github.com/tty228/luci-app-serverchan.git package/luci-app-serverchan
-svn co https://github.com/fw876/helloworld/trunk/luci-app-ssr-plus package/luci-app-ssr-plus
+svn co https://github.com/fw876/helloworld/trunk/luci-app-ssr-plus package//lean/luci-app-ssr-plus
+pushd package/lean
+wget -qO - https://patch-diff.githubusercontent.com/raw/fw876/helloworld/pull/442.patch | patch -p1
 svn co https://github.com/fw876/helloworld/trunk/naiveproxy package/naiveproxy
 svn co https://github.com/coolsnowwolf/lede/trunk/package/lean/redsocks2 package/lean/redsocks2
 
@@ -104,12 +143,46 @@ svn co https://github.com/project-openwrt/openwrt/trunk/package/ntlf9t/luci-app-
 svn co https://github.com/openwrt/luci/trunk/themes/luci-theme-openwrt-2020 package/luci-theme-openwrt-2020
 git clone https://github.com/jerrykuku/luci-theme-argon.git  package/luci-theme-argon
 
-./scripts/feeds update -a
-./scripts/feeds install -a
-
 #readd cpufreq for aarch64
 sed -i 's/LUCI_DEPENDS.*/LUCI_DEPENDS:=\@\(arm\|\|aarch64\)/g' package/lean/luci-app-cpufreq/Makefile
 sed -i 's/services/system/g'  package/lean/luci-app-cpufreq/luasrc/controller/cpufreq.lua
+
+# Add cputemp.sh
+cp -rf ../PATCH/new/script/cputemp.sh ./package/base-files/files/bin/cputemp.sh
+
+# Conntrack_Max
+sed -i 's/16384/65535/g' package/kernel/linux/files/sysctl-nf-conntrack.conf
+
+# Mbedtls AES HW-Crypto
+cp -f ../PATCH/new/package/100-Implements-AES-and-GCM-with-ARMv8-Crypto-Extensions.patch ./package/libs/mbedtls/patches/100-Implements-AES-and-GCM-with-ARMv8-Crypto-Extensions.patch
+
+sed -i 's,-mcpu=generic,-march=armv8-a+crypto+crc -mabi=aarch64,g' include/target.mk
+# Crypto and Devfreq
+echo '
+CONFIG_ARM64_CRYPTO=y
+CONFIG_ARM_PSCI_CPUIDLE_DOMAIN=y
+CONFIG_ARM_PSCI_FW=y
+# CONFIG_ARM_RK3328_DMC_DEVFREQ is not set
+CONFIG_CRYPTO_AES_ARM64=y
+CONFIG_CRYPTO_AES_ARM64_BS=y
+CONFIG_CRYPTO_AES_ARM64_CE=y
+CONFIG_CRYPTO_AES_ARM64_CE_BLK=y
+CONFIG_CRYPTO_AES_ARM64_CE_CCM=y
+CONFIG_CRYPTO_AES_ARM64_NEON_BLK=y
+CONFIG_CRYPTO_CHACHA20_NEON=y
+# CONFIG_CRYPTO_CRCT10DIF_ARM64_CE is not set
+CONFIG_CRYPTO_GHASH_ARM64_CE=y
+CONFIG_CRYPTO_NHPOLY1305_NEON=y
+CONFIG_CRYPTO_POLY1305_NEON=y
+CONFIG_CRYPTO_SHA1_ARM64_CE=y
+CONFIG_CRYPTO_SHA2_ARM64_CE=y
+CONFIG_CRYPTO_SHA256_ARM64=y
+CONFIG_CRYPTO_SHA3_ARM64=y
+CONFIG_CRYPTO_SHA512_ARM64=y
+# CONFIG_CRYPTO_SHA512_ARM64_CE is not set
+CONFIG_CRYPTO_SM3_ARM64_CE=y
+CONFIG_CRYPTO_SM4_ARM64_CE=y
+' >> ./target/linux/armvirt/64/config-5.4
 
 #默认设置
 #sed -i 's/\"services\"/\"nas\"/g' /usr/lib/lua/luci/controller/aria2.lua
@@ -117,14 +190,14 @@ sed -i 's/services/system/g'  package/lean/luci-app-cpufreq/luasrc/controller/cp
 #sed -i 's/services/nas/g' /root/usr/share/luci/menu.d/luci-app-p910nd.json
 #sed -i 's/services/nas/g' /root/usr/share/luci/menu.d/luci-app-minidlna.json
 #sed -i 's/services/nas/g' /root/usr/share/luci/menu.d/luci-app-hd-idle.json
-sed -i 's/option lang auto/option lang zh_cn/g' feeds/luci/modules/luci-base/root/etc/config/luci
+#sed -i 's/option lang auto/option lang zh_cn/g' feeds/luci/modules/luci-base/root/etc/config/luci
 
 #replace coremark.sh with the new one
 #rm package/lean/coremark/coremark.sh
 #cp $GITHUB_WORKSPACE/general/coremark.sh package/lean/coremark/
-svn co https://github.com/openwrt/packages/trunk/utils/coremark package/utils/coremark
-cp $GITHUB_WORKSPACE/general/coremark.sh package/utils/coremark/
-cp $GITHUB_WORKSPACE/general/coremark package/utils/coremark/
+#svn co https://github.com/openwrt/packages/trunk/utils/coremark package/utils/coremark
+#cp $GITHUB_WORKSPACE/general/coremark.sh package/utils/coremark/
+#cp $GITHUB_WORKSPACE/general/coremark package/utils/coremark/
 
 #同步官方kernel-version.mk
 #rm include/kernel-version.mk
