@@ -166,19 +166,19 @@ svn co https://github.com/openwrt/luci/trunk/themes/luci-theme-openwrt-2020 pack
 git clone https://github.com/jerrykuku/luci-theme-argon.git  package/luci-theme-argon
 
 #readd cpufreq for aarch64
-sed -i 's/LUCI_DEPENDS.*/LUCI_DEPENDS:=\@\(arm\|\|aarch64\)/g' package/lean/luci-app-cpufreq/Makefile
-sed -i 's/services/system/g'  package/lean/luci-app-cpufreq/luasrc/controller/cpufreq.lua
+sed -i 's/LUCI_DEPENDS.*/LUCI_DEPENDS:=\@\(arm\|\|aarch64\)/g' openwrt/package/lean/luci-app-cpufreq/Makefile
+sed -i 's/services/system/g'  openwrt/package/lean/luci-app-cpufreq/luasrc/controller/cpufreq.lua
 
 # Add cputemp.sh
-cp -rf $GITHUB_WORKSPACE/PATCH/new/script/cputemp.sh ./package/base-files/files/bin/cputemp.sh
+cp -rf $GITHUB_WORKSPACE/PATCH/new/script/cputemp.sh ./openwrt/package/base-files/files/bin/cputemp.sh
 
 # Conntrack_Max
-sed -i 's/16384/65535/g' package/kernel/linux/files/sysctl-nf-conntrack.conf
+sed -i 's/16384/65535/g' openwrt/package/kernel/linux/files/sysctl-nf-conntrack.conf
 
 # Mbedtls AES HW-Crypto
-cp -f $GITHUB_WORKSPACE/PATCH/new/package/100-Implements-AES-and-GCM-with-ARMv8-Crypto-Extensions.patch ./package/libs/mbedtls/patches/100-Implements-AES-and-GCM-with-ARMv8-Crypto-Extensions.patch
+cp -f $GITHUB_WORKSPACE/PATCH/new/package/100-Implements-AES-and-GCM-with-ARMv8-Crypto-Extensions.patch ./openwrt/package/libs/mbedtls/patches/100-Implements-AES-and-GCM-with-ARMv8-Crypto-Extensions.patch
 
-sed -i 's,-mcpu=generic,-march=armv8-a+crypto+crc -mabi=aarch64,g' include/target.mk
+sed -i 's,-mcpu=generic,-march=armv8-a+crypto+crc -mabi=aarch64,g' openwrt/include/target.mk
 # Crypto and Devfreq
 echo '
 CONFIG_ARM64_CRYPTO=y
@@ -204,7 +204,7 @@ CONFIG_CRYPTO_SHA512_ARM64=y
 # CONFIG_CRYPTO_SHA512_ARM64_CE is not set
 CONFIG_CRYPTO_SM3_ARM64_CE=y
 CONFIG_CRYPTO_SM4_ARM64_CE=y
-' >> ./target/linux/armvirt/64/config-5.4
+' >> ./openwrt/target/linux/armvirt/64/config-5.4
 
 #默认设置
 #sed -i 's/\"services\"/\"nas\"/g' /usr/lib/lua/luci/controller/aria2.lua
