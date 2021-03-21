@@ -120,7 +120,7 @@ svn co https://github.com/Lienol/openwrt/branches/21.02/package/lean/luci-app-au
 git clone https://github.com/tty228/luci-app-serverchan.git package/luci-app-serverchan
 svn co https://github.com/fw876/helloworld/trunk/luci-app-ssr-plus package/lean/luci-app-ssr-plus
 pushd package/lean
-#wget -qO - https://patch-diff.githubusercontent.com/raw/fw876/helloworld/pull/442.patch | patch -p1
+wget -qO - https://patch-diff.githubusercontent.com/raw/fw876/helloworld/pull/442.patch | patch -p1
 popd
 svn co https://github.com/fw876/helloworld/trunk/naiveproxy package/naiveproxy
 svn co https://github.com/coolsnowwolf/lede/trunk/package/lean/redsocks2 package/lean/redsocks2
@@ -197,7 +197,6 @@ CONFIG_CRYPTO_SM4_ARM64_CE=y
 
 #replace coremark.sh with the new one
 #rm package/lean/coremark/coremark.sh
-#cp $GITHUB_WORKSPACE/general/coremark.sh package/lean/coremark/
 #svn co https://github.com/openwrt/packages/trunk/utils/coremark feeds/package/utils/coremark
 cp $GITHUB_WORKSPACE/general/coremark.sh feeds/package/utils/coremark/
 cp $GITHUB_WORKSPACE/general/coremark feeds/package/utils/coremark/
