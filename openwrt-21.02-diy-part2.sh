@@ -27,17 +27,17 @@ rm -rf feeds/luci/themes/luci-theme-argon
 # Irqbalance
 sed -i "s/enabled '0'/enabled '1'/g" feeds/packages/utils/irqbalance/files/irqbalance.config
 # Victoria's Secret
-rm -rf ./scripts/download.pl
-rm -rf ./include/download.mk
-wget -P scripts/ https://github.com/immortalwrt/immortalwrt/raw/master/scripts/download.pl
-wget -P include/ https://github.com/immortalwrt/immortalwrt/raw/master/include/download.mk
+#rm -rf ./scripts/download.pl
+#rm -rf ./include/download.mk
+#wget -P scripts/ https://github.com/immortalwrt/immortalwrt/raw/master/scripts/download.pl
+#wget -P include/ https://github.com/immortalwrt/immortalwrt/raw/master/include/download.mk
 
 # Important Patches
 # ARM64: Add CPU model name in proc cpuinfo
 wget -P target/linux/generic/pending-5.4 https://github.com/immortalwrt/immortalwrt/raw/master/target/linux/generic/hack-5.4/312-arm64-cpuinfo-Add-model-name-in-proc-cpuinfo-for-64bit-ta.patch
 
 # Patch jsonc
-patch -p1 < $GITHUB_WORKSPACE/PATCH/new/package/use_json_object_new_int64.patch
+#patch -p1 < $GITHUB_WORKSPACE/PATCH/new/package/use_json_object_new_int64.patch
 
 # Patch kernel to fix fullcone conflict
 pushd target/linux/generic/hack-5.4
@@ -119,8 +119,8 @@ svn co https://github.com/Lienol/openwrt/branches/21.02/package/lean/luci-app-au
 #svn co https://github.com/kenzok8/openwrt-packages/trunk/luci-app-eqos package/luci-app-eqos
 git clone https://github.com/tty228/luci-app-serverchan.git package/luci-app-serverchan
 svn co https://github.com/fw876/helloworld/trunk/luci-app-ssr-plus package//lean/luci-app-ssr-plus
-pushd package/lean
-wget -qO - https://patch-diff.githubusercontent.com/raw/fw876/helloworld/pull/442.patch | patch -p1
+#pushd package/lean
+#wget -qO - https://patch-diff.githubusercontent.com/raw/fw876/helloworld/pull/442.patch | patch -p1
 svn co https://github.com/fw876/helloworld/trunk/naiveproxy package/naiveproxy
 svn co https://github.com/coolsnowwolf/lede/trunk/package/lean/redsocks2 package/lean/redsocks2
 
