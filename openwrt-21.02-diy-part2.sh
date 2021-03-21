@@ -227,4 +227,4 @@ CONFIG_CRYPTO_SM4_ARM64_CE=y
 #cd kerner-version
 #svn up kernel-version.mk
 
-./scripts/feeds install -a
+./openwrt/scripts/feeds install -a
