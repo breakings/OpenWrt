@@ -13,27 +13,7 @@
 # Modify default IP
 #sed -i 's/192.168.1.1/192.168.50.5/g' package/base-files/files/bin/config_generate
 
-<<'COMMENT'
-latest_release="$(curl -s https://github.com/openwrt/openwrt/releases |grep -Eo "v[0-9\.]+\-*r*c*[0-9]*.tar.gz" |sed -n '/21/p' |sed -n 1p)"
-curl -LO "https://github.com/openwrt/openwrt/archive/${latest_release}"
-mkdir openwrt_back
-shopt -s extglob 
-tar zxvf ${latest_release}  --strip-components 1 -C ./openwrt_back
-rm -f ${latest_release}
-git clone --single-branch -b openwrt-21.02 https://github.com/openwrt/openwrt openwrt_new
-rm -f ./openwrt_new/include/version.mk
-rm -f ./openwrt_new/include/kernel-version.mk
-rm -f ./openwrt_new/package/base-files/image-config.in
-rm -rf ./openwrt_new/target/linux/*
-cp -f ./openwrt_back/include/version.mk ./openwrt_new/include/version.mk
-cp -f ./openwrt_back/include/kernel-version.mk ./openwrt_new/include/kernel-version.mk
-cp -f ./openwrt_back/package/base-files/image-config.in ./openwrt_new/package/base-files/image-config.in
-cp -rf ./openwrt_back/target/linux/* ./openwrt_new/target/linux/
-mkdir openwrt
-cp -rf ./openwrt_new/* ./openwrt/
-COMMENT
-
-git clone --single-branch -b openwrt-21.02 https://github.com/openwrt/openwrt openwrt
+git clone --single-branch -b openwrt-21.02 https://github.com/openwrt/openwrt
 
 #移除不用软件包    
 rm -rf feeds/packages/libs/libgd-full
@@ -166,19 +146,19 @@ svn co https://github.com/openwrt/luci/trunk/themes/luci-theme-openwrt-2020 pack
 git clone https://github.com/jerrykuku/luci-theme-argon.git  package/luci-theme-argon
 
 #readd cpufreq for aarch64
-sed -i 's/LUCI_DEPENDS.*/LUCI_DEPENDS:=\@\(arm\|\|aarch64\)/g' openwrt/package/lean/luci-app-cpufreq/Makefile
-sed -i 's/services/system/g'  openwrt/package/lean/luci-app-cpufreq/luasrc/controller/cpufreq.lua
+sed -i 's/LUCI_DEPENDS.*/LUCI_DEPENDS:=\@\(arm\|\|aarch64\)/g' package/lean/luci-app-cpufreq/Makefile
+sed -i 's/services/system/g'  package/lean/luci-app-cpufreq/luasrc/controller/cpufreq.lua
 
 # Add cputemp.sh
-cp -rf $GITHUB_WORKSPACE/PATCH/new/script/cputemp.sh ./openwrt/package/base-files/files/bin/cputemp.sh
+cp -rf $GITHUB_WORKSPACE/PATCH/new/script/cputemp.sh ./package/base-files/files/bin/cputemp.sh
 
 # Conntrack_Max
-sed -i 's/16384/65535/g' openwrt/package/kernel/linux/files/sysctl-nf-conntrack.conf
+sed -i 's/16384/65535/g' package/kernel/linux/files/sysctl-nf-conntrack.conf
 
 # Mbedtls AES HW-Crypto
-cp -f $GITHUB_WORKSPACE/PATCH/new/package/100-Implements-AES-and-GCM-with-ARMv8-Crypto-Extensions.patch ./openwrt/package/libs/mbedtls/patches/100-Implements-AES-and-GCM-with-ARMv8-Crypto-Extensions.patch
+cp -f $GITHUB_WORKSPACE/PATCH/new/package/100-Implements-AES-and-GCM-with-ARMv8-Crypto-Extensions.patch ./package/libs/mbedtls/patches/100-Implements-AES-and-GCM-with-ARMv8-Crypto-Extensions.patch
 
-sed -i 's,-mcpu=generic,-march=armv8-a+crypto+crc -mabi=aarch64,g' openwrt/include/target.mk
+sed -i 's,-mcpu=generic,-march=armv8-a+crypto+crc -mabi=aarch64,g' include/target.mk
 # Crypto and Devfreq
 echo '
 CONFIG_ARM64_CRYPTO=y
@@ -204,7 +184,7 @@ CONFIG_CRYPTO_SHA512_ARM64=y
 # CONFIG_CRYPTO_SHA512_ARM64_CE is not set
 CONFIG_CRYPTO_SM3_ARM64_CE=y
 CONFIG_CRYPTO_SM4_ARM64_CE=y
-' >> ./openwrt/target/linux/armvirt/64/config-5.4
+' >> ./target/linux/armvirt/64/config-5.4
 
 #默认设置
 #sed -i 's/\"services\"/\"nas\"/g' /usr/lib/lua/luci/controller/aria2.lua
@@ -227,4 +207,4 @@ CONFIG_CRYPTO_SM4_ARM64_CE=y
 #cd kerner-version
 #svn up kernel-version.mk
 
-./openwrt/scripts/feeds install -a
+./scripts/feeds install -a
