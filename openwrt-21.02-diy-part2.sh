@@ -198,8 +198,8 @@ CONFIG_CRYPTO_SM4_ARM64_CE=y
 #replace coremark.sh with the new one
 #rm package/lean/coremark/coremark.sh
 #svn co https://github.com/openwrt/packages/trunk/utils/coremark feeds/package/utils/coremark
-cp $GITHUB_WORKSPACE/general/coremark.sh feeds/package/utils/coremark/
-cp $GITHUB_WORKSPACE/general/coremark feeds/package/utils/coremark/
+cp $GITHUB_WORKSPACE/general/coremark.sh feeds/packages/utils/coremark/
+cp $GITHUB_WORKSPACE/general/coremark feeds/packages/utils/coremark/
 
 #同步官方kernel-version.mk
 #rm include/kernel-version.mk
