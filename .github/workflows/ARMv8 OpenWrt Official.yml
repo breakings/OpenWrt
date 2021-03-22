@@ -93,8 +93,6 @@ jobs:
       id: package
       run: |
         cd openwrt
-        chmod +x $GITHUB_WORKSPACE/general/zh_Hans.sh
-        /bin/bash $GITHUB_WORKSPACE/general/zh_Hans.sh
         make defconfig
         make download -j8
         find dl -size -1024c -exec ls -l {} \;
