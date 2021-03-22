@@ -93,7 +93,8 @@ svn co https://github.com/xiaorouji/openwrt-passwall/trunk/trojan package/trojan
 #svn co https://github.com/Lienol/openwrt/branches/21.02/package/network package/network
 svn co https://github.com/immortalwrt/immortalwrt/branches/openwrt-21.02/package/lean/luci-app-cpufreq package/lean/luci-app-cpufreq
 svn co https://github.com/immortalwrt/immortalwrt/branches/openwrt-21.02/package/lean/luci-app-airplay2 package/lean/luci-app-airplay2
-svn co https://github.com/immortalwrt/immortalwrt/branches/openwrt-21.02/package/lean/luci-app-flowoffload package/lean/luci-app-flowoffload
+#svn co https://github.com/immortalwrt/immortalwrt/branches/openwrt-21.02/package/lean/luci-app-flowoffload package/lean/luci-app-flowoffload
+svn co https://github.com/Lienol/openwrt/branches/21.02/package/lean/luci-app-flowoffload package/lean/luci-app-flowoffload
 svn co https://github.com/immortalwrt/immortalwrt/branches/openwrt-21.02/package/lean/luci-app-cifs-mount package/lean/luci-app-cifs-mount
 svn co https://github.com/immortalwrt/immortalwrt/branches/openwrt-21.02/package/lean/luci-app-nfs package/lean/luci-app-nfs
 #svn co https://github.com/Lienol/openwrt/branches/21.02/package/lean/luci-app-netdata package/lean/luci-app-netdata
@@ -225,6 +226,8 @@ rm feeds/packages/utils/coremark/coremark.sh
 #svn co https://github.com/openwrt/packages/trunk/utils/coremark feeds/package/utils/coremark
 cp $GITHUB_WORKSPACE/general/coremark.sh feeds/packages/utils/coremark/
 #cp $GITHUB_WORKSPACE/general/coremark feeds/packages/utils/coremark/
+rm package/lean/default-settings/files/openwrt_banner
+cp $GITHUB_WORKSPACE/general/banner package/lean/default-settings/files/openwrt_banner
 
 #同步官方kernel-version.mk
 #rm include/kernel-version.mk
