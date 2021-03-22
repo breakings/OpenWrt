@@ -27,10 +27,10 @@ rm -rf feeds/luci/themes/luci-theme-argon
 # Irqbalance
 sed -i "s/enabled '0'/enabled '1'/g" feeds/packages/utils/irqbalance/files/irqbalance.config
 # Victoria's Secret
-#rm -rf ./scripts/download.pl
-#rm -rf ./include/download.mk
-#wget -P scripts/ https://github.com/immortalwrt/immortalwrt/raw/master/scripts/download.pl
-#wget -P include/ https://github.com/immortalwrt/immortalwrt/raw/master/include/download.mk
+rm -rf ./scripts/download.pl
+rm -rf ./include/download.mk
+wget -P scripts/ https://github.com/immortalwrt/immortalwrt/raw/master/scripts/download.pl
+wget -P include/ https://github.com/immortalwrt/immortalwrt/raw/master/include/download.mk
 
 # Important Patches
 # ARM64: Add CPU model name in proc cpuinfo
