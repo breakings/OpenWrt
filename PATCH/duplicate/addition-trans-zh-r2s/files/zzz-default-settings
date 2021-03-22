@@ -1,7 +1,7 @@
 #!/bin/sh
 
 #Set default lang
-uci set luci.main.lang='en'
+uci set luci.main.lang='zh-cn'
 uci commit luci
 
 #Timezone UTC+8
@@ -32,7 +32,7 @@ uci commit dhcp
 
 #Packet Steering and Set Lan MTU
 uci set network.globals.packet_steering=1
-uci set network.lan.mtu='1492'
+uci set network.lan.mtu='1500'
 uci commit network
 /etc/init.d/network restart
 
@@ -49,9 +49,9 @@ sed -i '/log-facility/d' /etc/dnsmasq.conf
 echo "log-facility=/dev/null" >> /etc/dnsmasq.conf
 
 #SSRP
-uci set shadowsocksr.@global[0].gfwlist_url='https://raw.sevencdn.com/Loyalsoldier/v2ray-rules-dat/release/gfw.txt'
-uci set shadowsocksr.@global[0].chnroute_url='https://raw.sevencdn.com/QiuSimons/Chnroute/master/dist/chnroute/chnroute.txt'
-uci commit shadowsocksr
+#uci set shadowsocksr.@global[0].gfwlist_url='https://raw.sevencdn.com/Loyalsoldier/v2ray-rules-dat/release/gfw.txt'
+#uci set shadowsocksr.@global[0].chnroute_url='https://raw.sevencdn.com/QiuSimons/Chnroute/master/dist/chnroute/chnroute.txt'
+#uci commit shadowsocksr
 
 #Others
 ln -sf /sbin/ip /usr/bin/ip
