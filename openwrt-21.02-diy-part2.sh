@@ -112,6 +112,7 @@ svn co https://github.com/immortalwrt/immortalwrt/branches/openwrt-21.02/package
 svn co https://github.com/immortalwrt/immortalwrt/branches/openwrt-21.02/package/lean/vlmcsd package/lean/vlmcsd
 svn co https://github.com/immortalwrt/immortalwrt/branches/openwrt-21.02/package/lean/luci-app-ramfree package/lean/luci-app-ramfree
 svn co https://github.com/immortalwrt/immortalwrt/branches/openwrt-21.02/package/lean/luci-app-guest-wifi package/lean/luci-app-guest-wifi
+svn co https://github.com/Lienol/openwrt/branches/21.02/package/diy/parted package/parted
 
 
 #svn co https://github.com/fw876/helloworld/trunk/xray-core package/xray-core
