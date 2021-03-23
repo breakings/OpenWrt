@@ -54,7 +54,8 @@ cp -rf $GITHUB_WORKSPACE/PATCH/duplicate/fullconenat ./package/network/fullconen
 
 # Extra Packages
 # AutoCore
-svn co https://github.com/immortalwrt/immortalwrt/branches/master/package/lean/autocore package/lean/autocore
+#svn co https://github.com/immortalwrt/immortalwrt/branches/master/package/lean/autocore package/lean/autocore
+svn co https://github.com/breakings/OpenWrt/trunk/general/autocore package/lean/autocore
 rm -rf ./feeds/packages/utils/coremark
 svn co https://github.com/immortalwrt/packages/trunk/utils/coremark feeds/packages/utils/coremark
 
