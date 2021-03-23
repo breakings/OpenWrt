@@ -171,7 +171,7 @@ cp -f $GITHUB_WORKSPACE/PATCH/new/package/100-Implements-AES-and-GCM-with-ARMv8-
 # cp -rf $GITHUB_WORKSPACE/PATCH/duplicate/addition-trans-zh-r2s ./package/lean/lean-translate
 
 # GCC CFlags for N1
-sed -i 's/Os/O3/g' include/target.mk
+#sed -i 's/Os/O3/g' include/target.mk
 sed -i 's,-mcpu=generic,-march=armv8-a+crypto+crc -mabi=lp64,g' include/target.mk
 
 <<'COMMENT'
