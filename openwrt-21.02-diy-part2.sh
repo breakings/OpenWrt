@@ -223,9 +223,9 @@ CONFIG_CRYPTO_SM4_ARM64_CE=y
 #sed -i 's/option lang auto/option lang zh_cn/g' feeds/luci/modules/luci-base/root/etc/config/luci
 
 #replace coremark.sh with the new one
-rm feeds/packages/utils/coremark/coremark.sh
+#rm feeds/packages/utils/coremark/coremark.sh
 #svn co https://github.com/openwrt/packages/trunk/utils/coremark feeds/package/utils/coremark
-cp $GITHUB_WORKSPACE/general/coremark.sh feeds/packages/utils/coremark/
+#cp $GITHUB_WORKSPACE/general/coremark.sh feeds/packages/utils/coremark/
 #cp $GITHUB_WORKSPACE/general/coremark feeds/packages/utils/coremark/
 rm package/lean/default-settings/files/openwrt_banner
 cp $GITHUB_WORKSPACE/general/openwrt_banner package/lean/default-settings/files/
