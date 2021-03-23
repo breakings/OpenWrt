@@ -230,8 +230,7 @@ CONFIG_CRYPTO_SM4_ARM64_CE=y
 rm package/lean/default-settings/files/openwrt_banner
 cp $GITHUB_WORKSPACE/general/openwrt_banner package/lean/default-settings/files/
 rm package/lean/default-settings/files/zzz-default-settings
-cp  $GITHUB_WORKSPACE/general/zzz-default-settings package/lean/default-settings/files/
-
+cp $GITHUB_WORKSPACE/general/zzz-default-settings package/lean/default-settings/files/
 
 #同步官方kernel-version.mk
 #rm include/kernel-version.mk
