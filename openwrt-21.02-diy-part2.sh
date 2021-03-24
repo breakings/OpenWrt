@@ -99,7 +99,8 @@ svn co https://github.com/immortalwrt/immortalwrt/branches/openwrt-21.02/package
 svn co https://github.com/breakings/OpenWrt/trunk/general/luci-app-flowoffload package/lean/luci-app-flowoffload
 svn co https://github.com/immortalwrt/immortalwrt/branches/openwrt-21.02/package/lean/luci-app-cifs-mount package/lean/luci-app-cifs-mount
 svn co https://github.com/immortalwrt/immortalwrt/branches/openwrt-21.02/package/lean/luci-app-nfs package/lean/luci-app-nfs
-svn co https://github.com/Lienol/openwrt/branches/21.02/package/lean/luci-app-netdata package/lean/luci-app-netdata
+#svn co https://github.com/Lienol/openwrt/branches/21.02/package/lean/luci-app-netdata package/lean/luci-app-netdata
+svn co https://github.com/breakings/OpenWrt/trunk/general/luci-app-netdata package/lean/luci-app-netdata
 svn co https://github.com/immortalwrt/immortalwrt/branches/openwrt-21.02/package/lean/luci-app-usb-printer package/lean/luci-app-usb-printer
 svn co https://github.com/immortalwrt/immortalwrt/branches/openwrt-21.02/package/lean/luci-app-filetransfer package/lean/luci-app-filetransfer
 svn co https://github.com/immortalwrt/immortalwrt/branches/openwrt-21.02/package/lean/luci-lib-fs package/lean/luci-lib-fs
@@ -116,9 +117,10 @@ svn co https://github.com/immortalwrt/immortalwrt/branches/openwrt-21.02/package
 svn co https://github.com/immortalwrt/immortalwrt/branches/openwrt-21.02/package/lean/luci-app-ramfree package/lean/luci-app-ramfree
 svn co https://github.com/immortalwrt/immortalwrt/branches/openwrt-21.02/package/lean/luci-app-guest-wifi package/lean/luci-app-guest-wifi
 svn co https://github.com/Lienol/openwrt/branches/21.02/package/diy/parted package/parted
-svn co https://github.com/immortalwrt/immortalwrt/branches/openwrt-21.02/package/lean/default-settings package/lean/default-settings
-rm -f package/lean/default-settings/files/zzz-default-settings
-cp -f $GITHUB_WORKSPACE/general/zzz-default-settings package/lean/default-settings/files/
+#svn co https://github.com/immortalwrt/immortalwrt/branches/openwrt-21.02/package/lean/default-settings package/lean/default-settings
+svn co https://github.com/breakings/OpenWrt/trunk/general/default-settings package/lean/default-settings
+#rm -f package/lean/default-settings/files/zzz-default-settings
+#cp -f $GITHUB_WORKSPACE/general/zzz-default-settings package/lean/default-settings/files/
 
 
 #svn co https://github.com/fw876/helloworld/trunk/xray-core package/xray-core
@@ -230,8 +232,8 @@ CONFIG_CRYPTO_SM4_ARM64_CE=y
 #svn co https://github.com/openwrt/packages/trunk/utils/coremark feeds/package/utils/coremark
 #cp $GITHUB_WORKSPACE/general/coremark.sh feeds/packages/utils/coremark/
 #cp $GITHUB_WORKSPACE/general/coremark feeds/packages/utils/coremark/
-rm package/lean/default-settings/files/openwrt_banner
-cp $GITHUB_WORKSPACE/general/openwrt_banner package/lean/default-settings/files/
+#rm package/lean/default-settings/files/openwrt_banner
+#cp $GITHUB_WORKSPACE/general/openwrt_banner package/lean/default-settings/files/
 #rm package/lean/default-settings/files/zzz-default-settings
 #cp $GITHUB_WORKSPACE/general/zzz-default-settings package/lean/default-settings/files/
 
