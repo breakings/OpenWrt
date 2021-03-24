@@ -117,6 +117,8 @@ svn co https://github.com/immortalwrt/immortalwrt/branches/openwrt-21.02/package
 svn co https://github.com/immortalwrt/immortalwrt/branches/openwrt-21.02/package/lean/luci-app-guest-wifi package/lean/luci-app-guest-wifi
 svn co https://github.com/Lienol/openwrt/branches/21.02/package/diy/parted package/parted
 svn co https://github.com/immortalwrt/immortalwrt/branches/openwrt-21.02/package/lean/default-settings package/lean/default-settings
+rm -f package/lean/default-settings/files/zzz-default-settings
+cp -f $GITHUB_WORKSPACE/general/zzz-default-settings package/lean/default-settings/files/
 
 
 #svn co https://github.com/fw876/helloworld/trunk/xray-core package/xray-core
@@ -230,8 +232,8 @@ CONFIG_CRYPTO_SM4_ARM64_CE=y
 #cp $GITHUB_WORKSPACE/general/coremark feeds/packages/utils/coremark/
 rm package/lean/default-settings/files/openwrt_banner
 cp $GITHUB_WORKSPACE/general/openwrt_banner package/lean/default-settings/files/
-rm package/lean/default-settings/files/zzz-default-settings
-cp $GITHUB_WORKSPACE/general/zzz-default-settings package/lean/default-settings/files/
+#rm package/lean/default-settings/files/zzz-default-settings
+#cp $GITHUB_WORKSPACE/general/zzz-default-settings package/lean/default-settings/files/
 
 #同步官方kernel-version.mk
 #rm include/kernel-version.mk
