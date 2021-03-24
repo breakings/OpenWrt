@@ -44,6 +44,7 @@ sed -i 's/services/nas/g' /usr/share/luci/menu.d/luci-app-minidlna.json
 sed -i 's/services/nas/g' /usr/share/luci/menu.d/luci-app-mjpg-streamer.json
 sed -i 's/services/nas/g' /usr/share/luci/menu.d/luci-app-p910nd.json
 sed -i 's/\"services\"/\"nas\"/g' /usr/lib/lua/luci/controller/usb_printer.lua
+sed -i 's/services/nas/g' /usr/share/luci/menu.d/luci-app-samba4.json
 #sed -i 's/\"services\"/\"nas\"/g' /usr/lib/lua/luci/controller/samba.lua
 #sed -i 's/\"services\"/\"nas\"/g' /usr/lib/lua/luci/controller/hd_idle.lua
 #sed -i 's/\"services\"/\"nas\"/g' /usr/lib/lua/luci/controller/minidlna.lua
