@@ -237,6 +237,9 @@ CONFIG_CRYPTO_SM4_ARM64_CE=y
 #rm package/lean/default-settings/files/zzz-default-settings
 #cp $GITHUB_WORKSPACE/general/zzz-default-settings package/lean/default-settings/files/
 
+# 内核切换
+sed -i 's/KERNEL_PATCHVER:=5.4/KERNEL_PATCHVER:=5.10/g' ./target/linux/armvirt/Makefile
+
 #同步官方kernel-version.mk
 #rm include/kernel-version.mk
 #svn co --depth=empty  https://github.com/openwrt/openwrt/trunk/include kerner-version
