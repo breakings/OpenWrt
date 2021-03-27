@@ -20,6 +20,7 @@ rm -rf feeds/luci/collections/luci-lib-docker
 rm -rf feeds/luci/themes/luci-theme-argon
 rm -rf package/lean/autocore
 rm -rf package/lean/qBittorrent
+rm -rf package/lean/luci-app-qbittorrent
 
 # Important Patches
 # ARM64: Add CPU model name in proc cpuinfo
@@ -96,6 +97,7 @@ svn co https://github.com/Lienol/openwrt/branches/21.02/package/diy/luci-lib-doc
 svn co https://github.com/Lienol/openwrt/branches/21.02/package/lean/luci-app-openvpn-server package/lean/luci-app-openvpn-server
 svn co https://github.com/Lienol/openwrt/branches/21.02/package/lean/luci-app-autoreboot package/lean/luci-app-autoreboot
 svn co https://github.com/immortalwrt/immortalwrt/branches/openwrt-21.02/package/lean/qBittorrent-Enhanced-Edition package/lean/qBittorrent-Enhanced-Edition
+svn co https://github.com/immortalwrt/immortalwrt/branches/openwrt-21.02/package/lean/luci-app-qbittorrent package/lean/luci-app-qbittorrent
 
 #svn co https://github.com/fw876/helloworld/trunk/xray-core package/xray-core
 #svn co https://github.com/fw876/helloworld/trunk/xray-plugin package/xray-plugin
