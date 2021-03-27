@@ -172,4 +172,6 @@ CONFIG_CRYPTO_SM4_ARM64_CE=y
 #svn co https://github.com/openwrt/packages/trunk/utils/coremark package/utils/coremark
 #cp $GITHUB_WORKSPACE/general/coremark.sh feeds/packages/utils/coremark
 #cp $GITHUB_WORKSPACE/general/coremark feeds/packages/utils/coremark
+rm package/default-settings/files/zzz-default-settings
+cp -f $GITHUB_WORKSPACE/general/default-settings/files/zzz-default-settings package/default-settings/files/
 
