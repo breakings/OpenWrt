@@ -23,6 +23,9 @@ rm -rf feeds/luci/themes/luci-theme-argon
 # ARM64: Add CPU model name in proc cpuinfo
 wget -P target/linux/generic/pending-5.4 https://github.com/immortalwrt/immortalwrt/raw/master/target/linux/generic/hack-5.4/312-arm64-cpuinfo-Add-model-name-in-proc-cpuinfo-for-64bit-ta.patch
 
+# Mbedtls AES HW-Crypto
+cp -f $GITHUB_WORKSPACE/PATCH/new/package/100-Implements-AES-and-GCM-with-ARMv8-Crypto-Extensions.patch ./package/libs/mbedtls/patches/100-Implements-AES-and-GCM-with-ARMv8-Crypto-Extensions.patch
+
 # Add cputemp.sh
 cp -rf $GITHUB_WORKSPACE/PATCH/new/script/cputemp.sh ./package/base-files/files/bin/cputemp.sh
 
@@ -129,6 +132,32 @@ git clone https://github.com/jerrykuku/luci-theme-argon.git  package/luci-theme-
 #readd cpufreq for aarch64
 sed -i 's/LUCI_DEPENDS.*/LUCI_DEPENDS:=\@\(arm\|\|aarch64\)/g' package/lean/luci-app-cpufreq/Makefile
 sed -i 's/services/system/g'  package/lean/luci-app-cpufreq/luasrc/controller/cpufreq.lua
+
+# Crypto and Devfreq
+echo '
+CONFIG_ARM64_CRYPTO=y
+CONFIG_ARM_PSCI_CPUIDLE_DOMAIN=y
+CONFIG_ARM_PSCI_FW=y
+CONFIG_CRYPTO_AES_ARM64=y
+CONFIG_CRYPTO_AES_ARM64_BS=y
+CONFIG_CRYPTO_AES_ARM64_CE=y
+CONFIG_CRYPTO_AES_ARM64_CE_BLK=y
+CONFIG_CRYPTO_AES_ARM64_CE_CCM=y
+CONFIG_CRYPTO_AES_ARM64_NEON_BLK=y
+CONFIG_CRYPTO_CHACHA20_NEON=y
+# CONFIG_CRYPTO_CRCT10DIF_ARM64_CE is not set
+CONFIG_CRYPTO_GHASH_ARM64_CE=y
+CONFIG_CRYPTO_NHPOLY1305_NEON=y
+CONFIG_CRYPTO_POLY1305_NEON=y
+CONFIG_CRYPTO_SHA1_ARM64_CE=y
+CONFIG_CRYPTO_SHA2_ARM64_CE=y
+CONFIG_CRYPTO_SHA256_ARM64=y
+CONFIG_CRYPTO_SHA3_ARM64=y
+CONFIG_CRYPTO_SHA512_ARM64=y
+# CONFIG_CRYPTO_SHA512_ARM64_CE is not set
+CONFIG_CRYPTO_SM3_ARM64_CE=y
+CONFIG_CRYPTO_SM4_ARM64_CE=y
+' >> ./target/linux/armvirt/64/config-5.4
 
 #默认设置
 #sed -i 's/\"services\"/\"nas\"/g' /usr/lib/lua/luci/controller/aria2.lua
