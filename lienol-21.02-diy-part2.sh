@@ -19,8 +19,22 @@ rm -rf feeds/luci/collections/luci-lib-docker
 rm -rf package/network
 rm -rf feeds/luci/themes/luci-theme-argon
 
+# Important Patches
+# ARM64: Add CPU model name in proc cpuinfo
+wget -P target/linux/generic/pending-5.4 https://github.com/immortalwrt/immortalwrt/raw/master/target/linux/generic/hack-5.4/312-arm64-cpuinfo-Add-model-name-in-proc-cpuinfo-for-64bit-ta.patch
+
+# Add cputemp.sh
+cp -rf $GITHUB_WORKSPACE/PATCH/new/script/cputemp.sh ./package/base-files/files/bin/cputemp.sh
+
+# Conntrack_Max
+sed -i 's/16384/65535/g' package/kernel/linux/files/sysctl-nf-conntrack.conf
+
+# Irqbalance
+sed -i "s/enabled '0'/enabled '1'/g" feeds/packages/utils/irqbalance/files/irqbalance.config
+
 # AutoCore
-svn co https://github.com/immortalwrt/immortalwrt/branches/master/package/lean/autocore package/lean/autocore
+#svn co https://github.com/immortalwrt/immortalwrt/branches/master/package/lean/autocore package/lean/autocore
+svn co https://github.com/breakings/OpenWrt/trunk/general/autocore package/lean/autocore
 rm -rf ./feeds/packages/utils/coremark
 svn co https://github.com/immortalwrt/packages/trunk/utils/coremark feeds/packages/utils/coremark
 
@@ -125,8 +139,8 @@ sed -i 's/services/system/g'  package/lean/luci-app-cpufreq/luasrc/controller/cp
 #sed -i 's/option lang auto/option lang zh-cn/g' feeds/luci/modules/luci-base/root/etc/config/luci
 
 #replace coremark.sh with the new one
-rm feeds/packages/utils/coremark/coremark.sh
+#rm feeds/packages/utils/coremark/coremark.sh
 #svn co https://github.com/openwrt/packages/trunk/utils/coremark package/utils/coremark
-cp $GITHUB_WORKSPACE/general/coremark.sh feeds/packages/utils/coremark
+#cp $GITHUB_WORKSPACE/general/coremark.sh feeds/packages/utils/coremark
 #cp $GITHUB_WORKSPACE/general/coremark feeds/packages/utils/coremark
 
