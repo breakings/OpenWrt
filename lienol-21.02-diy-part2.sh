@@ -18,6 +18,7 @@ rm -rf feeds/packages/libs/libgd-full
 rm -rf feeds/luci/collections/luci-lib-docker
 #rm -rf package/network
 rm -rf feeds/luci/themes/luci-theme-argon
+rm -rf package/lean/autocore
 
 # Important Patches
 # ARM64: Add CPU model name in proc cpuinfo
