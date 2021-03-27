@@ -16,7 +16,7 @@
 #移除不用软件包    
 rm -rf feeds/packages/libs/libgd-full
 rm -rf feeds/luci/collections/luci-lib-docker
-rm -rf package/network
+#rm -rf package/network
 rm -rf feeds/luci/themes/luci-theme-argon
 
 # Important Patches
