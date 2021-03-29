@@ -59,7 +59,8 @@ svn co https://github.com/breakings/OpenWrt/trunk/general/autocore package/lean/
 rm -rf ./feeds/packages/utils/coremark
 svn co https://github.com/immortalwrt/packages/trunk/utils/coremark feeds/packages/utils/coremark
 #svn co https://github.com/immortalwrt/immortalwrt/branches/openwrt-21.02/package/lean/qt5 package/lean/qt5
-svn co https://github.com/immortalwrt/packages/branches/openwrt-21.02/libs/libdouble-conversion package/libs/libdouble-conversion
+#svn co https://github.com/immortalwrt/packages/branches/openwrt-21.02/libs/libdouble-conversion package/libs/libdouble-conversion
+svn co https://github.com/coolsnowwolf/lede/trunk/package/libs/libdouble-conversion package/libs/libdouble-conversion
 #svn co https://github.com/Lienol/openwrt/branches/21.02/package/lean/qt5 package/lean/qt5
 svn co https://github.com/coolsnowwolf/lede/trunk/package/lean/qt5 package/lean/qt5
 
