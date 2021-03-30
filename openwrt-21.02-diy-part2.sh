@@ -165,6 +165,9 @@ svn co https://github.com/project-openwrt/openwrt/trunk/package/ntlf9t/luci-app-
 sed -i "s/PKG_VERSION:=.*/PKG_VERSION:2.0.3/" package/lean/rblibtorrent/Makefile
 sed -i "s/PKG_SOURCE_VERSION:=.*/PKG_SOURCE_VERSION:af7a96c1df47fcc8fbe0d791c223b0ab8a7d2125/" package/lean/rblibtorrent/Makefile
 
+# Qt5
+sed -i "s/PKG_VERSION:=.*/PKG_VERSION:5.15/" package/lean/qt5/Makefile
+sed -i "s/PKG_HASH:=.*/PKG_HASH:=3a530d1b243b5dec00bc54937455471aaa3e56849d2593edb8ded07228202240/" package/lean/qt5/Makefile
 
 #themes
 #svn co https://github.com/rosywrt/luci-theme-rosy/trunk/luci-theme-rosy package/luci-theme-rosy
@@ -255,8 +258,8 @@ CONFIG_CRYPTO_SM4_ARM64_CE=y
 #cp $GITHUB_WORKSPACE/general/openwrt_banner package/lean/default-settings/files/
 #rm package/lean/default-settings/files/zzz-default-settings
 #cp $GITHUB_WORKSPACE/general/zzz-default-settings package/lean/default-settings/files/
-rm package/lean/qt5/Makefile
-cp -f $GITHUB_WORKSPACE/general/Makefile package/lean/qt5/
+#rm package/lean/qt5/Makefile
+#cp -f $GITHUB_WORKSPACE/general/Makefile package/lean/qt5/
 
 # 内核切换
 #sed -i 's/KERNEL_PATCHVER:=5.4/KERNEL_PATCHVER:=5.10/g' ./target/linux/armvirt/Makefile
