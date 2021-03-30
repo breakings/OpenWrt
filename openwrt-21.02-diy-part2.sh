@@ -51,7 +51,7 @@ patch -p1 < $GITHUB_WORKSPACE/PATCH/new/package/luci-app-firewall_add_fullcone.p
 cp -rf $GITHUB_WORKSPACE/PATCH/duplicate/fullconenat ./package/network/fullconenat
 
 #添加额外软件包
-
+svn co https://github.com/immortalwrt/immortalwrt/branches/openwrt-21.02/package/libs/mbedtls package/libs/mbedtls
 # Extra Packages
 # AutoCore
 #svn co https://github.com/immortalwrt/immortalwrt/branches/master/package/lean/autocore package/lean/autocore
@@ -62,8 +62,6 @@ svn co https://github.com/immortalwrt/packages/trunk/utils/coremark feeds/packag
 svn co https://github.com/immortalwrt/packages/branches/openwrt-21.02/libs/libdouble-conversion package/libs/libdouble-conversion
 #svn co https://github.com/coolsnowwolf/lede/trunk/package/libs/libdouble-conversion package/libs/libdouble-conversion
 svn co https://github.com/Lienol/openwrt/branches/21.02/package/lean/qt5 package/lean/qt5
-rm package/lean/qt5/Makefile
-cp $GITHUB_WORKSPACE/general/Makefile package/lean/qt5/
 #svn co https://github.com/coolsnowwolf/lede/trunk/package/lean/qt5 package/lean/qt5
 
 #git clone https://github.com/jerrykuku/luci-app-jd-dailybonus.git package/luci-app-jd-dailybonus
@@ -188,7 +186,6 @@ sed -i 's/16384/65535/g' package/kernel/linux/files/sysctl-nf-conntrack.conf
 
 # Mbedtls AES HW-Crypto
 #cp -f $GITHUB_WORKSPACE/PATCH/new/package/100-Implements-AES-and-GCM-with-ARMv8-Crypto-Extensions.patch ./package/libs/mbedtls/patches/100-Implements-AES-and-GCM-with-ARMv8-Crypto-Extensions.patch
-svn co https://github.com/immortalwrt/immortalwrt/branches/openwrt-21.02/package/libs/mbedtls package/libs/mbedtls
 
 # Addition-Trans-zh-master
 # cp -rf $GITHUB_WORKSPACE/PATCH/duplicate/addition-trans-zh-r2s ./package/lean/lean-translate
@@ -258,6 +255,8 @@ CONFIG_CRYPTO_SM4_ARM64_CE=y
 #cp $GITHUB_WORKSPACE/general/openwrt_banner package/lean/default-settings/files/
 #rm package/lean/default-settings/files/zzz-default-settings
 #cp $GITHUB_WORKSPACE/general/zzz-default-settings package/lean/default-settings/files/
+rm package/lean/qt5/Makefile
+cp $GITHUB_WORKSPACE/general/Makefile package/lean/qt5/
 
 # 内核切换
 #sed -i 's/KERNEL_PATCHVER:=5.4/KERNEL_PATCHVER:=5.10/g' ./target/linux/armvirt/Makefile
