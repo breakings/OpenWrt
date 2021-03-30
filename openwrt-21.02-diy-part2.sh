@@ -59,8 +59,8 @@ svn co https://github.com/breakings/OpenWrt/trunk/general/autocore package/lean/
 rm -rf ./feeds/packages/utils/coremark
 svn co https://github.com/immortalwrt/packages/trunk/utils/coremark feeds/packages/utils/coremark
 #svn co https://github.com/immortalwrt/immortalwrt/branches/openwrt-21.02/package/lean/qt5 package/lean/qt5
-#svn co https://github.com/immortalwrt/packages/branches/openwrt-21.02/libs/libdouble-conversion package/libs/libdouble-conversion
-svn co https://github.com/coolsnowwolf/lede/trunk/package/libs/libdouble-conversion package/libs/libdouble-conversion
+svn co https://github.com/immortalwrt/packages/branches/openwrt-21.02/libs/libdouble-conversion package/libs/libdouble-conversion
+#svn co https://github.com/coolsnowwolf/lede/trunk/package/libs/libdouble-conversion package/libs/libdouble-conversion
 #svn co https://github.com/Lienol/openwrt/branches/21.02/package/lean/qt5 package/lean/qt5
 svn co https://github.com/coolsnowwolf/lede/trunk/package/lean/qt5 package/lean/qt5
 
@@ -100,7 +100,7 @@ svn co https://github.com/xiaorouji/openwrt-passwall/trunk/trojan package/trojan
 #svn co https://github.com/immortalwrt/immortalwrt/branches/openwrt-21.02/package/lean/qBittorrent-Enhanced-Edition package/lean/qBittorrent-Enhanced-Edition
 svn co https://github.com/coolsnowwolf/lede/trunk/package/lean/qBittorrent package/lean/qBittorrent
 svn co https://github.com/coolsnowwolf/lede/trunk/package/lean/rblibtorrent package/lean/rblibtorrent
-svn co https://github.com/breakings/OpenWrt/trunk/general/luci-app-qbittorrent package/lean/luci-app-qbittorrent
+svn co https://github.com/breakings/OpenWrt/trunk/general/luci-app-qbittorrent package/lean/luci-app-qbittorrent 
 #svn co https://github.com/immortalwrt/immortalwrt/branches/openwrt-21.02/package/lean/luci-app-qbittorrent package/lean/luci-app-qbittorrent
 svn co https://github.com/immortalwrt/immortalwrt/branches/openwrt-21.02/package/lean/luci-app-cpufreq package/lean/luci-app-cpufreq
 svn co https://github.com/immortalwrt/immortalwrt/branches/openwrt-21.02/package/lean/luci-app-airplay2 package/lean/luci-app-airplay2
@@ -160,6 +160,11 @@ svn co https://github.com/project-openwrt/openwrt/trunk/package/ntlf9t/luci-app-
 #git clone https://github.com/sensec/luci-app-udp2raw package/luci-app-udp2raw
 #sed -i "s/PKG_SOURCE_VERSION:=.*/PKG_SOURCE_VERSION:=f2f90a9a150be94d50af555b53657a2a4309f287/" package/openwrt-udp2raw/Makefile
 #sed -i "s/PKG_VERSION:=.*/PKG_VERSION:=20200920\.0/" package/openwrt-udp2raw/Makefile
+
+#rblibtorrent
+sed -i "s/PKG_VERSION:=.*/PKG_VERSION:2.0.3/" package/lean/rblibtorrent/Makefile
+sed -i "s/PKG_SOURCE_VERSION:=.*/PKG_SOURCE_VERSION:af7a96c1df47fcc8fbe0d791c223b0ab8a7d2125/" package/lean/rblibtorrent/Makefile
+
 
 #themes
 #svn co https://github.com/rosywrt/luci-theme-rosy/trunk/luci-theme-rosy package/luci-theme-rosy
