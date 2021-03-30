@@ -61,8 +61,10 @@ svn co https://github.com/immortalwrt/packages/trunk/utils/coremark feeds/packag
 #svn co https://github.com/immortalwrt/immortalwrt/branches/openwrt-21.02/package/lean/qt5 package/lean/qt5
 svn co https://github.com/immortalwrt/packages/branches/openwrt-21.02/libs/libdouble-conversion package/libs/libdouble-conversion
 #svn co https://github.com/coolsnowwolf/lede/trunk/package/libs/libdouble-conversion package/libs/libdouble-conversion
-#svn co https://github.com/Lienol/openwrt/branches/21.02/package/lean/qt5 package/lean/qt5
-svn co https://github.com/coolsnowwolf/lede/trunk/package/lean/qt5 package/lean/qt5
+svn co https://github.com/Lienol/openwrt/branches/21.02/package/lean/qt5 package/lean/qt5
+rm package/lean/qt5/Makefile
+cp $GITHUB_WORKSPACE/general/Makefile ./package/lean/qt5/Makefile
+#svn co https://github.com/coolsnowwolf/lede/trunk/package/lean/qt5 package/lean/qt5
 
 #git clone https://github.com/jerrykuku/luci-app-jd-dailybonus.git package/luci-app-jd-dailybonus
 git clone https://github.com/jerrykuku/lua-maxminddb.git package/lua-maxminddb
