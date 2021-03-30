@@ -58,11 +58,11 @@ svn co https://github.com/immortalwrt/immortalwrt/branches/openwrt-21.02/package
 svn co https://github.com/breakings/OpenWrt/trunk/general/autocore package/lean/autocore
 rm -rf ./feeds/packages/utils/coremark
 svn co https://github.com/immortalwrt/packages/trunk/utils/coremark feeds/packages/utils/coremark
-svn co https://github.com/immortalwrt/immortalwrt/branches/openwrt-21.02/package/lean/qt5 package/lean/qt5
+#svn co https://github.com/immortalwrt/immortalwrt/branches/openwrt-21.02/package/lean/qt5 package/lean/qt5
 svn co https://github.com/immortalwrt/packages/branches/openwrt-21.02/libs/libdouble-conversion package/libs/libdouble-conversion
 #svn co https://github.com/coolsnowwolf/lede/trunk/package/libs/libdouble-conversion package/libs/libdouble-conversion
 #svn co https://github.com/Lienol/openwrt/branches/21.02/package/lean/qt5 package/lean/qt5
-#svn co https://github.com/coolsnowwolf/lede/trunk/package/lean/qt5 package/lean/qt5
+svn co https://github.com/coolsnowwolf/lede/trunk/package/lean/qt5 package/lean/qt5
 
 #git clone https://github.com/jerrykuku/luci-app-jd-dailybonus.git package/luci-app-jd-dailybonus
 git clone https://github.com/jerrykuku/lua-maxminddb.git package/lua-maxminddb
@@ -256,7 +256,7 @@ CONFIG_CRYPTO_SM4_ARM64_CE=y
 #rm package/lean/default-settings/files/zzz-default-settings
 #cp $GITHUB_WORKSPACE/general/zzz-default-settings package/lean/default-settings/files/
 rm package/lean/qt5/Makefile
-cp $GITHUB_WORKSPACE/general/Makefile package/lean/qt5/
+cp -f $GITHUB_WORKSPACE/general/Makefile package/lean/qt5/
 
 # 内核切换
 #sed -i 's/KERNEL_PATCHVER:=5.4/KERNEL_PATCHVER:=5.10/g' ./target/linux/armvirt/Makefile
