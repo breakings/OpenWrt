@@ -20,7 +20,7 @@ rm -rf feeds/packages/libs/libgd-full
 rm -rf feeds/luci/collections/luci-lib-docker
 #rm -rf package/network
 rm -rf feeds/luci/themes/luci-theme-argon
-
+rm -rf package/libs/mbedtls
 # Prepare
 
 # Irqbalance
@@ -180,7 +180,8 @@ cp -rf $GITHUB_WORKSPACE/PATCH/new/script/cputemp.sh ./package/base-files/files/
 sed -i 's/16384/65535/g' package/kernel/linux/files/sysctl-nf-conntrack.conf
 
 # Mbedtls AES HW-Crypto
-cp -f $GITHUB_WORKSPACE/PATCH/new/package/100-Implements-AES-and-GCM-with-ARMv8-Crypto-Extensions.patch ./package/libs/mbedtls/patches/100-Implements-AES-and-GCM-with-ARMv8-Crypto-Extensions.patch
+#cp -f $GITHUB_WORKSPACE/PATCH/new/package/100-Implements-AES-and-GCM-with-ARMv8-Crypto-Extensions.patch ./package/libs/mbedtls/patches/100-Implements-AES-and-GCM-with-ARMv8-Crypto-Extensions.patch
+svn co https://github.com/immortalwrt/immortalwrt/branches/openwrt-21.02/package/libs/mbedtls package/libs/mbedtls
 
 # Addition-Trans-zh-master
 # cp -rf $GITHUB_WORKSPACE/PATCH/duplicate/addition-trans-zh-r2s ./package/lean/lean-translate
