@@ -182,6 +182,7 @@ svn co https://github.com/coolsnowwolf/lede/trunk/package/lean/redsocks2 package
 #git clone https://github.com/kevin-morgan/luci-theme-argon-dark.git package/luci-theme-argon-dark
 #svn co https://github.com/openwrt/luci/trunk/themes/luci-theme-openwrt-2020 package/luci-theme-openwrt-2020
 git clone https://github.com/jerrykuku/luci-theme-argon.git package/luci-theme-argon
+git clone https://github.com/jerrykuku/luci-app-argon-config.git package/luci-app-argon-config
 
 #readd cpufreq for aarch64
 sed -i 's/LUCI_DEPENDS.*/LUCI_DEPENDS:=\@\(arm\|\|aarch64\)/g' package/lean/luci-app-cpufreq/Makefile
