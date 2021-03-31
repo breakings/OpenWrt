@@ -21,6 +21,9 @@ rm -rf feeds/luci/collections/luci-lib-docker
 #rm -rf package/network
 rm -rf feeds/luci/themes/luci-theme-argon
 rm -rf package/libs/mbedtls
+rm -rf feeds/packages/net/kcptun
+rm -rf feeds/packages/net/xray-core
+
 # Prepare
 
 # Irqbalance
