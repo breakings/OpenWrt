@@ -59,8 +59,8 @@ svn co https://github.com/breakings/OpenWrt/trunk/general/autocore package/lean/
 rm -rf ./feeds/packages/utils/coremark
 svn co https://github.com/immortalwrt/packages/trunk/utils/coremark feeds/packages/utils/coremark
 #svn co https://github.com/immortalwrt/immortalwrt/branches/openwrt-21.02/package/lean/qt5 package/lean/qt5
-svn co https://github.com/immortalwrt/packages/branches/openwrt-21.02/libs/libdouble-conversion package/libs/libdouble-conversion
-#svn co https://github.com/coolsnowwolf/lede/trunk/package/libs/libdouble-conversion package/libs/libdouble-conversion
+#svn co https://github.com/immortalwrt/packages/branches/openwrt-21.02/libs/libdouble-conversion package/libs/libdouble-conversion
+svn co https://github.com/coolsnowwolf/lede/trunk/package/libs/libdouble-conversion package/libs/libdouble-conversion
 #svn co https://github.com/Lienol/openwrt/branches/21.02/package/lean/qt5 package/lean/qt5
 svn co https://github.com/coolsnowwolf/lede/trunk/package/lean/qt5 package/lean/qt5
 
@@ -150,8 +150,11 @@ svn co https://github.com/coolsnowwolf/lede/trunk/package/lean/redsocks2 package
 
 
 #添加smartdns
-svn co https://github.com/project-openwrt/openwrt/trunk/package/ntlf9t/smartdns package/smartdns
-svn co https://github.com/project-openwrt/openwrt/trunk/package/ntlf9t/luci-app-smartdns package/luci-app-smartdns
+#svn co https://github.com/project-openwrt/openwrt/trunk/package/ntlf9t/smartdns package/smartdns
+#svn co https://github.com/project-openwrt/openwrt/trunk/package/ntlf9t/luci-app-smartdns package/luci-app-smartdns
+svn co https://github.com/openwrt/packages/trunk/net/smartdns package/smartdns
+svn co https://github.com/openwrt/luci/trunk/applications/luci-app-smartdns package/luci-app-smartdns
+
 #添加ddnsto
 #svn co https://github.com/linkease/ddnsto-openwrt/trunk/ddnsto package/ddnsto
 #svn co https://github.com/linkease/ddnsto-openwrt/trunk/luci-app-ddnsto package/luci-app-ddnsto
@@ -162,12 +165,12 @@ svn co https://github.com/project-openwrt/openwrt/trunk/package/ntlf9t/luci-app-
 #sed -i "s/PKG_VERSION:=.*/PKG_VERSION:=20200920\.0/" package/openwrt-udp2raw/Makefile
 
 #rblibtorrent
-sed -i "s/PKG_VERSION:=.*/PKG_VERSION:2.0.3/" package/lean/rblibtorrent/Makefile
-sed -i "s/PKG_SOURCE_VERSION:=.*/PKG_SOURCE_VERSION:af7a96c1df47fcc8fbe0d791c223b0ab8a7d2125/" package/lean/rblibtorrent/Makefile
+#sed -i "s/PKG_VERSION:=.*/PKG_VERSION:2.0.3/" package/lean/rblibtorrent/Makefile
+#sed -i "s/PKG_SOURCE_VERSION:=.*/PKG_SOURCE_VERSION:af7a96c1df47fcc8fbe0d791c223b0ab8a7d2125/" package/lean/rblibtorrent/Makefile
 
 # Qt5
-sed -i "s/PKG_VERSION:=.*/PKG_VERSION:5.15/" package/lean/qt5/Makefile
-sed -i "s/PKG_HASH:=.*/PKG_HASH:=3a530d1b243b5dec00bc54937455471aaa3e56849d2593edb8ded07228202240/" package/lean/qt5/Makefile
+#sed -i "s/PKG_VERSION:=.*/PKG_VERSION:5.15/" package/lean/qt5/Makefile
+#sed -i "s/PKG_HASH:=.*/PKG_HASH:=3a530d1b243b5dec00bc54937455471aaa3e56849d2593edb8ded07228202240/" package/lean/qt5/Makefile
 
 #themes
 #svn co https://github.com/rosywrt/luci-theme-rosy/trunk/luci-theme-rosy package/luci-theme-rosy
