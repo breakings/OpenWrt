@@ -17,17 +17,19 @@
 rm -rf feeds/packages/libs/libgd-full
 rm -rf feeds/luci/collections/luci-lib-docker
 #rm -rf package/network
+rm -rf package/libs/mbedtls
 rm -rf feeds/luci/themes/luci-theme-argon
 rm -rf package/lean/autocore
 rm -rf package/lean/qBittorrent
 rm -rf package/lean/luci-app-qbittorrent
 
 # Important Patches
+svn co https://github.com/immortalwrt/immortalwrt/branches/openwrt-21.02/package/libs/mbedtls package/libs/mbedtls
 # ARM64: Add CPU model name in proc cpuinfo
 wget -P target/linux/generic/pending-5.4 https://github.com/immortalwrt/immortalwrt/raw/master/target/linux/generic/hack-5.4/312-arm64-cpuinfo-Add-model-name-in-proc-cpuinfo-for-64bit-ta.patch
 
 # Mbedtls AES HW-Crypto
-cp -f $GITHUB_WORKSPACE/PATCH/new/package/100-Implements-AES-and-GCM-with-ARMv8-Crypto-Extensions.patch ./package/libs/mbedtls/patches/100-Implements-AES-and-GCM-with-ARMv8-Crypto-Extensions.patch
+#cp -f $GITHUB_WORKSPACE/PATCH/new/package/100-Implements-AES-and-GCM-with-ARMv8-Crypto-Extensions.patch ./package/libs/mbedtls/patches/100-Implements-AES-and-GCM-with-ARMv8-Crypto-Extensions.patch
 
 # Add cputemp.sh
 cp -rf $GITHUB_WORKSPACE/PATCH/new/script/cputemp.sh ./package/base-files/files/bin/cputemp.sh
@@ -96,8 +98,11 @@ svn co https://github.com/Lienol/openwrt/branches/21.02/package/network/fullcone
 svn co https://github.com/Lienol/openwrt/branches/21.02/package/diy/luci-lib-docker package/luci-lib-docker
 svn co https://github.com/Lienol/openwrt/branches/21.02/package/lean/luci-app-openvpn-server package/lean/luci-app-openvpn-server
 svn co https://github.com/Lienol/openwrt/branches/21.02/package/lean/luci-app-autoreboot package/lean/luci-app-autoreboot
-svn co https://github.com/immortalwrt/immortalwrt/branches/openwrt-21.02/package/lean/qBittorrent-Enhanced-Edition package/lean/qBittorrent-Enhanced-Edition
-svn co https://github.com/immortalwrt/immortalwrt/branches/openwrt-21.02/package/lean/luci-app-qbittorrent package/lean/luci-app-qbittorrent
+#svn co https://github.com/immortalwrt/immortalwrt/branches/openwrt-21.02/package/lean/qBittorrent-Enhanced-Edition package/lean/qBittorrent-Enhanced-Edition
+#svn co https://github.com/immortalwrt/immortalwrt/branches/openwrt-21.02/package/lean/luci-app-qbittorrent package/lean/luci-app-qbittorrent
+svn co https://github.com/coolsnowwolf/lede/trunk/package/lean/qBittorrent package/lean/qBittorrent
+svn co https://github.com/coolsnowwolf/lede/trunk/package/lean/rblibtorrent package/lean/rblibtorrent
+svn co https://github.com/breakings/OpenWrt/trunk/general/luci-app-qbittorrent package/lean/luci-app-qbittorrent
 
 #svn co https://github.com/fw876/helloworld/trunk/xray-core package/xray-core
 #svn co https://github.com/fw876/helloworld/trunk/xray-plugin package/xray-plugin
@@ -131,6 +136,7 @@ svn co https://github.com/project-openwrt/openwrt/trunk/package/ntlf9t/luci-app-
 #git clone https://github.com/kevin-morgan/luci-theme-argon-dark.git package/luci-theme-argon-dark
 svn co https://github.com/openwrt/luci/trunk/themes/luci-theme-openwrt-2020 package/luci-theme-openwrt-2020
 git clone https://github.com/jerrykuku/luci-theme-argon.git  package/luci-theme-argon
+git clone https://github.com/jerrykuku/luci-app-argon-config.git package/luci-app-argon-config
 
 ./scripts/feeds update -a
 ./scripts/feeds install -a
@@ -138,6 +144,9 @@ git clone https://github.com/jerrykuku/luci-theme-argon.git  package/luci-theme-
 #readd cpufreq for aarch64
 sed -i 's/LUCI_DEPENDS.*/LUCI_DEPENDS:=\@\(arm\|\|aarch64\)/g' package/lean/luci-app-cpufreq/Makefile
 sed -i 's/services/system/g'  package/lean/luci-app-cpufreq/luasrc/controller/cpufreq.lua
+
+# Transmission
+sed -i 's/发送/Transmission/g' feeds/luci/applications/luci-app-transmission/po/zh_Hans/transmission.po
 
 # Crypto and Devfreq
 echo '
