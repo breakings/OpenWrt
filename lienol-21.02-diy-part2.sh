@@ -22,6 +22,7 @@ rm -rf feeds/luci/themes/luci-theme-argon
 rm -rf package/lean/autocore
 rm -rf package/lean/qBittorrent
 rm -rf package/lean/luci-app-qbittorrent
+rm -rf package/utils/coremark
 
 # Important Patches
 svn co https://github.com/immortalwrt/immortalwrt/branches/openwrt-21.02/package/libs/mbedtls package/libs/mbedtls
