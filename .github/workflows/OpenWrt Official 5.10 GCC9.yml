@@ -8,7 +8,7 @@
 # Description: Build OpenWrt using GitHub Actions
 #
 
-name: Build ARMv8 OpenWrt Official 5.10
+name: Build ARMv8 OpenWrt Official 5.10 GCC9
 
 on:
   repository_dispatch:
