@@ -59,7 +59,8 @@ git clone https://github.com/semigodking/redsocks.git package/redsocks2
 #添加smartdns
 #svn co https://github.com/project-openwrt/openwrt/trunk/package/ntlf9t/smartdns package/smartdns
 #svn co https://github.com/project-openwrt/openwrt/trunk/package/ntlf9t/luci-app-smartdns package/luci-app-smartdns
-svn co https://github.com/openwrt/luci/trunk/applications/luci-app-smartdns package/luci-app-smartdns
+#svn co https://github.com/openwrt/luci/trunk/applications/luci-app-smartdns package/luci-app-smartdns
+svn co https://github.com/kenzok8/openwrt-packages/trunk/luci-app-smartdns package/luci-app-smartdns
 
 #修改bypass的makefile
 git clone https://github.com/garypang13/luci-app-bypass package/luci-app-bypass
