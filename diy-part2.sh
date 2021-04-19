@@ -21,7 +21,7 @@
 git clone https://github.com/jerrykuku/lua-maxminddb.git package/lua-maxminddb
 svn co https://github.com/vernesong/OpenClash/trunk/luci-app-openclash package/luci-app-openclash
 git clone https://github.com/project-lede/luci-app-godproxy package/luci-app-godproxy
-svn co https://github.com/openwrt/packages/trunk/net/openssh feeds/packages/net/openssh
+svn co https://github.com/openwrt/packages/trunk/net/openssh package/openssh
 
 # 编译 po2lmo (如果有po2lmo可跳过)
 pushd package/luci-app-openclash/tools/po2lmo
