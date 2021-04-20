@@ -1,0 +1,54 @@
+--- a/etc/samba/smb.conf.template	2021-03-31 12:31:52.000000000 +0800
++++ b/etc/samba/smb.conf.template	2021-04-02 01:17:55.048580336 +0800
+@@ -4,6 +4,33 @@
+ 	server string = |DESCRIPTION|
+ 	unix charset = |CHARSET|
+ 	workgroup = |WORKGROUP|
++	display charset = UTF-8
++	#interfaces = lo lan
++	unix charset = UTF-8
++	workgroup = WORKGROUP
++	bind interfaces only = yes
++	browseable = yes
++	guest ok = yes
++	guest account = nobody
++	deadtime = 30
++	enable core files = no
++	local master = yes
++	load printers = no
++	map to guest = Bad User
++	max protocol = SMB2
++	min receivefile size = 16384
++	obey pam restrictions = yes
++	os level = 20
++	null passwords = yes
++	passdb backend = smbpasswd
++	preferred master = yes
++	security = user
++	smb encrypt = disabled
++	smb passwd file = /etc/samba/smbpasswd
++	socket options = TCP_NODELAY IPTOS_LOWDELAY
++	syslog = 2
++	use sendfile = yes
++	writeable = yes
+ 
+ 	## This global parameter allows the Samba admin to limit what interfaces on a machine will serve SMB requests.
+ 	bind interfaces only = yes
+@@ -19,13 +46,15 @@
+ 
+ 	## This parameter controls whether a remote client is allowed or required to use SMB encryption.
+ 	## It has different effects depending on whether the connection uses SMB1 or SMB2 and newer:
+-    ## If the connection uses SMB1, then this option controls the use of a Samba-specific extension to the SMB protocol introduced in Samba 3.2 that makes use of the Unix extensions.
++	## If the connection uses SMB1, then this option controls the use of a Samba-specific extension to the SMB protocol introduced in Samba 3.2 that makes use of the Unix extensions.
++	server min protocol = NT1
++	client min protocol = NT1  
+ 	## If the connection uses SMB2 or newer, then this option controls the use of the SMB-level encryption that is supported in SMB version 3.0 and above and available in Windows 8 and newer. 
+ 	## (default/auto,desired,required,off)
+ 	#smb encrypt = default
+ 
+ 	## set invalid users
+-	invalid users = root
++	#invalid users = root
+ 
+ 	## map unknow users to guest
+ 	map to guest = Bad User
