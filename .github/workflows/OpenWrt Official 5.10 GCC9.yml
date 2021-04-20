@@ -8,7 +8,7 @@
 # Description: Build OpenWrt using GitHub Actions
 #
 
-name: Build ARMv8 OpenWrt Official 5.10 GCC9
+name: Build ARMv8 OpenWrt Official 5.10 GCC10
 
 on:
   repository_dispatch:
@@ -23,7 +23,7 @@ env:
   REPO_URL: https://github.com/openwrt/openwrt
   REPO_BRANCH: master
   FEEDS_CONF: official.feeds.conf.default
-  CONFIG_FILE: official-qb-5.10-gcc9.config
+  CONFIG_FILE: official-5.10-gcc10.config
   DIY_P1_SH: diy-part1.sh
   DIY_P2_SH: openwrt-21.02-diy-part2-qb.sh
   UPLOAD_BIN_DIR: true
