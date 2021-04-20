@@ -50,7 +50,7 @@ jobs:
       run: |
         cd /opt/openwrt_packit
         
-        wget  https://github.com/breakings/OpenWrt/releases/download/$version/openwrt-armvirt-64-default-rootfs.tar.gz
+        wget  https://github.com/breakings/OpenWrt/releases/download/2021.04.19-1141/openwrt-armvirt-64-default-rootfs.tar.gz
                 
     - name: Check Files
       run: |
