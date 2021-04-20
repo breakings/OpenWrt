@@ -1,0 +1,136 @@
+name: Build N1 Official 21.02 img 57+o
+
+on:
+  repository_dispatch:
+  workflow_dispatch:
+    inputs:
+      days:
+        description: 'Number of days.'
+        required: true
+        default: 60
+      minimum_runs:
+        description: 'The minimum runs to keep for each workflow.'
+        required: true
+        default: 6
+      
+env:
+  UPLOAD_COWTRANSFER: false
+  RELEASE: true
+  TZ: Asia/Shanghai
+
+jobs:
+  build:
+    runs-on: ubuntu-20.04
+    name: Build for ${{ matrix.flippy_name }}
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - flippy_name: 57
+            release_name: openwrt_21.02_$(date +%Y%m%d)_${SOC}_${BOARD}_k${KERNEL_VERSION}${SUBVER}.img
+
+    env:
+      FLIPPY_NAME: ${{ matrix.flippy_name }}   
+      RELEASE_NAME: ${{ matrix.release_name }}
+    steps:
+    - name: Checkout
+      uses: actions/checkout@main
+      
+    - name: Initialization environment
+      run: |     
+        version=$(curl -s "https://api.github.com/repos/breakings/OpenWrt/releases/latest" | awk -F '"' '/tag_name/{print $4}')
+        
+        echo "version=$version"  >> $GITHUB_ENV
+        echo "DATE=$(date "+%Y-%m-%d %H:%M:%S")"  >> $GITHUB_ENV
+        
+        sudo chmod  -R 777 /opt
+        cp -r ${FLIPPY_NAME}/opt/* /opt
+                
+    - name: Download
+      run: |
+        cd /opt/openwrt_packit
+        
+        wget  https://github.com/breakings/OpenWrt/releases/download/$version/openwrt-armvirt-64-default-rootfs.tar.gz
+                
+    - name: Check Files
+      run: |
+        cd /opt/openwrt_packit
+        ls
+                
+    - name: Install the package
+      run: |
+        sudo rm -rf /etc/apt/sources.list.d/* /usr/share/dotnet /usr/local/lib/android /opt/ghc
+        sudo -E apt-get -qq update
+        sudo -E apt-get -qq install xz-utils btrfs-progs gawk zip unzip curl dosfstools  uuid-runtime
+        sudo -E apt-get -qq install git  git-core
+        sudo -E apt-get -qq install pigz
+        sudo -E apt-get -qq autoremove --purge
+        sudo -E apt-get -qq clean
+    
+    - name: build img
+      run: |
+        sudo chmod  -R 777 /opt
+        cd /opt/openwrt_packit
+        sudo chmod +x n1.sh
+        sudo ./n1.sh
+
+    - name: copy update files
+      run: |
+        cd /opt/openwrt_packit
+        sudo cp files/update-amlogic-openwrt.sh tmp/update-amlogic-openwrt.sh
+
+    - name: pigz -9
+      id: pigz
+      run: |
+        sudo chmod -R 777 /opt/openwrt_packit/tmp
+        cd /opt/openwrt_packit/tmp
+        sudo pigz -9 $RELEASE_NAME
+
+        echo "::set-output name=status::success"
+
+    - name: Check Files4
+      run: |
+        cd /opt/openwrt_packit/tmp
+        ls
+
+    - name: 编译后硬盘容量
+      if: (!cancelled())
+      run: df -hT
+
+    - name: Create release
+      id: release
+      uses: ncipollo/release-action@v1
+      with:
+        name: ${{ env.DATE }} 🚀 N1-OpenWrt-img | 编译
+        allowUpdates: true
+        tag: ${{ env.version }}
+        commit: main
+        token: ${{ secrets.RELEASES_TOKEN }}
+        body: |
+          ## 以下为基于OpenWrt官方最新master分支编译的N1最新固件（首次需优盘全新刷入，无法保留配置，后续可以直接保留配置升级）
+          默认IP：192.168.1.1 默认密码： password
+          Openwrt🚀(注:此版本为breakings个人的精简版。只有+o版，+o版为flowoffload加速)
+          N1在线升级方法：
+             1. cd /mnt/mmcblk2p4
+             2. wget 升级脚本链接,鼠标右击后缀.sh文件获取链接地址
+             3. wget img.gz后缀名的固件链接,鼠标右击后缀.img。gz文件获取链接地址
+             4. gzip -d 解压缩上一步下载的固件全名
+             5. chmod +x *.sh
+             6. ./升级脚本名字 img固件名
+        artifacts: "/opt/openwrt_packit/tmp/*"  
+
+        
+    - name: Remove old Releases
+      uses: dev-drprasad/delete-older-releases@v0.1.0
+      with:
+        keep_latest: 3
+        delete_tags: true
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+  
+  over:
+    needs: [build]
+    runs-on: ubuntu-20.04
+    steps:
+    - name: TG notification #TG推送
+      run: curl "https://api.telegram.org/bot${{ secrets.TELEGRAM_BOT_TOKEN }}/sendMessage" -d "chat_id=${{ secrets.TELEGRAM_CHAT_ID }}&text=N1 57+o 打包成功"
