@@ -27,7 +27,7 @@ jobs:
       matrix:
         include:
           - flippy_name: 57
-            release_name: openwrt_21.02_20210420_s905d_n1_k5.4.113-flippy-57+o.img
+            release_name: openwrt_21.02_20210421_s905d_n1_k5.4.113-flippy-57+o.img
 
     env:
       FLIPPY_NAME: ${{ matrix.flippy_name }}   
