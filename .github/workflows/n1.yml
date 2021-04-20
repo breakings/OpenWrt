@@ -27,7 +27,7 @@ jobs:
       matrix:
         include:
           - flippy_name: 57
-            release_name: openwrt_21.02_$(date +%Y%m%d)_s905d_n1_k5.4.113-flippy-57+o.img
+            release_name: openwrt_21.02_$(%Y%m%d)_s905d_n1_k5.4.113-flippy-57+o.img
 
     env:
       FLIPPY_NAME: ${{ matrix.flippy_name }}   
@@ -84,6 +84,7 @@ jobs:
       run: |
         sudo chmod -R 777 /opt/openwrt_packit/tmp
         cd /opt/openwrt_packit/tmp
+        ls
         sudo pigz -9 $RELEASE_NAME
 
         echo "::set-output name=status::success"
