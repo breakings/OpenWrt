@@ -27,7 +27,7 @@ jobs:
       matrix:
         include:
           - flippy_name: 57
-            release_name: openwrt_21.02_$(%Y%m%d)_s905d_n1_k5.4.113-flippy-57+o.img
+            release_name: openwrt_21.02_$(date +%Y%m%d)_s905d_n1_k5.4.113-flippy-57+o.img
 
     env:
       FLIPPY_NAME: ${{ matrix.flippy_name }}   
@@ -41,7 +41,7 @@ jobs:
         version=$(curl -s "https://api.github.com/repos/breakings/OpenWrt/releases/2021.04.19-1141" | awk -F '"' '/tag_name/{print $4}')
         
         echo "version=$version"  >> $GITHUB_ENV
-        echo "DATE=$(date "+%Y-%m-%d %H:%M:%S")"  >> $GITHUB_ENV
+        echo "DATE=$(date +%Y%m%d)"  >> $GITHUB_ENV
         
         sudo chmod  -R 777 /opt
         cp -r ${FLIPPY_NAME}/opt/* /opt
