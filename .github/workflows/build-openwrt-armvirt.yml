@@ -142,7 +142,7 @@ jobs:
         if-no-files-found: ignore
 
     - name: Packaged OpenWrt
-      uses: breakings/flippy-openwrt-actions@main
+      uses: ophub/flippy-openwrt-actions@main
       with:
         mode: flippy
       env:
