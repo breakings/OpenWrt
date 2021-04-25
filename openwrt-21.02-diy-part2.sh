@@ -100,6 +100,7 @@ svn co https://github.com/xiaorouji/openwrt-passwall/trunk/shadowsocksr-libev pa
 svn co https://github.com/xiaorouji/openwrt-passwall/trunk/simple-obfs package/simple-obfs
 svn co https://github.com/xiaorouji/openwrt-passwall/trunk/kcptun package/kcptun
 svn co https://github.com/xiaorouji/openwrt-passwall/trunk/trojan package/trojan
+svn co https://github.com/xiaorouji/openwrt-passwall/trunk/naiveproxy package/naiveproxy
 
 #菜单定制
 #svn co https://github.com/Lienol/openwrt/branches/21.02/package/network package/network
@@ -151,7 +152,7 @@ svn co https://github.com/fw876/helloworld/trunk/luci-app-ssr-plus package/lean/
 #pushd package/lean
 #wget -qO - https://patch-diff.githubusercontent.com/raw/fw876/helloworld/pull/442.patch | patch -p1
 #popd
-svn co https://github.com/fw876/helloworld/trunk/naiveproxy package/naiveproxy
+#svn co https://github.com/fw876/helloworld/trunk/naiveproxy package/naiveproxy
 svn co https://github.com/coolsnowwolf/lede/trunk/package/lean/redsocks2 package/lean/redsocks2
 svn co https://github.com/immortalwrt/immortalwrt/branches/openwrt-21.02/package/lean/n2n_v2 package/lean/n2n_v2
 svn co https://github.com/immortalwrt/immortalwrt/branches/openwrt-21.02/package/lean/luci-app-n2n_v2 package/lean/luci-app-n2n_v2
