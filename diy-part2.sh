@@ -21,6 +21,7 @@
 git clone https://github.com/jerrykuku/lua-maxminddb.git package/lua-maxminddb
 svn co https://github.com/vernesong/OpenClash/trunk/luci-app-openclash package/luci-app-openclash
 git clone https://github.com/project-lede/luci-app-godproxy package/luci-app-godproxy
+svn co https://github.com/openwrt/luci/trunk/modules/luci-mod-dashboard feeds/luci/modules/luci-mod-dashboard
 #svn co https://github.com/openwrt/packages/trunk/net/openssh package/openssh
 #svn co https://github.com/openwrt/packages/trunk/libs/libfido2 package/libfido2
 #svn co https://github.com/openwrt/packages/trunk/libs/libcbor package/libcbor
