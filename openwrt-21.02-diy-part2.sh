@@ -103,6 +103,7 @@ svn co https://github.com/xiaorouji/openwrt-passwall/trunk/trojan package/trojan
 svn co https://github.com/xiaorouji/openwrt-passwall/trunk/naiveproxy package/naiveproxy
 
 #菜单定制
+git clone https://github.com/immortalwrt/luci-app-unblockneteasemusic package/luci-app-unblockneteasemusic
 #svn co https://github.com/Lienol/openwrt/branches/21.02/package/network package/network
 #svn co https://github.com/immortalwrt/immortalwrt/branches/openwrt-21.02/package/lean/qBittorrent-Enhanced-Edition package/lean/qBittorrent-Enhanced-Edition
 svn co https://github.com/coolsnowwolf/lede/trunk/package/lean/qBittorrent package/lean/qBittorrent
