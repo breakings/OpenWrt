@@ -19,6 +19,7 @@ rm -rf feeds/luci/collections/luci-lib-docker
 #rm -rf package/network
 rm -rf package/libs/mbedtls
 rm -rf feeds/luci/themes/luci-theme-argon
+rm -rf feeds/luci/themes/luci-theme-openwrt-2020
 rm -rf package/lean/autocore
 rm -rf package/lean/qBittorrent
 rm -rf package/lean/luci-app-qbittorrent
