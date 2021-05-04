@@ -23,6 +23,7 @@ rm -rf package/lean/autocore
 rm -rf package/lean/qBittorrent
 rm -rf package/lean/luci-app-qbittorrent
 rm -rf package/utils/coremark
+rm -rf feeds/luci/modules/luci-mod-dashboard
 
 # Important Patches
 svn co https://github.com/immortalwrt/immortalwrt/branches/openwrt-21.02/package/libs/mbedtls package/libs/mbedtls
@@ -52,6 +53,7 @@ svn co https://github.com/immortalwrt/packages/trunk/utils/coremark feeds/packag
 git clone https://github.com/jerrykuku/lua-maxminddb.git package/lua-maxminddb
 svn co https://github.com/vernesong/OpenClash/trunk/luci-app-openclash package/luci-app-openclash
 git clone https://github.com/project-lede/luci-app-godproxy package/luci-app-godproxy
+svn co https://github.com/openwrt/luci/trunk/modules/luci-mod-dashboard feeds/luci/modules/luci-mod-dashboard
 
 # 编译 po2lmo (如果有po2lmo可跳过)
 pushd package/luci-app-openclash/tools/po2lmo
