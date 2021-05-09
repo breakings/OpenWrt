@@ -25,6 +25,7 @@ rm -rf package/lean/qBittorrent
 rm -rf package/lean/luci-app-qbittorrent
 rm -rf package/utils/coremark
 rm -rf feeds/luci/modules/luci-mod-dashboard
+rm -rf feeds/packages/net/kcptun
 
 # Important Patches
 svn co https://github.com/immortalwrt/immortalwrt/branches/openwrt-21.02/package/libs/mbedtls package/libs/mbedtls
