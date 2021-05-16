@@ -304,5 +304,8 @@ CONFIG_CRYPTO_SM4_ARM64_CE=y
 # Fix n2n_v2 luci 
 #sed -e 's/page..acl_depends/page.acl_depends/' -i package/lean/luci-app-n2n_v2/luasrc/controller/n2n_v2.lua
 
+# 修改makefile
+find package/*/ -maxdepth 2 -path "*/Makefile" | xargs -i sed -i 's/include\ \.\.\/\.\.\/luci\.mk/include \$(TOPDIR)\/feeds\/luci\/luci\.mk/g' {}
+
 ./scripts/feeds update -a
 ./scripts/feeds install -a
