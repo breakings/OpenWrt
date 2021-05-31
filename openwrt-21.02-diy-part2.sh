@@ -103,8 +103,8 @@ svn co https://github.com/fw876/helloworld/trunk/shadowsocksr-libev package/shad
 svn co https://github.com/xiaorouji/openwrt-passwall/trunk/simple-obfs package/simple-obfs
 svn co https://github.com/xiaorouji/openwrt-passwall/trunk/kcptun package/kcptun
 svn co https://github.com/xiaorouji/openwrt-passwall/trunk/trojan package/trojan
-#svn co https://github.com/xiaorouji/openwrt-passwall/trunk/naiveproxy package/naiveproxy
-svn co https://github.com/fw876/helloworld/trunk/naiveproxy package/naiveproxy
+svn co https://github.com/xiaorouji/openwrt-passwall/trunk/naiveproxy package/naiveproxy
+#svn co https://github.com/fw876/helloworld/trunk/naiveproxy package/naiveproxy
 
 #菜单定制
 git clone https://github.com/immortalwrt/luci-app-unblockneteasemusic package/luci-app-unblockneteasemusic
