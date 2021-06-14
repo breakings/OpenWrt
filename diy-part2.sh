@@ -97,6 +97,10 @@ git clone https://github.com/Leo-Jo-My/luci-theme-opentomcat.git package/luci-th
 git clone https://github.com/kevin-morgan/luci-theme-argon-dark.git package/luci-theme-argon-dark
 #svn co https://github.com/openwrt/luci/trunk/themes/luci-theme-openwrt-2020 package/luci-theme-openwrt-2020
 
+# fix nginx-ssl-util error (do not use fallthrough attribute)
+rm feeds/packages/net/nginx-util/src/nginx-ssl-util.hpp
+wget -P feeds/packages/net/nginx-util/src https://raw.githubusercontent.com/openwrt/packages/master/net/nginx-util/src/nginx-ssl-util.hpp
+
 ./scripts/feeds update -a
 ./scripts/feeds install -a
 
