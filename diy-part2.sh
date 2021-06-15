@@ -121,5 +121,5 @@ sed -i 's/LUCI_DEPENDS.*/LUCI_DEPENDS:=\@\(arm\|\|aarch64\)/g' package/lean/luci
 sed -i 's/services/system/g'  package/lean/luci-app-cpufreq/luasrc/controller/cpufreq.lua
 
 #replace coremark.sh with the new one
-rm package/lean/coremark/coremark.sh
-cp $GITHUB_WORKSPACE/general/coremark.sh package/lean/coremark/
+#rm package/lean/coremark/coremark.sh
+cp $GITHUB_WORKSPACE/general/coremark.sh feeds/packages/utils/coremark/
