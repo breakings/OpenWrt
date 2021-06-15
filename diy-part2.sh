@@ -14,6 +14,7 @@
  #rm -rf feeds/packages/net/openssh
  rm -rf feeds/packages/sound/fdk-aac
  rm -rf feeds/packages/utils/lvm2
+ rm -rf feeds/packages/utils/tini
 
 # Modify default IP
 #sed -i 's/192.168.1.1/192.168.50.5/g' package/base-files/files/bin/config_generate
@@ -105,8 +106,12 @@ wget -P feeds/packages/net/nginx-util/src https://raw.githubusercontent.com/open
 
 # fdk-aac
 svn co https://github.com/openwrt/packages/trunk/sound/fdk-aac feeds/packages/sound/fdk-aac
+
 # lvm2
 svn co https://github.com/openwrt/packages/trunk/utils/lvm2 feeds/packages/utils/lvm2
+
+# tini
+svn co https://github.com/openwrt/packages/trunk/utils/tini feeds/packages/utils/tini
 
 ./scripts/feeds update -a
 ./scripts/feeds install -a
