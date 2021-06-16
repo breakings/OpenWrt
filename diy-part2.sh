@@ -45,7 +45,7 @@ make && sudo make install
 popd
 svn co https://github.com/xiaorouji/openwrt-passwall/trunk/brook package/brook
 svn co https://github.com/xiaorouji/openwrt-passwall/trunk/chinadns-ng package/chinadns-ng
-#svn co https://github.com/xiaorouji/openwrt-passwall/trunk/tcping package/tcping
+svn co https://github.com/xiaorouji/openwrt-passwall/trunk/tcping package/tcping
 svn co https://github.com/xiaorouji/openwrt-passwall/trunk/trojan-go package/trojan-go
 svn co https://github.com/xiaorouji/openwrt-passwall/trunk/trojan-plus package/trojan-plus
 #svn co https://github.com/project-openwrt/openwrt/trunk/package/ctcgfw/luci-app-filebrowser package/luci-app-filebrowser
@@ -63,7 +63,7 @@ svn co https://github.com/xiaorouji/openwrt-passwall/trunk/microsocks package/mi
 svn co https://github.com/xiaorouji/openwrt-passwall/trunk/pdnsd-alt package/pdnsd-alt
 #svn co https://github.com/xiaorouji/openwrt-passwall/trunk/shadowsocksr-libev package/shadowsocksr-libev
 svn co https://github.com/fw876/helloworld/trunk/shadowsocksr-libev package/shadowsocksr-libev
-svn co https://github.com/fw876/helloworld/trunk/tcping package/tcping
+#svn co https://github.com/fw876/helloworld/trunk/tcping package/tcping
 svn co https://github.com/fw876/helloworld/trunk/v2ray-plugin package/v2ray-plugin
 svn co https://github.com/xiaorouji/openwrt-passwall/trunk/simple-obfs package/simple-obfs
 svn co https://github.com/xiaorouji/openwrt-passwall/trunk/kcptun package/kcptun
