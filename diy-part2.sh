@@ -15,8 +15,8 @@
  #rm -rf feeds/packages/sound/fdk-aac
  #rm -rf feeds/packages/utils/lvm2
  #rm -rf feeds/packages/utils/tini
- rm include/feeds.mk
- wget -P include https://raw.githubusercontent.com/openwrt/openwrt/master/include/feeds.mk
+ #rm include/feeds.mk
+ #wget -P include https://raw.githubusercontent.com/openwrt/openwrt/master/include/feeds.mk
  
 # ARM64: Add CPU model name in proc cpuinfo
 wget -P target/linux/generic/pending-5.4 https://github.com/immortalwrt/immortalwrt/raw/master/target/linux/generic/hack-5.4/312-arm64-cpuinfo-Add-model-name-in-proc-cpuinfo-for-64bit-ta.patch
