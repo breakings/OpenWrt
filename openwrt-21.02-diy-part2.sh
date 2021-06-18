@@ -57,7 +57,7 @@ cp -rf $GITHUB_WORKSPACE/PATCH/duplicate/fullconenat ./package/network/fullconen
 svn co https://github.com/immortalwrt/immortalwrt/branches/openwrt-21.02/package/libs/mbedtls package/libs/mbedtls
 # Extra Packages
 # AutoCore
-#svn co https://github.com/immortalwrt/immortalwrt/branches/master/package/lean/autocore package/lean/autocore
+#svn co https://github.com/immortalwrt/immortalwrt/branches/openwrt-21.02/package/emortal/autocore package/lean/autocore
 svn co https://github.com/breakings/OpenWrt/trunk/general/autocore package/lean/autocore
 #svn co https://github.com/coolsnowwolf/lede/trunk/package/lean/autocore package/lean/autocore
 rm -rf ./feeds/packages/utils/coremark
