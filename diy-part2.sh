@@ -123,7 +123,7 @@ git clone https://github.com/kevin-morgan/luci-theme-argon-dark.git package/luci
 # tini
 #svn co https://github.com/openwrt/packages/trunk/utils/tini feeds/packages/utils/tini
 
-#删除docker无初始化教程
+#删除docker无脑初始化教程
 sed -i '31,39d' package/lean/luci-app-docker/po/zh-cn/docker.po
 rm -rf lean/luci-app-docker/root/www
 
