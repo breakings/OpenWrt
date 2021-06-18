@@ -58,8 +58,8 @@ svn co https://github.com/immortalwrt/immortalwrt/branches/openwrt-21.02/package
 # Extra Packages
 # AutoCore
 #svn co https://github.com/immortalwrt/immortalwrt/branches/master/package/lean/autocore package/lean/autocore
-#svn co https://github.com/breakings/OpenWrt/trunk/general/autocore package/lean/autocore
-svn co https://github.com/coolsnowwolf/lede/trunk/package/lean/autocore package/lean/autocore
+svn co https://github.com/breakings/OpenWrt/trunk/general/autocore package/lean/autocore
+#svn co https://github.com/coolsnowwolf/lede/trunk/package/lean/autocore package/lean/autocore
 rm -rf ./feeds/packages/utils/coremark
 svn co https://github.com/immortalwrt/packages/trunk/utils/coremark feeds/packages/utils/coremark
 #svn co https://github.com/immortalwrt/immortalwrt/branches/openwrt-21.02/package/lean/qt5 package/lean/qt5
