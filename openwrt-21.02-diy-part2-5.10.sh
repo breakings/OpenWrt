@@ -90,12 +90,14 @@ svn co https://github.com/xiaorouji/openwrt-passwall/trunk/shadowsocks-rust pack
 #svn co https://github.com/1715173329/packages-official/branches/xray-2102/net/xray-core feeds/packages/net/xray-core
 svn co https://github.com/xiaorouji/openwrt-passwall/trunk/xray-plugin package/xray-plugin
 #svn co https://github.com/xiaorouji/openwrt-passwall/trunk/v2ray-plugin package/v2ray-plugin
+svn co https://github.com/fw876/helloworld/trunk/v2ray-plugin package/v2ray-plugin
 svn co https://github.com/xiaorouji/openwrt-passwall/trunk/ssocks package/ssocks
 svn co https://github.com/xiaorouji/openwrt-passwall/trunk/dns2socks package/dns2socks
 svn co https://github.com/xiaorouji/openwrt-passwall/trunk/ipt2socks package/ipt2socks
 svn co https://github.com/xiaorouji/openwrt-passwall/trunk/microsocks package/microsocks 
 svn co https://github.com/xiaorouji/openwrt-passwall/trunk/pdnsd-alt package/pdnsd-alt
-svn co https://github.com/xiaorouji/openwrt-passwall/trunk/shadowsocksr-libev package/shadowsocksr-libev
+#svn co https://github.com/xiaorouji/openwrt-passwall/trunk/shadowsocksr-libev package/shadowsocksr-libev
+svn co https://github.com/fw876/helloworld/trunk/shadowsocksr-libev package/shadowsocksr-libev
 svn co https://github.com/xiaorouji/openwrt-passwall/trunk/simple-obfs package/simple-obfs
 svn co https://github.com/xiaorouji/openwrt-passwall/trunk/kcptun package/kcptun
 svn co https://github.com/xiaorouji/openwrt-passwall/trunk/trojan package/trojan

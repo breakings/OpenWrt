@@ -8,7 +8,7 @@
 # Description: Build OpenWrt using GitHub Actions
 #
 
-name: Build K2 OpenWrt
+name: Build OpenWrt Lienol Docker
 
 on:
   repository_dispatch:
@@ -20,13 +20,13 @@ on:
         default: 'false'
 
 env:
-  REPO_URL: https://github.com/coolsnowwolf/lede
-  REPO_BRANCH: master
-  FEEDS_CONF: feeds.conf.default
-  CONFIG_FILE: k2-ssr.config
+  REPO_URL: https://github.com/Lienol/openwrt
+  REPO_BRANCH: 21.02
+  FEEDS_CONF: lienol.feeds.conf.default
+  CONFIG_FILE: ARMv8/lienol-docker-gcc9.config
   DIY_P1_SH: diy-part1.sh
-  DIY_P2_SH: diy-k2.sh
-  UPLOAD_BIN_DIR: true
+  DIY_P2_SH: lienol-21.02-diy-part2.sh
+  UPLOAD_BIN_DIR: false
   UPLOAD_FIRMWARE: true
   UPLOAD_COWTRANSFER: false
   UPLOAD_WETRANSFER: false
@@ -35,7 +35,7 @@ env:
 
 jobs:
   build:
-    runs-on: ubuntu-20.04
+    runs-on: ubuntu-18.04
 
     steps:
     - name: Checkout
@@ -177,7 +177,7 @@ jobs:
     - name: Delete workflow runs
       uses: GitRML/delete-workflow-runs@main
       with:
-        retain_days: 365
+        retain_days: 360
         keep_minimum_runs: 999
 
     - name: Remove old Releases
@@ -188,12 +188,3 @@ jobs:
         delete_tags: true
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        
-    - name: Telegram notification
-      uses: appleboy/telegram-action@master
-      with:
-        to: ${{ secrets.TELEGRAM_TO }}
-        token: ${{ secrets.TELEGRAM_TOKEN }}
-        message: |
-          编译时间：${{ env.FILE_DATE  }}
-          ${{ env.DEVICE_NAME }}编译完成
