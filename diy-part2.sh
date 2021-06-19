@@ -12,15 +12,29 @@
 
 # 删除软件包
  #rm -rf feeds/packages/net/openssh
+ #rm -rf feeds/packages/sound/fdk-aac
+ #rm -rf feeds/packages/utils/lvm2
+ #rm -rf feeds/packages/utils/tini
+ #rm include/feeds.mk
+ #wget -P include https://raw.githubusercontent.com/openwrt/openwrt/master/include/feeds.mk
+ 
+# ARM64: Add CPU model name in proc cpuinfo
+wget -P target/linux/generic/pending-5.4 https://github.com/immortalwrt/immortalwrt/raw/master/target/linux/generic/hack-5.4/312-arm64-cpuinfo-Add-model-name-in-proc-cpuinfo-for-64bit-ta.patch
+# autocore
+sed -i 's/DEPENDS:=@(.*/DEPENDS:=@(TARGET_bcm27xx||TARGET_bcm53xx||TARGET_ipq40xx||TARGET_ipq806x||TARGET_mvebu||TARGET_sunxi||TARGET_rockchip||TARGET_armvirt) \\/g' package/lean/autocore/Makefile
+# Add cputemp.sh
+cp -rf $GITHUB_WORKSPACE/PATCH/new/script/cputemp.sh ./package/base-files/files/bin/cputemp.sh
 
 # Modify default IP
 #sed -i 's/192.168.1.1/192.168.50.5/g' package/base-files/files/bin/config_generate
 
 #添加额外软件包
+git clone https://github.com/immortalwrt/luci-app-unblockneteasemusic package/luci-app-unblockneteasemusic
 #git clone https://github.com/jerrykuku/luci-app-jd-dailybonus.git package/luci-app-jd-dailybonus
 git clone https://github.com/jerrykuku/lua-maxminddb.git package/lua-maxminddb
 svn co https://github.com/vernesong/OpenClash/trunk/luci-app-openclash package/luci-app-openclash
 git clone https://github.com/project-lede/luci-app-godproxy package/luci-app-godproxy
+svn co https://github.com/openwrt/luci/trunk/modules/luci-mod-dashboard feeds/luci/modules/luci-mod-dashboard
 #svn co https://github.com/openwrt/packages/trunk/net/openssh package/openssh
 #svn co https://github.com/openwrt/packages/trunk/libs/libfido2 package/libfido2
 #svn co https://github.com/openwrt/packages/trunk/libs/libcbor package/libcbor
@@ -47,7 +61,10 @@ svn co https://github.com/xiaorouji/openwrt-passwall/trunk/dns2socks package/dns
 svn co https://github.com/xiaorouji/openwrt-passwall/trunk/ipt2socks package/ipt2socks
 svn co https://github.com/xiaorouji/openwrt-passwall/trunk/microsocks package/microsocks 
 svn co https://github.com/xiaorouji/openwrt-passwall/trunk/pdnsd-alt package/pdnsd-alt
-svn co https://github.com/xiaorouji/openwrt-passwall/trunk/shadowsocksr-libev package/shadowsocksr-libev
+#svn co https://github.com/xiaorouji/openwrt-passwall/trunk/shadowsocksr-libev package/shadowsocksr-libev
+svn co https://github.com/fw876/helloworld/trunk/shadowsocksr-libev package/shadowsocksr-libev
+#svn co https://github.com/fw876/helloworld/trunk/tcping package/tcping
+svn co https://github.com/fw876/helloworld/trunk/v2ray-plugin package/v2ray-plugin
 svn co https://github.com/xiaorouji/openwrt-passwall/trunk/simple-obfs package/simple-obfs
 svn co https://github.com/xiaorouji/openwrt-passwall/trunk/kcptun package/kcptun
 svn co https://github.com/xiaorouji/openwrt-passwall/trunk/trojan package/trojan
@@ -61,7 +78,8 @@ svn co https://github.com/xiaorouji/openwrt-passwall/trunk/trojan package/trojan
 #svn co https://github.com/kenzok8/openwrt-packages/trunk/luci-app-eqos package/luci-app-eqos
 git clone https://github.com/tty228/luci-app-serverchan.git package/luci-app-serverchan
 svn co https://github.com/fw876/helloworld/trunk/luci-app-ssr-plus package/luci-app-ssr-plus
-svn co https://github.com/fw876/helloworld/trunk/naiveproxy package/naiveproxy
+#svn co https://github.com/fw876/helloworld/trunk/naiveproxy package/naiveproxy
+svn co https://github.com/xiaorouji/openwrt-passwall/trunk/naiveproxy package/naiveproxy
 git clone https://github.com/semigodking/redsocks.git package/redsocks2
 
 #添加smartdns
@@ -71,10 +89,10 @@ git clone https://github.com/semigodking/redsocks.git package/redsocks2
 svn co https://github.com/kenzok8/openwrt-packages/trunk/luci-app-smartdns package/luci-app-smartdns
 
 #修改bypass的makefile
-git clone https://github.com/garypang13/luci-app-bypass package/luci-app-bypass
-find package/*/ feeds/*/ -maxdepth 2 -path "*luci-app-bypass/Makefile" | xargs -i sed -i 's/shadowsocksr-libev-ssr-redir/shadowsocksr-libev-alt/g' {}
-find package/*/ feeds/*/ -maxdepth 2 -path "*luci-app-bypass/Makefile" | xargs -i sed -i 's/shadowsocksr-libev-ssr-server/shadowsocksr-libev-server/g' {}
-find package/luci-app-bypass/*/ -maxdepth 8 -path "*" | xargs -i sed -i 's/smartdns-le/smartdns/g' {}
+#git clone https://github.com/garypang13/luci-app-bypass package/luci-app-bypass
+#find package/*/ feeds/*/ -maxdepth 2 -path "*luci-app-bypass/Makefile" | xargs -i sed -i 's/shadowsocksr-libev-ssr-redir/shadowsocksr-libev-alt/g' {}
+#find package/*/ feeds/*/ -maxdepth 2 -path "*luci-app-bypass/Makefile" | xargs -i sed -i 's/shadowsocksr-libev-ssr-server/shadowsocksr-libev-server/g' {}
+#find package/luci-app-bypass/*/ -maxdepth 8 -path "*" | xargs -i sed -i 's/smartdns-le/smartdns/g' {}
 
 #添加ddnsto
 #svn co https://github.com/linkease/ddnsto-openwrt/trunk/ddnsto package/ddnsto
@@ -92,6 +110,23 @@ git clone https://github.com/Leo-Jo-My/luci-theme-opentomcat.git package/luci-th
 git clone https://github.com/kevin-morgan/luci-theme-argon-dark.git package/luci-theme-argon-dark
 #svn co https://github.com/openwrt/luci/trunk/themes/luci-theme-openwrt-2020 package/luci-theme-openwrt-2020
 
+# fix nginx-ssl-util error (do not use fallthrough attribute)
+#rm feeds/packages/net/nginx-util/src/nginx-ssl-util.hpp
+#wget -P feeds/packages/net/nginx-util/src https://raw.githubusercontent.com/openwrt/packages/master/net/nginx-util/src/nginx-ssl-util.hpp
+
+# fdk-aac
+#svn co https://github.com/openwrt/packages/trunk/sound/fdk-aac feeds/packages/sound/fdk-aac
+
+# lvm2
+#svn co https://github.com/openwrt/packages/trunk/utils/lvm2 feeds/packages/utils/lvm2
+
+# tini
+#svn co https://github.com/openwrt/packages/trunk/utils/tini feeds/packages/utils/tini
+
+#删除docker无脑初始化教程
+#sed -i '31,39d' package/lean/luci-app-docker/po/zh-cn/docker.po
+#rm -rf lean/luci-app-docker/root/www
+
 ./scripts/feeds update -a
 ./scripts/feeds install -a
 
@@ -100,5 +135,5 @@ sed -i 's/LUCI_DEPENDS.*/LUCI_DEPENDS:=\@\(arm\|\|aarch64\)/g' package/lean/luci
 sed -i 's/services/system/g'  package/lean/luci-app-cpufreq/luasrc/controller/cpufreq.lua
 
 #replace coremark.sh with the new one
-rm package/lean/coremark/coremark.sh
-cp $GITHUB_WORKSPACE/general/coremark.sh package/lean/coremark/
+#rm feeds/packages/utils/coremark/coremark.sh
+#cp $GITHUB_WORKSPACE/general/coremark.sh feeds/packages/utils/coremark/

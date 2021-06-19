@@ -19,10 +19,13 @@ rm -rf feeds/luci/collections/luci-lib-docker
 #rm -rf package/network
 rm -rf package/libs/mbedtls
 rm -rf feeds/luci/themes/luci-theme-argon
+#rm -rf feeds/luci/themes/luci-theme-openwrt-2020
 rm -rf package/lean/autocore
 rm -rf package/lean/qBittorrent
 rm -rf package/lean/luci-app-qbittorrent
 rm -rf package/utils/coremark
+rm -rf feeds/luci/modules/luci-mod-dashboard
+rm -rf feeds/packages/net/kcptun
 
 # Important Patches
 svn co https://github.com/immortalwrt/immortalwrt/branches/openwrt-21.02/package/libs/mbedtls package/libs/mbedtls
@@ -52,6 +55,7 @@ svn co https://github.com/immortalwrt/packages/trunk/utils/coremark feeds/packag
 git clone https://github.com/jerrykuku/lua-maxminddb.git package/lua-maxminddb
 svn co https://github.com/vernesong/OpenClash/trunk/luci-app-openclash package/luci-app-openclash
 git clone https://github.com/project-lede/luci-app-godproxy package/luci-app-godproxy
+svn co https://github.com/openwrt/luci/trunk/modules/luci-mod-dashboard feeds/luci/modules/luci-mod-dashboard
 
 # 编译 po2lmo (如果有po2lmo可跳过)
 pushd package/luci-app-openclash/tools/po2lmo
@@ -75,15 +79,16 @@ svn co https://github.com/xiaorouji/openwrt-passwall/trunk/dns2socks package/dns
 svn co https://github.com/xiaorouji/openwrt-passwall/trunk/ipt2socks package/ipt2socks
 svn co https://github.com/xiaorouji/openwrt-passwall/trunk/microsocks package/microsocks 
 svn co https://github.com/xiaorouji/openwrt-passwall/trunk/pdnsd-alt package/pdnsd-alt
-svn co https://github.com/xiaorouji/openwrt-passwall/trunk/shadowsocksr-libev package/shadowsocksr-libev
+#svn co https://github.com/xiaorouji/openwrt-passwall/trunk/shadowsocksr-libev package/shadowsocksr-libev
+svn co https://github.com/fw876/helloworld/trunk/shadowsocksr-libev package/shadowsocksr-libev
 svn co https://github.com/xiaorouji/openwrt-passwall/trunk/simple-obfs package/simple-obfs
 svn co https://github.com/xiaorouji/openwrt-passwall/trunk/kcptun package/kcptun
 svn co https://github.com/xiaorouji/openwrt-passwall/trunk/trojan package/trojan
 
 #菜单定制
 svn co https://github.com/Lienol/openwrt/branches/21.02/package/network package/network
-svn co https://github.com/immortalwrt/immortalwrt/branches/openwrt-21.02/package/lean/luci-app-cpufreq package/lean/luci-app-cpufreq
-svn co https://github.com/immortalwrt/immortalwrt/branches/openwrt-21.02/package/lean/luci-app-airplay2 package/lean/luci-app-airplay2
+svn co https://github.com/immortalwrt/luci/branches/openwrt-21.02/applications/luci-app-cifs-mount package/lean/luci-app-cifs-mount
+svn co https://github.com/immortalwrt/luci/branches/openwrt-21.02/applications/luci-app-nfs package/lean/luci-app-nfs
 svn co https://github.com/Lienol/openwrt/branches/21.02/package/lean/luci-app-flowoffload package/lean/luci-app-flowoffload
 svn co https://github.com/Lienol/openwrt/branches/21.02/package/lean/luci-app-cifs-mount package/lean/luci-app-cifs-mount
 svn co https://github.com/Lienol/openwrt/branches/21.02/package/lean/luci-app-nfs package/lean/luci-app-nfs
@@ -135,12 +140,9 @@ svn co https://github.com/project-openwrt/openwrt/trunk/package/ntlf9t/luci-app-
 #git clone https://github.com/rosywrt/luci-theme-purple.git package/luci-theme-purple
 #git clone https://github.com/Leo-Jo-My/luci-theme-opentomcat.git package/luci-theme-opentomcat
 #git clone https://github.com/kevin-morgan/luci-theme-argon-dark.git package/luci-theme-argon-dark
-svn co https://github.com/openwrt/luci/trunk/themes/luci-theme-openwrt-2020 package/luci-theme-openwrt-2020
+#svn co https://github.com/openwrt/luci/trunk/themes/luci-theme-openwrt-2020 package/luci-theme-openwrt-2020
 git clone https://github.com/jerrykuku/luci-theme-argon.git  package/luci-theme-argon
 git clone https://github.com/jerrykuku/luci-app-argon-config.git package/luci-app-argon-config
-
-./scripts/feeds update -a
-./scripts/feeds install -a
 
 #readd cpufreq for aarch64
 sed -i 's/LUCI_DEPENDS.*/LUCI_DEPENDS:=\@\(arm\|\|aarch64\)/g' package/lean/luci-app-cpufreq/Makefile
@@ -191,3 +193,8 @@ CONFIG_CRYPTO_SM4_ARM64_CE=y
 rm package/default-settings/files/zzz-default-settings
 cp -f $GITHUB_WORKSPACE/general/default-settings/files/zzz-default-settings package/default-settings/files/
 
+# 修改makefile
+find package/*/ -maxdepth 2 -path "*/Makefile" | xargs -i sed -i 's/include\ \.\.\/\.\.\/luci\.mk/include \$(TOPDIR)\/feeds\/luci\/luci\.mk/g' {}
+
+./scripts/feeds update -a
+./scripts/feeds install -a
