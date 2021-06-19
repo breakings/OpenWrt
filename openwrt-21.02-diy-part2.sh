@@ -135,7 +135,9 @@ svn co https://github.com/immortalwrt/luci/branches/openwrt-21.02/applications/l
 #svn co https://github.com/Lienol/openwrt/branches/21.02/package/network/fullconenat package/network/fullconenat 
 #svn co https://github.com/coolsnowwolf/lede/trunk/package/lean/luci-app-docker package/lean/luci-app-docker
 #svn co https://github.com/coolsnowwolf/packages/trunk/utils/docker-ce package/utils/docker-ce
-svn co https://github.com/Lienol/openwrt/branches/21.02/package/diy/luci-lib-docker package/luci-lib-docker
+#svn co https://github.com/Lienol/openwrt/branches/21.02/package/diy/luci-lib-docker package/luci-lib-docker
+svn co https://github.com/lisaac/luci-lib-docker/trunk/collections/luci-lib-docker package/luci-lib-docker
+
 svn co https://github.com/immortalwrt/luci/branches/openwrt-21.02/applications/luci-app-openvpn-server package/lean/luci-app-openvpn-server
 svn co https://github.com/immortalwrt/luci/branches/openwrt-21.02/applications/luci-app-autoreboot package/lean/luci-app-autoreboot
 svn co https://github.com/immortalwrt/luci/branches/openwrt-21.02/applications/luci-app-vlmcsd package/lean/luci-app-vlmcsd
