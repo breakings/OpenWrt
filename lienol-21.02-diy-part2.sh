@@ -22,6 +22,7 @@ rm -rf feeds/luci/themes/luci-theme-argon
 #rm -rf feeds/luci/themes/luci-theme-openwrt-2020
 rm -rf package/lean/autocore
 rm -rf package/lean/qBittorrent
+rm -rf package/lean/qt5
 rm -rf package/lean/luci-app-qbittorrent
 rm -rf package/utils/coremark
 rm -rf feeds/luci/modules/luci-mod-dashboard
