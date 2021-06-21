@@ -15,6 +15,7 @@
  #rm -rf feeds/packages/sound/fdk-aac
  #rm -rf feeds/packages/utils/lvm2
  #rm -rf feeds/packages/utils/tini
+ rm -rf feeds/packages/net/kcptun
  #rm include/feeds.mk
  #wget -P include https://raw.githubusercontent.com/openwrt/openwrt/master/include/feeds.mk
  
