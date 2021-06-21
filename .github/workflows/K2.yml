@@ -23,7 +23,7 @@ env:
   REPO_URL: https://github.com/coolsnowwolf/lede
   REPO_BRANCH: master
   FEEDS_CONF: feeds.conf.default
-  CONFIG_FILE: ARMv8/k2-ssr-wolfssl.config
+  CONFIG_FILE: k2-ssr.config
   DIY_P1_SH: diy-part1.sh
   DIY_P2_SH: diy-k2.sh
   UPLOAD_BIN_DIR: true
