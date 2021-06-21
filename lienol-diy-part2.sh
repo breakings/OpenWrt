@@ -28,7 +28,7 @@ rm -rf package/lean/qBittorrent
 rm -rf package/lean/qt5
 rm -rf package/lean/luci-app-qbittorrent
 rm -rf package/utils/coremark
-rm -rf package/diy/parted
+#rm -rf package/diy/parted
 rm -rf feeds/packages/net/kcptun
 
 # Important Patches
