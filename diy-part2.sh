@@ -131,9 +131,6 @@ git clone https://github.com/kevin-morgan/luci-theme-argon-dark.git package/luci
 #sed -i '31,39d' package/lean/luci-app-docker/po/zh-cn/docker.po
 #rm -rf lean/luci-app-docker/root/www
 
-./scripts/feeds update -a
-./scripts/feeds install -a
-
 #readd cpufreq for aarch64
 sed -i 's/LUCI_DEPENDS.*/LUCI_DEPENDS:=\@\(arm\|\|aarch64\)/g' package/lean/luci-app-cpufreq/Makefile
 sed -i 's/services/system/g'  package/lean/luci-app-cpufreq/luasrc/controller/cpufreq.lua
@@ -141,3 +138,6 @@ sed -i 's/services/system/g'  package/lean/luci-app-cpufreq/luasrc/controller/cp
 #replace coremark.sh with the new one
 #rm feeds/packages/utils/coremark/coremark.sh
 #cp $GITHUB_WORKSPACE/general/coremark.sh feeds/packages/utils/coremark/
+
+./scripts/feeds update -a
+./scripts/feeds install -a
