@@ -23,6 +23,7 @@ rm -rf feeds/luci/themes/luci-theme-argon
 rm -rf package/libs/mbedtls
 rm -rf feeds/packages/net/kcptun
 #rm -rf feeds/packages/net/xray-core
+rm -rf feeds/packages/devel/ninja
 
 # Prepare
 
@@ -55,6 +56,7 @@ cp -rf $GITHUB_WORKSPACE/PATCH/duplicate/fullconenat ./package/network/fullconen
 
 #添加额外软件包
 svn co https://github.com/immortalwrt/immortalwrt/branches/openwrt-21.02/package/libs/mbedtls package/libs/mbedtls
+svn co https://github.com/coolsnowwolf/lede/trunk/tools/ninja feeds/packages/devel/ninja
 # Extra Packages
 # AutoCore
 #svn co https://github.com/immortalwrt/immortalwrt/branches/openwrt-21.02/package/emortal/autocore package/lean/autocore
