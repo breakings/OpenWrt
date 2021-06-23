@@ -16,7 +16,7 @@
  #rm -rf feeds/packages/utils/lvm2
  #rm -rf feeds/packages/utils/tini
  rm -rf feeds/packages/net/kcptun
- rm -rf package/lean/luci-app-cpufreq
+ #rm -rf package/lean/luci-app-cpufreq
  #rm include/feeds.mk
  #wget -P include https://raw.githubusercontent.com/openwrt/openwrt/master/include/feeds.mk
  
@@ -41,7 +41,7 @@ svn co https://github.com/openwrt/luci/trunk/modules/luci-mod-dashboard feeds/lu
 #svn co https://github.com/openwrt/packages/trunk/libs/libfido2 package/libfido2
 #svn co https://github.com/openwrt/packages/trunk/libs/libcbor package/libcbor
 svn co https://github.com/ophub/luci-app-amlogic/trunk/luci-app-amlogic package/luci-app-amlogic
-svn co https://github.com/breakings/OpenWrt/trunk/general/luci-app-cpufreq package/luci-app-cpufreq
+#svn co https://github.com/breakings/OpenWrt/trunk/general/luci-app-cpufreq package/luci-app-cpufreq
 
 # 编译 po2lmo (如果有po2lmo可跳过)
 pushd package/luci-app-openclash/tools/po2lmo
