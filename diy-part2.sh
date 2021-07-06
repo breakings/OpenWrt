@@ -17,10 +17,8 @@
  #rm -rf feeds/packages/utils/tini
  rm -rf feeds/packages/net/kcptun
  #rm -rf package/lean/luci-app-cpufreq
- rm package/lean/ntfs3/Makefile
  #rm include/feeds.mk
  #wget -P include https://raw.githubusercontent.com/openwrt/openwrt/master/include/feeds.mk
- wget -P package/lean/ntfs3 https://raw.githubusercontent.com/breakings/OpenWrt/main/general/ntfs3/Makefile
  
 # ARM64: Add CPU model name in proc cpuinfo
 #wget -P target/linux/generic/pending-5.4 https://github.com/immortalwrt/immortalwrt/raw/master/target/linux/generic/hack-5.4/312-arm64-cpuinfo-Add-model-name-in-proc-cpuinfo-for-64bit-ta.patch
