@@ -23,7 +23,7 @@ env:
   REPO_URL: https://github.com/openwrt/openwrt
   REPO_BRANCH: master
   FEEDS_CONF: official.feeds.conf.default
-  CONFIG_FILE: ARMv8/official-qbittorrent-gcc9.config
+  CONFIG_FILE: ARMv8/official-gcc10.config
   DIY_P1_SH: diy-part1.sh
   DIY_P2_SH: openwrt-21.02-diy-part2.sh
   UPLOAD_BIN_DIR: true
@@ -158,14 +158,14 @@ jobs:
     - name: Delete workflow runs
       uses: GitRML/delete-workflow-runs@main
       with:
-        retain_days: 360
-        keep_minimum_runs: 999
+        retain_days: 60
+        keep_minimum_runs: 60
 
     - name: Remove old Releases
       uses: dev-drprasad/delete-older-releases@v0.1.0
       if: env.UPLOAD_RELEASE == 'true' && !cancelled()
       with:
-        keep_latest: 999
+        keep_latest: 60
         delete_tags: true
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
