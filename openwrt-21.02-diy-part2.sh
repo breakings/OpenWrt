@@ -263,6 +263,9 @@ sed -i 's/发送/Transmission/g' feeds/luci/applications/luci-app-transmission/p
 # p910nd
 sed -i 's/p910nd - 打印服务器/打印服务器/g' feeds/luci/applications/luci-app-p910nd/po/zh_Hans/p910nd.po
 
+#fix NaïveProxy type error
+sed -i 's/Na茂veProxy/NaïveProxy/g' package/naiveproxy/Makefile
+
 #CIFSD
 #sed -i 's/网络共享/网络共享(CIFSD)/g' feeds/luci/applications/luci-app-ksmbd/po/zh_Hans/ksmbd.po
 
