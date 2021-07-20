@@ -164,6 +164,9 @@ sed -i 's/services/system/g'  package/lean/luci-app-cpufreq/luasrc/controller/cp
 #fix NaïveProxy type error
 sed -i 's/Na茂veProxy/NaïveProxy/g' package/naiveproxy/Makefile
 
+#fix ntfs3 generating empty package
+sed -i 's/KCONFIG:=CONFIG_NLS_DEFAULT="utf8"/#KCONFIG:=CONFIG_NLS_DEFAULT="utf8"/'g package/lean/ntfs3/Makefile
+
 #replace coremark.sh with the new one
 #rm feeds/packages/utils/coremark/coremark.sh
 #cp $GITHUB_WORKSPACE/general/coremark.sh feeds/packages/utils/coremark/
