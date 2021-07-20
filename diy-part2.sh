@@ -159,6 +159,9 @@ sed -i "s/PKG_HASH:=.*/PKG_HASH:=c189d0ce1ff7c739db9a3ace52ac3e24cb8fd6dbf234e49
 sed -i 's/LUCI_DEPENDS.*/LUCI_DEPENDS:=\@\(arm\|\|aarch64\)/g' package/lean/luci-app-cpufreq/Makefile
 sed -i 's/services/system/g'  package/lean/luci-app-cpufreq/luasrc/controller/cpufreq.lua
 
+#fix NaïveProxy type error
+sed -i 's/Na茂veProxy/NaïveProxy/g' package/naiveproxy/Makefile
+
 #replace coremark.sh with the new one
 #rm feeds/packages/utils/coremark/coremark.sh
 #cp $GITHUB_WORKSPACE/general/coremark.sh feeds/packages/utils/coremark/
