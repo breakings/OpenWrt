@@ -24,6 +24,12 @@ rm -rf package/libs/mbedtls
 rm -rf feeds/packages/net/kcptun
 #rm -rf feeds/packages/net/xray-core
 #rm -rf feeds/packages/devel/ninja
+rm -rf package/libs/elfutils
+rm -rf package/libs/libcap
+rm -rf package/libs/libnftnl
+rm -rf package/libs/libpcap
+rm -rf package/libs/nettle
+rm -rf package/libs/pcre
 
 # Prepare
 
@@ -55,10 +61,17 @@ patch -p1 < $GITHUB_WORKSPACE/PATCH/new/package/luci-app-firewall_add_fullcone.p
 cp -rf $GITHUB_WORKSPACE/PATCH/duplicate/fullconenat ./package/network/fullconenat
 
 #添加额外软件包
-svn co https://github.com/immortalwrt/immortalwrt/branches/openwrt-21.02/package/libs/mbedtls package/libs/mbedtls
+#svn co https://github.com/immortalwrt/immortalwrt/branches/openwrt-21.02/package/libs/mbedtls package/libs/mbedtls
+svn co https://github.com/coolsnowwolf/lede/trunk/package/libs/mbedtls package/libs/mbedtls
 #svn co https://github.com/coolsnowwolf/packages/trunk/devel/ninja feeds/packages/devel/ninja
 svn co https://github.com/coolsnowwolf/lede/trunk/package/lean/ntfs3-mount package/lean/ntfs3-mount
 svn co https://github.com/coolsnowwolf/lede/trunk/package/lean/ntfs3 package/lean/ntfs3
+svn co https://github.com/coolsnowwolf/lede/trunk/package/libs/elfutils package/libs/elfutils
+svn co https://github.com/coolsnowwolf/lede/trunk/package/libs/libcap package/libs/libcap
+svn co https://github.com/coolsnowwolf/lede/trunk/package/libs/libnftnl package/libs/libnftnl
+svn co https://github.com/coolsnowwolf/lede/trunk/package/libs/libpcap package/libs/libpcap
+svn co https://github.com/coolsnowwolf/lede/trunk/package/libs/nettle package/libs/nettle
+svn co https://github.com/coolsnowwolf/lede/trunk/package/libs/pcre package/libs/pcre
 
 # Extra Packages
 # AutoCore
@@ -198,6 +211,8 @@ svn co https://github.com/immortalwrt/luci/branches/openwrt-21.02/applications/l
 # Qt5 -qtbase
 sed -i "s/PKG_BUGFIX:=.*/PKG_BUGFIX:=2/" package/lean/qtbase/Makefile
 sed -i "s/PKG_HASH:=.*/PKG_HASH:=909fad2591ee367993a75d7e2ea50ad4db332f05e1c38dd7a5a274e156a4e0f8/" package/lean/qtbase/Makefile
+mkdir package/lean/qtbase/patches
+wget -P package/lean/qtbase/patches/ https://raw.githubusercontent.com/breakings/OpenWrt/main/general/001-gcc11.patch
 
 # Qt5 -qttools
 sed -i "s/PKG_BUGFIX:=.*/PKG_BUGFIX:=2/" package/lean/qttools/Makefile
