@@ -16,7 +16,7 @@
  #rm -rf feeds/packages/utils/lvm2
  #rm -rf feeds/packages/utils/tini
  rm -rf feeds/packages/net/kcptun
- rm -rf package/lean/ntfs3
+ #rm -rf package/lean/ntfs3
  #rm -rf package/lean/luci-app-cpufreq
  #rm include/feeds.mk
  #wget -P include https://raw.githubusercontent.com/openwrt/openwrt/master/include/feeds.mk
@@ -45,7 +45,7 @@ git clone https://github.com/project-lede/luci-app-godproxy package/luci-app-god
 #svn co https://github.com/openwrt/packages/trunk/libs/libcbor package/libcbor
 svn co https://github.com/ophub/luci-app-amlogic/trunk/luci-app-amlogic package/luci-app-amlogic
 #svn co https://github.com/breakings/OpenWrt/trunk/general/luci-app-cpufreq package/luci-app-cpufreq
-svn co https://github.com/breakings/OpenWrt/trunk/general/ntfs3 package/lean/ntfs3
+#svn co https://github.com/breakings/OpenWrt/trunk/general/ntfs3 package/lean/ntfs3
 svn co https://github.com/Lienol/openwrt-package/trunk/luci-app-socat package/luci-app-socat
 #svn co https://github.com/neheb/openwrt/branches/elf/package/libs/elfutils package/libs/elfutils
 #svn co https://github.com/breakings/OpenWrt/trunk/general/gnupg feeds/packages/utils/gnupg
@@ -141,6 +141,16 @@ svn co https://github.com/sirpdboy/luci-theme-opentopd/trunk package/luci-theme-
 #删除docker无脑初始化教程
 #sed -i '31,39d' package/lean/luci-app-docker/po/zh-cn/docker.po
 #rm -rf lean/luci-app-docker/root/www
+
+# samba4
+sed -i 's/PKG_VERSION:.*/PKG_VERSION:=4.14.6/' feeds/packages/net/samba4/Makefile
+sed -i 's/PKG_HASH:=.*/PKG_HASH:=86760692dd74a04705c0f6d11b31965a477265a50e79eb15838184476146f4b0/' feeds/packages/net/samba4/Makefile
+
+# 晶晨宝盒
+sed -i "s|ophub/amlogic-s9xxx-openwrt|breakings/OpenWrt|g" package/luci-app-amlogic/root/etc/config/amlogic
+sed -i "s|amlogic-s9xxx/amlogic-kernel|opt/kernel|g" package/luci-app-amlogic/root/etc/config/amlogic
+sed -i "s|s9xxx_lede|armvirt|g" package/luci-app-amlogic/root/etc/config/amlogic
+#sed -i "s|.img.gz|..OPENWRT_SUFFIX|g" package/luci-app-amlogic/root/etc/config/amlogic
 
 # Qt5 -qtbase
 #sed -i "s/PKG_BUGFIX:=.*/PKG_BUGFIX:=2/" package/lean/qtbase/Makefile
