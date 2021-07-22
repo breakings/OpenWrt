@@ -142,6 +142,10 @@ svn co https://github.com/sirpdboy/luci-theme-opentopd/trunk package/luci-theme-
 #sed -i '31,39d' package/lean/luci-app-docker/po/zh-cn/docker.po
 #rm -rf lean/luci-app-docker/root/www
 
+# samba4
+sed -i 's/PKG_VERSION:.*/PKG_VERSION:=4.14.6/' feeds/packages/net/samba4/Makefile
+sed -i 's/PKG_HASH:=.*/PKG_HASH:=86760692dd74a04705c0f6d11b31965a477265a50e79eb15838184476146f4b0/' feeds/packages/net/samba4/Makefile
+
 # Qt5 -qtbase
 #sed -i "s/PKG_BUGFIX:=.*/PKG_BUGFIX:=2/" package/lean/qtbase/Makefile
 #sed -i "s/PKG_HASH:=.*/PKG_HASH:=909fad2591ee367993a75d7e2ea50ad4db332f05e1c38dd7a5a274e156a4e0f8/" package/lean/qtbase/Makefile
