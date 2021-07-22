@@ -146,6 +146,10 @@ svn co https://github.com/Leo-Jo-My/luci-theme-opentomato/trunk package/luci-the
 #sed -i 's/PKG_VERSION:.*/PKG_VERSION:=4.14.6/' feeds/packages/net/samba4/Makefile
 #sed -i 's/PKG_HASH:=.*/PKG_HASH:=86760692dd74a04705c0f6d11b31965a477265a50e79eb15838184476146f4b0/' feeds/packages/net/samba4/Makefile
 
+#ffmpeg
+sed -i 's/PKG_VERSION:.*/PKG_VERSION:=4.4/' feeds/packages/multimedia/ffmpeg/Makefile
+sed -i 's/PKG_HASH:=.*/PKG_HASH:=06b10a183ce5371f915c6bb15b7b1fffbe046e8275099c96affc29e17645d909/' feeds/packages/multimedia/ffmpeg/Makefile
+
 # 晶晨宝盒
 sed -i "s|ophub/amlogic-s9xxx-openwrt|breakings/OpenWrt|g" package/luci-app-amlogic/root/etc/config/amlogic
 sed -i "s|amlogic-s9xxx/amlogic-kernel|opt/kernel|g" package/luci-app-amlogic/root/etc/config/amlogic
