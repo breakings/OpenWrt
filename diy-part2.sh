@@ -120,7 +120,7 @@ svn co https://github.com/rosywrt/luci-theme-rosy/trunk/luci-theme-rosy package/
 #git clone https://github.com/Leo-Jo-My/luci-theme-opentomcat.git package/luci-theme-opentomcat
 svn co https://github.com/Leo-Jo-My/luci-theme-opentomcat/trunk package/luci-theme-opentomcat
 svn co https://github.com/Leo-Jo-My/luci-theme-opentomato/trunk package/luci-theme-opentomato
-svn co https://github.com/sirpdboy/luci-theme-opentopd/trunk package/luci-theme-opentopd
+#svn co https://github.com/sirpdboy/luci-theme-opentopd/trunk package/luci-theme-opentopd
 #git clone https://github.com/kevin-morgan/luci-theme-argon-dark.git package/luci-theme-argon-dark
 #svn co https://github.com/kevin-morgan/luci-theme-argon-dark/trunk package/luci-theme-argon-dark
 #svn co https://github.com/openwrt/luci/trunk/themes/luci-theme-openwrt-2020 package/luci-theme-openwrt-2020
