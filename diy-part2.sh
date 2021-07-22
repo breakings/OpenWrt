@@ -143,8 +143,8 @@ svn co https://github.com/sirpdboy/luci-theme-opentopd/trunk package/luci-theme-
 #rm -rf lean/luci-app-docker/root/www
 
 # samba4
-sed -i 's/PKG_VERSION:.*/PKG_VERSION:=4.14.6/' feeds/packages/net/samba4/Makefile
-sed -i 's/PKG_HASH:=.*/PKG_HASH:=86760692dd74a04705c0f6d11b31965a477265a50e79eb15838184476146f4b0/' feeds/packages/net/samba4/Makefile
+#sed -i 's/PKG_VERSION:.*/PKG_VERSION:=4.14.6/' feeds/packages/net/samba4/Makefile
+#sed -i 's/PKG_HASH:=.*/PKG_HASH:=86760692dd74a04705c0f6d11b31965a477265a50e79eb15838184476146f4b0/' feeds/packages/net/samba4/Makefile
 
 # 晶晨宝盒
 sed -i "s|ophub/amlogic-s9xxx-openwrt|breakings/OpenWrt|g" package/luci-app-amlogic/root/etc/config/amlogic
