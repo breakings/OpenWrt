@@ -175,8 +175,8 @@ sed -i "s|s9xxx_lede|armvirt|g" package/luci-app-amlogic/root/etc/config/amlogic
 sed -i 's/LUCI_DEPENDS.*/LUCI_DEPENDS:=\@\(arm\|\|aarch64\)/g' package/lean/luci-app-cpufreq/Makefile
 sed -i 's/services/system/g'  package/lean/luci-app-cpufreq/luasrc/controller/cpufreq.lua
 
-#fix NaïveProxy type error
-sed -i 's/Na茂veProxy/NaïveProxy/g' package/naiveproxy/Makefile
+#fix NaïveProxy typo error
+#sed -i 's/Na茂veProxy/NaïveProxy/g' package/naiveproxy/Makefile
 
 #fix ntfs3 generating empty package
 #sed -i 's/KCONFIG:=CONFIG_NLS_DEFAULT="utf8"/#KCONFIG:=CONFIG_NLS_DEFAULT="utf8"/'g package/lean/ntfs3/Makefile
