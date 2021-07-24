@@ -171,7 +171,6 @@ svn co https://github.com/breakings/OpenWrt/trunk/general/default-settings packa
 #rm -f package/lean/default-settings/files/zzz-default-settings
 #cp -f $GITHUB_WORKSPACE/general/zzz-default-settings package/lean/default-settings/files/
 
-
 #svn co https://github.com/fw876/helloworld/trunk/xray-core package/xray-core
 #svn co https://github.com/fw876/helloworld/trunk/xray-plugin package/xray-plugin
 #svn co https://github.com/kenzok8/openwrt-packages/trunk/luci-app-gost package/luci-app-gost
@@ -219,6 +218,14 @@ svn co https://github.com/immortalwrt/luci/branches/openwrt-21.02/applications/l
 #sed -i "s/PKG_BUGFIX:=.*/PKG_BUGFIX:=2/" package/lean/qttools/Makefile
 #sed -i "s/PKG_HASH:=.*/PKG_HASH:=c189d0ce1ff7c739db9a3ace52ac3e24cb8fd6dbf234e49f075249b38f43c1cc/" package/lean/qttools/Makefile
 
+# samba4
+sed -i 's/PKG_VERSION:.*/PKG_VERSION:=4.14.6/' feeds/packages/net/samba4/Makefile
+sed -i 's/PKG_HASH:=.*/PKG_HASH:=86760692dd74a04705c0f6d11b31965a477265a50e79eb15838184476146f4b0/' feeds/packages/net/samba4/Makefile
+
+#ffmpeg
+sed -i 's/PKG_VERSION:.*/PKG_VERSION:=4.4/' feeds/packages/multimedia/ffmpeg/Makefile
+sed -i 's/PKG_HASH:=.*/PKG_HASH:=06b10a183ce5371f915c6bb15b7b1fffbe046e8275099c96affc29e17645d909/' feeds/packages/multimedia/ffmpeg/Makefile
+
 #fix speedtest-cli
 sed -i "s/PKG_VERSION:=.*/PKG_VERSION:=2.1.3/" feeds/packages/lang/python/python3-speedtest-cli/Makefile
 sed -i "s/PKG_RELEASE:=.*/PKG_RELEASE:=1/" feeds/packages/lang/python/python3-speedtest-cli/Makefile
@@ -265,7 +272,7 @@ sed -i 's/发送/Transmission/g' feeds/luci/applications/luci-app-transmission/p
 sed -i 's/p910nd - 打印服务器/打印服务器/g' feeds/luci/applications/luci-app-p910nd/po/zh_Hans/p910nd.po
 
 #fix NaïveProxy typo error
-sed -i 's/Na茂veProxy/NaïveProxy/g' package/naiveproxy/Makefile
+#sed -i 's/Na茂veProxy/NaïveProxy/g' package/naiveproxy/Makefile
 
 #CIFSD
 #sed -i 's/网络共享/网络共享(CIFSD)/g' feeds/luci/applications/luci-app-ksmbd/po/zh_Hans/ksmbd.po
