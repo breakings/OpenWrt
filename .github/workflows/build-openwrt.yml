@@ -30,7 +30,7 @@ env:
   UPLOAD_FIRMWARE: true
   UPLOAD_RELEASE: true
   TZ: Asia/Shanghai
-  FILE_NAME: ARMv8_ROOFS
+  FILE_NAME: ARMv8_ROOTFS
   PRODUCT_NAME: ARMv8
 
 jobs:
