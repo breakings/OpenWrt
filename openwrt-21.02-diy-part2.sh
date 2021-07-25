@@ -24,7 +24,7 @@ rm -rf package/libs/mbedtls
 rm -rf feeds/packages/net/kcptun
 rm -rf feeds/packages/net/xray-core
 #rm -rf feeds/packages/devel/ninja
-rm -rf package/libs/elfutils
+#rm -rf package/libs/elfutils
 rm -rf package/libs/libcap
 rm -rf package/libs/libnftnl
 rm -rf package/libs/libpcap
@@ -67,7 +67,7 @@ svn co https://github.com/coolsnowwolf/lede/trunk/package/libs/mbedtls package/l
 svn co https://github.com/coolsnowwolf/lede/trunk/package/lean/ntfs3-mount package/lean/ntfs3-mount
 svn co https://github.com/coolsnowwolf/lede/trunk/package/lean/ntfs3 package/lean/ntfs3
 #svn co https://github.com/breakings/OpenWrt/trunk/general/ntfs3 package/lean/ntfs3
-svn co https://github.com/coolsnowwolf/lede/trunk/package/libs/elfutils package/libs/elfutils
+#svn co https://github.com/coolsnowwolf/lede/trunk/package/libs/elfutils package/libs/elfutils
 svn co https://github.com/coolsnowwolf/lede/trunk/package/libs/libcap package/libs/libcap
 svn co https://github.com/coolsnowwolf/lede/trunk/package/libs/libnftnl package/libs/libnftnl
 svn co https://github.com/coolsnowwolf/lede/trunk/package/libs/libpcap package/libs/libpcap
