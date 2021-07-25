@@ -129,6 +129,9 @@ jobs:
       id: organize
       if: env.UPLOAD_FIRMWARE == 'true' && !cancelled()
       run: |
+        cd $GITHUB_WORKSPACE/openwrt/bin/packages
+        tar -zcvf Packages.tar.gz ./*
+        cp Packages.tar.gz $GITHUB_WORKSPACE/openwrt/bin/targets/*/*
         cd openwrt/bin/targets/*/*
         rm -rf packages
         echo "FIRMWARE=$PWD" >> $GITHUB_ENV
@@ -167,7 +170,7 @@ jobs:
       if: env.UPLOAD_RELEASE == 'true' && !cancelled()
       with:
         repo:
-        keep_latest: 60
+        keep_latest: 30
         delete_tag_pattern:
         delete_tags: true
       env:
