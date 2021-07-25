@@ -20,9 +20,10 @@ on:
 env:
   UPLOAD_FIRMWARE: false
   UPLOAD_RELEASE: true
-  UPLOAD_WETRANSFER: false
   RECENT_LASTEST: 30
   TZ: Asia/Shanghai
+  FILE_NAME: ARMv8
+  PRODUCT_NAME: ARMv8
 
 jobs:
   build:
@@ -67,13 +68,6 @@ jobs:
       if: env.PACKAGED_STATUS == 'success' && env.UPLOAD_FIRMWARE == 'true' && !cancelled()
       with:
         path: ${{ env.PACKAGED_OUTPUTPATH }}/
-
-    - name: Upload OpenWrt Firmware to WeTransfer
-      if: env.PACKAGED_STATUS == 'success' && env.UPLOAD_RELEASE == 'true' && !cancelled()
-      run: |
-        curl -fsSL git.io/file-transfer | sh
-        ./transfer wet -s -p 16 --no-progress ${{ env.PACKAGED_OUTPUTPATH }}/{openwrt_s9xxx_*,openwrt_n1_*} 2>&1 | tee wetransfer.log
-        echo "WET_URL=$(cat wetransfer.log | grep https | cut -f3 -d" ")" >> $GITHUB_ENV
 
     - name: Upload OpenWrt Firmware to Release
       uses: softprops/action-gh-release@v1
