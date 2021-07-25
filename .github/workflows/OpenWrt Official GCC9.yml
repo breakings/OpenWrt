@@ -30,7 +30,7 @@ env:
   UPLOAD_FIRMWARE: true
   UPLOAD_RELEASE: true
   TZ: Asia/Shanghai
-  FILE_NAME: ARMv8
+  FILE_NAME: OpenWrt_Master
   PRODUCT_NAME: ARMv8
 
 jobs:
@@ -142,7 +142,7 @@ jobs:
       id: release
       uses: ncipollo/release-action@v1
       with:
-        name: R${{ env.DATE }} for ${{ env.PRODUCT_NAME }}
+        name: R${{ env.DATE }}
         allowUpdates: true
         tag: ${{ env.FILE_NAME }}
         commit: main
