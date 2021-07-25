@@ -176,13 +176,9 @@ jobs:
         token: ${{ secrets.RELEASES_TOKEN }}
         artifacts: ${{ env.PACKAGED_OUTPUTPATH }}/*
         body: |
-          This is OpenWrt firmware for ARMv8
-          * Firmware information
-          Default IP: 192.168.1.1
-          Default username: root
-          Default password: password
-          Default WIFI name: OpenWrt
-          Default WIFI password: password
+          默认IP： 192.168.1.1 默认密码： password
+          当前使用版本:【编译前的最后一次[➦主源码](https://github.com/coolsnowwolf/lede)更新记录】
+          ${{ env.useVersionInfo }}
           
     - name: Delete workflow runs
       uses: GitRML/delete-workflow-runs@main
@@ -208,4 +204,5 @@ jobs:
         token: ${{ secrets.TELEGRAM_TOKEN }}
         message: |
           打包时间：${{ env.DATE }}
+          更新信息：${{ env.useVersionInfo }}
           ${{ env.PRODUCT_NAME }}打包完成
