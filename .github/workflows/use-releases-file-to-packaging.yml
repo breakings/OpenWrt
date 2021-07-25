@@ -83,9 +83,14 @@ jobs:
         token: ${{ secrets.RELEASES_TOKEN }}
         artifacts: ${{ env.PACKAGED_OUTPUTPATH }}/*
         body: |
+          默认IP：192.168.1.1 默认密码：password
+          当前使用版本:【编译前的最后一次➦主源码更新记录】
+          Author: coolsnowwolf
+          date: 2021-07-25
+          commit: quantenna: use /etc/config/wireless to config
+          commit hash: 6667e63585bf1b2ba042d4069926c78ae8bfc6e5
           因变动较大，从60或以下版本升级到61或更高版本建议全新刷入或者不保留配置进行升级。
-          默认IP：192.168.1.1 默认密码： password
-          
+              
     - name: Delete workflow runs
       uses: GitRML/delete-workflow-runs@main
       with:
@@ -97,7 +102,7 @@ jobs:
       if: env.UPLOAD_RELEASE == 'true' && !cancelled()
       with:
         repo:
-        keep_latest: 20
+        keep_latest: 30
         delete_tag_pattern:
         delete_tags: true
       env:
