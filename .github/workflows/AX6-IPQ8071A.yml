@@ -21,7 +21,6 @@ env:
   CONFIG_FILE: ARMv8/AX6.config
   DIY_P1_SH: diy-part1.sh
   DIY_P2_SH: diy-part2.sh
-  #MRG_ADD_SH: AX6/AX6.sh
   #SSH_ACTIONS: false
   UPLOAD_BIN_DIR: false
   UPLOAD_FIRMWARE: false
@@ -86,7 +85,6 @@ jobs:
         [ -e files ] && mv files openwrt/files
         [ -e $CONFIG_FILE ] && mv $CONFIG_FILE openwrt/.config
         chmod +x $DIY_P2_SH
-#       chmod +x $MRG_ADD_SH
         cd openwrt
         $GITHUB_WORKSPACE/$DIY_P2_SH
 #        $GITHUB_WORKSPACE/$MRG_ADD_SH
