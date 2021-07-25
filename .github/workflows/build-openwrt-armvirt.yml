@@ -32,7 +32,7 @@ env:
   RECENT_LASTEST: 30
   TZ: Asia/Shanghai
   FILE_NAME: ARMv8
-  PRODUCT_NAME: armvirt
+  PRODUCT_NAME: openwrt_armvirt
 
 jobs:
   build:
