@@ -32,7 +32,7 @@ env:
   RECENT_LASTEST: 30
   TZ: Asia/Shanghai
   FILE_NAME: ARMv8
-  PRODUCT_NAME: ARMv8
+  PRODUCT_NAME: armvirt
 
 jobs:
   build:
@@ -134,6 +134,9 @@ jobs:
       id: organize
       if: steps.compile.outputs.status == 'success' && env.UPLOAD_ARMVIRT == 'true' && !cancelled()
       run: |
+        cd $GITHUB_WORKSPACE/openwrt/bin/packages
+        tar -zcvf Packages.tar.gz ./*
+        cp Packages.tar.gz $GITHUB_WORKSPACE/openwrt/bin/targets/*/*
         cd openwrt/bin/targets/*/*
         rm -rf packages
         echo "TMPFILEPATH=$PWD" >> $GITHUB_ENV
@@ -191,7 +194,7 @@ jobs:
       if: env.UPLOAD_RELEASE == 'true' && !cancelled()
       with:
         repo:
-        keep_latest: 60
+        keep_latest: 30
         delete_tag_pattern:
         delete_tags: true
       env:
