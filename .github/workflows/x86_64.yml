@@ -27,7 +27,7 @@ env:
   DIY_P1_SH: diy-part1.sh
   DIY_P2_SH: diy-part2.sh
   UPLOAD_BIN_DIR: false
-  UPLOAD_FIRMWARE: true
+  UPLOAD_FIRMWARE: false
   UPLOAD_RELEASE: true
   TZ: Asia/Shanghai
   FILE_NAME: x86_64
@@ -129,6 +129,9 @@ jobs:
       id: organize
       if: env.UPLOAD_FIRMWARE == 'true' && !cancelled()
       run: |
+        cd $GITHUB_WORKSPACE
+        tar -zcvf Packages.tar.gz openwrt/bin/packages
+        cp Packages.tar.gz openwrt/bin/targets/*/*
         cd openwrt/bin/targets/*/*
         rm -rf packages
         echo "FIRMWARE=$PWD" >> $GITHUB_ENV
@@ -151,7 +154,7 @@ jobs:
         commit: main
         token: ${{ secrets.RELEASES_TOKEN }}
         body: |
-          默认IP： 192.168.1.1 默认密码： password
+          默认IP：192.168.1.1 默认密码：password
           当前使用版本:【编译前的最后一次[➦主源码](https://github.com/coolsnowwolf/lede)更新记录】
           ${{ env.useVersionInfo }}
         artifacts: ${{ env.FIRMWARE }}/*
@@ -166,7 +169,7 @@ jobs:
       uses: dev-drprasad/delete-older-releases@v0.2.0
       if: env.UPLOAD_RELEASE == 'true' && !cancelled()
       with:
-        keep_latest: 60
+        keep_latest: 30
         delete_tags: true
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -178,5 +181,5 @@ jobs:
         token: ${{ secrets.TELEGRAM_TOKEN }}
         message: |
           编译时间：${{ env.DATE }}
-          lede更新信息：${{ env.useVersionInfo }}
-          ${{ env.PRODUCT_NAME }}编译完成
+          更新信息：${{ env.useVersionInfo }}
+          ${{ env.PRODUCT_NAME }} 编译完成
