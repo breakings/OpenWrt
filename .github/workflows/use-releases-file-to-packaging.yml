@@ -45,16 +45,19 @@ jobs:
         sudo -E apt-get -qq clean
         sudo timedatectl set-timezone "$TZ"
         echo "COMPILE_STARTINGTIME=$(date +"%Y.%m.%d.%H%M")" >> $GITHUB_ENV
+        echo "DATE=$(date "+%Y-%m-%d %H:%M:%S")" >> $GITHUB_ENV
+        echo "DATE1=$(date "+%Y-%m-%d")" >> $GITHUB_ENV
 
     - name: Package Armvirt as OpenWrt
       if: (!cancelled())
       uses: ophub/flippy-openwrt-actions@main
       env:
-        OPENWRT_ARMVIRT: https://github.com/breakings/OpenWrt/releases/download/2021.07.22-0028/openwrt-armvirt-64-default-rootfs.tar.gz
-        PACKAGE_SOC: s905d_s905x3_vplus
+        OPENWRT_ARMVIRT: https://github.com/breakings/OpenWrt/releases/download/ARMv8/openwrt-armvirt-64-default-rootfs.tar.gz
+        PACKAGE_SOC: beikeyun_l1pro_s905d_s905x3_s912_s922x_vplus
         WHOAMI: jack@archlinux
         KERNEL_REPO_URL: https://github.com/breakings/OpenWrt/trunk/opt/kernel
-        KERNEL_VERSION_NAME: 5.4.134_5.13.4
+        KERNEL_VERSION_NAME: 5.4.135_5.10.53_5.13.5
+        OPENWRT_VER: R21.7.26
         
     - name: SSH connection to Actions @ Ctrl+C to enter, Ctrl+D to exit
       uses: P3TERX/ssh2actions@main
@@ -70,18 +73,47 @@ jobs:
         path: ${{ env.PACKAGED_OUTPUTPATH }}/
 
     - name: Upload OpenWrt Firmware to Release
-      uses: softprops/action-gh-release@v1
+      id: release
+      uses: ncipollo/release-action@v1
       if: env.PACKAGED_STATUS == 'success' && env.UPLOAD_RELEASE == 'true' && !cancelled()
+      with:
+        name: R${{ env.DATE }} for ${{ env.FILE_NAME }}
+        allowUpdates: true
+        tag: ${{ env.FILE_NAME }}
+        commit: main
+        token: ${{ secrets.RELEASES_TOKEN }}
+        artifacts: ${{ env.PACKAGED_OUTPUTPATH }}/*
+        body: |
+          默认IP：192.168.1.1 默认密码：password
+          当前使用版本:【编译前的最后一次➦主源码更新记录】
+          Author: coolsnowwolf
+          date: 2021-07-25
+          commit: quantenna: use /etc/config/wireless to config
+          commit hash: 6667e63585bf1b2ba042d4069926c78ae8bfc6e5
+          因变动较大，从60或以下版本升级到61或更高版本建议全新刷入或者不保留配置进行升级。
+              
+    - name: Delete workflow runs
+      uses: GitRML/delete-workflow-runs@main
+      with:
+        retain_days: 60
+        keep_minimum_runs: 60
+
+    - name: Remove old Releases
+      uses: dev-drprasad/delete-older-releases@v0.2.0
+      if: env.UPLOAD_RELEASE == 'true' && !cancelled()
+      with:
+        repo:
+        keep_latest: 30
+        delete_tag_pattern:
+        delete_tags: true
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+    
+    - name: Telegram notification
+      uses: appleboy/telegram-action@master
       with:
-        tag_name: openwrt_armvirt_${{ env.PACKAGED_OUTPUTDATE }}
-        files: ${{ env.PACKAGED_OUTPUTPATH }}/*
-        body: |
-          This is OpenWrt firmware for ARMv8
-          * Firmware information
-          Default IP: 192.168.1.1
-          Default username: root
-          Default password: password
-          Default WIFI name: OpenWrt
-          Default WIFI password: password
+        to: ${{ secrets.TELEGRAM_TO }}
+        token: ${{ secrets.TELEGRAM_TOKEN }}
+        message: |
+          打包时间：${{ env.DATE }}
+          ${{ env.PRODUCT_NAME }} 打包完成
