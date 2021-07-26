@@ -30,6 +30,7 @@ rm -rf package/libs/libnftnl
 rm -rf package/libs/libpcap
 rm -rf package/libs/nettle
 rm -rf package/libs/pcre
+rm -f tools/Makefile
 
 # Prepare
 
@@ -73,6 +74,9 @@ svn co https://github.com/coolsnowwolf/lede/trunk/package/libs/libnftnl package/
 svn co https://github.com/coolsnowwolf/lede/trunk/package/libs/libpcap package/libs/libpcap
 svn co https://github.com/coolsnowwolf/lede/trunk/package/libs/nettle package/libs/nettle
 svn co https://github.com/coolsnowwolf/lede/trunk/package/libs/pcre package/libs/pcre
+svn co https://github.com/coolsnowwolf/lede/trunk/tools/upx tools/upx
+svn co https://github.com/coolsnowwolf/lede/trunk/tools/ucl tools/ucl
+wget -P tools https://raw.githubusercontent.com/coolsnowwolf/lede/master/tools/Makefile
 
 # Extra Packages
 # AutoCore
