@@ -153,7 +153,7 @@ svn co https://github.com/Leo-Jo-My/luci-theme-opentomato/trunk package/luci-the
 # 晶晨宝盒
 sed -i "s|ophub/amlogic-s9xxx-openwrt|breakings/OpenWrt|g" package/luci-app-amlogic/root/etc/config/amlogic
 sed -i "s|amlogic-s9xxx/amlogic-kernel|opt/kernel|g" package/luci-app-amlogic/root/etc/config/amlogic
-sed -i "s|s9xxx_lede|armvirt|g" package/luci-app-amlogic/root/etc/config/amlogic
+sed -i "s|s9xxx_lede|ARMv8|g" package/luci-app-amlogic/root/etc/config/amlogic
 #sed -i "s|.img.gz|..OPENWRT_SUFFIX|g" package/luci-app-amlogic/root/etc/config/amlogic
 
 # Qt5 -qtbase
