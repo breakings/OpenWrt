@@ -16,8 +16,8 @@
 #移除不用软件包    
 rm -rf feeds/packages/libs/libgd-full
 rm -rf feeds/luci/collections/luci-lib-docker
-rm -rf feeds/luci/applications/luci-app-frpc
-rm -rf feeds/luci/applications/luci-app-frps
+#rm -rf feeds/luci/applications/luci-app-frpc
+#rm -rf feeds/luci/applications/luci-app-frps
 rm -rf feeds/packages/libs/libtorrent-rasterbar
 rm -rf feeds/luci/applications/luci-app-dockerman
 #rm -rf package/network
@@ -30,6 +30,7 @@ rm -rf package/lean/luci-app-qbittorrent
 rm -rf package/utils/coremark
 #rm -rf package/diy/parted
 rm -rf feeds/packages/net/kcptun
+rm -rf feeds/packages/net/xray-core
 
 # Important Patches
 svn co https://github.com/immortalwrt/immortalwrt/branches/openwrt-21.02/package/libs/mbedtls package/libs/mbedtls
@@ -65,6 +66,8 @@ svn co https://github.com/project-lede/luci-app-godproxy/trunk package/luci-app-
 svn co https://github.com/coolsnowwolf/lede/trunk/package/lean/qtbase package/lean/qtbase
 svn co https://github.com/coolsnowwolf/lede/trunk/package/lean/qttools package/lean/qttools
 svn co https://github.com/coolsnowwolf/lede/trunk/package/lean/luci-app-airplay2 package/lean/luci-app-airplay2
+svn co https://github.com/coolsnowwolf/lede/trunk/package/lean/ntfs3-mount package/lean/ntfs3-mount
+svn co https://github.com/coolsnowwolf/lede/trunk/package/lean/ntfs3 package/lean/ntfs3
 
 # 编译 po2lmo (如果有po2lmo可跳过)
 pushd package/luci-app-openclash/tools/po2lmo
@@ -80,7 +83,7 @@ svn co https://github.com/xiaorouji/openwrt-passwall/trunk/trojan-plus package/t
 #svn co https://github.com/project-openwrt/openwrt/trunk/package/lienol/luci-app-fileassistant package/luci-app-fileassistant
 svn co https://github.com/xiaorouji/openwrt-passwall/trunk/luci-app-passwall package/luci-app-passwall
 svn co https://github.com/xiaorouji/openwrt-passwall/trunk/shadowsocks-rust package/shadowsocks-rust
-#svn co https://github.com/xiaorouji/openwrt-passwall/trunk/xray-core package/xray-core
+svn co https://github.com/xiaorouji/openwrt-passwall/trunk/xray-core package/xray-core
 svn co https://github.com/xiaorouji/openwrt-passwall/trunk/xray-plugin package/xray-plugin
 svn co https://github.com/xiaorouji/openwrt-passwall/trunk/v2ray-plugin package/v2ray-plugin
 svn co https://github.com/xiaorouji/openwrt-passwall/trunk/ssocks package/ssocks
