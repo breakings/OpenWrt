@@ -31,6 +31,7 @@ rm -rf package/utils/coremark
 #rm -rf package/diy/parted
 rm -rf feeds/packages/net/kcptun
 rm -rf feeds/packages/net/xray-core
+rm -rf package/libs/elfutils
 
 # Important Patches
 svn co https://github.com/immortalwrt/immortalwrt/branches/openwrt-21.02/package/libs/mbedtls package/libs/mbedtls
@@ -68,6 +69,7 @@ svn co https://github.com/coolsnowwolf/lede/trunk/package/lean/qttools package/l
 svn co https://github.com/coolsnowwolf/lede/trunk/package/lean/luci-app-airplay2 package/lean/luci-app-airplay2
 svn co https://github.com/coolsnowwolf/lede/trunk/package/lean/ntfs3-mount package/lean/ntfs3-mount
 svn co https://github.com/coolsnowwolf/lede/trunk/package/lean/ntfs3 package/lean/ntfs3
+svn co https://github.com/neheb/openwrt/branches/elf/package/libs/elfutils package/libs/elfutils
 
 # 编译 po2lmo (如果有po2lmo可跳过)
 pushd package/luci-app-openclash/tools/po2lmo
