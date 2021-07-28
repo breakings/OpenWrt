@@ -31,7 +31,7 @@ env:
   UPLOAD_RELEASE: true
   RECENT_LASTEST: 30
   TZ: Asia/Shanghai
-  FILE_NAME: ARMv8
+  FILE_NAME: openwrt_armvirt
   PRODUCT_NAME: openwrt_armvirt
 
 jobs:
@@ -182,7 +182,7 @@ jobs:
           默认IP： 192.168.1.1 默认密码： password
           当前使用版本:【编译前的最后一次[➦主源码](https://github.com/coolsnowwolf/lede)更新记录】
           ${{ env.useVersionInfo }}
-          
+
     - name: Delete workflow runs
       uses: GitRML/delete-workflow-runs@main
       with:
@@ -199,7 +199,7 @@ jobs:
         delete_tags: true
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-    
+
     - name: Telegram notification
       uses: appleboy/telegram-action@master
       with:
