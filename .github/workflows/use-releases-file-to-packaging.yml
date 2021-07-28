@@ -56,7 +56,7 @@ jobs:
         PACKAGE_SOC: beikeyun_l1pro_s905d_s905x3_s912_s922x_vplus
         WHOAMI: jack@archlinux
         KERNEL_REPO_URL: https://github.com/breakings/OpenWrt/trunk/opt/kernel
-        KERNEL_VERSION_NAME: 5.4.135_5.10.53_5.13.5
+        KERNEL_VERSION_NAME: 5.4.136_5.10.54_5.13.6
         OPENWRT_VER: R21.7.26
 
     - name: SSH connection to Actions @ Ctrl+C to enter, Ctrl+D to exit
