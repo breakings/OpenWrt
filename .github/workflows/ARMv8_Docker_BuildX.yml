@@ -11,8 +11,8 @@ on:
       - 'opt/docker/buildImageX.sh'
   #schedule:
     #- cron: 30 23 * * *
-  #watch:
-    #types: started
+  watch:
+    types: started
 
 env:
   REPO_URL: https://github.com/coolsnowwolf/lede
