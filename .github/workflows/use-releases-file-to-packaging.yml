@@ -58,8 +58,6 @@ jobs:
         KERNEL_REPO_URL: https://github.com/breakings/OpenWrt/trunk/opt/kernel
         KERNEL_VERSION_NAME: 5.4.136_5.10.54_5.13.6
         OPENWRT_VER: R21.7.26
-        ENABLE_WIFI_K504：0
-        ENABLE_WIFI_K510：0
 
     - name: SSH connection to Actions @ Ctrl+C to enter, Ctrl+D to exit
       uses: P3TERX/ssh2actions@main
