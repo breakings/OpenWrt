@@ -80,7 +80,7 @@ jobs:
     - name: Build and push docker image
       id: push
       run: |
-        sudo wget https://github.com/breakings/OpenWrt/releases/download/2021.07.30-2143/openwrt-armvirt-64-default-rootfs.tar.gz
+        sudo wget https://github.com/breakings/OpenWrt/releases/download/ARMv8Docker/openwrt-armvirt-64-default-rootfs.tar.gz
         cp ./openwrt-armvirt-64-default-rootfs.tar.gz $GITHUB_WORKSPACE/opt/docker/openwrt-armvirt-64-default-rootfs.tar.gz
         cd $GITHUB_WORKSPACE/opt/docker
         chmod +x $DOCKER_BUILD_SH
