@@ -1,0 +1,103 @@
+name: ARMv8_Docker_BuildX
+
+on:
+  repository_dispatch:
+#  release:
+#    types: published
+  push:
+    branches:
+      - main
+    paths:
+      - 'opt/docker/buildImageX.sh'
+  #schedule:
+    #- cron: 30 23 * * *
+  #watch:
+    #types: started
+
+env:
+  REPO_URL: https://github.com/coolsnowwolf/lede
+  REPO_BRANCH: master
+  FEEDS_CONF: feeds.conf.default
+  CONFIG_FILE: ARMv8/lede-docker.config
+  DIY_P1_SH: diy-part1.sh
+  DIY_P2_SH: diy-part2.sh
+  DOCKER_BUILD_SH: buildImageX.sh
+  TZ: Asia/Shanghai
+  FILE_NAME: ARMv8Docker
+  PRODUCT_NAME: ARMv8_Docker
+jobs:
+  build:
+    runs-on: ubuntu-20.04
+    if: github.event.repository.owner.id == github.event.sender.id
+
+    steps:
+    #- name: WeChat notification
+    #  run: curl https://sc.ftqq.com/${{ secrets.ServerChan }}.send?text=${{ env.FILE_NAME }}开始编译
+      
+    - name: Checkout
+      uses: actions/checkout@master
+
+    - name: Initialization environment
+      env:
+        DEBIAN_FRONTEND: noninteractive
+      run: |
+        sudo rm -rf /etc/apt/sources.list.d/* /usr/share/dotnet /usr/local/lib/android /opt/ghc
+        sudo -E apt-get -qq update
+        sudo -E apt-get -qq install $(curl -fsSL git.io/depends-ubuntu-2004)
+        sudo -E apt-get -qq install time
+        sudo -E apt-get -qq autoremove --purge
+        sudo -E apt-get -qq clean
+        sudo timedatectl set-timezone "$TZ"
+        sudo mkdir -p /workdir
+        sudo chown $USER:$GROUPS /workdir
+
+    - name: CheckEnv
+      working-directory: /workdir
+      run: |
+        echo "docker buildx version"
+        docker buildx version
+        echo "ls -l /proc/sys/fs/binfmt_misc"
+        ls -l /proc/sys/fs/binfmt_misc
+        echo "docker run --privileged --rm tonistiigi/binfmt --install all"
+        docker run --privileged --rm tonistiigi/binfmt --install all
+        echo "ls -l /proc/sys/fs/binfmt_misc"
+        ls -l /proc/sys/fs/binfmt_misc
+        echo "docker buildx ls"
+        docker buildx ls
+
+    - name: Clone source code
+      working-directory: /workdir
+      run: |
+        df -hT $PWD
+        git clone --depth 1 $REPO_URL -b $REPO_BRANCH openwrt
+        ln -sf /workdir/openwrt $GITHUB_WORKSPACE/openwrt
+        cd openwrt
+        useVersionInfo=$(git show -s --date=short --format="Author: %an<br/>date: %cd<br/>commit: %s<br/>commit hash: %H")
+        echo "useVersionInfo=$useVersionInfo" >> $GITHUB_ENV
+        echo "DATE=$(date "+%Y-%m-%d %H:%M:%S")" >> $GITHUB_ENV
+        echo "DATE1=$(date "+%Y-%m-%d")" >> $GITHUB_ENV
+
+    - name: Build and push docker image
+      id: push
+      run: |
+        sudo wget https://github.com/breakings/OpenWrt/releases/download/2021.07.30-2143/openwrt-armvirt-64-default-rootfs.tar.gz
+        cp ./openwrt-armvirt-64-default-rootfs.tar.gz $GITHUB_WORKSPACE/docker/openwrt-armvirt-64-default-rootfs.tar.gz
+        cd $GITHUB_WORKSPACE/opt/docker
+        chmod +x $DOCKER_BUILD_SH
+        ./$DOCKER_BUILD_SH
+        gzip -dc dockerimgs/docker/*.gz | docker load
+        docker login --username=${{ secrets.DOCKER_USERNAME }} --password=${{ secrets.DOCKER_PASSWORD }}
+        docker tag baltimore/openwrt-aarch64 baltimore/openwrt-aarch64:R${{ env.DATE_YMD }}
+        docker push baltimore/openwrt-aarch64
+        echo "::set-output name=status::success"
+
+    - name: Telegram notification
+      uses: appleboy/telegram-action@master
+      if: steps.push.outputs.status == 'success' && !cancelled()
+      with:
+        to: ${{ secrets.TELEGRAM_TO }}
+        token: ${{ secrets.TELEGRAM_TOKEN }}
+        message: |
+          编译时间：${{ env.DATE }}
+          更新信息：${{ env.useVersionInfo }}
+          ${{ env.FILE_NAME }} 镜像打包成功
