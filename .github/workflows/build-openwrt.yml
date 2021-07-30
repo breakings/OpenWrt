@@ -18,6 +18,8 @@ on:
         description: 'SSH connection to Actions'
         required: false
         default: 'false'
+  schedule:
+   - cron: '30 16 * * *'
 
 env:
   REPO_URL: https://github.com/coolsnowwolf/lede
@@ -31,7 +33,7 @@ env:
   UPLOAD_RELEASE: true
   TZ: Asia/Shanghai
   FILE_NAME: ARMv8_ROOTFS
-  PRODUCT_NAME: ARMv8
+  PRODUCT_NAME: ARMv8_ROOTFS
 
 jobs:
   build:

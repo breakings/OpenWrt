@@ -9,8 +9,8 @@ on:
       - main
     paths:
       - 'opt/docker/buildImageX.sh'
-  #schedule:
-    #- cron: 30 23 * * *
+  schedule:
+    - cron: 30 23 * * *
   watch:
     types: started
 
