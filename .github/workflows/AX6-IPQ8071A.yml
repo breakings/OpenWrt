@@ -181,5 +181,5 @@ jobs:
         token: ${{ secrets.TELEGRAM_TOKEN }}
         message: |
           编译时间：${{ env.DATE }}
-          lede更新信息：${{ env.useVersionInfo }}
-          ${{ env.PRODUCT_NAME }}编译完成
+          更新信息：${{ env.useVersionInfo }}
+          ${{ env.PRODUCT_NAME }} 编译完成
