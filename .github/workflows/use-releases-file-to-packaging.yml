@@ -18,6 +18,12 @@ on:
     #- cron: '0 22 * * *'
 
 env:
+  REPO_URL: https://github.com/coolsnowwolf/lede
+  REPO_BRANCH: master
+  FEEDS_CONF: feeds.conf.default
+  CONFIG_FILE: ARMv8/lede-gcc11.config
+  DIY_P1_SH: diy-part1.sh
+  DIY_P2_SH: diy-part2.sh
   UPLOAD_FIRMWARE: false
   UPLOAD_RELEASE: true
   RECENT_LASTEST: 30
@@ -45,6 +51,18 @@ jobs:
         sudo -E apt-get -qq clean
         sudo timedatectl set-timezone "$TZ"
         echo "COMPILE_STARTINGTIME=$(date +"%Y.%m.%d.%H%M")" >> $GITHUB_ENV
+        echo "DATE=$(date "+%Y-%m-%d %H:%M:%S")" >> $GITHUB_ENV
+        echo "DATE1=$(date "+%Y-%m-%d")" >> $GITHUB_ENV
+        
+    - name: Clone source code
+      working-directory: /workdir
+      run: |
+        df -hT $PWD
+        git clone --depth 1 $REPO_URL -b $REPO_BRANCH openwrt
+        ln -sf /workdir/openwrt $GITHUB_WORKSPACE/openwrt
+        cd openwrt
+        useVersionInfo=$(git show -s --date=short --format="Author: %an<br/>date: %cd<br/>commit: %s<br/>commit hash: %H")
+        echo "useVersionInfo=$useVersionInfo" >> $GITHUB_ENV
         echo "DATE=$(date "+%Y-%m-%d %H:%M:%S")" >> $GITHUB_ENV
         echo "DATE1=$(date "+%Y-%m-%d")" >> $GITHUB_ENV
 
@@ -89,11 +107,8 @@ jobs:
         body: |
           默认IP：192.168.1.1 默认密码：password
           当前使用版本:【编译前的最后一次➦[主源码](https://github.com/coolsnowwolf/lede)更新记录】
-          Author: Beginner
-          date: 2021-07-28
-          commit: hostapd: add missing chunk for the snoop interface fix (#7551)
-          commit hash: b72f6d6fa1d54ba10c3f43d95702427f2433f876
           因变动较大，从60或以下版本升级到61或更高版本建议全新刷入或者不保留配置进行升级。
+          ${{ env.useVersionInfo }}
 
     - name: Delete workflow runs
       uses: GitRML/delete-workflow-runs@main
