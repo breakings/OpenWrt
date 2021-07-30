@@ -161,8 +161,8 @@ jobs:
         KERNEL_REPO_URL: https://github.com/breakings/OpenWrt/trunk/opt/kernel
         KERNEL_VERSION_NAME: 5.4.136_5.13.6
         OPENWRT_VER: R21.7.26
-        ENABLE_WIFI_K504=0
-        ENABLE_WIFI_K510=0
+        ENABLE_WIFI_K504:0
+        ENABLE_WIFI_K510:0
 
     - name: Upload artifact to Actions
       uses: kittaakos/upload-artifact-as-is@master
