@@ -31,7 +31,7 @@ env:
   UPLOAD_RELEASE: true
   TZ: Asia/Shanghai
   FILE_NAME: OpenWrt_Master
-  PRODUCT_NAME: ARMv8
+  PRODUCT_NAME: OpenWrt_Master
 
 jobs:
   build:
@@ -148,7 +148,7 @@ jobs:
       id: release
       uses: ncipollo/release-action@v1
       with:
-        name: R${{ env.DATE }}
+        name: R${{ env.DATE }} for ${{ env.PRODUCT_NAME }}
         allowUpdates: true
         tag: ${{ env.FILE_NAME }}
         commit: main
@@ -182,4 +182,4 @@ jobs:
         message: |
           编译时间：${{ env.DATE }}
           OpenWrt 更新信息：${{ env.useVersionInfo }}
-          ${{ env.PRODUCT_NAME }} Official 编译完成
+          ${{ env.PRODUCT_NAME }} 编译完成
