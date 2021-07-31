@@ -50,10 +50,9 @@ jobs:
         sudo -E apt-get -qq autoremove --purge
         sudo -E apt-get -qq clean
         sudo timedatectl set-timezone "$TZ"
-        echo "COMPILE_STARTINGTIME=$(date +"%Y.%m.%d.%H%M")" >> $GITHUB_ENV
-        echo "DATE=$(date "+%Y-%m-%d %H:%M:%S")" >> $GITHUB_ENV
-        echo "DATE1=$(date "+%Y-%m-%d")" >> $GITHUB_ENV
-        
+        sudo mkdir -p /workdir
+        sudo chown $USER:$GROUPS /workdir
+
     - name: Clone source code
       working-directory: /workdir
       run: |
@@ -76,7 +75,6 @@ jobs:
         KERNEL_REPO_URL: https://github.com/breakings/OpenWrt/tree/main/opt/kernel
         KERNEL_VERSION_NAME: 5.4.136_5.10.54_5.13.6
         KERNEL_AUTO_LATEST: true
-        #OPENWRT_VER: R21.7.26
         ENABLE_WIFI_K504: 0
         ENABLE_WIFI_K510: 0
 
