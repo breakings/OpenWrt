@@ -74,6 +74,7 @@ jobs:
         WHOAMI: jack@archlinux
         KERNEL_REPO_URL: https://github.com/breakings/OpenWrt/tree/main/opt/kernel
         KERNEL_VERSION_NAME: 5.4.136_5.10.54_5.13.6
+        OPENWRT_VER: R21.8.6
         KERNEL_AUTO_LATEST: true
         ENABLE_WIFI_K504: 0
         ENABLE_WIFI_K510: 0
