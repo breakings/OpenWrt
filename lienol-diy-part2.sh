@@ -97,6 +97,7 @@ svn co https://github.com/xiaorouji/openwrt-passwall/trunk/shadowsocksr-libev pa
 svn co https://github.com/xiaorouji/openwrt-passwall/trunk/simple-obfs package/simple-obfs
 svn co https://github.com/xiaorouji/openwrt-passwall/trunk/kcptun package/kcptun
 svn co https://github.com/xiaorouji/openwrt-passwall/trunk/trojan package/trojan
+svn co https://github.com/xiaorouji/openwrt-passwall/trunk/hysteria package/hysteria
 
 #菜单定制
 #svn co https://github.com/Lienol/openwrt/branches/21.02/package/network package/network
