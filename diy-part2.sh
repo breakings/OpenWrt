@@ -81,6 +81,7 @@ svn co https://github.com/xiaorouji/openwrt-passwall/trunk/v2ray-plugin package/
 svn co https://github.com/xiaorouji/openwrt-passwall/trunk/simple-obfs package/simple-obfs
 svn co https://github.com/xiaorouji/openwrt-passwall/trunk/kcptun package/kcptun
 svn co https://github.com/xiaorouji/openwrt-passwall/trunk/trojan package/trojan
+svn co https://github.com/xiaorouji/openwrt-passwall/trunk/hysteria package/hysteria
 
 #svn co https://github.com/fw876/helloworld/trunk/xray-core package/xray-core
 #svn co https://github.com/fw876/helloworld/trunk/xray-plugin package/xray-plugin
