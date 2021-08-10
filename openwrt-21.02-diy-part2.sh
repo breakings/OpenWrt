@@ -265,6 +265,8 @@ sed -i 's/PKG_SOURCE_VERSION:=.*/PKG_SOURCE_VERSION:=4144b63817ebcc5b358fc2c8ef9
 
 # use upx for frp
 #sed -i '58 a\    $(STAGING_DIR_HOST)/bin/upx --lzma --best $$(1)/usr/bin/$(1) || true' feeds/packages/net/frp/Makefile
+#rm -r feeds/packages/net/frp/Makefile
+#wget -P feeds/packages/net/frp https://raw.githubusercontent.com/breakings/OpenWrt/main/general/frp/Makefile
 
 # fix speedtest-cli
 sed -i "s/PKG_VERSION:=.*/PKG_VERSION:=2.1.3/" feeds/packages/lang/python/python3-speedtest-cli/Makefile
