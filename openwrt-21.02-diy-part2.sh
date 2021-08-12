@@ -222,8 +222,12 @@ sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=1.2021.34/' feeds/luci/applications/luci-
 #sed -i "s/PKG_VERSION:=.*/PKG_VERSION:=20200920\.0/" package/openwrt-udp2raw/Makefile
 
 # rblibtorrent
-#sed -i "s/PKG_VERSION:=.*/PKG_VERSION:2.0.3/" package/lean/rblibtorrent/Makefile
+#sed -i "s/PKG_VERSION:=.*/PKG_VERSION:=2.0.3/" package/lean/rblibtorrent/Makefile
 #sed -i "s/PKG_SOURCE_VERSION:=.*/PKG_SOURCE_VERSION:=af7a96c1df47fcc8fbe0d791c223b0ab8a7d2125/" package/lean/rblibtorrent/Makefile
+
+# qBittorrent
+sed -i "s/PKG_VERSION:=.*/PKG_VERSION:=4.3.7/" package/lean/qBittorrent/Makefile
+sed -i "s/PKG_HASH:=.*/PKG_HASH:=d17c0bd852aaf8b75d61026ee213ad9147c37d8e3a14a3137b735732061bd1b1" package/lean/qBittorrent/Makefile
 
 # Qt5 -qtbase
 #sed -i "s/PKG_BUGFIX:=.*/PKG_BUGFIX:=2/" package/lean/qtbase/Makefile
@@ -244,24 +248,24 @@ sed -i 's/PKG_VERSION:.*/PKG_VERSION:=4.4/' feeds/packages/multimedia/ffmpeg/Mak
 sed -i 's/PKG_HASH:=.*/PKG_HASH:=06b10a183ce5371f915c6bb15b7b1fffbe046e8275099c96affc29e17645d909/' feeds/packages/multimedia/ffmpeg/Makefile
 
 # docker
-sed -i 's/PKG_VERSION:=20.10.7/PKG_VERSION:=20.10.8/' feeds/packages/utils/docker/Makefile
-sed -i 's/PKG_HASH:=.*/PKG_HASH:=cde34bbefd70fa27b44dfa904c40db84b89abf237e5267dcd08603b459a89253/' feeds/packages/utils/docker/Makefile
-sed -i 's/PKG_GIT_SHORT_COMMIT:=f0df350/PKG_GIT_SHORT_COMMIT:=3967b7d/' feeds/packages/utils/docker/Makefile
+#sed -i 's/PKG_VERSION:=20.10.7/PKG_VERSION:=20.10.8/' feeds/packages/utils/docker/Makefile
+#sed -i 's/PKG_HASH:=.*/PKG_HASH:=cde34bbefd70fa27b44dfa904c40db84b89abf237e5267dcd08603b459a89253/' feeds/packages/utils/docker/Makefile
+#sed -i 's/PKG_GIT_SHORT_COMMIT:=f0df350/PKG_GIT_SHORT_COMMIT:=3967b7d/' feeds/packages/utils/docker/Makefile
 
 # dockerd
-sed -i 's/PKG_VERSION:=20.10.7/PKG_VERSION:=20.10.8/' feeds/packages/utils/dockerd/Makefile
-sed -i 's/PKG_HASH:=.*/PKG_HASH:=2505d00032f5d40ead5ac779c2840303dcead04713c93ba974be4c19b3ab8d0a/' feeds/packages/utils/dockerd/Makefile
-sed -i 's/PKG_GIT_SHORT_COMMIT:=b0f5bc3/PKG_GIT_SHORT_COMMIT:=75249d8/' feeds/packages/utils/dockerd/Makefile
+#sed -i 's/PKG_VERSION:=20.10.7/PKG_VERSION:=20.10.8/' feeds/packages/utils/dockerd/Makefile
+#sed -i 's/PKG_HASH:=.*/PKG_HASH:=2505d00032f5d40ead5ac779c2840303dcead04713c93ba974be4c19b3ab8d0a/' feeds/packages/utils/dockerd/Makefile
+#sed -i 's/PKG_GIT_SHORT_COMMIT:=b0f5bc3/PKG_GIT_SHORT_COMMIT:=75249d8/' feeds/packages/utils/dockerd/Makefile
 
 # containerd
-sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=1.4.9/' feeds/packages/utils/containerd/Makefile
-sed -i 's/PKG_HASH:=.*/PKG_HASH:=3bb9f54be022067847f5930d21ebbfe4e7a67f589d78930aa0ac713492c28bcc/' feeds/packages/utils/containerd/Makefile
-sed -i 's/PKG_SOURCE_VERSION:=.*/PKG_SOURCE_VERSION:=e25210fe30a0a703442421b0f60afac609f950a3/' feeds/packages/utils/containerd/Makefile
+#sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=1.4.9/' feeds/packages/utils/containerd/Makefile
+#sed -i 's/PKG_HASH:=.*/PKG_HASH:=3bb9f54be022067847f5930d21ebbfe4e7a67f589d78930aa0ac713492c28bcc/' feeds/packages/utils/containerd/Makefile
+#sed -i 's/PKG_SOURCE_VERSION:=.*/PKG_SOURCE_VERSION:=e25210fe30a0a703442421b0f60afac609f950a3/' feeds/packages/utils/containerd/Makefile
 
 # runc
-sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=1.0.1/' feeds/packages/utils/runc/Makefile
-sed -i 's/PKG_HASH:=.*/PKG_HASH:=b25e4273a895af3239bc5e495a007266356038adfb34c4b94b4fc39627a89ad9/' feeds/packages/utils/runc/Makefile
-sed -i 's/PKG_SOURCE_VERSION:=.*/PKG_SOURCE_VERSION:=4144b63817ebcc5b358fc2c8ef95f7cddd709aa7/' feeds/packages/utils/runc/Makefile
+#sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=1.0.1/' feeds/packages/utils/runc/Makefile
+#sed -i 's/PKG_HASH:=.*/PKG_HASH:=b25e4273a895af3239bc5e495a007266356038adfb34c4b94b4fc39627a89ad9/' feeds/packages/utils/runc/Makefile
+#sed -i 's/PKG_SOURCE_VERSION:=.*/PKG_SOURCE_VERSION:=4144b63817ebcc5b358fc2c8ef95f7cddd709aa7/' feeds/packages/utils/runc/Makefile
 
 # use upx for frp
 #sed -i '58 a\    $(STAGING_DIR_HOST)/bin/upx --lzma --best $$(1)/usr/bin/$(1) || true' feeds/packages/net/frp/Makefile
