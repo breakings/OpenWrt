@@ -169,8 +169,10 @@ sed -i 's/GO_VERSION_PATCH:=.*/GO_VERSION_PATCH:=7/' feeds/packages/lang/golang/
 sed -i 's/PKG_HASH:=.*/PKG_HASH:=1a9f2894d3d878729f7045072f30becebe243524cf2fce4e0a7b248b1e0654ac/' feeds/packages/lang/golang/golang/Makefile
 
 # curl
-sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=7.78.0/' feeds/packages/net/curl/Makefile
-sed -i 's/PKG_HASH:=.*/PKG_HASH:=be42766d5664a739c3974ee3dfbbcbe978a4ccb1fe628bb1d9b59ac79e445fb5/' feeds/packages/net/curl/Makefile
+#sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=7.78.0/' feeds/packages/net/curl/Makefile
+#sed -i 's/PKG_HASH:=.*/PKG_HASH:=be42766d5664a739c3974ee3dfbbcbe978a4ccb1fe628bb1d9b59ac79e445fb5/' feeds/packages/net/curl/Makefile
+rm -f feeds/packages/net/curl/Makefile
+wget -P feeds/packages/net/curl https://raw.githubusercontent.com/openwrt/packages/master/net/curl/Makefile
 
 # Qt5 -qtbase
 #sed -i "s/PKG_BUGFIX:=.*/PKG_BUGFIX:=2/" package/lean/qtbase/Makefile
