@@ -160,6 +160,10 @@ sed -i "s|http.*/library|https://github.com/breakings/OpenWrt/opt/kernel|g" pack
 sed -i "s|s9xxx_lede|ARMv8|g" package/luci-app-amlogic/root/etc/config/amlogic
 #sed -i "s|.img.gz|..OPENWRT_SUFFIX|g" package/luci-app-amlogic/root/etc/config/amlogic
 
+# btrfs-progs
+#sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=5.13.1/' feeds/packages/utils/btrfs-progs/Makefile
+#sed -i 's/PKG_HASH:=.*/PKG_HASH:=3d7e5a01e68fbaf485c5f1da15c6b8a7d1455fb57b6e75a706f8e2bb37f4f399/' feeds/packages/utils/btrfs-progs/Makefile
+
 # qBittorrent
 #sed -i "s/PKG_VERSION:=.*/PKG_VERSION:=4.3.7/" package/lean/qBittorrent/Makefile
 #sed -i "s/PKG_HASH:=.*/PKG_HASH:=d17c0bd852aaf8b75d61026ee213ad9147c37d8e3a14a3137b735732061bd1b1" package/lean/qBittorrent/Makefile
