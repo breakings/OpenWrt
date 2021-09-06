@@ -267,9 +267,9 @@ sed -i 's/PKG_HASH:=.*/PKG_HASH:=06b10a183ce5371f915c6bb15b7b1fffbe046e8275099c9
 #sed -i 's/PKG_SOURCE_VERSION:=.*/PKG_SOURCE_VERSION:=e25210fe30a0a703442421b0f60afac609f950a3/' feeds/packages/utils/containerd/Makefile
 
 # runc
-sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=1.0.2/' feeds/packages/utils/runc/Makefile
-sed -i 's/PKG_HASH:=.*/PKG_HASH:=6c3cca4bbeb5d9b2f5e3c0c401c9d27bc8a5d2a0db8a2f6a06efd03ad3c38a33/' feeds/packages/utils/runc/Makefile
-sed -i 's/PKG_SOURCE_VERSION:=.*/PKG_SOURCE_VERSION:=52b36a2dd837e8462de8e01458bf02cf9eea47dd/' feeds/packages/utils/runc/Makefile
+#sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=1.0.2/' feeds/packages/utils/runc/Makefile
+#sed -i 's/PKG_HASH:=.*/PKG_HASH:=6c3cca4bbeb5d9b2f5e3c0c401c9d27bc8a5d2a0db8a2f6a06efd03ad3c38a33/' feeds/packages/utils/runc/Makefile
+#sed -i 's/PKG_SOURCE_VERSION:=.*/PKG_SOURCE_VERSION:=52b36a2dd837e8462de8e01458bf02cf9eea47dd/' feeds/packages/utils/runc/Makefile
 
 # use upx for frp
 #sed -i '58 a\    $(STAGING_DIR_HOST)/bin/upx --lzma --best $$(1)/usr/bin/$(1) || true' feeds/packages/net/frp/Makefile
