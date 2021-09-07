@@ -133,6 +133,8 @@ svn co https://github.com/xiaorouji/openwrt-passwall/trunk/trojan package/trojan
 svn co https://github.com/xiaorouji/openwrt-passwall/trunk/naiveproxy package/naiveproxy
 svn co https://github.com/xiaorouji/openwrt-passwall/trunk/hysteria package/hysteria
 #svn co https://github.com/fw876/helloworld/trunk/naiveproxy package/naiveproxy
+mkdir package/xray-core/patches
+wget -P package/xray-core/patches https://raw.githubusercontent.com/openwrt/packages/master/net/xray-core/patches/100-go-1.17-deps.patch
 
 #菜单定制
 git clone https://github.com/immortalwrt/luci-app-unblockneteasemusic package/luci-app-unblockneteasemusic
