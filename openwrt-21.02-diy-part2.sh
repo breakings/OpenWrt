@@ -31,6 +31,7 @@ rm -rf feeds/packages/net/xray-core
 #rm -rf package/libs/nettle
 #rm -rf package/libs/pcre
 rm -f tools/Makefile
+rm -f feeds/packages/net/dnsproxy/Makefile
 
 # Prepare
 
@@ -41,6 +42,7 @@ sed -i "s/enabled '0'/enabled '1'/g" feeds/packages/utils/irqbalance/files/irqba
 #rm -rf ./include/download.mk
 #wget -P scripts/ https://github.com/immortalwrt/immortalwrt/raw/master/scripts/download.pl
 #wget -P include/ https://github.com/immortalwrt/immortalwrt/raw/master/include/download.mk
+wget -P feeds/packages/net/dnsproxy https://raw.githubusercontent.com/coolsnowwolf/lede/master/package/lean/dnsproxy/Makefile
 
 # Important Patches
 # ARM64: Add CPU model name in proc cpuinfo
