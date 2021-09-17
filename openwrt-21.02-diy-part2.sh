@@ -78,7 +78,7 @@ svn co https://github.com/coolsnowwolf/lede/trunk/package/lean/ntfs3 package/lea
 #svn co https://github.com/coolsnowwolf/lede/trunk/package/libs/pcre package/libs/pcre
 svn co https://github.com/coolsnowwolf/lede/trunk/tools/upx tools/upx
 svn co https://github.com/coolsnowwolf/lede/trunk/tools/ucl tools/ucl
-wget -P tools https://raw.githubusercontent.com/coolsnowwolf/lede/master/tools/Makefile
+wget -P tools https://raw.githubusercontent.com/breakings/OpenWrt/main/general/tools/Makefile
 
 # Extra Packages
 # AutoCore
