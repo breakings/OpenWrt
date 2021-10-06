@@ -4,7 +4,7 @@
 # Cron: min (0 - 59) / hour (0 - 23) / day of month (1 - 31) / month (1 - 12) / day of week (0 - 6)(Sunday - Saturday)
 #========================================================================================================================
 
-name: Use Releases file to Packaging
+name: Releases big openwrt
 
 on:
   repository_dispatch:
@@ -14,8 +14,8 @@ on:
         description: 'SSH connection'
         required: false
         default: 'false'
-  schedule:
-    - cron: '30 22 * * *'
+#  schedule:
+#    - cron: '30 22 * * *'
 
 env:
   REPO_URL: https://github.com/coolsnowwolf/lede
@@ -28,8 +28,8 @@ env:
   UPLOAD_RELEASE: true
   RECENT_LASTEST: 30
   TZ: Asia/Shanghai
-  FILE_NAME: ARMv8
-  PRODUCT_NAME: ARMv8
+  FILE_NAME: armvirt_big
+  PRODUCT_NAME: armvirt_big
 
 jobs:
   build:
@@ -69,7 +69,7 @@ jobs:
       if: (!cancelled())
       uses: ophub/flippy-openwrt-actions@main
       env:
-        OPENWRT_ARMVIRT: https://github.com/breakings/OpenWrt/releases/download/ARMv8_ROOTFS/openwrt-armvirt-64-default-rootfs.tar.gz
+        OPENWRT_ARMVIRT: https://github.com/breakings/OpenWrt/releases/download/openwrt_armvirt/openwrt-armvirt-64-default-rootfs.tar.gz
         PACKAGE_SOC: beikeyun_l1pro_s905d_s905x2_s905x3_s912_s922x_vplus
         WHOAMI: jack@archlinux
         KERNEL_REPO_URL: https://github.com/breakings/OpenWrt/tree/main/opt/kernel
@@ -104,7 +104,11 @@ jobs:
         body: |
           默认IP：192.168.1.1 默认密码：password
           当前使用版本:【编译前的最后一次➦[主源码](https://github.com/coolsnowwolf/lede)更新记录】
-          此为自用精简包，和F大本人集成的插件有差异，因变动较大，从60或以下版本升级到61或更高版本建议全新刷入或者不保留配置进行升级。
+          此版精简了部分F大本人集成的插件，故依旧推荐使用F大本人发布的正式版本。
+          此版仅满足部分喜欢追新的群友方便在线更新固件使用。
+          此版因集成插件比自用精简版更多，无法做到每日更新。
+          因变动较大，从60或以下版本升级到61或更高版本建议全新刷入或者不保留配置进行升级。
+          常用问题及注意事项请参考恩山F大➦[最新帖](https://www.right.com.cn/forum/thread-4076037-1-1.html)
           ${{ env.useVersionInfo }}
 
     - name: Delete workflow runs

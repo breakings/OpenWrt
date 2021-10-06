@@ -26,7 +26,7 @@ ddd=$((sss/86400)) && \
 sed -e "s/:0:0:99999:7:::/:${ddd}:0:99999:7:::/" -i "${TMPDIR}/etc/shadow" && \
 #sed -e "s/root::/root:$1$NA6OM0Li$99nh752vw4oe7A.gkm2xk1:/" -i "${TMPDIR}/etc/shadow" && \
 sed -i '/DISTRIB_REVISION/d' "${TMPDIR}/etc/openwrt_release" && \
-echo "DISTRIB_REVISION='R21.9.18'" >> "${TMPDIR}/etc/openwrt_release" && \
+echo "DISTRIB_REVISION='R21.10.1'" >> "${TMPDIR}/etc/openwrt_release" && \
 sed -i '/DISTRIB_DESCRIPTION/d' "${TMPDIR}/etc/openwrt_release" && \
 echo "DISTRIB_DESCRIPTION='OpenWrt'" >> "${TMPDIR}/etc/openwrt_release" && \
 echo "17 3 * * * /etc/coremark.sh" >> "$TMPDIR/etc/crontabs/root" && \
