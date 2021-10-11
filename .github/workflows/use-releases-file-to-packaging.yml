@@ -28,8 +28,8 @@ env:
   UPLOAD_RELEASE: true
   RECENT_LASTEST: 30
   TZ: Asia/Shanghai
-  FILE_NAME: ARMv8
-  PRODUCT_NAME: ARMv8
+  FILE_NAME: ARMv8_mini
+  PRODUCT_NAME: ARMv8_mini
 
 jobs:
   build:
