@@ -28,8 +28,8 @@ env:
   UPLOAD_RELEASE: true
   RECENT_LASTEST: 30
   TZ: Asia/Shanghai
-  FILE_NAME: armvirt_big
-  PRODUCT_NAME: armvirt_big
+  FILE_NAME: ARMv8
+  PRODUCT_NAME: ARMv8
 
 jobs:
   build:
