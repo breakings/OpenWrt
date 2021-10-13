@@ -108,7 +108,7 @@ jobs:
           此版仅满足部分喜欢追新的群友方便在线更新固件使用。
           此版因集成插件比自用精简版更多，无法做到每日更新。
           因变动较大，从60或以下版本升级到61或更高版本建议全新刷入或者不保留配置进行升级。
-          常用问题及注意事项请参考恩山F大➦[最新帖](https://www.right.com.cn/forum/thread-4076037-1-1.html)
+          常见问题及注意事项请参考恩山F大➦[最新帖](https://www.right.com.cn/forum/thread-4076037-1-1.html)
           需要自用精简版请到 精简版➦[下载](https://github.com/breakings/OpenWrt/releases/tag/armv8_mini)】
           ${{ env.useVersionInfo }}
 
