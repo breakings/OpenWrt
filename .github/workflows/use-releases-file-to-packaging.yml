@@ -104,7 +104,9 @@ jobs:
         body: |
           默认IP：192.168.1.1 默认密码：password
           当前使用版本:【编译前的最后一次➦[主源码](https://github.com/coolsnowwolf/lede)更新记录】
-          此为自用精简包，和F大本人集成的插件有差异，因变动较大，从60或以下版本升级到61或更高版本建议全新刷入或者不保留配置进行升级。
+          此为自用精简包，和F大本人集成的插件有差异。
+          因变动较大，从60或以下版本升级到61或更高版本建议全新刷入或者不保留配置进行升级。
+          需要高大全版请到 高大全➦[下载](https://github.com/breakings/OpenWrt/releases/tag/ARMv8)】
           ${{ env.useVersionInfo }}
 
     - name: Delete workflow runs
