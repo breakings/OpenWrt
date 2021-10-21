@@ -70,7 +70,7 @@ jobs:
       uses: ophub/flippy-openwrt-actions@main
       env:
         OPENWRT_ARMVIRT: https://github.com/breakings/OpenWrt/releases/download/openwrt_armvirt/openwrt-armvirt-64-default-rootfs.tar.gz
-        PACKAGE_SOC: beikeyun_l1pro_s905d_s905x2_s905x3_s912_s922x_vplus
+        PACKAGE_SOC: beikeyun_l1pro_s905d_s905x2_s905x3_s912_s922x_s922x-n2_vplus
         WHOAMI: jack@archlinux
         KERNEL_REPO_URL: https://github.com/breakings/OpenWrt/tree/main/opt/kernel
         KERNEL_VERSION_NAME: 5.4.152_5.10.72_5.14.11
@@ -102,14 +102,14 @@ jobs:
         token: ${{ secrets.RELEASES_TOKEN }}
         artifacts: ${{ env.PACKAGED_OUTPUTPATH }}/*
         body: |
-          默认IP：192.168.1.1 默认密码：password
+          默认IP：192.168.1.1 默认密码：password (WiFi密码同）
           当前使用版本:【编译前的最后一次➦[主源码](https://github.com/coolsnowwolf/lede)更新记录】
-          此版精简了部分F大本人集成的插件，故依旧推荐使用F大本人发布的正式版本。
+          此版仍然**精简**了部分F大本人集成的插件，故依旧推荐使用F大本人发布的正式版本。
           此版仅满足部分喜欢追新的群友方便在线更新固件使用。
           此版因集成插件比自用精简版更多，无法做到每日更新。
-          因变动较大，从60或以下版本升级到61或更高版本建议全新刷入或者不保留配置进行升级。
+          因变动较大，从60或以下版本升级到61或更高版本建议**全新刷入**或者**不保留配置**进行升级。
           常见问题及注意事项请参考恩山F大➦[最新帖](https://www.right.com.cn/forum/thread-4076037-1-1.html)
-          需要自用精简版请到 精简版➦[下载](https://github.com/breakings/OpenWrt/releases/tag/armv8_mini)】
+          需要**自用精简版**请到 精简版➦[下载](https://github.com/breakings/OpenWrt/releases/tag/armv8_mini)
           ${{ env.useVersionInfo }}
 
     - name: Delete workflow runs
