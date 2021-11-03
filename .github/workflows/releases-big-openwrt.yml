@@ -74,7 +74,7 @@ jobs:
         WHOAMI: jack@archlinux
         KERNEL_REPO_URL: https://github.com/breakings/OpenWrt/tree/main/opt/kernel
         KERNEL_VERSION_NAME: 5.4.152_5.10.72_5.14.11
-        OPENWRT_VER: R21.10.1
+        #OPENWRT_VER: R21.11.11
         KERNEL_AUTO_LATEST: true
 
     - name: SSH connection to Actions @ Ctrl+C to enter, Ctrl+D to exit
