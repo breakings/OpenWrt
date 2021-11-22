@@ -151,8 +151,8 @@ svn co https://github.com/Leo-Jo-My/luci-theme-opentomato/trunk package/luci-the
 #rm -rf lean/luci-app-docker/root/www
 
 # samba4
-#sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=4.14.6/' feeds/packages/net/samba4/Makefile
-#sed -i 's/PKG_HASH:=.*/PKG_HASH:=86760692dd74a04705c0f6d11b31965a477265a50e79eb15838184476146f4b0/' feeds/packages/net/samba4/Makefile
+sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=4.14.10/' feeds/packages/net/samba4/Makefile
+sed -i 's/PKG_HASH:=.*/PKG_HASH:=107ee862f58062682cec362ec68a24251292805f89aa4c97e7ab80237f91c7af/' feeds/packages/net/samba4/Makefile
 
 #ffmpeg
 #sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=4.4/' feeds/packages/multimedia/ffmpeg/Makefile
@@ -209,19 +209,23 @@ sed -i "s|s9xxx_lede|ARMv8|g" package/luci-app-amlogic/root/etc/config/amlogic
 #sed -i 's/PKG_HASH:=.*/PKG_HASH:=c18e7e9abf95e69e425260493720470021384a1728417042060a35d0b7b18b41/' package/libs/mbedtls/Makefile
 
 # docker
-#sed -i 's/PKG_VERSION:=20.10.7/PKG_VERSION:=20.10.8/' feeds/packages/utils/docker/Makefile
-#sed -i 's/PKG_HASH:=.*/PKG_HASH:=cde34bbefd70fa27b44dfa904c40db84b89abf237e5267dcd08603b459a89253/' feeds/packages/utils/docker/Makefile
-#sed -i 's/PKG_GIT_SHORT_COMMIT:=f0df350/PKG_GIT_SHORT_COMMIT:=3967b7d/' feeds/packages/utils/docker/Makefile
+sed -i 's/PKG_VERSION:=20.10.10/PKG_VERSION:=20.10.11/' feeds/packages/utils/docker/Makefile
+sed -i 's/PKG_HASH:=.*/PKG_HASH:=55d55fdead906cbea8608ef39d5a62d54d1118e604a5ae7e2d58b4fb54a599a7/' feeds/packages/utils/docker/Makefile
+sed -i 's/PKG_GIT_SHORT_COMMIT:=b485636/PKG_GIT_SHORT_COMMIT:=dea9396/' feeds/packages/utils/docker/Makefile
 
 # dockerd
-#sed -i 's/PKG_VERSION:=20.10.7/PKG_VERSION:=20.10.8/' feeds/packages/utils/dockerd/Makefile
-#sed -i 's/PKG_HASH:=.*/PKG_HASH:=2505d00032f5d40ead5ac779c2840303dcead04713c93ba974be4c19b3ab8d0a/' feeds/packages/utils/dockerd/Makefile
-#sed -i 's/PKG_GIT_SHORT_COMMIT:=b0f5bc3/PKG_GIT_SHORT_COMMIT:=75249d8/' feeds/packages/utils/dockerd/Makefile
+sed -i 's/PKG_VERSION:=20.10.10/PKG_VERSION:=20.10.11/' feeds/packages/utils/dockerd/Makefile
+sed -i 's/PKG_HASH:=.*/PKG_HASH:=6fa7835bf7c17c293621967bd5096642fa1e3e1b597fbc7d7bd35f455d886495/' feeds/packages/utils/dockerd/Makefile
+sed -i 's/PKG_GIT_SHORT_COMMIT:=e2f740d/PKG_GIT_SHORT_COMMIT:=847da18/' feeds/packages/utils/dockerd/Makefile
+
+# docker-compose
+sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=2.1.1/' feeds/packages/utils/docker-compose/Makefile
+sed -i 's/PKG_HASH:=.*/PKG_HASH:=5c9246c34cafeb51b3289c016cb2cbdd08b3eda87b0f8d4cc02fd7630cfdbd7b/' feeds/packages/utils/docker-compose/Makefile
 
 # containerd
-#sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=1.4.9/' feeds/packages/utils/containerd/Makefile
-#sed -i 's/PKG_HASH:=.*/PKG_HASH:=3bb9f54be022067847f5930d21ebbfe4e7a67f589d78930aa0ac713492c28bcc/' feeds/packages/utils/containerd/Makefile
-#sed -i 's/PKG_SOURCE_VERSION:=.*/PKG_SOURCE_VERSION:=e25210fe30a0a703442421b0f60afac609f950a3/' feeds/packages/utils/containerd/Makefile
+sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=1.4.12/' feeds/packages/utils/containerd/Makefile
+sed -i 's/PKG_HASH:=.*/PKG_HASH:=85a531725f15e2d136131119d42af4507a5389e0947015152075c4c93816fb5c/' feeds/packages/utils/containerd/Makefile
+sed -i 's/PKG_SOURCE_VERSION:=.*/PKG_SOURCE_VERSION:=7b11cfaabd73bb80907dd23182b9347b4245eb5d/' feeds/packages/utils/containerd/Makefile
 
 # runc
 #sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=1.0.1/' feeds/packages/utils/runc/Makefile
@@ -237,14 +241,35 @@ sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=8.45/' package/libs/pcre/Makefile
 sed -i 's/PKG_RELEASE:=.*/PKG_RELEASE:=$(AUTORELEASE)/' package/libs/pcre/Makefile
 sed -i 's/PKG_HASH:=.*/PKG_HASH:=4dae6fdcd2bb0bb6c37b5f97c33c2be954da743985369cddac3546e3218bffb8/' package/libs/pcre/Makefile
 
+# libseccomp
+sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=2.5.3/' feeds/package/libs/libseccomp/Makefile
+sed -i 's/PKG_HASH:=.*/PKG_HASH:=59065c8733364725e9721ba48c3a99bbc52af921daf48df4b1e012fbc7b10a76/' feeds/package/libs/libseccomp/Makefile
+
+# wsdd2
+sed -i 's/PKG_SOURCE_DATE:=.*/PKG_SOURCE_DATE:=2021-10-14/' feeds/packages/net/wsdd2//Makefile
+sed -i 's/PKG_SOURCE_VERSION:=.*/PKG_SOURCE_VERSION:=db8f113f59da50f77015e0cacf103d76f252df50/' feeds/packages/net/wsdd2//Makefile
+sed -i 's/PKG_MIRROR_HASH:=.*/PKG_MIRROR_HASH:=644d0774fcee19872c7374a650d7b0fecd938cb6d02e8a982f8c82a8048d7b0d/' feeds/packages/net/wsdd2//Makefile
+
+# openvpn
+sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=2.5.4/' feeds/packages/net/openvpn/Makefile
+sed -i 's/PKG_HASH:=.*/PKG_HASH:=56c0dcd27ab938c4ad07469c86eb8b7408ef64c3e68f98497db8c03f11792436/' feeds/packages/net/openvpn/Makefile
+
+# php7
+sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=7.4.26/' feeds/packages/lang/php7//Makefile
+sed -i 's/PKG_HASH:=.*/PKG_HASH:=e305b3aafdc85fa73a81c53d3ce30578bc94d1633ec376add193a1e85e0f0ef8/' feeds/packages/lang/php7//Makefile
+
+# python-docker
+sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=5.0.3/' feeds/packages/lang/python/python-docker/Makefile
+sed -i 's/PKG_HASH:=.*/PKG_HASH:=d916a26b62970e7c2f554110ed6af04c7ccff8e9f81ad17d0d40c75637e227fb/' feeds/packages/lang/python/python-docker/Makefile
+
 # smartdns
-sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=1.2021.34/' feeds/packages/net/smartdns/Makefile
-sed -i 's/PKG_SOURCE_VERSION:=.*/PKG_SOURCE_VERSION:=756029f5e9879075c042030bd3aa3db06d700270/' feeds/packages/net/smartdns/Makefile
-sed -i 's/PKG_MIRROR_HASH:=.*/PKG_MIRROR_HASH:=c2979d956127946861977781beb3323ad9a614ae55014bc99ad39beb7a27d481/' feeds/packages/net/smartdns/Makefile
+#sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=1.2021.34/' feeds/packages/net/smartdns/Makefile
+#sed -i 's/PKG_SOURCE_VERSION:=.*/PKG_SOURCE_VERSION:=756029f5e9879075c042030bd3aa3db06d700270/' feeds/packages/net/smartdns/Makefile
+#sed -i 's/PKG_MIRROR_HASH:=.*/PKG_MIRROR_HASH:=c2979d956127946861977781beb3323ad9a614ae55014bc99ad39beb7a27d481/' feeds/packages/net/smartdns/Makefile
 
 # aliyundrive webdav
-svn co https://github.com/messense/aliyundrive-webdav/trunk/openwrt/aliyundrive-webdav package/aliyundrive-webdav
-svn co https://github.com/messense/aliyundrive-webdav/trunk/openwrt/luci-app-aliyundrive-webdav package/luci-app-aliyundrive-webdav
+#svn co https://github.com/messense/aliyundrive-webdav/trunk/openwrt/aliyundrive-webdav package/aliyundrive-webdav
+#svn co https://github.com/messense/aliyundrive-webdav/trunk/openwrt/luci-app-aliyundrive-webdav package/luci-app-aliyundrive-webdav
 
 # libpcap
 #sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=1.10.1/' package/libs/libpcap/Makefile

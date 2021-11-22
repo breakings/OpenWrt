@@ -232,8 +232,8 @@ sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=1.2021.35/' feeds/luci/applications/luci-
 #sed -i "s/PKG_SOURCE_VERSION:=.*/PKG_SOURCE_VERSION:=af7a96c1df47fcc8fbe0d791c223b0ab8a7d2125/" package/lean/rblibtorrent/Makefile
 
 # qBittorrent
-sed -i "s/PKG_VERSION:=.*/PKG_VERSION:=4.3.8/" package/lean/qBittorrent/Makefile
-sed -i "s/PKG_HASH:=.*/PKG_HASH:=cc11f797dd146e6aac8feee8feffb1e429d61551f48b577d32b2239ec5e72ccb/" package/lean/qBittorrent/Makefile
+#sed -i "s/PKG_VERSION:=.*/PKG_VERSION:=4.3.8/" package/lean/qBittorrent/Makefile
+#sed -i "s/PKG_HASH:=.*/PKG_HASH:=cc11f797dd146e6aac8feee8feffb1e429d61551f48b577d32b2239ec5e72ccb/" package/lean/qBittorrent/Makefile
 
 # Qt5 -qtbase
 #sed -i "s/PKG_BUGFIX:=.*/PKG_BUGFIX:=2/" package/lean/qtbase/Makefile
@@ -246,8 +246,8 @@ sed -i "s/PKG_HASH:=.*/PKG_HASH:=cc11f797dd146e6aac8feee8feffb1e429d61551f48b577
 #sed -i "s/PKG_HASH:=.*/PKG_HASH:=c189d0ce1ff7c739db9a3ace52ac3e24cb8fd6dbf234e49f075249b38f43c1cc/" package/lean/qttools/Makefile
 
 # samba4
-sed -i 's/PKG_VERSION:.*/PKG_VERSION:=4.14.7/' feeds/packages/net/samba4/Makefile
-sed -i 's/PKG_HASH:=.*/PKG_HASH:=6f50353f9602aa20245eb18ceb00e7e5ec793df0974aebd5254c38f16d8f1906/' feeds/packages/net/samba4/Makefile
+sed -i 's/PKG_VERSION:.*/PKG_VERSION:=4.14.10/' feeds/packages/net/samba4/Makefile
+sed -i 's/PKG_HASH:=.*/PKG_HASH:=107ee862f58062682cec362ec68a24251292805f89aa4c97e7ab80237f91c7af/' feeds/packages/net/samba4/Makefile
 
 # ffmpeg
 sed -i 's/PKG_VERSION:.*/PKG_VERSION:=4.4/' feeds/packages/multimedia/ffmpeg/Makefile
@@ -258,19 +258,23 @@ sed -i 's/PKG_HASH:=.*/PKG_HASH:=06b10a183ce5371f915c6bb15b7b1fffbe046e8275099c9
 #sed -i 's/PKG_HASH:=.*/PKG_HASH:=3d7e5a01e68fbaf485c5f1da15c6b8a7d1455fb57b6e75a706f8e2bb37f4f399/' feeds/packages/utils/btrfs-progs/Makefile
 
 # docker
-#sed -i 's/PKG_VERSION:=20.10.7/PKG_VERSION:=20.10.8/' feeds/packages/utils/docker/Makefile
-#sed -i 's/PKG_HASH:=.*/PKG_HASH:=cde34bbefd70fa27b44dfa904c40db84b89abf237e5267dcd08603b459a89253/' feeds/packages/utils/docker/Makefile
-#sed -i 's/PKG_GIT_SHORT_COMMIT:=f0df350/PKG_GIT_SHORT_COMMIT:=3967b7d/' feeds/packages/utils/docker/Makefile
+sed -i 's/PKG_VERSION:=20.10.10/PKG_VERSION:=20.10.11/' feeds/packages/utils/docker/Makefile
+sed -i 's/PKG_HASH:=.*/PKG_HASH:=55d55fdead906cbea8608ef39d5a62d54d1118e604a5ae7e2d58b4fb54a599a7/' feeds/packages/utils/docker/Makefile
+sed -i 's/PKG_GIT_SHORT_COMMIT:=b485636/PKG_GIT_SHORT_COMMIT:=dea9396/' feeds/packages/utils/docker/Makefile
 
 # dockerd
-#sed -i 's/PKG_VERSION:=20.10.7/PKG_VERSION:=20.10.8/' feeds/packages/utils/dockerd/Makefile
-#sed -i 's/PKG_HASH:=.*/PKG_HASH:=2505d00032f5d40ead5ac779c2840303dcead04713c93ba974be4c19b3ab8d0a/' feeds/packages/utils/dockerd/Makefile
-#sed -i 's/PKG_GIT_SHORT_COMMIT:=b0f5bc3/PKG_GIT_SHORT_COMMIT:=75249d8/' feeds/packages/utils/dockerd/Makefile
+sed -i 's/PKG_VERSION:=20.10.10/PKG_VERSION:=20.10.11/' feeds/packages/utils/dockerd/Makefile
+sed -i 's/PKG_HASH:=.*/PKG_HASH:=6fa7835bf7c17c293621967bd5096642fa1e3e1b597fbc7d7bd35f455d886495/' feeds/packages/utils/dockerd/Makefile
+sed -i 's/PKG_GIT_SHORT_COMMIT:=e2f740d/PKG_GIT_SHORT_COMMIT:=847da18/' feeds/packages/utils/dockerd/Makefile
+
+# docker-compose
+sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=2.1.1/' feeds/packages/utils/docker-compose/Makefile
+sed -i 's/PKG_HASH:=.*/PKG_HASH:=5c9246c34cafeb51b3289c016cb2cbdd08b3eda87b0f8d4cc02fd7630cfdbd7b/' feeds/packages/utils/docker-compose/Makefile
 
 # containerd
-#sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=1.4.9/' feeds/packages/utils/containerd/Makefile
-#sed -i 's/PKG_HASH:=.*/PKG_HASH:=3bb9f54be022067847f5930d21ebbfe4e7a67f589d78930aa0ac713492c28bcc/' feeds/packages/utils/containerd/Makefile
-#sed -i 's/PKG_SOURCE_VERSION:=.*/PKG_SOURCE_VERSION:=e25210fe30a0a703442421b0f60afac609f950a3/' feeds/packages/utils/containerd/Makefile
+sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=1.4.12/' feeds/packages/utils/containerd/Makefile
+sed -i 's/PKG_HASH:=.*/PKG_HASH:=85a531725f15e2d136131119d42af4507a5389e0947015152075c4c93816fb5c/' feeds/packages/utils/containerd/Makefile
+sed -i 's/PKG_SOURCE_VERSION:=.*/PKG_SOURCE_VERSION:=7b11cfaabd73bb80907dd23182b9347b4245eb5d/' feeds/packages/utils/containerd/Makefile
 
 # runc
 #sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=1.0.2/' feeds/packages/utils/runc/Makefile
