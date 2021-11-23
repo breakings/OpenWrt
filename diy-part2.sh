@@ -242,13 +242,13 @@ sed -i 's/PKG_RELEASE:=.*/PKG_RELEASE:=$(AUTORELEASE)/' package/libs/pcre/Makefi
 sed -i 's/PKG_HASH:=.*/PKG_HASH:=4dae6fdcd2bb0bb6c37b5f97c33c2be954da743985369cddac3546e3218bffb8/' package/libs/pcre/Makefile
 
 # libseccomp
-sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=2.5.3/' feeds/package/libs/libseccomp/Makefile
-sed -i 's/PKG_HASH:=.*/PKG_HASH:=59065c8733364725e9721ba48c3a99bbc52af921daf48df4b1e012fbc7b10a76/' feeds/package/libs/libseccomp/Makefile
+sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=2.5.3/' feeds/packages/libs/libseccomp/Makefile
+sed -i 's/PKG_HASH:=.*/PKG_HASH:=59065c8733364725e9721ba48c3a99bbc52af921daf48df4b1e012fbc7b10a76/' feeds/packages/libs/libseccomp/Makefile
 
 # wsdd2
-sed -i 's/PKG_SOURCE_DATE:=.*/PKG_SOURCE_DATE:=2021-10-14/' feeds/packages/net/wsdd2//Makefile
-sed -i 's/PKG_SOURCE_VERSION:=.*/PKG_SOURCE_VERSION:=db8f113f59da50f77015e0cacf103d76f252df50/' feeds/packages/net/wsdd2//Makefile
-sed -i 's/PKG_MIRROR_HASH:=.*/PKG_MIRROR_HASH:=644d0774fcee19872c7374a650d7b0fecd938cb6d02e8a982f8c82a8048d7b0d/' feeds/packages/net/wsdd2//Makefile
+sed -i 's/PKG_SOURCE_DATE:=.*/PKG_SOURCE_DATE:=2021-10-22/' feeds/packages/net/wsdd2//Makefile
+sed -i 's/PKG_SOURCE_VERSION:=.*/PKG_SOURCE_VERSION:=9831daf2e14e0e112b5ad95224e9167072d52aa3/' feeds/packages/net/wsdd2//Makefile
+sed -i 's/PKG_MIRROR_HASH:=.*/PKG_MIRROR_HASH:=403d7d20bf2ae67e898db4543c61cc07f337cedf038a11c84a2af5504cfb82e9/' feeds/packages/net/wsdd2//Makefile
 
 # openvpn
 sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=2.5.4/' feeds/packages/net/openvpn/Makefile
