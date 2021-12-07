@@ -232,9 +232,9 @@ sed -i 's/PKG_HASH:=.*/PKG_HASH:=001cf72f6bc8a8c43d100389e0bbd3d4d5f5c523f4e3f7d
 #sed -i 's/PKG_SOURCE_VERSION:=.*/PKG_SOURCE_VERSION:=7b11cfaabd73bb80907dd23182b9347b4245eb5d/g' feeds/packages/utils/containerd/Makefile
 
 # runc
-sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=1.0.3/g' feeds/packages/utils/runc/Makefile
-sed -i 's/PKG_HASH:=.*/PKG_HASH:=0eaf2f6606d72f166a5e7138a8a8d4d8f85d84e43448c08c66a1c93ead17a574/g' feeds/packages/utils/runc/Makefile
-sed -i 's/PKG_SOURCE_VERSION:=.*/PKG_SOURCE_VERSION:=f46b6ba2c9314cfc8caae24a32ec5fe9ef1059fe/g' feeds/packages/utils/runc/Makefile
+#sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=1.0.3/g' feeds/packages/utils/runc/Makefile
+#sed -i 's/PKG_HASH:=.*/PKG_HASH:=0eaf2f6606d72f166a5e7138a8a8d4d8f85d84e43448c08c66a1c93ead17a574/g' feeds/packages/utils/runc/Makefile
+#sed -i 's/PKG_SOURCE_VERSION:=.*/PKG_SOURCE_VERSION:=f46b6ba2c9314cfc8caae24a32ec5fe9ef1059fe/g' feeds/packages/utils/runc/Makefile
 
 # bsdtar
 sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=3.5.2/g' feeds/packages/libs/libarchive/Makefile
