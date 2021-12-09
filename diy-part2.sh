@@ -433,7 +433,7 @@ sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=3.0/g' package/lean/luci-app-n2n_v2/Makef
 sed -i 's/PKG_RELEASE:=.*/PKG_RELEASE:=1/g' package/lean/luci-app-n2n_v2/Makefile
 
 # openssh
-sed -i '175i\	--with-sandbox=rlimit \\' feeds/packages/net/openssh//Makefile
+sed -i '175i\	--with-sandbox=rlimit \\' feeds/packages/net/openssh/Makefile
 
 # smartdns
 #sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=1.2021.34/g' feeds/packages/net/smartdns/Makefile
