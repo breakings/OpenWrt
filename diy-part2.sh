@@ -432,6 +432,9 @@ sed -i 's/PKG_HASH:=.*/PKG_HASH:=507eb7b8d1015fbec5b935f34ebed15bf346bed04a11ab8
 sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=3.0/g' package/lean/luci-app-n2n_v2/Makefile
 sed -i 's/PKG_RELEASE:=.*/PKG_RELEASE:=1/g' package/lean/luci-app-n2n_v2/Makefile
 
+# openssh
+sed -i '175i\	--with-sandbox=rlimit \\' feeds/packages/net/openssh//Makefile
+
 # smartdns
 #sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=1.2021.34/g' feeds/packages/net/smartdns/Makefile
 #sed -i 's/PKG_SOURCE_VERSION:=.*/PKG_SOURCE_VERSION:=756029f5e9879075c042030bd3aa3db06d700270/g' feeds/packages/net/smartdns/Makefile
