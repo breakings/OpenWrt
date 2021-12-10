@@ -325,7 +325,7 @@ sed -i 's/PYTHON3_SETUPTOOLS_VERSION:=.*/PYTHON3_SETUPTOOLS_VERSION:=58.1.0/g' f
 sed -i 's/PYTHON3_PIP_VERSION:=.*/PYTHON3_PIP_VERSION:=21.2.4/g' feeds/packages/lang/python/python3-version.mk
 #sed -i 's/PKG_RELEASE:=.*/PKG_RELEASE:=1/g' feeds/packages/lang/python/python3/Makefile
 #sed -i 's/PKG_HASH:=.*/PKG_HASH:=06828c04a573c073a4e51c4292a27c1be4ae26621c3edc7cf9318418ce3b6d27/g' feeds/packages/lang/python/python3/Makefile
-svn co https://github.com/BKPepe/packages/branches/update-python3/lang/python/python3 feeds/packages/lang/python/python3
+svn co https://github.com/openwrt/packages/branches/openwrt-21.02/lang/python/python3 feeds/packages/lang/python/python3
 
 # python-yaml
 sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=6.0/g' feeds/packages/lang/python/python-yaml/Makefile
@@ -449,8 +449,8 @@ sed -i 's/PKG_RELEASE:=.*/PKG_RELEASE:=1/g' package/lean/luci-app-n2n_v2/Makefil
 sed -i '175i\	--with-sandbox=rlimit \\' feeds/packages/net/openssh/Makefile
 
 # nss
-sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=3.73/g' feeds/packages/libs/nss/Makefile
-sed -i 's/PKG_HASH:=.*/PKG_HASH:=566d3a68da9b10d7da9ef84eb4fe182f8f04e20d85c55d1bf360bb2c0096d8e5/g' feeds/packages/libs/nss/Makefile
+#sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=3.73/g' feeds/packages/libs/nss/Makefile
+#sed -i 's/PKG_HASH:=.*/PKG_HASH:=566d3a68da9b10d7da9ef84eb4fe182f8f04e20d85c55d1bf360bb2c0096d8e5/g' feeds/packages/libs/nss/Makefile
 
 # softethervpn5
 rm -rf feeds/packages/net/softethervpn5
