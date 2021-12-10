@@ -91,11 +91,11 @@ svn co https://github.com/xiaorouji/openwrt-passwall/trunk/hysteria package/hyst
 
 #svn co https://github.com/fw876/helloworld/trunk/xray-core package/xray-core
 #svn co https://github.com/fw876/helloworld/trunk/xray-plugin package/xray-plugin
-#svn co https://github.com/kenzok8/openwrt-packages/trunk/luci-app-gost package/luci-app-gost
-#svn co https://github.com/kenzok8/openwrt-packages/trunk/gost package/gost
+svn co https://github.com/kenzok8/openwrt-packages/trunk/luci-app-gost package/luci-app-gost
+svn co https://github.com/kenzok8/openwrt-packages/trunk/gost package/gost
 #svn co https://github.com/project-openwrt/openwrt/trunk/package/ctcgfw/luci-app-gost package/luci-app-gost
 #svn co https://github.com/project-openwrt/openwrt/trunk/package/ctcgfw/gost package/gost
-#svn co https://github.com/kenzok8/openwrt-packages/trunk/luci-app-eqos package/luci-app-eqos
+svn co https://github.com/kenzok8/openwrt-packages/trunk/luci-app-eqos package/luci-app-eqos
 git clone https://github.com/tty228/luci-app-serverchan.git package/luci-app-serverchan
 svn co https://github.com/fw876/helloworld/trunk/luci-app-ssr-plus package/luci-app-ssr-plus
 #svn co https://github.com/fw876/helloworld/trunk/naiveproxy package/naiveproxy
@@ -103,6 +103,8 @@ svn co https://github.com/xiaorouji/openwrt-passwall/trunk/naiveproxy package/na
 git clone https://github.com/semigodking/redsocks.git package/redsocks2
 svn co https://github.com/rufengsuixing/luci-app-adguardhome/trunk package/luci-app-adguardhome
 svn co https://github.com/Lienol/openwrt-package/trunk/luci-app-filebrowser package/luci-app-filebrowser
+svn co https://github.com/Lienol/openwrt-package/trunk/luci-app-ssr-mudb-server package/luci-app-ssr-mudb-server
+svn co https://github.com/halldong/luci-app-speederv2/trunk package/luci-app-speederv2
 
 #添加smartdns
 #svn co https://github.com/project-openwrt/openwrt/trunk/package/ntlf9t/smartdns package/smartdns
@@ -110,6 +112,10 @@ svn co https://github.com/Lienol/openwrt-package/trunk/luci-app-filebrowser pack
 #svn co https://github.com/openwrt/luci/trunk/applications/luci-app-smartdns package/luci-app-smartdns
 #svn co https://github.com/kenzok8/openwrt-packages/trunk/luci-app-smartdns package/luci-app-smartdns
 svn co https://github.com/kenzok8/openwrt-packages/branches/main/luci-app-smartdns package/luci-app-smartdns
+
+#mosdns
+svn co https://github.com/QiuSimons/openwrt-mos/trunk/mosdns package/mosdns
+svn co https://github.com/QiuSimons/openwrt-mos/trunk/luci-app-mosdns package/luci-app-mosdns
 
 #修改bypass的makefile
 #git clone https://github.com/garypang13/luci-app-bypass package/luci-app-bypass
@@ -122,9 +128,11 @@ svn co https://github.com/kenzok8/openwrt-packages/branches/main/luci-app-smartd
 #svn co https://github.com/linkease/ddnsto-openwrt/trunk/luci-app-ddnsto package/luci-app-ddnsto
 #添加udp2raw
 #git clone https://github.com/sensec/openwrt-udp2raw package/openwrt-udp2raw
+svn co https://github.com/sensec/openwrt-udp2raw/trunk package/openwrt-udp2raw
 #git clone https://github.com/sensec/luci-app-udp2raw package/luci-app-udp2raw
-#sed -i "s/PKG_SOURCE_VERSION:=.*/PKG_SOURCE_VERSION:=f2f90a9a150be94d50af555b53657a2a4309f287/" package/openwrt-udp2raw/Makefile
-#sed -i "s/PKG_VERSION:=.*/PKG_VERSION:=20200920\.0/" package/openwrt-udp2raw/Makefile
+svn co https://github.com/sensec/luci-app-udp2raw/trunk package/luci-app-udp2raw
+sed -i "s/PKG_SOURCE_VERSION:=.*/PKG_SOURCE_VERSION:=f2f90a9a150be94d50af555b53657a2a4309f287/" package/openwrt-udp2raw/Makefile
+sed -i "s/PKG_VERSION:=.*/PKG_VERSION:=20200920\.0/" package/openwrt-udp2raw/Makefile
 
 #themes
 svn co https://github.com/rosywrt/luci-theme-rosy/trunk/luci-theme-rosy package/luci-theme-rosy
@@ -177,8 +185,8 @@ sed -i "s|s9xxx_lede|ARMv8|g" package/luci-app-amlogic/root/etc/config/amlogic
 #sed -i "s/PKG_HASH:=.*/PKG_HASH:=d17c0bd852aaf8b75d61026ee213ad9147c37d8e3a14a3137b735732061bd1b1/g" package/lean/qBittorrent/Makefile
 
 # golang
-sed -i 's/GO_VERSION_PATCH:=.*/GO_VERSION_PATCH:=4/g' feeds/packages/lang/golang/golang/Makefile
-sed -i 's/PKG_HASH:=.*/PKG_HASH:=4bef3699381ef09e075628504187416565d710660fec65b057edf1ceb187fc4b/g' feeds/packages/lang/golang/golang/Makefile
+sed -i 's/GO_VERSION_PATCH:=.*/GO_VERSION_PATCH:=5/g' feeds/packages/lang/golang/golang/Makefile
+sed -i 's/PKG_HASH:=.*/PKG_HASH:=3defb9a09bed042403195e872dcbc8c6fae1485963332279668ec52e80a95a2d/g' feeds/packages/lang/golang/golang/Makefile
 
 # curl
 #sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=7.78.0/g' feeds/packages/net/curl/Makefile
@@ -206,6 +214,7 @@ sed -i "s/PKG_VERSION:=v14.18.1/PKG_VERSION:=v14.18.2/g" feeds/packages/lang/nod
 sed -i "s/PKG_HASH:=3fa1d71adddfab2f5e3e41874b4eddbdf92b65cade4a43922fb1e437afcf89ed/PKG_HASH:=3e8a9ce10f8bcd3628eb6dd049f7f03c84ba9219be6f9743e2221154b9cc680b/g" feeds/packages/lang/node/Makefile
 #rm -f feeds/packages/lang/node/patches/v14.x/003-path.patch
 #wget -P feeds/packages/lang/node/patches/v14.x https://raw.githubusercontent.com/openwrt/packages/master/lang/node/patches/003-path.patch
+rm -f feeds/packages/lang/node/patches/v14.x/999-fix_building_with_system_c-ares_on_Linux.patch
 
 # mbedtls
 #sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=2.6.11/g' package/libs/mbedtls/Makefile
@@ -232,9 +241,9 @@ sed -i "s/PKG_HASH:=3fa1d71adddfab2f5e3e41874b4eddbdf92b65cade4a43922fb1e437afcf
 #sed -i 's/PKG_SOURCE_VERSION:=.*/PKG_SOURCE_VERSION:=7b11cfaabd73bb80907dd23182b9347b4245eb5d/g' feeds/packages/utils/containerd/Makefile
 
 # runc
-#sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=1.0.3/g' feeds/packages/utils/runc/Makefile
-#sed -i 's/PKG_HASH:=.*/PKG_HASH:=0eaf2f6606d72f166a5e7138a8a8d4d8f85d84e43448c08c66a1c93ead17a574/g' feeds/packages/utils/runc/Makefile
-#sed -i 's/PKG_SOURCE_VERSION:=.*/PKG_SOURCE_VERSION:=f46b6ba2c9314cfc8caae24a32ec5fe9ef1059fe/g' feeds/packages/utils/runc/Makefile
+sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=1.0.3/g' feeds/packages/utils/runc/Makefile
+sed -i 's/PKG_HASH:=.*/PKG_HASH:=0eaf2f6606d72f166a5e7138a8a8d4d8f85d84e43448c08c66a1c93ead17a574/g' feeds/packages/utils/runc/Makefile
+sed -i 's/PKG_SOURCE_VERSION:=.*/PKG_SOURCE_VERSION:=f46b6ba2c9314cfc8caae24a32ec5fe9ef1059fe/g' feeds/packages/utils/runc/Makefile
 
 # bsdtar
 sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=3.5.2/g' feeds/packages/libs/libarchive/Makefile
@@ -266,6 +275,10 @@ sed -i 's/PKG_HASH:=.*/PKG_HASH:=56c0dcd27ab938c4ad07469c86eb8b7408ef64c3e68f984
 # php7
 sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=7.4.26/g' feeds/packages/lang/php7//Makefile
 sed -i 's/PKG_HASH:=.*/PKG_HASH:=e305b3aafdc85fa73a81c53d3ce30578bc94d1633ec376add193a1e85e0f0ef8/g' feeds/packages/lang/php7//Makefile
+
+# php8
+#rm -rf feeds/packages/lang/php8
+#svn co https://github.com/openwrt/packages/trunk/lang/php8 feeds/packages/lang/php8
 
 # python-docker
 sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=5.0.3/g' feeds/packages/lang/python/python-docker/Makefile
@@ -434,6 +447,14 @@ sed -i 's/PKG_RELEASE:=.*/PKG_RELEASE:=1/g' package/lean/luci-app-n2n_v2/Makefil
 
 # openssh
 sed -i '175i\	--with-sandbox=rlimit \\' feeds/packages/net/openssh/Makefile
+
+# nss
+sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=3.73/g' feeds/packages/libs/nss/Makefile
+sed -i 's/PKG_HASH:=.*/PKG_HASH:=566d3a68da9b10d7da9ef84eb4fe182f8f04e20d85c55d1bf360bb2c0096d8e5/g' feeds/packages/libs/nss/Makefile
+
+# softethervpn5
+rm -rf feeds/packages/net/softethervpn5
+svn co https://github.com/openwrt/packages/trunk/net/softethervpn5 feeds/packages/net/softethervpn5
 
 # smartdns
 #sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=1.2021.34/g' feeds/packages/net/smartdns/Makefile
