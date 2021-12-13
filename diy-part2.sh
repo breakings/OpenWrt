@@ -340,10 +340,8 @@ sed -i 's/PKG_HASH:=.*/PKG_HASH:=68fb519c14306fec9720a2a5b45bc9f0c8d1b9c72adf45c
 sed -i '22i\HOST_PYTHON3_PACKAGE_BUILD_DEPENDS:=Cython\n' feeds/packages/lang/python/python-yaml/Makefile
 
 # python-websocket-client
-#sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=1.2.1/g' feeds/packages/lang/python/python-websocket-client/Makefile
 #sed -i 's/PYPI_NAME:=.*/PYPI_NAME:=websocket-client/g' feeds/packages/lang/python/python-websocket-client/Makefile
 #sed -i 's/PKG_LICENSE:=*/PKG_LICENSE:=Apache-2.0/g' feeds/packages/lang/python/python-websocket-client/Makefile
-#sed -i 's/PKG_HASH:=.*/PKG_HASH:=8dfb715d8a992f5712fff8c843adae94e22b22a99b2c5e6b0ec4a1a981cc4e0d/g' feeds/packages/lang/python/python-websocket-client/Makefile
 #sed -i 's/DEPENDS:=.*/DEPENDS:=+python3-light +python3-logging +python3-openssl/g' feeds/packages/lang/python/python-websocket-client/Makefile
 #sed -i '34i\define Py3Package/python3-websocket-client/filespec' feeds/packages/lang/python/python-websocket-client/Makefile
 #sed -i '35i\+|$(PYTHON3_PKG_DIR)' feeds/packages/lang/python/python-websocket-client/Makefile
@@ -351,18 +349,20 @@ sed -i '22i\HOST_PYTHON3_PACKAGE_BUILD_DEPENDS:=Cython\n' feeds/packages/lang/py
 #sed -i '37i\endef\n' feeds/packages/lang/python/python-websocket-client/Makefile
 rm -f feeds/packages/lang/python/python-websocket-client/Makefile
 wget -P feeds/packages/lang/python/python-websocket-client https://raw.githubusercontent.com/openwrt/packages/master/lang/python/python-websocket-client/Makefile
+sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=1.2.3/g' feeds/packages/lang/python/python-websocket-client/Makefile
+sed -i 's/PKG_HASH:=.*/PKG_HASH:=1315816c0acc508997eb3ae03b9d3ff619c9d12d544c9a9b553704b1cc4f6af5/g' feeds/packages/lang/python/python-websocket-client/Makefile
 
 # python-texttable
 sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=1.6.4/g' feeds/packages/lang/python/python-texttable/Makefile
 sed -i 's/PKG_HASH:=.*/PKG_HASH:=42ee7b9e15f7b225747c3fa08f43c5d6c83bc899f80ff9bae9319334824076e9/g' feeds/packages/lang/python/python-texttable/Makefile
 
 # python-urllib3
-sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=1.26.6/g' feeds/packages/lang/python/python-urllib3/Makefile
-sed -i 's/PKG_HASH:=.*/PKG_HASH:=f57b4c16c62fa2760b7e3d97c35b255512fb6b59a259730f36ba32ce9f8e342f/g' feeds/packages/lang/python/python-urllib3/Makefile
+sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=1.26.7/g' feeds/packages/lang/python/python-urllib3/Makefile
+sed -i 's/PKG_HASH:=.*/PKG_HASH:=4987c65554f7a2dbf30c18fd48778ef124af6fab771a377103da0585e2336ece/g' feeds/packages/lang/python/python-urllib3/Makefile
 
 # python-sqlalchemy
-sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=1.4.27/g' feeds/packages/lang/python/python-sqlalchemy/Makefile
-sed -i 's/PKG_HASH:=.*/PKG_HASH:=d768359daeb3a86644f3854c6659e4496a3e6bba2b4651ecc87ce7ad415b320c/g' feeds/packages/lang/python/python-sqlalchemy/Makefile
+sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=1.4.28/g' feeds/packages/lang/python/python-sqlalchemy/Makefile
+sed -i 's/PKG_HASH:=.*/PKG_HASH:=7fdb7b775fb0739d3e71461509f978beb788935bc0aa9e47df14837cb33e5226/g' feeds/packages/lang/python/python-sqlalchemy/Makefile
 
 # python-simplejson
 sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=3.17.6/g' feeds/packages/lang/python/python-simplejson/Makefile
@@ -381,8 +381,8 @@ sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=2.8.1/g' feeds/packages/lang/python/pytho
 sed -i 's/PKG_HASH:=.*/PKG_HASH:=85b1245054e5d7592b9088cc6d08da22445417912d3a3e48138675c7a8616438/g' feeds/packages/lang/python/python-paramiko/Makefile
 
 # python-lxml
-sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=4.6.4/g' feeds/packages/lang/python/python-lxml/Makefile
-sed -i 's/PKG_HASH:=.*/PKG_HASH:=daf9bd1fee31f1c7a5928b3e1059e09a8d683ea58fb3ffc773b6c88cb8d1399c/g' feeds/packages/lang/python/python-lxml/Makefile
+sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=4.6.5/g' feeds/packages/lang/python/python-lxml/Makefile
+sed -i 's/PKG_HASH:=.*/PKG_HASH:=6e84edecc3a82f90d44ddee2ee2a2630d4994b8471816e226d2b771cda7ac4ca/g' feeds/packages/lang/python/python-lxml/Makefile
 
 # python-idna
 sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=3.3/g' feeds/packages/lang/python/python-idna/Makefile
