@@ -536,7 +536,7 @@ rm -rf feeds/packages/utils/zstd/patches
 
 # pigz
 sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=2.6/g' feeds/packages/utils/pigz/Makefile
-sed -i 's/PKG_HASH:=.*/PKG_HASH:=2eed7b0d7449d1d70903f2a62cd6005d262eb3a8c9e98687bc8cbb5809db2a7d,/g' feeds/packages/utils/pigz/Makefile
+sed -i 's/PKG_HASH:=.*/PKG_HASH:=2eed7b0d7449d1d70903f2a62cd6005d262eb3a8c9e98687bc8cbb5809db2a7d/g' feeds/packages/utils/pigz/Makefile
 rm -rf feeds/packages/utils/pigz/patches
 
 # smartdns
