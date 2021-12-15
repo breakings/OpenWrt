@@ -286,6 +286,9 @@ sed -i 's/PKG_HASH:=.*/PKG_HASH:=eadbad9e9ab30b25f5520fbfde99fae4a92a1ae3c0257a8
 # openwrt-fullconenat
 svn co https://github.com/coolsnowwolf/lede/trunk/package/lean/openwrt-fullconenat package/openwrt-fullconenat
 
+# openssh
+sed -i '175i\	--with-sandbox=rlimit \\' feeds/packages/net/openssh/Makefile
+
 # use upx for frp
 #sed -i '58 a\    $(STAGING_DIR_HOST)/bin/upx --lzma --best $$(1)/usr/bin/$(1) || true' feeds/packages/net/frp/Makefile
 #rm -r feeds/packages/net/frp/Makefile
