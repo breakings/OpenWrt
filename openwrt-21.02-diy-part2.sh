@@ -32,6 +32,7 @@ rm -rf feeds/packages/net/xray-core
 #rm -rf package/libs/pcre
 rm -f tools/Makefile
 rm -f feeds/packages/net/dnsproxy/Makefile
+rm -rf feeds/packages/net/trojan-go
 
 # Prepare
 
@@ -46,22 +47,22 @@ wget -P feeds/packages/net/dnsproxy https://raw.githubusercontent.com/coolsnowwo
 
 # Important Patches
 # ARM64: Add CPU model name in proc cpuinfo
-wget -P target/linux/generic/pending-5.4 https://github.com/immortalwrt/immortalwrt/raw/master/target/linux/generic/hack-5.4/312-arm64-cpuinfo-Add-model-name-in-proc-cpuinfo-for-64bit-ta.patch
+wget -P target/linux/generic/pending-5.10 https://github.com/immortalwrt/immortalwrt/raw/master/target/linux/generic/hack-5.10/312-arm64-cpuinfo-Add-model-name-in-proc-cpuinfo-for-64bit-ta.patch
 
 # Patch jsonc
 #patch -p1 < $GITHUB_WORKSPACE/PATCH/new/package/use_json_object_new_int64.patch
 
 # Patch kernel to fix fullcone conflict
-#pushd target/linux/generic/hack-5.4
-#wget https://github.com/coolsnowwolf/lede/raw/master/target/linux/generic/hack-5.4/952-net-conntrack-events-support-multiple-registrant.patch
-#popd
+pushd target/linux/generic/hack-5.10
+wget https://github.com/coolsnowwolf/lede/raw/master/target/linux/generic/hack-5.10/952-net-conntrack-events-support-multiple-registrant.patch
+popd
 # Patch firewall to enable fullcone
 mkdir package/network/config/firewall/patches
-wget -P package/network/config/firewall/patches/ https://github.com/immortalwrt/immortalwrt/raw/master/package/network/config/firewall/patches/fullconenat.patch
+wget -P package/network/config/firewall/patches/ https://github.com/immortalwrt/immortalwrt/raw/ster/package/network/config/firewall/patches/fullconenat.patch
 # Patch LuCI to add fullcone button
 patch -p1 < $GITHUB_WORKSPACE/PATCH/new/package/luci-app-firewall_add_fullcone.patch
 # FullCone modules
-cp -rf $GITHUB_WORKSPACE/PATCH/duplicate/fullconenat ./package/network/fullconenat
+#cp -rf $GITHUB_WORKSPACE/PATCH/duplicate/fullconenat ./package/network/fullconenat
 
 #添加额外软件包
 #svn co https://github.com/immortalwrt/immortalwrt/branches/openwrt-21.02/package/libs/mbedtls package/libs/mbedtls
@@ -85,8 +86,8 @@ wget -P tools https://raw.githubusercontent.com/breakings/OpenWrt/main/general/t
 #svn co https://github.com/immortalwrt/immortalwrt/branches/openwrt-21.02/package/emortal/autocore package/lean/autocore
 svn co https://github.com/breakings/OpenWrt/trunk/general/autocore package/lean/autocore
 #svn co https://github.com/coolsnowwolf/lede/trunk/package/lean/autocore package/lean/autocore
-rm -rf ./feeds/packages/utils/coremark
-svn co https://github.com/immortalwrt/packages/trunk/utils/coremark feeds/packages/utils/coremark
+#rm -rf ./feeds/packages/utils/coremark
+#svn co https://github.com/immortalwrt/packages/trunk/utils/coremark feeds/packages/utils/coremark
 #svn co https://github.com/immortalwrt/immortalwrt/branches/openwrt-21.02/package/lean/qt5 package/lean/qt5
 #svn co https://github.com/immortalwrt/packages/branches/openwrt-21.02/libs/libdouble-conversion package/libs/libdouble-conversion
 #svn co https://github.com/coolsnowwolf/lede/trunk/package/libs/libdouble-conversion package/libs/libdouble-conversion
@@ -136,8 +137,8 @@ svn co https://github.com/xiaorouji/openwrt-passwall/trunk/trojan package/trojan
 svn co https://github.com/xiaorouji/openwrt-passwall/trunk/naiveproxy package/naiveproxy
 svn co https://github.com/xiaorouji/openwrt-passwall/trunk/hysteria package/hysteria
 #svn co https://github.com/fw876/helloworld/trunk/naiveproxy package/naiveproxy
-mkdir package/xray-core/patches
-wget -P package/xray-core/patches https://raw.githubusercontent.com/openwrt/packages/master/net/xray-core/patches/100-go-1.17-deps.patch
+#mkdir package/xray-core/patches
+#wget -P package/xray-core/patches https://raw.githubusercontent.com/openwrt/packages/master/net/xray-core/patches/100-go-1.17-deps.patch
 svn co https://github.com/coolsnowwolf/lede/trunk/package/lean/dnsforwarder package/lean/dnsforwarder
 
 #菜单定制
@@ -251,36 +252,39 @@ sed -i 's/PKG_VERSION:.*/PKG_VERSION:=4.14.10/' feeds/packages/net/samba4/Makefi
 sed -i 's/PKG_HASH:=.*/PKG_HASH:=107ee862f58062682cec362ec68a24251292805f89aa4c97e7ab80237f91c7af/' feeds/packages/net/samba4/Makefile
 
 # ffmpeg
-sed -i 's/PKG_VERSION:.*/PKG_VERSION:=4.4/' feeds/packages/multimedia/ffmpeg/Makefile
-sed -i 's/PKG_HASH:=.*/PKG_HASH:=06b10a183ce5371f915c6bb15b7b1fffbe046e8275099c96affc29e17645d909/' feeds/packages/multimedia/ffmpeg/Makefile
+sed -i 's/PKG_VERSION:.*/PKG_VERSION:=4.4.1/' feeds/packages/multimedia/ffmpeg/Makefile
+sed -i 's/PKG_HASH:=.*/PKG_HASH:=eadbad9e9ab30b25f5520fbfde99fae4a92a1ae3c0257a8d68569a4651e30e02/' feeds/packages/multimedia/ffmpeg/Makefile
 
 # btrfs-progs
 #sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=5.13.1/' feeds/packages/utils/btrfs-progs/Makefile
 #sed -i 's/PKG_HASH:=.*/PKG_HASH:=3d7e5a01e68fbaf485c5f1da15c6b8a7d1455fb57b6e75a706f8e2bb37f4f399/' feeds/packages/utils/btrfs-progs/Makefile
 
 # docker
-sed -i 's/PKG_VERSION:=20.10.10/PKG_VERSION:=20.10.11/' feeds/packages/utils/docker/Makefile
-sed -i 's/PKG_HASH:=.*/PKG_HASH:=55d55fdead906cbea8608ef39d5a62d54d1118e604a5ae7e2d58b4fb54a599a7/' feeds/packages/utils/docker/Makefile
-sed -i 's/PKG_GIT_SHORT_COMMIT:=b485636/PKG_GIT_SHORT_COMMIT:=dea9396/' feeds/packages/utils/docker/Makefile
+#sed -i 's/PKG_VERSION:=20.10.10/PKG_VERSION:=20.10.11/' feeds/packages/utils/docker/Makefile
+#sed -i 's/PKG_HASH:=.*/PKG_HASH:=55d55fdead906cbea8608ef39d5a62d54d1118e604a5ae7e2d58b4fb54a599a7/' feeds/packages/utils/docker/Makefile
+#sed -i 's/PKG_GIT_SHORT_COMMIT:=b485636/PKG_GIT_SHORT_COMMIT:=dea9396/' feeds/packages/utils/docker/Makefile
 
 # dockerd
-sed -i 's/PKG_VERSION:=20.10.10/PKG_VERSION:=20.10.11/' feeds/packages/utils/dockerd/Makefile
-sed -i 's/PKG_HASH:=.*/PKG_HASH:=6fa7835bf7c17c293621967bd5096642fa1e3e1b597fbc7d7bd35f455d886495/' feeds/packages/utils/dockerd/Makefile
-sed -i 's/PKG_GIT_SHORT_COMMIT:=e2f740d/PKG_GIT_SHORT_COMMIT:=847da18/' feeds/packages/utils/dockerd/Makefile
+#sed -i 's/PKG_VERSION:=20.10.10/PKG_VERSION:=20.10.11/' feeds/packages/utils/dockerd/Makefile
+#sed -i 's/PKG_HASH:=.*/PKG_HASH:=6fa7835bf7c17c293621967bd5096642fa1e3e1b597fbc7d7bd35f455d886495/' feeds/packages/utils/dockerd/Makefile
+#sed -i 's/PKG_GIT_SHORT_COMMIT:=e2f740d/PKG_GIT_SHORT_COMMIT:=847da18/' feeds/packages/utils/dockerd/Makefile
 
 # docker-compose
-sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=2.1.1/' feeds/packages/utils/docker-compose/Makefile
-sed -i 's/PKG_HASH:=.*/PKG_HASH:=5c9246c34cafeb51b3289c016cb2cbdd08b3eda87b0f8d4cc02fd7630cfdbd7b/' feeds/packages/utils/docker-compose/Makefile
+#sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=2.1.1/' feeds/packages/utils/docker-compose/Makefile
+#sed -i 's/PKG_HASH:=.*/PKG_HASH:=5c9246c34cafeb51b3289c016cb2cbdd08b3eda87b0f8d4cc02fd7630cfdbd7b/' feeds/packages/utils/docker-compose/Makefile
 
 # containerd
-sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=1.4.12/' feeds/packages/utils/containerd/Makefile
-sed -i 's/PKG_HASH:=.*/PKG_HASH:=85a531725f15e2d136131119d42af4507a5389e0947015152075c4c93816fb5c/' feeds/packages/utils/containerd/Makefile
-sed -i 's/PKG_SOURCE_VERSION:=.*/PKG_SOURCE_VERSION:=7b11cfaabd73bb80907dd23182b9347b4245eb5d/' feeds/packages/utils/containerd/Makefile
+#sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=1.4.12/' feeds/packages/utils/containerd/Makefile
+#sed -i 's/PKG_HASH:=.*/PKG_HASH:=85a531725f15e2d136131119d42af4507a5389e0947015152075c4c93816fb5c/' feeds/packages/utils/containerd/Makefile
+#sed -i 's/PKG_SOURCE_VERSION:=.*/PKG_SOURCE_VERSION:=7b11cfaabd73bb80907dd23182b9347b4245eb5d/' feeds/packages/utils/containerd/Makefile
 
 # runc
 #sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=1.0.2/' feeds/packages/utils/runc/Makefile
 #sed -i 's/PKG_HASH:=.*/PKG_HASH:=6c3cca4bbeb5d9b2f5e3c0c401c9d27bc8a5d2a0db8a2f6a06efd03ad3c38a33/' feeds/packages/utils/runc/Makefile
 #sed -i 's/PKG_SOURCE_VERSION:=.*/PKG_SOURCE_VERSION:=52b36a2dd837e8462de8e01458bf02cf9eea47dd/' feeds/packages/utils/runc/Makefile
+
+# openwrt-fullconenat
+svn co https://github.com/coolsnowwolf/lede/trunk/package/lean/openwrt-fullconenat package/openwrt-fullconenat
 
 # use upx for frp
 #sed -i '58 a\    $(STAGING_DIR_HOST)/bin/upx --lzma --best $$(1)/usr/bin/$(1) || true' feeds/packages/net/frp/Makefile
@@ -288,9 +292,9 @@ sed -i 's/PKG_SOURCE_VERSION:=.*/PKG_SOURCE_VERSION:=7b11cfaabd73bb80907dd23182b
 #wget -P feeds/packages/net/frp https://raw.githubusercontent.com/breakings/OpenWrt/main/general/frp/Makefile
 
 # fix speedtest-cli
-sed -i "s/PKG_VERSION:=.*/PKG_VERSION:=2.1.3/" feeds/packages/lang/python/python3-speedtest-cli/Makefile
-sed -i "s/PKG_RELEASE:=.*/PKG_RELEASE:=1/" feeds/packages/lang/python/python3-speedtest-cli/Makefile
-sed -i "s/PKG_HASH:=.*/PKG_HASH:=5e2773233cedb5fa3d8120eb7f97bcc4974b5221b254d33ff16e2f1d413d90f0/" feeds/packages/lang/python/python3-speedtest-cli/Makefile
+#sed -i "s/PKG_VERSION:=.*/PKG_VERSION:=2.1.3/" feeds/packages/lang/python/python3-speedtest-cli/Makefile
+#sed -i "s/PKG_RELEASE:=.*/PKG_RELEASE:=1/" feeds/packages/lang/python/python3-speedtest-cli/Makefile
+#sed -i "s/PKG_HASH:=.*/PKG_HASH:=5e2773233cedb5fa3d8120eb7f97bcc4974b5221b254d33ff16e2f1d413d90f0/" feeds/packages/lang/python/python3-speedtest-cli/Makefile
 
 # themes
 #svn co https://github.com/rosywrt/luci-theme-rosy/trunk/luci-theme-rosy package/luci-theme-rosy

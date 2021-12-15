@@ -126,6 +126,8 @@ svn co https://github.com/fw876/helloworld/trunk/luci-app-ssr-plus package/luci-
 svn co https://github.com/xiaorouji/openwrt-passwall/trunk/naiveproxy package/naiveproxy
 svn co https://github.com/coolsnowwolf/lede/trunk/package/lean/redsocks2 package/lean/redsocks2
 
+# openwrt-fullconenat
+svn co https://github.com/coolsnowwolf/lede/trunk/package/lean/openwrt-fullconenat package/openwrt-fullconenat
 
 #添加smartdns
 svn co https://github.com/project-openwrt/openwrt/trunk/package/ntlf9t/smartdns package/smartdns
