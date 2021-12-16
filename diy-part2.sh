@@ -23,7 +23,7 @@
  #rm -rf package/libs/elfutils
  #rm -rf feeds/packages/utils/gnupg
  rm -rf feeds/packages/lang/python/python3
- rm -rf package/lean/n2n_v2
+ #rm -rf package/lean/n2n_v2
  
 # ARM64: Add CPU model name in proc cpuinfo
 #wget -P target/linux/generic/pending-5.4 https://github.com/immortalwrt/immortalwrt/raw/master/target/linux/generic/hack-5.4/312-arm64-cpuinfo-Add-model-name-in-proc-cpuinfo-for-64bit-ta.patch
@@ -54,7 +54,7 @@ svn co https://github.com/ophub/luci-app-amlogic/trunk/luci-app-amlogic package/
 svn co https://github.com/Lienol/openwrt-package/trunk/luci-app-socat package/luci-app-socat
 #svn co https://github.com/neheb/openwrt/branches/elf/package/libs/elfutils package/libs/elfutils
 #svn co https://github.com/breakings/OpenWrt/trunk/general/gnupg feeds/packages/utils/gnupg
-svn co https://github.com/breakings/OpenWrt/trunk/general/n2n_v2 package/lean/n2n_v2
+#svn co https://github.com/breakings/OpenWrt/trunk/general/n2n_v2 package/lean/n2n_v2
 
 # 编译 po2lmo (如果有po2lmo可跳过)
 pushd package/luci-app-openclash/tools/po2lmo
@@ -273,8 +273,8 @@ sed -i 's/PKG_HASH:=.*/PKG_HASH:=59065c8733364725e9721ba48c3a99bbc52af921daf48df
 #sed -i 's/PKG_MIRROR_HASH:=.*/PKG_MIRROR_HASH:=403d7d20bf2ae67e898db4543c61cc07f337cedf038a11c84a2af5504cfb82e9/g' feeds/packages/net/wsdd2//Makefile
 
 # openvpn
-sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=2.5.4/g' feeds/packages/net/openvpn/Makefile
-sed -i 's/PKG_HASH:=.*/PKG_HASH:=56c0dcd27ab938c4ad07469c86eb8b7408ef64c3e68f98497db8c03f11792436/g' feeds/packages/net/openvpn/Makefile
+sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=2.5.5/g' feeds/packages/net/openvpn/Makefile
+sed -i 's/PKG_HASH:=.*/PKG_HASH:=119bd69fa0210838f6cdaa273696dc738efa200f454dbe11eb6dfb75dfb6003b/g' feeds/packages/net/openvpn/Makefile
 
 # php7
 sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=7.4.26/g' feeds/packages/lang/php7//Makefile
@@ -486,9 +486,9 @@ sed -i 's/PKG_MIRROR_HASH:=.*/PKG_MIRROR_HASH=93f7f99c4242dbc5218907981e32f74ddb
 # mmc-utils
 rm -rf feeds/packages/utils/mmc-utils
 svn co https://github.com/openwrt/packages/trunk/utils/mmc-utils feeds/packages/utils/mmc-utils
-sed -i 's/PKG_SOURCE_DATE:=.*/PKG_SOURCE_DATE:=2021-12-11/g' feeds/packages/utils/mmc-utils/Makefile
-sed -i 's/PKG_SOURCE_VERSION:=.*/PKG_SOURCE_VERSION:=a1b233c2a31baa5b77cb67c0c3be4767be86f727/g' feeds/packages/utils/mmc-utils/Makefile
-sed -i 's/PKG_MIRROR_HASH:=.*/PKG_MIRROR_HASH:=3a1b75afd51f22054bc06d5dce79408c0c20b1f26b85251c8964bbc1e04a4b4b/g' feeds/packages/utils/mmc-utils/Makefile
+#sed -i 's/PKG_SOURCE_DATE:=.*/PKG_SOURCE_DATE:=2021-12-11/g' feeds/packages/utils/mmc-utils/Makefile
+#sed -i 's/PKG_SOURCE_VERSION:=.*/PKG_SOURCE_VERSION:=a1b233c2a31baa5b77cb67c0c3be4767be86f727/g' feeds/packages/utils/mmc-utils/Makefile
+#sed -i 's/PKG_MIRROR_HASH:=.*/PKG_MIRROR_HASH:=3a1b75afd51f22054bc06d5dce79408c0c20b1f26b85251c8964bbc1e04a4b4b/g' feeds/packages/utils/mmc-utils/Makefile
 
 # nfs-kernel-server
 rm -rf feeds/packages/net/nfs-kernel-server
@@ -538,6 +538,33 @@ rm -rf feeds/packages/utils/zstd/patches
 sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=2.6/g' feeds/packages/utils/pigz/Makefile
 sed -i 's/PKG_HASH:=.*/PKG_HASH:=2eed7b0d7449d1d70903f2a62cd6005d262eb3a8c9e98687bc8cbb5809db2a7d/g' feeds/packages/utils/pigz/Makefile
 rm -rf feeds/packages/utils/pigz/patches
+
+# nano
+#rm -rf feeds/packages/utils/nano
+#svn co https://github.com/openwrt/packages/trunk/utils/nano feeds/packages/utils/nano
+
+# dnsproxy
+sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=0.39.13/g' package/lean/dnsproxy/Makefile
+sed -i 's/PKG_HASH:=.*/PKG_HASH:=a6f865dd6970b3c6a3c34adbec6817535d33c48c93f9ab540280433d10c7169b/g' package/lean/dnsproxy/Makefile
+
+# libnl-tiny
+sed -i 's/PKG_RELEASE:=.*/PKG_RELEASE:=1/g' package/libs/libnl-tiny/Makefile
+sed -i 's/PKG_SOURCE_DATE:=.*/PKG_SOURCE_DATE:=2021-11-21/g' package/libs/libnl-tiny/Makefile
+sed -i 's/PKG_SOURCE_VERSION:=.*/PKG_SOURCE_VERSION:=8e0555fb39f51a5d6436b4f1370850caa03611ea/g' package/libs/libnl-tiny/Makefile
+sed -i 's/PKG_MIRROR_HASH:=.*/PKG_MIRROR_HASH:=2cfbcc62384535674a2c0157cb24a0736520fcb66ed50be23bf9141c8488885f/g' package/libs/libnl-tiny/Makefile
+sed -i '19,20d' package/libs/libnl-tiny/Makefile
+
+# mac80211
+rm -rf package/kernel/mac80211
+svn co https://github.com/openwrt/openwrt/branches/openwrt-21.02/package/kernel/mac80211 package/kernel/mac80211
+
+# mt76
+rm -rf package/kernel/mt76
+svn co https://github.com/openwrt/openwrt/branches/openwrt-21.02/package/kernel/mt76 package/kernel/mt76
+
+# 可道云
+rm -rf package/lean/luci-app-kodexplorer
+cp -r $GITHUB_WORKSPACE/general/luci-app-kodexplorer package/lean/luci-app-kodexplorer
 
 # smartdns
 #sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=1.2021.34/g' feeds/packages/net/smartdns/Makefile
