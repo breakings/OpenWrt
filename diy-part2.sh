@@ -542,9 +542,9 @@ rm -rf feeds/packages/utils/pigz/patches
 #svn co https://github.com/openwrt/packages/trunk/utils/nano feeds/packages/utils/nano
 
 # dnsproxy
-rm -rf package/lean/dnsproxy
-#sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=0.39.13/g' package/lean/dnsproxy/Makefile
-#sed -i 's/PKG_HASH:=.*/PKG_HASH:=a6f865dd6970b3c6a3c34adbec6817535d33c48c93f9ab540280433d10c7169b/g' package/lean/dnsproxy/Makefile
+#rm -rf package/lean/dnsproxy
+sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=0.39.13/g' package/lean/dnsproxy/Makefile
+sed -i 's/PKG_HASH:=.*/PKG_HASH:=a6f865dd6970b3c6a3c34adbec6817535d33c48c93f9ab540280433d10c7169b/g' package/lean/dnsproxy/Makefile
 
 # libnl-tiny
 sed -i 's/PKG_RELEASE:=.*/PKG_RELEASE:=1/g' package/libs/libnl-tiny/Makefile
