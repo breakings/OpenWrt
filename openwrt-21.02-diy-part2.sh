@@ -43,7 +43,7 @@ sed -i "s/enabled '0'/enabled '1'/g" feeds/packages/utils/irqbalance/files/irqba
 #rm -rf ./include/download.mk
 #wget -P scripts/ https://github.com/immortalwrt/immortalwrt/raw/master/scripts/download.pl
 #wget -P include/ https://github.com/immortalwrt/immortalwrt/raw/master/include/download.mk
-wget -P feeds/packages/net/dnsproxy https://raw.githubusercontent.com/coolsnowwolf/lede/master/package/lean/dnsproxy/Makefile
+wget -P feeds/packages/net/dnsproxy https://raw.githubusercontent.com/coolsnowwolf/packages/master/net/dnsproxy/Makefile
 
 # Important Patches
 # ARM64: Add CPU model name in proc cpuinfo
@@ -122,8 +122,9 @@ svn co https://github.com/xiaorouji/openwrt-passwall/trunk/xray-core package/xra
 #svn co https://github.com/1715173329/packages-official/branches/xray-2102/net/xray-core feeds/packages/net/xray-core
 svn co https://github.com/xiaorouji/openwrt-passwall/trunk/xray-plugin package/xray-plugin
 svn co https://github.com/xiaorouji/openwrt-passwall/trunk/v2ray-core package/v2ray-core
-#svn co https://github.com/xiaorouji/openwrt-passwall/trunk/v2ray-plugin package/v2ray-plugin
-svn co https://github.com/fw876/helloworld/trunk/v2ray-plugin package/v2ray-plugin
+svn co https://github.com/xiaorouji/openwrt-passwall/trunk/v2ray-geodata package/v2ray-geodata
+svn co https://github.com/xiaorouji/openwrt-passwall/trunk/v2ray-plugin package/v2ray-plugin
+#svn co https://github.com/fw876/helloworld/trunk/v2ray-plugin package/v2ray-plugin
 svn co https://github.com/xiaorouji/openwrt-passwall/trunk/ssocks package/ssocks
 svn co https://github.com/xiaorouji/openwrt-passwall/trunk/dns2socks package/dns2socks
 svn co https://github.com/xiaorouji/openwrt-passwall/trunk/ipt2socks package/ipt2socks
