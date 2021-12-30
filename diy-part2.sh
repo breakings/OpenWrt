@@ -645,6 +645,10 @@ sed -i 's/mount -t ntfs3 -o nls=utf8 "$@"/mount -t ntfs3 "$@"/g'  package/lean/n
 # replace banner
 cp -f $GITHUB_WORKSPACE/general/openwrt_banner package/base-files/files/etc/banner
 
+# boost
+rm -rf feeds/packages/libs/boost
+cp -r $GITHUB_WORKSPACE/general/boost feeds/packages/libs
+
 # fix luci-theme-opentomcat dockerman icon missing
 rm -f package/luci-theme-opentomcat/files/htdocs/fonts/advancedtomato.woff
 cp $GITHUB_WORKSPACE/general/advancedtomato.woff package/luci-theme-opentomcat/files/htdocs/fonts
