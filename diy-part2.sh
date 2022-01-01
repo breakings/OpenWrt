@@ -639,7 +639,7 @@ sed -i 's/services/vpn/g'  feeds/luci/applications/luci-app-openvpn/luasrc/contr
 #sed -i 's/mount -t ntfs3 -o nls=utf8 "$@"/mount -t ntfs3 "$@"/g'  package/lean/ntfs3-oot-mount/files/mount.ntfs3
 
 # fix kernel 5.15 modules missing
-cp -f $GITHUB_WORKSPACE/general/fs.mk package/kernel/linux/modules
+#cp -f $GITHUB_WORKSPACE/general/fs.mk package/kernel/linux/modules
 
 #replace coremark.sh with the new one
 #rm feeds/packages/utils/coremark/coremark.sh
