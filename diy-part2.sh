@@ -636,7 +636,10 @@ sed -i 's/services/vpn/g'  feeds/luci/applications/luci-app-openvpn/luasrc/contr
 
 #fix ntfs3 generating empty package
 #sed -i 's/KCONFIG:=CONFIG_NLS_DEFAULT="utf8"/#KCONFIG:=CONFIG_NLS_DEFAULT="utf8"/'g package/lean/ntfs3/Makefile
-sed -i 's/mount -t ntfs3 -o nls=utf8 "$@"/mount -t ntfs3 "$@"/g'  package/lean/ntfs3-oot-mount/files/mount.ntfs3
+#sed -i 's/mount -t ntfs3 -o nls=utf8 "$@"/mount -t ntfs3 "$@"/g'  package/lean/ntfs3-oot-mount/files/mount.ntfs3
+
+# fix kernel 5.15 modules missing
+cp -f $GITHUB_WORKSPACE/general/fs.mk package/kernel/linux/modules
 
 #replace coremark.sh with the new one
 #rm feeds/packages/utils/coremark/coremark.sh
