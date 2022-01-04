@@ -69,7 +69,7 @@ patch -p1 < $GITHUB_WORKSPACE/PATCH/new/package/luci-app-firewall_add_fullcone.p
 svn co https://github.com/coolsnowwolf/lede/trunk/package/libs/mbedtls package/libs/mbedtls
 #svn co https://github.com/coolsnowwolf/packages/trunk/devel/ninja feeds/packages/devel/ninja
 svn co https://github.com/coolsnowwolf/lede/trunk/package/lean/ntfs3-mount package/lean/ntfs3-mount
-svn co https://github.com/coolsnowwolf/lede/trunk/package/lean/ntfs3 package/lean/ntfs3
+svn co https://github.com/coolsnowwolf/lede/trunk/package/lean/ntfs3-oot package/lean/ntfs3-oot
 #svn co https://github.com/breakings/OpenWrt/trunk/general/ntfs3 package/lean/ntfs3
 #svn co https://github.com/coolsnowwolf/lede/trunk/package/libs/elfutils package/libs/elfutils
 #svn co https://github.com/coolsnowwolf/lede/trunk/package/libs/libcap package/libs/libcap
