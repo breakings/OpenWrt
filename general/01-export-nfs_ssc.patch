@@ -1,0 +1,22 @@
+From f920bc72351c29caa717d8fe940dd06ab30e24be Mon Sep 17 00:00:00 2001
+From: W_Y_CPP <383152993@qq.com>
+Date: Fri, 7 Jan 2022 03:06:05 -0500
+Subject: [PATCH] export nfs_ssc
+
+---
+ fs/nfs_common/Makefile | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/fs/nfs_common/Makefile b/fs/nfs_common/Makefile
+index 119c75ab9..fa82f5aaa 100644
+--- a/fs/nfs_common/Makefile
++++ b/fs/nfs_common/Makefile
+@@ -7,4 +7,4 @@ obj-$(CONFIG_NFS_ACL_SUPPORT) += nfs_acl.o
+ nfs_acl-objs := nfsacl.o
+ 
+ obj-$(CONFIG_GRACE_PERIOD) += grace.o
+-obj-$(CONFIG_NFS_V4_2_SSC_HELPER) += nfs_ssc.o
++obj-$(CONFIG_GRACE_PERIOD) += nfs_ssc.o
+-- 
+2.17.1
+

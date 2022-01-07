@@ -182,8 +182,9 @@ sed -i "s|s9xxx_lede|ARMv8|g" package/luci-app-amlogic/root/etc/config/amlogic
 #sed -i 's/PKG_HASH:=.*/PKG_HASH:=3d7e5a01e68fbaf485c5f1da15c6b8a7d1455fb57b6e75a706f8e2bb37f4f399/g' feeds/packages/utils/btrfs-progs/Makefile
 
 # qBittorrent
-#sed -i "s/PKG_VERSION:=.*/PKG_VERSION:=4.3.7/g" package/lean/qBittorrent/Makefile
-#sed -i "s/PKG_HASH:=.*/PKG_HASH:=d17c0bd852aaf8b75d61026ee213ad9147c37d8e3a14a3137b735732061bd1b1/g" package/lean/qBittorrent/Makefile
+sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=4.4.0/g' package/lean/qBittorrent/Makefile
+sed -i 's/PKG_HASH:=.*/PKG_HASH:=da240744c6cc5953d7c4d298a02a0cf36d2c8897931819f1e6459bd5270a7c5c/g' package/lean/qBittorrent/Makefile
+sed -i '41i\		+qt5-sql \\' package/lean/qBittorrent/Makefile
 
 # golang
 #sed -i 's/GO_VERSION_PATCH:=.*/GO_VERSION_PATCH:=5/g' feeds/packages/lang/golang/golang/Makefile
@@ -636,10 +637,13 @@ sed -i 's/services/vpn/g'  feeds/luci/applications/luci-app-openvpn/luasrc/contr
 
 #fix ntfs3 generating empty package
 #sed -i 's/KCONFIG:=CONFIG_NLS_DEFAULT="utf8"/#KCONFIG:=CONFIG_NLS_DEFAULT="utf8"/'g package/lean/ntfs3/Makefile
-#sed -i 's/mount -t ntfs3 -o nls=utf8 "$@"/mount -t ntfs3 "$@"/g'  package/lean/ntfs3-oot-mount/files/mount.ntfs3
+#sed -i 's/mount -t ntfs3 -o nls=utf8 "$@"/mount -t ntfs3 "$@"/g'  package/lean/ntfs3-mount/files/mount.ntfs
 
-# fix kernel 5.15 modules missing
-#cp -f $GITHUB_WORKSPACE/general/fs.mk package/kernel/linux/modules
+# fix kernel modules missing nfs_ssc.ko
+cp -f $GITHUB_WORKSPACE/general/fs.mk package/kernel/linux/modules
+rm -f target/linux/generic/backport-5.10/350-v5.12-NFSv4_2-SSC-helper-should-use-its-own-config.patch
+rm -f target/linux/generic/backport-5.10/351-v5.13-NFSv4_2-Remove-ifdef-CONFIG_NFSD-from-client-SSC.patch
+cp -f $GITHUB_WORKSPACE/general/01-export-nfs_ssc.patch target/linux/generic/backport-5.10
 
 #replace coremark.sh with the new one
 #rm feeds/packages/utils/coremark/coremark.sh

@@ -398,27 +398,30 @@ $(eval $(call KernelPackage,fs-nfs))
 define KernelPackage/fs-nfs-ssc
   SUBMENU:=$(FS_MENU)
   TITLE:=Common NFS filesystem SSC Helper module
-  KCONFIG:= CONFIG_NFS_V4_2@ge5.15
-  FILES:= $(LINUX_DIR)/fs/nfs_common/nfs_ssc.ko
-  AUTOLOAD:=$(call AutoLoad,30,nfs_ssc)
+  KCONFIG:= \
+	CONFIG_GRACE_PERIOD
+  FILES:= \
+	$(LINUX_DIR)/fs/nfs_common/nfs_ssc.ko@ge5.10 \
+	$(LINUX_DIR)/fs/nfs_common/grace.ko
+
+  AUTOLOAD:=$(call AutoLoad,30,nfs_ssc grace)
 endef
 
 $(eval $(call KernelPackage,fs-nfs-ssc))
 
+
 define KernelPackage/fs-nfs-common
   SUBMENU:=$(FS_MENU)
   TITLE:=Common NFS filesystem modules
-  DEPENDS:=+LINUX_5_10:kmod-fs-nfs-ssc
+  DEPENDS:=+kmod-fs-nfs-ssc
   KCONFIG:= \
 	CONFIG_LOCKD \
-	CONFIG_SUNRPC \
-	CONFIG_GRACE_PERIOD
+	CONFIG_SUNRPC 
+
   FILES:= \
 	$(LINUX_DIR)/fs/lockd/lockd.ko \
-	$(LINUX_DIR)/net/sunrpc/sunrpc.ko \
-	$(LINUX_DIR)/fs/nfs_common/grace.ko \
-	$(LINUX_DIR)/fs/nfs_common/nfs_ssc.ko
-  AUTOLOAD:=$(call AutoLoad,30,grace sunrpc lockd)
+	$(LINUX_DIR)/net/sunrpc/sunrpc.ko 
+  AUTOLOAD:=$(call AutoLoad,30,sunrpc lockd)
 endef
 
 $(eval $(call KernelPackage,fs-nfs-common))
@@ -473,7 +476,7 @@ $(eval $(call KernelPackage,fs-nfs-v3))
 define KernelPackage/fs-nfs-v4
   SUBMENU:=$(FS_MENU)
   TITLE:=NFS4 filesystem client support
-  DEPENDS:=+kmod-fs-nfs +LINUX_5_15:kmod-fs-nfs-ssc
+  DEPENDS:=+kmod-fs-nfs +kmod-fs-nfs-ssc
   KCONFIG:= \
 	CONFIG_NFS_V4=y
   FILES:= \
@@ -526,18 +529,18 @@ endef
 
 $(eval $(call KernelPackage,fs-ntfs))
 
+
 define KernelPackage/fs-ntfs3
   SUBMENU:=$(FS_MENU)
   TITLE:=NTFS3 Read-Write file system support
-  DEPENDS:=@LINUX_5_15
+  DEPENDS:=@LINUX_5_15 +kmod-nls-base
   KCONFIG:= \
-  CONFIG_NTFS3_FS \
-  CONFIG_NTFS3_64BIT_CLUSTER=y \
-  CONFIG_NTFS3_LZX_XPRESS=y \
-  CONFIG_NTFS3_FS_POSIX_ACL=y
+	CONFIG_NTFS3_FS \
+	CONFIG_NTFS3_64BIT_CLUSTER=y \
+	CONFIG_NTFS3_LZX_XPRESS=y \
+	CONFIG_NTFS3_FS_POSIX_ACL=y
   FILES:=$(LINUX_DIR)/fs/ntfs3/ntfs3.ko
   AUTOLOAD:=$(call AutoLoad,30,ntfs3)
-  $(call AddDepends/nls)
 endef
 
 define KernelPackage/fs-ntfs3/description
