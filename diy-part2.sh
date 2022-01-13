@@ -178,8 +178,9 @@ sed -i "s|s9xxx_lede|ARMv8|g" package/luci-app-amlogic/root/etc/config/amlogic
 #sed -i "s|.img.gz|..OPENWRT_SUFFIX|g" package/luci-app-amlogic/root/etc/config/amlogic
 
 # btrfs-progs
-#sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=5.13.1/g' feeds/packages/utils/btrfs-progs/Makefile
-#sed -i 's/PKG_HASH:=.*/PKG_HASH:=3d7e5a01e68fbaf485c5f1da15c6b8a7d1455fb57b6e75a706f8e2bb37f4f399/g' feeds/packages/utils/btrfs-progs/Makefile
+sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=5.16/g' feeds/packages/utils/btrfs-progs/Makefile
+sed -i 's/PKG_HASH:=.*/PKG_HASH:=38ab3cd19d4156226cacd6926972f866a77b76ec3b9677d9888efb9530a31833/g' feeds/packages/utils/btrfs-progs/Makefile
+sed -i '41i\    +libudev  \\' feeds/packages/utils/btrfs-progs/Makefile
 
 # qBittorrent
 sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=4.4.0/g' package/lean/qBittorrent/Makefile
@@ -187,8 +188,8 @@ sed -i 's/PKG_HASH:=.*/PKG_HASH:=da240744c6cc5953d7c4d298a02a0cf36d2c8897931819f
 sed -i '41i\		+qt5-sql \\' package/lean/qBittorrent/Makefile
 
 # golang
-sed -i 's/GO_VERSION_PATCH:=.*/GO_VERSION_PATCH:=6/g' feeds/packages/lang/golang/golang/Makefile
-sed -i 's/PKG_HASH:=.*/PKG_HASH:=4dc1bbf3ff61f0c1ff2b19355e6d88151a70126268a47c761477686ef94748c8/g' feeds/packages/lang/golang/golang/Makefile
+#sed -i 's/GO_VERSION_PATCH:=.*/GO_VERSION_PATCH:=6/g' feeds/packages/lang/golang/golang/Makefile
+#sed -i 's/PKG_HASH:=.*/PKG_HASH:=4dc1bbf3ff61f0c1ff2b19355e6d88151a70126268a47c761477686ef94748c8/g' feeds/packages/lang/golang/golang/Makefile
 
 # curl
 #sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=7.78.0/g' feeds/packages/net/curl/Makefile
