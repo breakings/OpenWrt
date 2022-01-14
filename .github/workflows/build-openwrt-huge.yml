@@ -19,7 +19,7 @@ on:
         required: false
         default: 'false'
   schedule:
-    - cron: 1 16 * * *
+    - cron: 0 4 * * *
 
 env:
   REPO_URL: https://github.com/coolsnowwolf/lede
@@ -71,8 +71,8 @@ jobs:
     - name: Cache Toolchain
       uses: klever1988/cachewrtbuild@main
       with:
-        ccache: 'true'
-        toolchain: 'false'
+        ccache: 'false'
+        toolchain: 'true
         prefix: ${{ github.workspace }}/openwrt
 
     - name: Load custom feeds
