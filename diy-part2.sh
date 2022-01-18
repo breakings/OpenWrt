@@ -308,9 +308,20 @@ sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=3.4/g' feeds/packages/utils/parted/Makefi
 sed -i 's/PKG_MD5SUM:=.*/PKG_MD5SUM:=357d19387c6e7bc4a8a90fe2d015fe80/g' feeds/packages/utils/parted/Makefile
 
 # wolfSSL
-sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=5.0.0-stable/g' package/libs/wolfssl/Makefile
-sed -i 's/PKG_HASH:=.*/PKG_HASH:=908390282cc613a3943533f3d922b3c18dee3289f498b6f944cb86a19a5eeb56/g' package/libs/wolfssl/Makefile
-rm -f package/libs/wolfssl/patches/002-Update-macro-guard-on-SHA256-transform-call.patch
+#sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=5.0.0-stable/g' package/libs/wolfssl/Makefile
+#sed -i 's/PKG_HASH:=.*/PKG_HASH:=908390282cc613a3943533f3d922b3c18dee3289f498b6f944cb86a19a5eeb56/g' package/libs/wolfssl/Makefile
+#rm -f package/libs/wolfssl/patches/002-Update-macro-guard-on-SHA256-transform-call.patch
+cp -rf $GITHUB_WORKSPACE/general/wolfssl package/libs
+
+# ustream-ssl
+sed -i 's/PKG_RELEASE:=.*/PKG_RELEASE:=1/g' package/libs/ustream-ssl/Makefile
+sed -i 's/PKG_SOURCE_DATE:=.*/PKG_SOURCE_DATE:=2022-01-16/g' package/libs/ustream-ssl/Makefile
+sed -i 's/PKG_SOURCE_VERSION:=.*/PKG_SOURCE_VERSION:=868fd8812f477c110f9c6c5252c0bd172167b94c/g' package/libs/ustream-ssl/Makefile
+sed -i 's/PKG_MIRROR_HASH:=.*/PKG_MIRROR_HASH:=dd28d5e846b391917cf83d66176653bdfa4e8a0d5b11144b65a012fe7693ddeb/g' package/libs/ustream-ssl/Makefile
+
+# expat
+sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=2.4.3/g' feeds/packages/libs/expat/Makefile
+sed -i 's/PKG_HASH:=.*/PKG_HASH:=b1f9f1b1a5ebb0acaa88c9ff79bfa4e145823b78aa5185e5c5d85f060824778a/g' feeds/packages/libs/expat/Makefile
 
 # socat
 rm -rf feeds/packages/net/socat
@@ -540,8 +551,8 @@ sed -i 's/PKG_HASH:=.*/PKG_HASH:=444f68cf74d2ee6e1d3e53aa99463570bcabf37734f26f8
 #rm -rf feeds/packages/utils/zstd/patches
 
 # pigz
-sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=2.6/g' feeds/packages/utils/pigz/Makefile
-sed -i 's/PKG_HASH:=.*/PKG_HASH:=2eed7b0d7449d1d70903f2a62cd6005d262eb3a8c9e98687bc8cbb5809db2a7d/g' feeds/packages/utils/pigz/Makefile
+sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=2.7/g' feeds/packages/utils/pigz/Makefile
+sed -i 's/PKG_HASH:=.*/PKG_HASH:=b4c9e60344a08d5db37ca7ad00a5b2c76ccb9556354b722d56d55ca7e8b1c707/g' feeds/packages/utils/pigz/Makefile
 rm -rf feeds/packages/utils/pigz/patches
 
 # nano
