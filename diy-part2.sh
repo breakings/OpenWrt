@@ -310,7 +310,7 @@ sed -i 's/PKG_MD5SUM:=.*/PKG_MD5SUM:=357d19387c6e7bc4a8a90fe2d015fe80/g' feeds/p
 # wolfSSL
 #sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=5.0.0-stable/g' package/libs/wolfssl/Makefile
 #sed -i 's/PKG_HASH:=.*/PKG_HASH:=908390282cc613a3943533f3d922b3c18dee3289f498b6f944cb86a19a5eeb56/g' package/libs/wolfssl/Makefile
-#rm -f package/libs/wolfssl/patches/002-Update-macro-guard-on-SHA256-transform-call.patch
+rm -f package/libs/wolfssl/patches/002-Update-macro-guard-on-SHA256-transform-call.patch
 cp -rf $GITHUB_WORKSPACE/general/wolfssl package/libs
 
 # ustream-ssl
