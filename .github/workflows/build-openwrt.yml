@@ -71,7 +71,7 @@ jobs:
     - name: Cache Toolchain
       uses: klever1988/cachewrtbuild@main
       with:
-        ccache: 'false'
+        ccache: 'true'
         clean: 'false'
         prefix: ${{ github.workspace }}/openwrt
 
