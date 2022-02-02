@@ -164,12 +164,13 @@ svn co https://github.com/openwrt/packages/trunk/utils/lvm2 feeds/packages/utils
 #rm -rf lean/luci-app-docker/root/www
 
 # samba4
-sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=4.14.10/g' feeds/packages/net/samba4/Makefile
-sed -i 's/PKG_HASH:=.*/PKG_HASH:=107ee862f58062682cec362ec68a24251292805f89aa4c97e7ab80237f91c7af/g' feeds/packages/net/samba4/Makefile
+#sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=4.14.10/g' feeds/packages/net/samba4/Makefile
+#sed -i 's/PKG_HASH:=.*/PKG_HASH:=107ee862f58062682cec362ec68a24251292805f89aa4c97e7ab80237f91c7af/g' feeds/packages/net/samba4/Makefile
 
 # ffmpeg
-sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=4.4.1/g' feeds/packages/multimedia/ffmpeg/Makefile
-sed -i 's/PKG_HASH:=.*/PKG_HASH:=eadbad9e9ab30b25f5520fbfde99fae4a92a1ae3c0257a8d68569a4651e30e02/g' feeds/packages/multimedia/ffmpeg/Makefile
+sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=5.0/g' feeds/packages/multimedia/ffmpeg/Makefile
+sed -i 's/PKG_HASH:=.*/PKG_HASH:=51e919f7d205062c0fd4fae6243a84850391115104ccf1efc451733bc0ac7298/g' feeds/packages/multimedia/ffmpeg/Makefile
+rm -f feeds/packages/multimedia/ffmpeg/patches/030-h264-mips.patch
 
 # 晶晨宝盒
 sed -i "s|https.*/amlogic-s9xxx-openwrt|https://github.com/breakings/OpenWrt|g" package/luci-app-amlogic/root/etc/config/amlogic
@@ -224,9 +225,9 @@ cp -f $GITHUB_WORKSPACE/general/libtorrent-rasterbar/Makefile feeds/packages/lib
 #rm -f feeds/packages/lang/node/patches/v14.x/999-fix_building_with_system_c-ares_on_Linux.patch
 
 # mbedtls
-#sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=2.6.11/g' package/libs/mbedtls/Makefile
+sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=2.6.12/g' package/libs/mbedtls/Makefile
 #sed -i 's/PKG_RELEASE:=.*/PKG_RELEASE:=$(AUTORELEASE)/g' package/libs/mbedtls/Makefile
-#sed -i 's/PKG_HASH:=.*/PKG_HASH:=c18e7e9abf95e69e425260493720470021384a1728417042060a35d0b7b18b41/g' package/libs/mbedtls/Makefile
+sed -i 's/PKG_HASH:=.*/PKG_HASH:=294871ab1864a65d0b74325e9219d5bcd6e91c34a3c59270c357bb9ae4d5c393/g' package/libs/mbedtls/Makefile
 
 # docker
 #sed -i 's/PKG_VERSION:=20.10.10/PKG_VERSION:=20.10.11/g' feeds/packages/utils/docker/Makefile
@@ -276,8 +277,8 @@ sed -i 's/PKG_HASH:=.*/PKG_HASH:=59065c8733364725e9721ba48c3a99bbc52af921daf48df
 #sed -i 's/PKG_MIRROR_HASH:=.*/PKG_MIRROR_HASH:=403d7d20bf2ae67e898db4543c61cc07f337cedf038a11c84a2af5504cfb82e9/g' feeds/packages/net/wsdd2//Makefile
 
 # openvpn
-sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=2.5.5/g' feeds/packages/net/openvpn/Makefile
-sed -i 's/PKG_HASH:=.*/PKG_HASH:=119bd69fa0210838f6cdaa273696dc738efa200f454dbe11eb6dfb75dfb6003b/g' feeds/packages/net/openvpn/Makefile
+#sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=2.5.5/g' feeds/packages/net/openvpn/Makefile
+#sed -i 's/PKG_HASH:=.*/PKG_HASH:=119bd69fa0210838f6cdaa273696dc738efa200f454dbe11eb6dfb75dfb6003b/g' feeds/packages/net/openvpn/Makefile
 
 # php7
 #sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=7.4.27/g' feeds/packages/lang/php7//Makefile
@@ -320,8 +321,8 @@ sed -i 's/PKG_SOURCE_VERSION:=.*/PKG_SOURCE_VERSION:=868fd8812f477c110f9c6c5252c
 sed -i 's/PKG_MIRROR_HASH:=.*/PKG_MIRROR_HASH:=dd28d5e846b391917cf83d66176653bdfa4e8a0d5b11144b65a012fe7693ddeb/g' package/libs/ustream-ssl/Makefile
 
 # expat
-sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=2.4.3/g' feeds/packages/libs/expat/Makefile
-sed -i 's/PKG_HASH:=.*/PKG_HASH:=b1f9f1b1a5ebb0acaa88c9ff79bfa4e145823b78aa5185e5c5d85f060824778a/g' feeds/packages/libs/expat/Makefile
+sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=2.4.4/g' feeds/packages/libs/expat/Makefile
+sed -i 's/PKG_HASH:=.*/PKG_HASH:=b5d25d6e373351c2ed19b562b4732d01d2589ac8c8e9e7962d8df1207cc311b8/g' feeds/packages/libs/expat/Makefile
 
 # socat
 rm -rf feeds/packages/net/socat
@@ -640,12 +641,12 @@ sed -i 's/PKG_HASH:=.*/PKG_HASH:=d1f72f474e71bcaaf465dcc7e6f7b6a4705e4b1ed95c581
 #sed -i 's/PKG_HASH:=.*/PKG_HASH:=ed285f4accaf05344f90975757b3dbfe772ba41d1c401c2648b7fa45b711bdd4/g' package/libs/libpcap/Makefile
 
 # xray-core
-sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=1.5.3/g' package/xray-core/Makefile
-sed -i 's/PKG_HASH:=.*/PKG_HASH:=4b8d78cc20bdf2e8936c02b05d22f0a3231075155ffdc67508d8448ab8858252/g' package/xray-core/Makefile
+#sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=1.5.3/g' package/xray-core/Makefile
+#sed -i 's/PKG_HASH:=.*/PKG_HASH:=4b8d78cc20bdf2e8936c02b05d22f0a3231075155ffdc67508d8448ab8858252/g' package/xray-core/Makefile
 
 # xray-plugin
-sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=1.5.3/g' package/xray-plugin/Makefile
-sed -i 's/PKG_HASH:=.*/PKG_HASH:=0280e1c7c9c87db13a456be098e42065374066df4108b87c2e1d781337740a73/g' package/xray-plugin/Makefile
+#sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=1.5.3/g' package/xray-plugin/Makefile
+#sed -i 's/PKG_HASH:=.*/PKG_HASH:=0280e1c7c9c87db13a456be098e42065374066df4108b87c2e1d781337740a73/g' package/xray-plugin/Makefile
 
 # icu
 rm -rf feeds/packages/libs/icu
