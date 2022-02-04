@@ -179,9 +179,9 @@ sed -i "s|s9xxx_lede|ARMv8|g" package/luci-app-amlogic/root/etc/config/amlogic
 #sed -i "s|.img.gz|..OPENWRT_SUFFIX|g" package/luci-app-amlogic/root/etc/config/amlogic
 
 # btrfs-progs
-sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=5.16/g' feeds/packages/utils/btrfs-progs/Makefile
-sed -i 's/PKG_HASH:=.*/PKG_HASH:=38ab3cd19d4156226cacd6926972f866a77b76ec3b9677d9888efb9530a31833/g' feeds/packages/utils/btrfs-progs/Makefile
-sed -i '68i\	--disable-libudev \\' feeds/packages/utils/btrfs-progs/Makefile
+#sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=5.16/g' feeds/packages/utils/btrfs-progs/Makefile
+#sed -i 's/PKG_HASH:=.*/PKG_HASH:=38ab3cd19d4156226cacd6926972f866a77b76ec3b9677d9888efb9530a31833/g' feeds/packages/utils/btrfs-progs/Makefile
+#sed -i '68i\	--disable-libudev \\' feeds/packages/utils/btrfs-progs/Makefile
 
 # qBittorrent (use cmake)
 #sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=4.4.0/g' package/lean/qBittorrent/Makefile
@@ -311,8 +311,8 @@ sed -i 's/PKG_MD5SUM:=.*/PKG_MD5SUM:=357d19387c6e7bc4a8a90fe2d015fe80/g' feeds/p
 # wolfSSL
 #sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=5.0.0-stable/g' package/libs/wolfssl/Makefile
 #sed -i 's/PKG_HASH:=.*/PKG_HASH:=908390282cc613a3943533f3d922b3c18dee3289f498b6f944cb86a19a5eeb56/g' package/libs/wolfssl/Makefile
-rm -f package/libs/wolfssl/patches/002-Update-macro-guard-on-SHA256-transform-call.patch
-cp -rf $GITHUB_WORKSPACE/general/wolfssl package/libs
+#rm -f package/libs/wolfssl/patches/002-Update-macro-guard-on-SHA256-transform-call.patch
+#cp -rf $GITHUB_WORKSPACE/general/wolfssl package/libs
 
 # ustream-ssl
 sed -i 's/PKG_RELEASE:=.*/PKG_RELEASE:=1/g' package/libs/ustream-ssl/Makefile
