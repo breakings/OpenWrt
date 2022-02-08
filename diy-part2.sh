@@ -179,9 +179,9 @@ sed -i "s|s9xxx_lede|ARMv8|g" package/luci-app-amlogic/root/etc/config/amlogic
 #sed -i "s|.img.gz|..OPENWRT_SUFFIX|g" package/luci-app-amlogic/root/etc/config/amlogic
 
 # btrfs-progs
-#sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=5.16/g' feeds/packages/utils/btrfs-progs/Makefile
-#sed -i 's/PKG_HASH:=.*/PKG_HASH:=38ab3cd19d4156226cacd6926972f866a77b76ec3b9677d9888efb9530a31833/g' feeds/packages/utils/btrfs-progs/Makefile
-#sed -i '68i\	--disable-libudev \\' feeds/packages/utils/btrfs-progs/Makefile
+sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=5.16.1/g' feeds/packages/utils/btrfs-progs/Makefile
+sed -i 's/PKG_HASH:=.*/PKG_HASH:=3da4da5361cf86bddda80edb4c4f30ea076cb4ebec29904fa08afc930ef9e1a8/g' feeds/packages/utils/btrfs-progs/Makefile
+sed -i '68i\	--disable-libudev \\' feeds/packages/utils/btrfs-progs/Makefile
 
 # qBittorrent (use cmake)
 #sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=4.4.0/g' package/lean/qBittorrent/Makefile
@@ -254,8 +254,8 @@ sed -i 's/PKG_HASH:=.*/PKG_HASH:=294871ab1864a65d0b74325e9219d5bcd6e91c34a3c5927
 #sed -i 's/PKG_SOURCE_VERSION:=.*/PKG_SOURCE_VERSION:=f46b6ba2c9314cfc8caae24a32ec5fe9ef1059fe/g' feeds/packages/utils/runc/Makefile
 
 # bsdtar
-sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=3.5.2/g' feeds/packages/libs/libarchive/Makefile
-sed -i 's/PKG_HASH:=.*/PKG_HASH:=f0b19ff39c3c9a5898a219497ababbadab99d8178acc980155c7e1271089b5a0/g' feeds/packages/libs/libarchive/Makefile
+sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=3.5.3/g' feeds/packages/libs/libarchive/Makefile
+sed -i 's/PKG_HASH:=.*/PKG_HASH:=5cac725dd4be31c4a10b65d30f29dc957ea29ef3d758df6e46e8ae90a996a19a/g' feeds/packages/libs/libarchive/Makefile
 
 # pcre
 sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=8.45/g' package/libs/pcre/Makefile
@@ -651,6 +651,9 @@ sed -i 's/PKG_HASH:=.*/PKG_HASH:=d1f72f474e71bcaaf465dcc7e6f7b6a4705e4b1ed95c581
 # icu
 rm -rf feeds/packages/libs/icu
 svn co https://github.com/openwrt/packages/trunk/libs/icu feeds/packages/libs/icu
+
+# ucode
+cp -rf $GITHUB_WORKSPACE/general/ucode package/utils
 
 # readd cpufreq for aarch64
 sed -i 's/LUCI_DEPENDS.*/LUCI_DEPENDS:=\@\(arm\|\|aarch64\)/g' package/lean/luci-app-cpufreq/Makefile
