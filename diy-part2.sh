@@ -653,7 +653,7 @@ rm -rf feeds/packages/libs/icu
 svn co https://github.com/openwrt/packages/trunk/libs/icu feeds/packages/libs/icu
 
 # ucode
-cp -rf $GITHUB_WORKSPACE/general/ucode package/utils
+#cp -rf $GITHUB_WORKSPACE/general/ucode package/utils
 
 # readd cpufreq for aarch64
 sed -i 's/LUCI_DEPENDS.*/LUCI_DEPENDS:=\@\(arm\|\|aarch64\)/g' package/lean/luci-app-cpufreq/Makefile
