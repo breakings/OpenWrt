@@ -179,8 +179,8 @@ sed -i "s|s9xxx_lede|ARMv8|g" package/luci-app-amlogic/root/etc/config/amlogic
 #sed -i "s|.img.gz|..OPENWRT_SUFFIX|g" package/luci-app-amlogic/root/etc/config/amlogic
 
 # btrfs-progs
-sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=5.16.1/g' feeds/packages/utils/btrfs-progs/Makefile
-sed -i 's/PKG_HASH:=.*/PKG_HASH:=3da4da5361cf86bddda80edb4c4f30ea076cb4ebec29904fa08afc930ef9e1a8/g' feeds/packages/utils/btrfs-progs/Makefile
+sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=5.16/g' feeds/packages/utils/btrfs-progs/Makefile
+sed -i 's/PKG_HASH:=.*/PKG_HASH:=38ab3cd19d4156226cacd6926972f866a77b76ec3b9677d9888efb9530a31833/g' feeds/packages/utils/btrfs-progs/Makefile
 sed -i '68i\	--disable-libudev \\' feeds/packages/utils/btrfs-progs/Makefile
 
 # qBittorrent (use cmake)
@@ -193,8 +193,8 @@ cp -f $GITHUB_WORKSPACE/general/qBittorrent/Makefile package/lean/qBittorrent
 cp -f $GITHUB_WORKSPACE/general/libtorrent-rasterbar/Makefile feeds/packages/libs/libtorrent-rasterbar
 
 # golang
-#sed -i 's/GO_VERSION_PATCH:=.*/GO_VERSION_PATCH:=6/g' feeds/packages/lang/golang/golang/Makefile
-#sed -i 's/PKG_HASH:=.*/PKG_HASH:=4dc1bbf3ff61f0c1ff2b19355e6d88151a70126268a47c761477686ef94748c8/g' feeds/packages/lang/golang/golang/Makefile
+sed -i 's/GO_VERSION_PATCH:=.*/GO_VERSION_PATCH:=7/g' feeds/packages/lang/golang/golang/Makefile
+sed -i 's/PKG_HASH:=.*/PKG_HASH:=c108cd33b73b1911a02b697741df3dea43e01a5c4e08e409e8b3a0e3745d2b4d/g' feeds/packages/lang/golang/golang/Makefile
 
 # curl
 #sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=7.78.0/g' feeds/packages/net/curl/Makefile
@@ -379,28 +379,28 @@ sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=1.26.8/g' feeds/packages/lang/python/pyth
 sed -i 's/PKG_HASH:=.*/PKG_HASH:=0e7c33d9a63e7ddfcb86780aac87befc2fbddf46c58dbb487e0855f7ceec283c/g' feeds/packages/lang/python/python-urllib3/Makefile
 
 # python-sqlalchemy
-sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=1.4.28/g' feeds/packages/lang/python/python-sqlalchemy/Makefile
-sed -i 's/PKG_HASH:=.*/PKG_HASH:=7fdb7b775fb0739d3e71461509f978beb788935bc0aa9e47df14837cb33e5226/g' feeds/packages/lang/python/python-sqlalchemy/Makefile
+sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=1.4.31/g' feeds/packages/lang/python/python-sqlalchemy/Makefile
+sed -i 's/PKG_HASH:=.*/PKG_HASH:=582b59d1e5780a447aada22b461e50b404a9dc05768da1d87368ad8190468418/g' feeds/packages/lang/python/python-sqlalchemy/Makefile
 
 # python-simplejson
 sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=3.17.6/g' feeds/packages/lang/python/python-simplejson/Makefile
 sed -i 's/PKG_HASH:=.*/PKG_HASH:=cf98038d2abf63a1ada5730e91e84c642ba6c225b0198c3684151b1f80c5f8a6/g' feeds/packages/lang/python/python-simplejson/Makefile
 
 # python-pyrsistent
-sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=0.18.0/g' feeds/packages/lang/python/python-pyrsistent/Makefile
-sed -i 's/PKG_HASH:=.*/PKG_HASH:=773c781216f8c2900b42a7b638d5b517bb134ae1acbebe4d1e8f1f41ea60eb4b/g' feeds/packages/lang/python/python-pyrsistent/Makefile
+sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=0.18.1/g' feeds/packages/lang/python/python-pyrsistent/Makefile
+sed -i 's/PKG_HASH:=.*/PKG_HASH:=d4d61f8b993a7255ba714df3aca52700f8125289f84f704cf80916517c46eb96/g' feeds/packages/lang/python/python-pyrsistent/Makefile
 
 # python-pycparser
 rm -rf feeds/packages/lang/python/python-pycparser
 svn co https://github.com/openwrt/packages/trunk/lang/python/python-pycparser feeds/packages/lang/python/python-pycparser
 
 # python-paramiko
-sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=2.8.1/g' feeds/packages/lang/python/python-paramiko/Makefile
-sed -i 's/PKG_HASH:=.*/PKG_HASH:=85b1245054e5d7592b9088cc6d08da22445417912d3a3e48138675c7a8616438/g' feeds/packages/lang/python/python-paramiko/Makefile
+sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=2.9.2/g' feeds/packages/lang/python/python-paramiko/Makefile
+sed -i 's/PKG_HASH:=.*/PKG_HASH:=944a9e5dbdd413ab6c7951ea46b0ab40713235a9c4c5ca81cfe45c6f14fa677b/g' feeds/packages/lang/python/python-paramiko/Makefile
 
 # python-lxml
-sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=4.6.5/g' feeds/packages/lang/python/python-lxml/Makefile
-sed -i 's/PKG_HASH:=.*/PKG_HASH:=6e84edecc3a82f90d44ddee2ee2a2630d4994b8471816e226d2b771cda7ac4ca/g' feeds/packages/lang/python/python-lxml/Makefile
+sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=4.7.1/g' feeds/packages/lang/python/python-lxml/Makefile
+sed -i 's/PKG_HASH:=.*/PKG_HASH:=a1613838aa6b89af4ba10a0f3a972836128801ed008078f8c1244e65958f1b24/g' feeds/packages/lang/python/python-lxml/Makefile
 
 # python-idna
 sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=3.3/g' feeds/packages/lang/python/python-idna/Makefile
