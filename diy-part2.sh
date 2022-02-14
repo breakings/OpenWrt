@@ -184,10 +184,10 @@ sed -i 's/PKG_HASH:=.*/PKG_HASH:=38ab3cd19d4156226cacd6926972f866a77b76ec3b9677d
 sed -i '68i\	--disable-libudev \\' feeds/packages/utils/btrfs-progs/Makefile
 
 # qBittorrent (use cmake)
-#sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=4.4.0/g' package/lean/qBittorrent/Makefile
-#sed -i 's/PKG_HASH:=.*/PKG_HASH:=da240744c6cc5953d7c4d298a02a0cf36d2c8897931819f1e6459bd5270a7c5c/g' package/lean/qBittorrent/Makefile
-#sed -i '41i\		+qt5-sql \\' package/lean/qBittorrent/Makefile
-cp -f $GITHUB_WORKSPACE/general/qBittorrent/Makefile package/lean/qBittorrent
+#sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=4.4.0/g' feeds/packages/net/qBittorrent/Makefile
+#sed -i 's/PKG_HASH:=.*/PKG_HASH:=da240744c6cc5953d7c4d298a02a0cf36d2c8897931819f1e6459bd5270a7c5c/g' feeds/packages/net/qBittorrent/Makefile
+#sed -i '41i\		+qt5-sql \\' feeds/packages/net/qBittorrent/Makefile
+cp -f $GITHUB_WORKSPACE/general/qBittorrent/Makefile feeds/packages/net/qBittorrent
 
 # libtorrent-rasterbar_v2
 cp -f $GITHUB_WORKSPACE/general/libtorrent-rasterbar/Makefile feeds/packages/libs/libtorrent-rasterbar
@@ -203,14 +203,12 @@ sed -i 's/PKG_HASH:=.*/PKG_HASH:=c108cd33b73b1911a02b697741df3dea43e01a5c4e08e40
 #wget -P feeds/packages/net/curl https://raw.githubusercontent.com/openwrt/packages/master/net/curl/Makefile
 
 # Qt5 -qtbase
-#sed -i "s/PKG_BUGFIX:=.*/PKG_BUGFIX:=2/g" package/lean/qtbase/Makefile
-#sed -i "s/PKG_HASH:=.*/PKG_HASH:=909fad2591ee367993a75d7e2ea50ad4db332f05e1c38dd7a5a274e156a4e0f8/g" package/lean/qtbase/Makefile
-#mkdir package/lean/qtbase/patches
-#wget -P package/lean/qtbase/patches/ https://raw.githubusercontent.com/breakings/OpenWrt/main/general/001-gcc11.patch
+#sed -i "s/PKG_BUGFIX:=.*/PKG_BUGFIX:=2/g" feeds/packages/libs/qtbase/Makefile
+#sed -i "s/PKG_HASH:=.*/PKG_HASH:=909fad2591ee367993a75d7e2ea50ad4db332f05e1c38dd7a5a274e156a4e0f8/g" feeds/packages/libs/qtbase/Makefile
 
 # Qt5 -qttools
-#sed -i "s/PKG_BUGFIX:=.*/PKG_BUGFIX:=2/g" package/lean/qttools/Makefile
-#sed -i "s/PKG_HASH:=.*/PKG_HASH:=c189d0ce1ff7c739db9a3ace52ac3e24cb8fd6dbf234e49f075249b38f43c1cc/g" package/lean/qttools/Makefile
+#sed -i "s/PKG_BUGFIX:=.*/PKG_BUGFIX:=2/g" feeds/packages/libs/qttools/Makefile
+#sed -i "s/PKG_HASH:=.*/PKG_HASH:=c189d0ce1ff7c739db9a3ace52ac3e24cb8fd6dbf234e49f075249b38f43c1cc/g" feeds/packages/libs/qttools/Makefile
 
 #fix speedtest-cli
 #sed -i "s/PKG_VERSION:=.*/PKG_VERSION:=2.1.3/g" feeds/packages/lang/python/python3-speedtest-cli/Makefile
@@ -685,6 +683,10 @@ cp -f $GITHUB_WORKSPACE/general/openwrt_banner package/base-files/files/etc/bann
 # boost
 rm -rf feeds/packages/libs/boost
 cp -r $GITHUB_WORKSPACE/general/boost feeds/packages/libs
+
+# wxbase
+rm -rf feeds/packages/libs/wxbase
+cp -r $GITHUB_WORKSPACE/general/wxbase feeds/packages/libs
 
 # fix luci-theme-opentomcat dockerman icon missing
 rm -f package/luci-theme-opentomcat/files/htdocs/fonts/advancedtomato.woff
