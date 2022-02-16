@@ -181,7 +181,7 @@ sed -i "s|s9xxx_lede|ARMv8|g" package/luci-app-amlogic/root/etc/config/amlogic
 # btrfs-progs
 sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=5.16/g' feeds/packages/utils/btrfs-progs/Makefile
 sed -i 's/PKG_HASH:=.*/PKG_HASH:=38ab3cd19d4156226cacd6926972f866a77b76ec3b9677d9888efb9530a31833/g' feeds/packages/utils/btrfs-progs/Makefile
-sed -i '68i\	--disable-libudev \\' feeds/packages/utils/btrfs-progs/Makefile
+#sed -i '68i\	--disable-libudev \\' feeds/packages/utils/btrfs-progs/Makefile
 
 # qBittorrent (use cmake)
 #sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=4.4.0/g' feeds/packages/net/qBittorrent/Makefile
@@ -193,8 +193,8 @@ cp -f $GITHUB_WORKSPACE/general/qBittorrent/Makefile feeds/packages/net/qBittorr
 cp -f $GITHUB_WORKSPACE/general/libtorrent-rasterbar/Makefile feeds/packages/libs/libtorrent-rasterbar
 
 # golang
-sed -i 's/GO_VERSION_PATCH:=.*/GO_VERSION_PATCH:=7/g' feeds/packages/lang/golang/golang/Makefile
-sed -i 's/PKG_HASH:=.*/PKG_HASH:=c108cd33b73b1911a02b697741df3dea43e01a5c4e08e409e8b3a0e3745d2b4d/g' feeds/packages/lang/golang/golang/Makefile
+#sed -i 's/GO_VERSION_PATCH:=.*/GO_VERSION_PATCH:=7/g' feeds/packages/lang/golang/golang/Makefile
+#sed -i 's/PKG_HASH:=.*/PKG_HASH:=c108cd33b73b1911a02b697741df3dea43e01a5c4e08e409e8b3a0e3745d2b4d/g' feeds/packages/lang/golang/golang/Makefile
 
 # curl
 #sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=7.78.0/g' feeds/packages/net/curl/Makefile
@@ -325,9 +325,10 @@ sed -i 's/PKG_HASH:=.*/PKG_HASH:=b5d25d6e373351c2ed19b562b4732d01d2589ac8c8e9e79
 # socat
 rm -rf feeds/packages/net/socat
 svn co https://github.com/openwrt/packages/trunk/net/socat feeds/packages/net/socat
-sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=1.7.4.2/g' feeds/packages/net/socat/Makefile
+sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=1.7.4.3/g' feeds/packages/net/socat/Makefile
 sed -i 's/PKG_RELEASE:=.*/PKG_RELEASE:=1/g' feeds/packages/net/socat/Makefile
-sed -i 's/PKG_HASH:=.*/PKG_HASH:=6690a9f9990457b505097a272bbf2cbf4cc35576176f76646e3524b0e91c1763/g' feeds/packages/net/socat/Makefile
+sed -i 's/PKG_HASH:=.*/PKG_HASH:=d47318104415077635119dfee44bcfb41de3497374a9a001b1aff6e2f0858007/g' feeds/packages/net/socat/Makefile
+sed -i '75i\	  sc_cv_getprotobynumber_r=2 \\' feeds/packages/net/socat/Makefile
 #rm -f feeds/packages/net/socat/patches/100-usleep.patch
 
 # transmission-web-control
@@ -464,8 +465,8 @@ sed -i 's/PKG_HASH:=.*/PKG_HASH:=9b9a95d68fdcb936849a4d6fada8bf8686cddf58b9b26c9
 #sed -i 's/PKG_HASH:=.*/PKG_HASH:=61b8c1ea5904cc87431939212033bb4d05d11f517860a01cac75f0090d94272b/g' feeds/packages/net/zerotier/Makefile
 
 # luci-app-n2n_v2
-sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=3.0/g' package/lean/luci-app-n2n_v2/Makefile
-sed -i 's/PKG_RELEASE:=.*/PKG_RELEASE:=1/g' package/lean/luci-app-n2n_v2/Makefile
+sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=3.0/g' feeds/luci/applications/luci-app-n2n_v2/Makefile
+sed -i 's/PKG_RELEASE:=.*/PKG_RELEASE:=1/g' feeds/luci/applications/luci-app-n2n_v2/Makefile
 
 # openssh
 sed -i '175i\	--with-sandbox=rlimit \\' feeds/packages/net/openssh/Makefile
@@ -654,8 +655,8 @@ svn co https://github.com/openwrt/packages/trunk/libs/icu feeds/packages/libs/ic
 #cp -rf $GITHUB_WORKSPACE/general/ucode package/utils
 
 # readd cpufreq for aarch64
-sed -i 's/LUCI_DEPENDS.*/LUCI_DEPENDS:=\@\(arm\|\|aarch64\)/g' package/lean/luci-app-cpufreq/Makefile
-sed -i 's/services/system/g'  package/lean/luci-app-cpufreq/luasrc/controller/cpufreq.lua
+sed -i 's/LUCI_DEPENDS.*/LUCI_DEPENDS:=\@\(arm\|\|aarch64\)/g' feeds/luci/applications/luci-app-cpufreq/Makefile
+sed -i 's/services/system/g'  feeds/luci/applications/luci-app-cpufreq/luasrc/controller/cpufreq.lua
 
 # luci-app-openvpn
 sed -i 's/services/vpn/g'  feeds/luci/applications/luci-app-openvpn/luasrc/controller/openvpn.lua
