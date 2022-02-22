@@ -320,8 +320,8 @@ sed -i 's/PKG_MD5SUM:=.*/PKG_MD5SUM:=357d19387c6e7bc4a8a90fe2d015fe80/g' feeds/p
 #sed -i 's/PKG_MIRROR_HASH:=.*/PKG_MIRROR_HASH:=dd28d5e846b391917cf83d66176653bdfa4e8a0d5b11144b65a012fe7693ddeb/g' package/libs/ustream-ssl/Makefile
 
 # expat
-sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=2.4.5/g' feeds/packages/libs/expat/Makefile
-sed -i 's/PKG_HASH:=.*/PKG_HASH:=f2af8fc7cdc63a87920da38cd6d12cb113c3c3a3f437495b1b6541e0cff32579/g' feeds/packages/libs/expat/Makefile
+sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=2.4.6/g' feeds/packages/libs/expat/Makefile
+sed -i 's/PKG_HASH:=.*/PKG_HASH:=de55794b7a9bc214852fdc075beaaecd854efe1361597e6268ee87946951289b/g' feeds/packages/libs/expat/Makefile
 
 # socat
 rm -rf feeds/packages/net/socat
@@ -700,6 +700,13 @@ cp $GITHUB_WORKSPACE/general/advancedtomato.woff package/luci-theme-opentomcat/f
 sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=5.8.1/g' feeds/packages/utils/zsh/Makefile
 sed -i 's/PKG_HASH:=.*/PKG_HASH:=b6973520bace600b4779200269b1e5d79e5f505ac4952058c11ad5bbf0dd9919/g' feeds/packages/utils/zsh/Makefile
 
+# flac
+rm -rf feeds/packages/libs/flac
+cp -r $GITHUB_WORKSPACE/general/flac feeds/packages/libs
+
+# coreutils
+rm -rf feeds/packages/utils/coreutils
+cp -r $GITHUB_WORKSPACE/general/coreutils feeds/packages/utils
 
 ./scripts/feeds update -a
 ./scripts/feeds install -a
