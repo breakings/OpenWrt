@@ -494,8 +494,8 @@ sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=5.1.1/g' feeds/packages/utils/gawk/Makefi
 sed -i 's/PKG_HASH:=.*/PKG_HASH:=d87629386e894bbea11a5e00515fc909dc9b7249529dad9e6a3a2c77085f7ea2/g' feeds/packages/utils/gawk/Makefile
 
 # ocserv
-sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=1.1.4/g' feeds/packages/net/ocserv/Makefile
-sed -i 's/PKG_HASH:=.*/PKG_HASH:=e8693f05ff412e3e6ea0c1370a8359dec5502a1ed05d21d2493e10cf15c83bc0/g' feeds/packages/net/ocserv/Makefile
+sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=1.1.6/g' feeds/packages/net/ocserv/Makefile
+sed -i 's/PKG_HASH:=.*/PKG_HASH:=6a6cbe92212e32280426a51c634adc3d4803579dd049cfdb7e014714cc82c693/g' feeds/packages/net/ocserv/Makefile
 
 # unrar
 sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=6.1.5/g' feeds/packages/utils/unrar/Makefile
@@ -716,6 +716,11 @@ cp -r $GITHUB_WORKSPACE/general/flac feeds/packages/libs
 # frp
 sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=0.39.1/g' feeds/packages/net/frp/Makefile
 sed -i 's/PKG_HASH:=.*/PKG_HASH:=858a4a1920f3f3c90161f7acba468eddcd1dbd1b18c3f4028a0f6eca77da9397/g' feeds/packages/net/frp/Makefile
+
+# openconnect
+sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=8.20/g' feeds/packages/net/openconnect/Makefile
+sed -i 's/PKG_RELEASE:=.*/PKG_RELEASE:=1/g' feeds/packages/net/openconnect/Makefile
+sed -i 's/PKG_HASH:=.*/PKG_HASH:=c1452384c6f796baee45d4e919ae1bfc281d6c88862e1f646a2cc513fc44e58b/g' feeds/packages/net/openconnect/Makefile
 
 ./scripts/feeds update -a
 ./scripts/feeds install -a
