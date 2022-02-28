@@ -401,8 +401,8 @@ sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=2.9.2/g' feeds/packages/lang/python/pytho
 sed -i 's/PKG_HASH:=.*/PKG_HASH:=944a9e5dbdd413ab6c7951ea46b0ab40713235a9c4c5ca81cfe45c6f14fa677b/g' feeds/packages/lang/python/python-paramiko/Makefile
 
 # python-lxml
-sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=4.7.1/g' feeds/packages/lang/python/python-lxml/Makefile
-sed -i 's/PKG_HASH:=.*/PKG_HASH:=a1613838aa6b89af4ba10a0f3a972836128801ed008078f8c1244e65958f1b24/g' feeds/packages/lang/python/python-lxml/Makefile
+sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=4.8.0/g' feeds/packages/lang/python/python-lxml/Makefile
+sed -i 's/PKG_HASH:=.*/PKG_HASH:=f63f62fc60e6228a4ca9abae28228f35e1bd3ce675013d1dfb828688d50c6e23/g' feeds/packages/lang/python/python-lxml/Makefile
 
 # python-idna
 sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=3.3/g' feeds/packages/lang/python/python-idna/Makefile
@@ -478,16 +478,16 @@ sed -i 's/PKG_HASH:=.*/PKG_HASH:=fd497654b7ab1686dac672fb83dfb4ba4096e8b5ffcdacc
 sed -i '175i\	--with-sandbox=no \\' feeds/packages/net/openssh/Makefile
 
 # nss
-#sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=3.73/g' feeds/packages/libs/nss/Makefile
-#sed -i 's/PKG_HASH:=.*/PKG_HASH:=566d3a68da9b10d7da9ef84eb4fe182f8f04e20d85c55d1bf360bb2c0096d8e5/g' feeds/packages/libs/nss/Makefile
+sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=3.75/g' feeds/packages/libs/nss/Makefile
+sed -i 's/PKG_HASH:=.*/PKG_HASH:=fd571507827284644f4dd522a032acda2286835f6683ed22a1c2d3878cc58582/g' feeds/packages/libs/nss/Makefile
 
 # softethervpn5
 rm -rf feeds/packages/net/softethervpn5
 svn co https://github.com/openwrt/packages/trunk/net/softethervpn5 feeds/packages/net/softethervpn5
 
 # hwdata
-sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=0.354/g' feeds/packages/utils/hwdata/Makefile
-sed -i 's/PKG_HASH:=.*/PKG_HASH:=ed9a2c8b90371ccf4f0ff88972d87770c1c644e63ca44d2ac72c33200642cdde/g' feeds/packages/utils/hwdata/Makefile
+sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=0.356/g' feeds/packages/utils/hwdata/Makefile
+sed -i 's/PKG_HASH:=.*/PKG_HASH:=117cbd0a7414153b0842cba3346e7fe5ed3b90335795e6ee230ec1d9fdf5d624/g' feeds/packages/utils/hwdata/Makefile
 
 # gawk
 sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=5.1.1/g' feeds/packages/utils/gawk/Makefile
@@ -533,8 +533,8 @@ wget -P feeds/packages/libs/alsa-lib/patches https://github.com/openwrt/packages
 wget -P feeds/packages/libs/alsa-lib/patches https://raw.githubusercontent.com/openwrt/packages/master/libs/alsa-lib/patches/200-usleep.patch
 
 # hdparm
-sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=9.62/g' feeds/packages/utils/hdparm/Makefile
-sed -i 's/PKG_HASH:=.*/PKG_HASH:=2c0f9d75cdbeda928a25a128cd3d0b7120445ec0910c0b29d4c1038ed1be777f/g' feeds/packages/utils/hdparm/Makefile
+sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=9.63/g' feeds/packages/utils/hdparm/Makefile
+sed -i 's/PKG_HASH:=.*/PKG_HASH:=70785deaebba5877a89c123568b41dee990da55fc51420f13f609a1072899691/g' feeds/packages/utils/hdparm/Makefile
 
 # libcap-ng
 sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=0.8.2/g' feeds/packages/libs/libcap-ng/Makefile
@@ -573,9 +573,9 @@ rm -rf feeds/packages/utils/pigz/patches
 
 # libnl-tiny
 sed -i 's/PKG_RELEASE:=.*/PKG_RELEASE:=1/g' package/libs/libnl-tiny/Makefile
-sed -i 's/PKG_SOURCE_DATE:=.*/PKG_SOURCE_DATE:=2021-11-21/g' package/libs/libnl-tiny/Makefile
+sed -i 's/PKG_SOURCE_DATE:=.*/PKG_SOURCE_DATE:=2021-12-14/g' package/libs/libnl-tiny/Makefile
 sed -i 's/PKG_SOURCE_VERSION:=.*/PKG_SOURCE_VERSION:=8e0555fb39f51a5d6436b4f1370850caa03611ea/g' package/libs/libnl-tiny/Makefile
-sed -i 's/PKG_MIRROR_HASH:=.*/PKG_MIRROR_HASH:=2cfbcc62384535674a2c0157cb24a0736520fcb66ed50be23bf9141c8488885f/g' package/libs/libnl-tiny/Makefile
+sed -i 's/PKG_MIRROR_HASH:=.*/PKG_MIRROR_HASH:=6717fccb32b51f2762114875a7bc98e726f6f4faaa6e5ff72b7851ee71911244/g' package/libs/libnl-tiny/Makefile
 sed -i '19,20d' package/libs/libnl-tiny/Makefile
 
 # mac80211
@@ -599,8 +599,8 @@ sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=3.3.9/g' feeds/packages/sound/shairport-s
 sed -i 's/PKG_HASH:=.*/PKG_HASH:=17990cb2620551caa07a1c3b371889e55803071eaada04e958c356547a7e1795/g' feeds/packages/sound/shairport-sync/Makefile
 
 # less
-sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=598/g' feeds/packages/utils/less/Makefile
-sed -i 's/PKG_HASH:=.*/PKG_HASH:=64e0eb24534ac70d15ff3a36c8853f7a48196aa230d2a104707fc4ff1a45e982/g' feeds/packages/utils/less/Makefile
+sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=600/g' feeds/packages/utils/less/Makefile
+sed -i 's/PKG_HASH:=.*/PKG_HASH:=6633d6aa2b3cc717afb2c205778c7c42c4620f63b1d682f3d12c98af0be74d20/g' feeds/packages/utils/less/Makefile
 
 # minizip
 #sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=3.0.4/g' feeds/packages/libs/minizip/Makefile
@@ -669,8 +669,8 @@ sed -i 's/services/vpn/g'  feeds/luci/applications/luci-app-openvpn/luasrc/contr
 
 #fix NaïveProxy typo error
 #sed -i 's/Na茂veProxy/NaïveProxy/g' package/naiveproxy/Makefile
-sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=98.0.4758.80-2/g' package/naiveproxy/Makefile
-sed -i 's/PKG_HASH:=.*/PKG_HASH:=687a1c43f5bff61b2c1857d65031a5234af358053cf00e20911b75b073e55df4/g' package/naiveproxy/Makefile
+#sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=98.0.4758.80-2/g' package/naiveproxy/Makefile
+#sed -i 's/PKG_HASH:=.*/PKG_HASH:=687a1c43f5bff61b2c1857d65031a5234af358053cf00e20911b75b073e55df4/g' package/naiveproxy/Makefile
 
 #fix ntfs3 generating empty package
 #sed -i 's/KCONFIG:=CONFIG_NLS_DEFAULT="utf8"/#KCONFIG:=CONFIG_NLS_DEFAULT="utf8"/'g package/lean/ntfs3/Makefile
@@ -694,16 +694,16 @@ rm -rf feeds/packages/libs/boost
 cp -r $GITHUB_WORKSPACE/general/boost feeds/packages/libs
 
 # wxbase
-rm -rf feeds/packages/libs/wxbase
-cp -r $GITHUB_WORKSPACE/general/wxbase feeds/packages/libs
+#rm -rf feeds/packages/libs/wxbase
+#cp -r $GITHUB_WORKSPACE/general/wxbase feeds/packages/libs
 
 # fix luci-theme-opentomcat dockerman icon missing
 rm -f package/luci-theme-opentomcat/files/htdocs/fonts/advancedtomato.woff
 cp $GITHUB_WORKSPACE/general/advancedtomato.woff package/luci-theme-opentomcat/files/htdocs/fonts
 
 # zsh
-sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=5.8.1/g' feeds/packages/utils/zsh/Makefile
-sed -i 's/PKG_HASH:=.*/PKG_HASH:=b6973520bace600b4779200269b1e5d79e5f505ac4952058c11ad5bbf0dd9919/g' feeds/packages/utils/zsh/Makefile
+#sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=5.8.1/g' feeds/packages/utils/zsh/Makefile
+#sed -i 's/PKG_HASH:=.*/PKG_HASH:=b6973520bace600b4779200269b1e5d79e5f505ac4952058c11ad5bbf0dd9919/g' feeds/packages/utils/zsh/Makefile
 
 # flac
 rm -rf feeds/packages/libs/flac
@@ -721,6 +721,20 @@ sed -i 's/PKG_HASH:=.*/PKG_HASH:=858a4a1920f3f3c90161f7acba468eddcd1dbd1b18c3f40
 sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=8.20/g' feeds/packages/net/openconnect/Makefile
 sed -i 's/PKG_RELEASE:=.*/PKG_RELEASE:=1/g' feeds/packages/net/openconnect/Makefile
 sed -i 's/PKG_HASH:=.*/PKG_HASH:=c1452384c6f796baee45d4e919ae1bfc281d6c88862e1f646a2cc513fc44e58b/g' feeds/packages/net/openconnect/Makefile
+
+# xtables-addons
+#sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=3.19/g' feeds/packages/net/xtables-addons/Makefile
+#sed -i 's/PKG_RELEASE:=.*/PKG_RELEASE:=1/g' feeds/packages/net/xtables-addons/Makefile
+#sed -i 's/PKG_HASH:=.*/PKG_HASH:=5e36ea027ab15a84d9af1f3f8e84a78b80a617093657f08089bd44657722f661/g' feeds/packages/net/xtables-addons/Makefile
+
+# libssh2
+sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=1.10.0/g' feeds/packages/libs/libssh2/Makefile
+sed -i 's/PKG_RELEASE:=.*/PKG_RELEASE:=1/g' feeds/packages/libs/libssh2/Makefile
+sed -i 's/PKG_HASH:=.*/PKG_HASH:=2d64e90f3ded394b91d3a2e774ca203a4179f69aebee03003e5a6fa621e41d51/g' feeds/packages/libs/libssh2/Makefile
+
+# gnutls
+sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=3.7.3/g' feeds/packages/libs/gnutls/Makefile
+sed -i 's/PKG_HASH:=.*/PKG_HASH:=fc59c43bc31ab20a6977ff083029277a31935b8355ce387b634fa433f8f6c49a/g' feeds/packages/libs/gnutls/Makefile
 
 ./scripts/feeds update -a
 ./scripts/feeds install -a
