@@ -502,9 +502,11 @@ sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=6.1.5/g' feeds/packages/utils/unrar/Makef
 sed -i 's/PKG_HASH:=.*/PKG_HASH:=4e56717d867cdff7a0008b7f1da6aa79ac7a8f974cf134d49a8c16b577bced4a/g' feeds/packages/utils/unrar/Makefile
 
 # at
-sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=3.2.2/g' feeds/packages/utils/at/Makefile
-sed -i 's|PKG_SOURCE_VERSION:=.*|PKG_SOURCE_VERSION:=release/3.2.2|g' feeds/packages/utils/at/Makefile
-sed -i 's/PKG_MIRROR_HASH:=.*/PKG_MIRROR_HASH=93f7f99c4242dbc5218907981e32f74ddb5e09c5b7922617c8d84c16920f488d/g' feeds/packages/utils/at/Makefile
+#sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=3.2.2/g' feeds/packages/utils/at/Makefile
+#sed -i 's|PKG_SOURCE_VERSION:=.*|PKG_SOURCE_VERSION:=release/3.2.2|g' feeds/packages/utils/at/Makefile
+#sed -i 's/PKG_MIRROR_HASH:=.*/PKG_MIRROR_HASH=93f7f99c4242dbc5218907981e32f74ddb5e09c5b7922617c8d84c16920f488d/g' feeds/packages/utils/at/Makefile
+rm -rf feeds/packages/utils/at
+cp -f $GITHUB_WORKSPACE/general/at feeds/packages/utils
 
 # mmc-utils
 rm -rf feeds/packages/utils/mmc-utils
