@@ -15,7 +15,7 @@
  #rm -rf feeds/packages/sound/fdk-aac
  rm -rf feeds/packages/utils/lvm2
  #rm -rf feeds/packages/utils/tini
- rm -rf feeds/packages/net/kcptun
+ #rm -rf feeds/packages/net/kcptun
  #rm -rf package/lean/ntfs3
  #rm -rf package/lean/luci-app-cpufreq
  #rm include/feeds.mk
@@ -86,7 +86,7 @@ svn co https://github.com/xiaorouji/openwrt-passwall/trunk/v2ray-plugin package/
 svn co https://github.com/xiaorouji/openwrt-passwall/trunk/v2ray-geodata package/v2ray-geodata
 #svn co https://github.com/fw876/helloworld/trunk/v2ray-plugin package/v2ray-plugin
 svn co https://github.com/xiaorouji/openwrt-passwall/trunk/simple-obfs package/simple-obfs
-svn co https://github.com/xiaorouji/openwrt-passwall/trunk/kcptun package/kcptun
+#svn co https://github.com/xiaorouji/openwrt-passwall/trunk/kcptun package/kcptun
 svn co https://github.com/xiaorouji/openwrt-passwall/trunk/trojan package/trojan
 svn co https://github.com/xiaorouji/openwrt-passwall/trunk/hysteria package/hysteria
 
