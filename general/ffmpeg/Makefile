@@ -381,7 +381,7 @@ REAL_CPU_TYPE:=$(subst octeonplus,octeon+,$(REAL_CPU_TYPE))
 
 FFMPEG_CONFIGURE:= \
 	CFLAGS="$(TARGET_CFLAGS) $(TARGET_CPPFLAGS) $(FPIC)" \
-	LDFLAGS="$(TARGET_LDFLAGS) -latomic" \
+	LDFLAGS="$(TARGET_LDFLAGS)" \
 	./configure \
 	--enable-cross-compile \
 	--cross-prefix="$(TARGET_CROSS)" \
