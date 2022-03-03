@@ -263,7 +263,7 @@ sed -i 's/PKG_HASH:=.*/PKG_HASH:=df283917799cb88659a5b33c0a598f04352d61936abcd8a
 
 # pcre
 sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=8.45/g' package/libs/pcre/Makefile
-sed -i 's/PKG_RELEASE:=.*/PKG_RELEASE:=$(AUTORELEASE)/g' package/libs/pcre/Makefile
+sed -i 's/PKG_RELEASE:=.*/PKG_RELEASE:=1/g' package/libs/pcre/Makefile
 sed -i 's/PKG_HASH:=.*/PKG_HASH:=4dae6fdcd2bb0bb6c37b5f97c33c2be954da743985369cddac3546e3218bffb8/g' package/libs/pcre/Makefile
 
 # pcre2
@@ -675,10 +675,10 @@ sed -i 's/services/vpn/g'  feeds/luci/applications/luci-app-openvpn/luasrc/contr
 sed -i 's/services/vpn/g'  feeds/luci/applications/luci-app-openvpn/luasrc/model/cbi/openvpn.lua
 sed -i 's/services/vpn/g'  feeds/luci/applications/luci-app-openvpn/luasrc/view/openvpn/pageswitch.htm
 
-#fix NaïveProxy typo error
-#sed -i 's/Na茂veProxy/NaïveProxy/g' package/naiveproxy/Makefile
+# NaïveProxy
 #sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=98.0.4758.80-2/g' package/naiveproxy/Makefile
 #sed -i 's/PKG_HASH:=.*/PKG_HASH:=687a1c43f5bff61b2c1857d65031a5234af358053cf00e20911b75b073e55df4/g' package/naiveproxy/Makefile
+cp -f $GITHUB_WORKSPACE/general/naiveproxy/Makefile package/naiveproxy
 
 #fix ntfs3 generating empty package
 #sed -i 's/KCONFIG:=CONFIG_NLS_DEFAULT="utf8"/#KCONFIG:=CONFIG_NLS_DEFAULT="utf8"/'g package/lean/ntfs3/Makefile
@@ -714,8 +714,8 @@ cp $GITHUB_WORKSPACE/general/advancedtomato.woff package/luci-theme-opentomcat/f
 #sed -i 's/PKG_HASH:=.*/PKG_HASH:=b6973520bace600b4779200269b1e5d79e5f505ac4952058c11ad5bbf0dd9919/g' feeds/packages/utils/zsh/Makefile
 
 # flac
-rm -rf feeds/packages/libs/flac
-cp -r $GITHUB_WORKSPACE/general/flac feeds/packages/libs
+#rm -rf feeds/packages/libs/flac
+#cp -r $GITHUB_WORKSPACE/general/flac feeds/packages/libs
 
 # libogg
 sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=1.3.5/g' feeds/packages/libs/libogg/Makefile
@@ -752,6 +752,9 @@ sed -i 's/PKG_HASH:=.*/PKG_HASH:=fc59c43bc31ab20a6977ff083029277a31935b8355ce387
 sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=7.3/g' feeds/packages/utils/smartmontools/Makefile
 sed -i 's/PKG_RELEASE:=.*/PKG_RELEASE:=1/g' feeds/packages/utils/smartmontools/Makefile
 sed -i 's/PKG_HASH:=.*/PKG_HASH:=a544f8808d0c58cfb0e7424ca1841cb858a974922b035d505d4e4c248be3a22b/g' feeds/packages/utils/smartmontools/Makefile
+
+# libxml2
+cp -f $GITHUB_WORKSPACE/general/libxml2/Makefile feeds/packages/libs/libxml2
 
 ./scripts/feeds update -a
 ./scripts/feeds install -a
