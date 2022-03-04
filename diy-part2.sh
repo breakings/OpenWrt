@@ -484,8 +484,12 @@ rm -rf feeds/packages/net/openssh
 cp -rf $GITHUB_WORKSPACE/general/openssh feeds/packages/net
 
 # nss
-sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=3.75/g' feeds/packages/libs/nss/Makefile
-sed -i 's/PKG_HASH:=.*/PKG_HASH:=fd571507827284644f4dd522a032acda2286835f6683ed22a1c2d3878cc58582/g' feeds/packages/libs/nss/Makefile
+sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=3.76/g' feeds/packages/libs/nss/Makefile
+sed -i 's/PKG_HASH:=.*/PKG_HASH:=1b8e0310add364d2ade40620cde0f1c37f4f00a6999b2d3e7ea8dacda4aa1630/g' feeds/packages/libs/nss/Makefile
+
+# nspr
+sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=4.33/g' feeds/packages/libs/nspr/Makefile
+sed -i 's/PKG_HASH:=.*/PKG_HASH:=b23ee315be0e50c2fb1aa374d17f2d2d9146a835b1a79c1918ea15d075a693d7/g' feeds/packages/libs/nspr/Makefile
 
 # softethervpn5
 rm -rf feeds/packages/net/softethervpn5
@@ -692,6 +696,7 @@ cp -f $GITHUB_WORKSPACE/general/fs.mk package/kernel/linux/modules
 rm -f target/linux/generic/backport-5.10/350-v5.12-NFSv4_2-SSC-helper-should-use-its-own-config.patch
 rm -f target/linux/generic/backport-5.10/351-v5.13-NFSv4_2-Remove-ifdef-CONFIG_NFSD-from-client-SSC.patch
 cp -f $GITHUB_WORKSPACE/general/01-export-nfs_ssc.patch target/linux/generic/backport-5.15
+cp -f $GITHUB_WORKSPACE/general/003-add-module_supported_device-macro.patch target/linux/generic/backport-5.15
 
 #replace coremark.sh with the new one
 #rm feeds/packages/utils/coremark/coremark.sh
@@ -758,6 +763,11 @@ sed -i 's/PKG_HASH:=.*/PKG_HASH:=a544f8808d0c58cfb0e7424ca1841cb858a974922b035d5
 
 # libxml2
 cp -f $GITHUB_WORKSPACE/general/libxml2/Makefile feeds/packages/libs/libxml2
+
+# sqlite3
+sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=3380000/g' feeds/packages/libs/sqlite3/Makefile
+sed -i 's/PKG_HASH:=.*/PKG_HASH:=1c76e25dc63d9f3935e0f406aec520a33ee77cf54ea5147dffe1fae8369eff68/g' feeds/packages/libs/sqlite3/Makefile
+sed -i 's|PKG_SOURCE_URL:=.*|PKG_SOURCE_URL:=https://www.sqlite.org/2022/|g' feeds/packages/libs/sqlite3/Makefile
 
 ./scripts/feeds update -a
 ./scripts/feeds install -a
