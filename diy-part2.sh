@@ -198,8 +198,8 @@ cp -f $GITHUB_WORKSPACE/general/qBittorrent/Makefile feeds/packages/net/qBittorr
 cp -f $GITHUB_WORKSPACE/general/libtorrent-rasterbar/Makefile feeds/packages/libs/libtorrent-rasterbar
 
 # golang
-#sed -i 's/GO_VERSION_PATCH:=.*/GO_VERSION_PATCH:=7/g' feeds/packages/lang/golang/golang/Makefile
-#sed -i 's/PKG_HASH:=.*/PKG_HASH:=c108cd33b73b1911a02b697741df3dea43e01a5c4e08e409e8b3a0e3745d2b4d/g' feeds/packages/lang/golang/golang/Makefile
+sed -i 's/GO_VERSION_PATCH:=.*/GO_VERSION_PATCH:=8/g' feeds/packages/lang/golang/golang/Makefile
+sed -i 's/PKG_HASH:=.*/PKG_HASH:=2effcd898140da79a061f3784ca4f8d8b13d811fb2abe9dad2404442dabbdf7a/g' feeds/packages/lang/golang/golang/Makefile
 
 # curl
 #sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=7.78.0/g' feeds/packages/net/curl/Makefile
@@ -244,14 +244,14 @@ sed -i "s/PKG_HASH:=783ac443cd343dd6c68d2abcf7e59e7b978a6a428f6a6025f9b84918b769
 sed -i 's/^\s*$[(]call\sEnsureVendoredVersion/#&/' feeds/packages/utils/dockerd/Makefile
 
 # docker-compose
-#sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=2.2.3/g' feeds/packages/utils/docker-compose/Makefile
-#sed -i 's/PKG_HASH:=.*/PKG_HASH:=22210187e73732edd9fc02f122ea61481806c703af7b73d0a7351f2e8ed7c0b8/g' feeds/packages/utils/docker-compose/Makefile
+sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=2.3.0/g' feeds/packages/utils/docker-compose/Makefile
+sed -i 's/PKG_HASH:=.*/PKG_HASH:=a602aa3f4fb9d71dbcbe26d8cd32733549f45910d6e9f7090a8ed01be53a6c4f/g' feeds/packages/utils/docker-compose/Makefile
 
 # containerd
 #sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=1.4.12/g' feeds/packages/utils/containerd/Makefile
 #sed -i 's/PKG_HASH:=.*/PKG_HASH:=85a531725f15e2d136131119d42af4507a5389e0947015152075c4c93816fb5c/g' feeds/packages/utils/containerd/Makefile
 #sed -i 's/PKG_SOURCE_VERSION:=.*/PKG_SOURCE_VERSION:=7b11cfaabd73bb80907dd23182b9347b4245eb5d/g' feeds/packages/utils/containerd/Makefile
-cp -f $GITHUB_WORKSPACE/general/containerd/Makefile feeds/packages/utils/containerd
+#cp -f $GITHUB_WORKSPACE/general/containerd/Makefile feeds/packages/utils/containerd
 
 # runc
 sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=1.1.0/g' feeds/packages/utils/runc/Makefile
@@ -697,6 +697,7 @@ rm -f target/linux/generic/backport-5.10/350-v5.12-NFSv4_2-SSC-helper-should-use
 rm -f target/linux/generic/backport-5.10/351-v5.13-NFSv4_2-Remove-ifdef-CONFIG_NFSD-from-client-SSC.patch
 cp -f $GITHUB_WORKSPACE/general/01-export-nfs_ssc.patch target/linux/generic/backport-5.15
 cp -f $GITHUB_WORKSPACE/general/003-add-module_supported_device-macro.patch target/linux/generic/backport-5.15
+cp -f $GITHUB_WORKSPACE/general/651-rt2x00-driver-compile-with-kernel-5.15.patch package/kernel/mac80211/patches/rt2x00
 
 #replace coremark.sh with the new one
 #rm feeds/packages/utils/coremark/coremark.sh
