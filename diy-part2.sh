@@ -22,7 +22,7 @@
  #wget -P include https://raw.githubusercontent.com/openwrt/openwrt/master/include/feeds.mk
  #rm -rf package/libs/elfutils
  #rm -rf feeds/packages/utils/gnupg
- rm -rf feeds/packages/lang/python/python3
+ #rm -rf feeds/packages/lang/python/python3
  #rm -rf package/lean/n2n_v2
  
 # ARM64: Add CPU model name in proc cpuinfo
@@ -314,8 +314,8 @@ sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=3.4/g' feeds/packages/utils/parted/Makefi
 sed -i 's/PKG_MD5SUM:=.*/PKG_MD5SUM:=357d19387c6e7bc4a8a90fe2d015fe80/g' feeds/packages/utils/parted/Makefile
 
 # wolfSSL
-#sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=5.0.0-stable/g' package/libs/wolfssl/Makefile
-#sed -i 's/PKG_HASH:=.*/PKG_HASH:=908390282cc613a3943533f3d922b3c18dee3289f498b6f944cb86a19a5eeb56/g' package/libs/wolfssl/Makefile
+sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=5.2.0-stable/g' package/libs/wolfssl/Makefile
+sed -i 's/PKG_HASH:=.*/PKG_HASH:=409b4646c5f54f642de0e9f3544c3b83de7238134f5b1ff93fb44527bf119d05/g' package/libs/wolfssl/Makefile
 #rm -f package/libs/wolfssl/patches/002-Update-macro-guard-on-SHA256-transform-call.patch
 #cp -rf $GITHUB_WORKSPACE/general/wolfssl package/libs
 
@@ -770,6 +770,13 @@ cp -f $GITHUB_WORKSPACE/general/libxml2/Makefile feeds/packages/libs/libxml2
 sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=3380000/g' feeds/packages/libs/sqlite3/Makefile
 sed -i 's/PKG_HASH:=.*/PKG_HASH:=1c76e25dc63d9f3935e0f406aec520a33ee77cf54ea5147dffe1fae8369eff68/g' feeds/packages/libs/sqlite3/Makefile
 sed -i 's|PKG_SOURCE_URL:=.*|PKG_SOURCE_URL:=https://www.sqlite.org/2022/|g' feeds/packages/libs/sqlite3/Makefile
+
+# zoneinfo
+cp -f $GITHUB_WORKSPACE/general/zoneinfo/Makefile feeds/packages/utils/zoneinfo
+
+# adguardhome
+sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=0.107.5/g' feeds/packages/net/adguardhome/Makefile
+sed -i 's/PKG_HASH:=.*/PKG_HASH:=5282d58b1a8d52f02af4ab7a5d6089aba6f7d20929bd49fd844c930110262dcb/g' feeds/packages/net/adguardhome/Makefile
 
 ./scripts/feeds update -a
 ./scripts/feeds install -a
