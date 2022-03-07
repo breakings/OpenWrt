@@ -1,0 +1,12 @@
+--- a/getloadavg.c
++++ b/getloadavg.c
+@@ -68,7 +68,8 @@
+ #ifdef HAVE_CONFIG_H
+ #include "config.h"
+ #endif
+-
++#include <sys/types.h>
++#include <sys/stat.h>
+ #include <fcntl.h> /* for encapsulated open, close, read, write */
+ 
+ #ifndef HAVE_GETLOADAVG

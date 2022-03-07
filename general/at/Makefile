@@ -8,12 +8,12 @@
 include $(TOPDIR)/rules.mk
 
 PKG_NAME:=at
-PKG_VERSION:=3.2.4
+PKG_VERSION:=3.2.5
 PKG_RELEASE:=1
 
 PKG_SOURCE:=$(PKG_NAME)_$(PKG_VERSION).orig.tar.gz
 PKG_SOURCE_URL:=http://software.calhariz.com/at
-PKG_HASH=76990cbb6f4b9bfedb926637904fdcc0d4fa20b6596b9c932117a49a0624c684
+PKG_HASH=bb066b389d7c9bb9d84a35738032b85c30cba7d949f758192adc72c9477fd3b8
 
 PKG_MAINTAINER:=Phil Eichinger <phil@zankapfel.net>
 PKG_LICENSE:=GPL-2.0-or-later GPL-3.0-or-later ISC
