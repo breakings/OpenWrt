@@ -326,8 +326,9 @@ sed -i 's/PKG_HASH:=.*/PKG_HASH:=409b4646c5f54f642de0e9f3544c3b83de7238134f5b1ff
 #sed -i 's/PKG_MIRROR_HASH:=.*/PKG_MIRROR_HASH:=dd28d5e846b391917cf83d66176653bdfa4e8a0d5b11144b65a012fe7693ddeb/g' package/libs/ustream-ssl/Makefile
 
 # expat
-sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=2.4.7/g' feeds/packages/libs/expat/Makefile
-sed -i 's/PKG_HASH:=.*/PKG_HASH:=9875621085300591f1e64c18fd3da3a0eeca4a74f884b9abac2758ad1bd07a7d/g' feeds/packages/libs/expat/Makefile
+#sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=2.4.7/g' feeds/packages/libs/expat/Makefile
+#sed -i 's/PKG_HASH:=.*/PKG_HASH:=9875621085300591f1e64c18fd3da3a0eeca4a74f884b9abac2758ad1bd07a7d/g' feeds/packages/libs/expat/Makefile
+cp -f $GITHUB_WORKSPACE/general/expat/Makefile feeds/packages/libs/expat
 
 # socat
 #rm -rf feeds/packages/net/socat
