@@ -244,8 +244,8 @@ sed -i "s/PKG_HASH:=783ac443cd343dd6c68d2abcf7e59e7b978a6a428f6a6025f9b84918b769
 sed -i 's/^\s*$[(]call\sEnsureVendoredVersion/#&/' feeds/packages/utils/dockerd/Makefile
 
 # docker-compose
-sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=2.3.2/g' feeds/packages/utils/docker-compose/Makefile
-sed -i 's/PKG_HASH:=.*/PKG_HASH:=11c1ea791698ec04c56d69207cf7b256e11b8dd2b4ae7b21cb5cdf875f5fe00a/g' feeds/packages/utils/docker-compose/Makefile
+#sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=2.3.2/g' feeds/packages/utils/docker-compose/Makefile
+#sed -i 's/PKG_HASH:=.*/PKG_HASH:=11c1ea791698ec04c56d69207cf7b256e11b8dd2b4ae7b21cb5cdf875f5fe00a/g' feeds/packages/utils/docker-compose/Makefile
 
 # containerd
 sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=1.4.13/g' feeds/packages/utils/containerd/Makefile
@@ -564,8 +564,8 @@ sed -i 's/PKG_HASH:=.*/PKG_HASH:=1a7d52a8a84a9fbffb1be9133c0f6e17217d91ea5a6fa61
 #sed -i 's/PKG_HASH:=.*/PKG_HASH:=2f729e3480695791f9482e8388bd723402b89f0eaf118057bbdea3cecee9b237/g' feeds/packages/libs/libevdev/Makefile
 
 # zstd
-sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=1.5.2/g' feeds/packages/utils/zstd/Makefile
-sed -i 's/PKG_HASH:=.*/PKG_HASH:=3ea06164971edec7caa2045a1932d757c1815858e4c2b68c7ef812647535c23f/g' feeds/packages/utils/zstd/Makefile
+#sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=1.5.2/g' feeds/packages/utils/zstd/Makefile
+#sed -i 's/PKG_HASH:=.*/PKG_HASH:=3ea06164971edec7caa2045a1932d757c1815858e4c2b68c7ef812647535c23f/g' feeds/packages/utils/zstd/Makefile
 #sed -i 's/Dlegacy_level=1/Dlegacy_level=7/g' feeds/packages/utils/zstd/Makefile
 #sed -i 's/Dbin_control=false/Dbin_contrib=false/g' feeds/packages/utils/zstd/Makefile
 #sed -i '77i\	-Dmulti_thread=enabled \\' feeds/packages/utils/zstd/Makefile
@@ -776,12 +776,12 @@ sed -i 's|PKG_SOURCE_URL:=.*|PKG_SOURCE_URL:=https://www.sqlite.org/2022/|g' fee
 cp -f $GITHUB_WORKSPACE/general/zoneinfo/Makefile feeds/packages/utils/zoneinfo
 
 # adguardhome
-sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=0.107.5/g' feeds/packages/net/adguardhome/Makefile
-sed -i 's/PKG_HASH:=.*/PKG_HASH:=5282d58b1a8d52f02af4ab7a5d6089aba6f7d20929bd49fd844c930110262dcb/g' feeds/packages/net/adguardhome/Makefile
+#sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=0.107.5/g' feeds/packages/net/adguardhome/Makefile
+#sed -i 's/PKG_HASH:=.*/PKG_HASH:=5282d58b1a8d52f02af4ab7a5d6089aba6f7d20929bd49fd844c930110262dcb/g' feeds/packages/net/adguardhome/Makefile
 
 # iperf3
-sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=3.11/g' feeds/packages/net/iperf3/Makefile
-sed -i 's/PKG_HASH:=.*/PKG_HASH:=de8cb409fad61a0574f4cb07eb19ce1159707403ac2dc01b5d175e91240b7e5f/g' feeds/packages/net/iperf3/Makefile
+#sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=3.11/g' feeds/packages/net/iperf3/Makefile
+#sed -i 's/PKG_HASH:=.*/PKG_HASH:=de8cb409fad61a0574f4cb07eb19ce1159707403ac2dc01b5d175e91240b7e5f/g' feeds/packages/net/iperf3/Makefile
 
 ./scripts/feeds update -a
 ./scripts/feeds install -a
