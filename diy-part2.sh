@@ -68,7 +68,7 @@ svn co https://github.com/xiaorouji/openwrt-passwall/trunk/trojan-plus package/t
 #svn co https://github.com/project-openwrt/openwrt/trunk/package/ctcgfw/luci-app-filebrowser package/luci-app-filebrowser
 #svn co https://github.com/project-openwrt/openwrt/trunk/package/ctcgfw/filebrowser package/filebrowser
 #svn co https://github.com/project-openwrt/openwrt/trunk/package/lienol/luci-app-fileassistant package/luci-app-fileassistant
-svn co https://github.com/xiaorouji/openwrt-passwall/trunk/luci-app-passwall package/luci-app-passwall
+#svn co https://github.com/xiaorouji/openwrt-passwall/trunk/luci-app-passwall package/luci-app-passwall
 cp -rf $GITHUB_WORKSPACE/general/luci-app-passwall package/luci-app-passwall
 svn co https://github.com/xiaorouji/openwrt-passwall/trunk/shadowsocks-rust package/shadowsocks-rust
 #svn co https://github.com/fw876/helloworld/trunk/shadowsocks-rust package/shadowsocks-rust
@@ -782,6 +782,11 @@ cp -f $GITHUB_WORKSPACE/general/zoneinfo/Makefile feeds/packages/utils/zoneinfo
 # iperf3
 #sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=3.11/g' feeds/packages/net/iperf3/Makefile
 #sed -i 's/PKG_HASH:=.*/PKG_HASH:=de8cb409fad61a0574f4cb07eb19ce1159707403ac2dc01b5d175e91240b7e5f/g' feeds/packages/net/iperf3/Makefile
+
+# mt7621
+cp -f $GITHUB_WORKSPACE/general/mt7621/mt7621_jdcloud_re-sp-01b.dts target/linux/ramips/dts
+cp -f $GITHUB_WORKSPACE/general/mt7621/mt7621.mk target/linux/ramips/image
+cp -f $GITHUB_WORKSPACE/general/mt7621/02_network target/linux/ramips/mt7621/base-files/etc/board.d
 
 ./scripts/feeds update -a
 ./scripts/feeds install -a
