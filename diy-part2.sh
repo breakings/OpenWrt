@@ -783,10 +783,5 @@ cp -f $GITHUB_WORKSPACE/general/zoneinfo/Makefile feeds/packages/utils/zoneinfo
 #sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=3.11/g' feeds/packages/net/iperf3/Makefile
 #sed -i 's/PKG_HASH:=.*/PKG_HASH:=de8cb409fad61a0574f4cb07eb19ce1159707403ac2dc01b5d175e91240b7e5f/g' feeds/packages/net/iperf3/Makefile
 
-# mt7621
-cp -f $GITHUB_WORKSPACE/general/mt7621/mt7621_jdcloud_re-sp-01b.dts target/linux/ramips/dts
-cp -f $GITHUB_WORKSPACE/general/mt7621/mt7621.mk target/linux/ramips/image
-cp -f $GITHUB_WORKSPACE/general/mt7621/02_network target/linux/ramips/mt7621/base-files/etc/board.d
-
 ./scripts/feeds update -a
 ./scripts/feeds install -a
