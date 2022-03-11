@@ -783,5 +783,8 @@ cp -f $GITHUB_WORKSPACE/general/zoneinfo/Makefile feeds/packages/utils/zoneinfo
 #sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=3.11/g' feeds/packages/net/iperf3/Makefile
 #sed -i 's/PKG_HASH:=.*/PKG_HASH:=de8cb409fad61a0574f4cb07eb19ce1159707403ac2dc01b5d175e91240b7e5f/g' feeds/packages/net/iperf3/Makefile
 
+# fix luci-app-verysync not working
+cp -f $GITHUB_WORKSPACE/general/verysync feeds/luci/applications/luci-app-verysync/root/etc/init.d
+
 ./scripts/feeds update -a
 ./scripts/feeds install -a
