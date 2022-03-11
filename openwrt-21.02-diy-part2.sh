@@ -95,6 +95,8 @@ svn co https://github.com/breakings/OpenWrt/trunk/general/autocore package/lean/
 #svn co https://github.com/coolsnowwolf/lede/trunk/package/lean/qt5 package/lean/qt5
 svn co https://github.com/coolsnowwolf/packages/trunk/libs/qtbase package/lean/qtbase
 svn co https://github.com/coolsnowwolf/packages/trunk/libs/qttools package/lean/qttools
+svn co https://github.com/coolsnowwolf/lede/trunk/package/lean/shortcut-fe package/lean/shortcut-fe
+svn co https://github.com/coolsnowwolf/packages/trunk/net/qBittorrent-static package/qBittorrent-static
 
 #git clone https://github.com/jerrykuku/luci-app-jd-dailybonus.git package/luci-app-jd-dailybonus
 svn co https://github.com/jerrykuku/lua-maxminddb/trunk package/lua-maxminddb
@@ -284,10 +286,10 @@ sed -i 's/^\s*$[(]call\sEnsureVendoredVersion/#&/' feeds/packages/utils/dockerd/
 #sed -i 's/PKG_HASH:=.*/PKG_HASH:=5c9246c34cafeb51b3289c016cb2cbdd08b3eda87b0f8d4cc02fd7630cfdbd7b/' feeds/packages/utils/docker-compose/Makefile
 
 # containerd
-#sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=1.4.12/' feeds/packages/utils/containerd/Makefile
-#sed -i 's/PKG_HASH:=.*/PKG_HASH:=85a531725f15e2d136131119d42af4507a5389e0947015152075c4c93816fb5c/' feeds/packages/utils/containerd/Makefile
-#sed -i 's/PKG_SOURCE_VERSION:=.*/PKG_SOURCE_VERSION:=7b11cfaabd73bb80907dd23182b9347b4245eb5d/' feeds/packages/utils/containerd/Makefile
-cp -f $GITHUB_WORKSPACE/general/containerd/Makefile feeds/packages/utils/containerd
+sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=1.4.13/' feeds/packages/utils/containerd/Makefile
+sed -i 's/PKG_HASH:=.*/PKG_HASH:=7c554e71b34209da5a8a851e16e4edeb375a47f39b099f3bd207bd0500002175/' feeds/packages/utils/containerd/Makefile
+sed -i 's/PKG_SOURCE_VERSION:=.*/PKG_SOURCE_VERSION:=9cc61520f4cd876b86e77edfeb88fbcd536d1f9d/' feeds/packages/utils/containerd/Makefile
+#cp -f $GITHUB_WORKSPACE/general/containerd/Makefile feeds/packages/utils/containerd
 
 # runc
 sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=1.1.0/' feeds/packages/utils/runc/Makefile
@@ -337,8 +339,8 @@ sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=6.1.6/g' feeds/packages/utils/unrar/Makef
 sed -i 's/PKG_HASH:=.*/PKG_HASH:=67f4ab891c062218c2badfaac9c8cab5c8bfd5e96dabfca56c8faa3d209a801d/g' feeds/packages/utils/unrar/Makefile
 
 # zstd
-sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=1.5.2/g' feeds/packages/utils/zstd/Makefile
-sed -i 's/PKG_HASH:=.*/PKG_HASH:=3ea06164971edec7caa2045a1932d757c1815858e4c2b68c7ef812647535c23f/g' feeds/packages/utils/zstd/Makefile
+#sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=1.5.2/g' feeds/packages/utils/zstd/Makefile
+#sed -i 's/PKG_HASH:=.*/PKG_HASH:=3ea06164971edec7caa2045a1932d757c1815858e4c2b68c7ef812647535c23f/g' feeds/packages/utils/zstd/Makefile
 
 # pigz
 sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=2.7/g' feeds/packages/utils/pigz/Makefile
