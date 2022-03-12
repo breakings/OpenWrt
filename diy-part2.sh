@@ -472,6 +472,8 @@ sed -i 's/PKG_HASH:=.*/PKG_HASH:=9b9a95d68fdcb936849a4d6fada8bf8686cddf58b9b26c9
 # zerotier
 #sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=1.8.5/g' feeds/packages/net/zerotier/Makefile
 #sed -i 's/PKG_HASH:=.*/PKG_HASH:=2866a4ef9193cca0a9f0fe528a0dea00c13cb0fd714bf388a0300cb6f3639b3b/g' feeds/packages/net/zerotier/Makefile
+rm -rf feeds/packages/net/zerotier
+cp -rf $GITHUB_WORKSPACE/general/zerotier feeds/packages/net
 
 # luci-app-n2n_v2
 sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=3.0/g' feeds/luci/applications/luci-app-n2n_v2/Makefile

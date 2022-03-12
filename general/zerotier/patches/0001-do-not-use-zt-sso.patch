@@ -1,0 +1,31 @@
+From 5ac3eae4f7e23951cfc43b65f77a3d6fd3eec8a2 Mon Sep 17 00:00:00 2001
+From: Oskari Rauta oskari.rauta@gmail.com
+Date: Fri, 12 Mar 2022 00:00:00 +0100
+Subject: [PATCH 1/4] ZT_SSO
+---
+
+--- a/make-linux.mk
++++ b/make-linux.mk
+@@ -268,6 +268,10 @@
+ endif
+ 
+ ifeq ($(ZT_SSO_SUPPORTED), 1)
++	ZT_SSO_SUPPORTED=0
++endif
++
++ifeq ($(ZT_SSO_SUPPORTED), 1)
+ 	ifeq ($(ZT_DEBUG),1)
+ 		LDLIBS+=zeroidc/target/debug/libzeroidc.a -ldl -lssl -lcrypto
+ 	else
+--- a/node/Constants.hpp
++++ b/node/Constants.hpp
+@@ -72,6 +72,9 @@
+ #include <machine/endian.h>
+ #endif
+ 
++#undef OIDC_SUPPORTED
++#define OIDC_SUPPORTED 0
++
+ #if defined(__FreeBSD__) || defined(__OpenBSD__) || defined(__NetBSD__)
+ #define OIDC_SUPPORTED 0
+ #ifndef __UNIX_LIKE__

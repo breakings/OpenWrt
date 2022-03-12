@@ -1,0 +1,24 @@
+From 0aeb4d5b9d9a60baa47c4330a3436300058f048d Mon Sep 17 00:00:00 2001
+From: Moritz Warning <moritzwarning@web.de>
+Date: Tue, 8 Mar 2022 19:10:09 +0100
+Subject: [PATCH 2/4] gcc10
+
+---
+ osdep/Binder.hpp | 6 +++---
+ 1 file changed, 3 insertions(+), 3 deletions(-)
+
+--- a/osdep/Binder.hpp
++++ b/osdep/Binder.hpp
+@@ -440,9 +440,9 @@ class Binder {
+ 					}
+ #endif	 // __LINUX__
+ 					if (_bindingCount < ZT_BINDER_MAX_BINDINGS) {
+-						_bindings[_bindingCount].udpSock = udps;
+-						_bindings[_bindingCount].tcpListenSock = tcps;
+-						_bindings[_bindingCount].address = ii->first;
++						_bindings[(unsigned int)_bindingCount].udpSock = udps;
++						_bindings[(unsigned int)_bindingCount].tcpListenSock = tcps;
++						_bindings[(unsigned int)_bindingCount].address = ii->first;
+ 						phy.setIfName(udps, (char*)ii->second.c_str(), (int)ii->second.length());
+ 						++_bindingCount;
+ 					}
