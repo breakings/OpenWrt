@@ -1,8 +1,11 @@
-From c368d51cb1d221cf3ffb2d33d03dcc69591339c0 Mon Sep 17 00:00:00 2001
-From: Moritz Warning <moritzwarning@web.de>
+From 826718bdbbd42fcf56bdb45dd9e71af10299cfa3 Mon Sep 17 00:00:00 2001
+From: Oskari Rauta <oskari.rauta@gmail.com>
 Date: Sun, 13 Mar 2022 10:06:08 +0100
-Subject: [PATCH 5/5] do not use zt SSO and OIDC
+Subject: [PATCH 3/3] do not use zt SSO and OIDC
 
+These features need Rust/Cargo support
+in the build system. OpenWrt does not
+have that yet.
 ---
  make-linux.mk      | 4 ++++
  node/Constants.hpp | 3 +++
