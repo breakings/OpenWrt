@@ -69,6 +69,7 @@ svn co https://github.com/xiaorouji/openwrt-passwall/trunk/trojan-plus package/t
 #svn co https://github.com/project-openwrt/openwrt/trunk/package/ctcgfw/filebrowser package/filebrowser
 #svn co https://github.com/project-openwrt/openwrt/trunk/package/lienol/luci-app-fileassistant package/luci-app-fileassistant
 svn co https://github.com/xiaorouji/openwrt-passwall/branches/luci/luci-app-passwall package/luci-app-passwall
+svn co https://github.com/xiaorouji/openwrt-passwall2/trunk/luci-app-passwall2 package/luci-app-passwall2
 #cp -rf $GITHUB_WORKSPACE/general/luci-app-passwall package/luci-app-passwall
 svn co https://github.com/xiaorouji/openwrt-passwall/trunk/shadowsocks-rust package/shadowsocks-rust
 #svn co https://github.com/fw876/helloworld/trunk/shadowsocks-rust package/shadowsocks-rust
@@ -581,6 +582,7 @@ rm -rf feeds/packages/utils/pigz/patches
 # nano
 #sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=6.2/g' feeds/packages/utils/nano/Makefile
 #sed -i 's/PKG_HASH:=.*/PKG_HASH:=2bca1804bead6aaf4ad791f756e4749bb55ed860eec105a97fba864bc6a77cb3/g' feeds/packages/utils/nano/Makefile
+cp -rf $GITHUB_WORKSPACE/general/nano feeds/packages/utils
 
 # dnsproxy
 #rm -rf package/lean/dnsproxy
@@ -793,9 +795,9 @@ cp -f $GITHUB_WORKSPACE/general/verysync feeds/luci/applications/luci-app-verysy
 cp -f $GITHUB_WORKSPACE/general/luci-app-v2ray-server/luasrc/model/cbi/v2ray_server/api/app.lua feeds/luci/applications/luci-app-v2ray-server/luasrc/model/cbi/v2ray_server/api
 
 # haproxy
-sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=2.4.15/g' feeds/packages/net/haproxy/Makefile
-sed -i 's/PKG_HASH:=.*/PKG_HASH:=3958b17b7ee80eb79712aaf24f0d83e753683104b36e282a8b3dcd2418e30082/g' feeds/packages/net/haproxy/Makefile
-sed -i 's/BASE_TAG:=.*/BASE_TAG=v2.4.15/g' feeds/packages/net/haproxy/get-latest-patches.sh
+#sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=2.4.15/g' feeds/packages/net/haproxy/Makefile
+#sed -i 's/PKG_HASH:=.*/PKG_HASH:=3958b17b7ee80eb79712aaf24f0d83e753683104b36e282a8b3dcd2418e30082/g' feeds/packages/net/haproxy/Makefile
+#sed -i 's/BASE_TAG:=.*/BASE_TAG=v2.4.15/g' feeds/packages/net/haproxy/get-latest-patches.sh
 
 ./scripts/feeds update -a
 ./scripts/feeds install -a
