@@ -283,8 +283,8 @@ sed -i 's/PKG_HASH:=.*/PKG_HASH:=59065c8733364725e9721ba48c3a99bbc52af921daf48df
 #sed -i 's/PKG_MIRROR_HASH:=.*/PKG_MIRROR_HASH:=403d7d20bf2ae67e898db4543c61cc07f337cedf038a11c84a2af5504cfb82e9/g' feeds/packages/net/wsdd2//Makefile
 
 # openvpn
-#sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=2.5.5/g' feeds/packages/net/openvpn/Makefile
-#sed -i 's/PKG_HASH:=.*/PKG_HASH:=119bd69fa0210838f6cdaa273696dc738efa200f454dbe11eb6dfb75dfb6003b/g' feeds/packages/net/openvpn/Makefile
+sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=2.5.6/g' feeds/packages/net/openvpn/Makefile
+sed -i 's/PKG_HASH:=.*/PKG_HASH:=13c7c3dc399d1b571cabf189c4d34ae34656ee72b6bde2a8059c1e9bc61574ed/g' feeds/packages/net/openvpn/Makefile
 
 # php7
 #sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=7.4.27/g' feeds/packages/lang/php7//Makefile
@@ -293,8 +293,8 @@ sed -i 's/PKG_HASH:=.*/PKG_HASH:=59065c8733364725e9721ba48c3a99bbc52af921daf48df
 # php8
 #rm -rf feeds/packages/lang/php8
 #svn co https://github.com/openwrt/packages/trunk/lang/php8 feeds/packages/lang/php8
-#sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=8.1.3/g' feeds/packages/lang/php8/Makefile
-#sed -i 's/PKG_HASH:=.*/PKG_HASH:=5d65a11071b47669c17452fb336c290b67c101efb745c1dbe7525b5caf546ec6/g' feeds/packages/lang/php8/Makefile
+sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=8.1.4/g' feeds/packages/lang/php8/Makefile
+sed -i 's/PKG_HASH:=.*/PKG_HASH:=05a8c0ac30008154fb38a305560543fc172ba79fb957084a99b8d3b10d5bdb4b/g' feeds/packages/lang/php8/Makefile
 
 # python-docker
 sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=5.0.3/g' feeds/packages/lang/python/python-docker/Makefile
@@ -645,6 +645,7 @@ sed -i 's/PKG_HASH:=.*/PKG_HASH:=d1f72f474e71bcaaf465dcc7e6f7b6a4705e4b1ed95c581
 
 # openssl
 sed -i 's/PKG_BUGFIX:=.*/PKG_BUGFIX:=n/g' package/libs/openssl/Makefile
+sed -i 's/PKG_RELEASE:=.*/PKG_RELEASE:=1/g' package/libs/openssl/Makefile
 sed -i 's/PKG_HASH:=.*/PKG_HASH:=40dceb51a4f6a5275bde0e6bf20ef4b91bfc32ed57c0552e2e8e15463372b17a/g' package/libs/openssl/Makefile
 
 # 修改makefile
