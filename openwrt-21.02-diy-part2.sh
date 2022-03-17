@@ -271,14 +271,14 @@ sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=3.6.0/g' feeds/packages/libs/libarchive/M
 sed -i 's/PKG_HASH:=.*/PKG_HASH:=df283917799cb88659a5b33c0a598f04352d61936abcd8a48fe7b64e74950de7/g' feeds/packages/libs/libarchive/Makefile
 
 # docker
-#sed -i 's/PKG_VERSION:=20.10.10/PKG_VERSION:=20.10.11/' feeds/packages/utils/docker/Makefile
-#sed -i 's/PKG_HASH:=.*/PKG_HASH:=55d55fdead906cbea8608ef39d5a62d54d1118e604a5ae7e2d58b4fb54a599a7/' feeds/packages/utils/docker/Makefile
-#sed -i 's/PKG_GIT_SHORT_COMMIT:=b485636/PKG_GIT_SHORT_COMMIT:=dea9396/' feeds/packages/utils/docker/Makefile
+sed -i 's/PKG_VERSION:=20.10.12/PKG_VERSION:=20.10.13/g' feeds/packages/utils/docker/Makefile
+sed -i 's/PKG_HASH:=.*/PKG_HASH:=5aa34f34b2c6f21ade2227edd08b803d972842d1abd5e70d7e4e758f966e4e3c/g' feeds/packages/utils/docker/Makefile
+sed -i 's/PKG_GIT_SHORT_COMMIT:=e91ed57/PKG_GIT_SHORT_COMMIT:=a224086/g' feeds/packages/utils/docker/Makefile
 
 # dockerd
-#sed -i 's/PKG_VERSION:=20.10.10/PKG_VERSION:=20.10.11/' feeds/packages/utils/dockerd/Makefile
-#sed -i 's/PKG_HASH:=.*/PKG_HASH:=6fa7835bf7c17c293621967bd5096642fa1e3e1b597fbc7d7bd35f455d886495/' feeds/packages/utils/dockerd/Makefile
-#sed -i 's/PKG_GIT_SHORT_COMMIT:=e2f740d/PKG_GIT_SHORT_COMMIT:=847da18/' feeds/packages/utils/dockerd/Makefile
+sed -i 's/PKG_VERSION:=20.10.12/PKG_VERSION:=20.10.13/' feeds/packages/utils/dockerd/Makefile
+sed -i 's/PKG_HASH:=.*/PKG_HASH:=bd82205bbb39e835c4e9c691c9d5bb8dea40ace847f80b030c736faba95b0b67/' feeds/packages/utils/dockerd/Makefile
+sed -i 's/PKG_GIT_SHORT_COMMIT:=459d0df/PKG_GIT_SHORT_COMMIT:=906f57f/' feeds/packages/utils/dockerd/Makefile
 sed -i 's/^\s*$[(]call\sEnsureVendoredVersion/#&/' feeds/packages/utils/dockerd/Makefile
 
 # docker-compose
@@ -301,8 +301,8 @@ svn co https://github.com/coolsnowwolf/lede/trunk/package/lean/openwrt-fullconen
 
 # openssh
 #sed -i '175i\	--with-sandbox=rlimit \\' feeds/packages/net/openssh/Makefile
-rm -rf feeds/packages/net/openssh
-cp -rf $GITHUB_WORKSPACE/general/openssh feeds/packages/net
+#rm -rf feeds/packages/net/openssh
+#cp -rf $GITHUB_WORKSPACE/general/openssh feeds/packages/net
 
 # hdparm
 sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=9.63/g' feeds/packages/utils/hdparm/Makefile
@@ -375,16 +375,29 @@ sed -i 's/PKG_HASH:=.*/PKG_HASH:=a544f8808d0c58cfb0e7424ca1841cb858a974922b035d5
 cp -f $GITHUB_WORKSPACE/general/libxml2/Makefile feeds/packages/libs/libxml2
 
 # sqlite3
-sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=3380000/g' feeds/packages/libs/sqlite3/Makefile
-sed -i 's/PKG_HASH:=.*/PKG_HASH:=1c76e25dc63d9f3935e0f406aec520a33ee77cf54ea5147dffe1fae8369eff68/g' feeds/packages/libs/sqlite3/Makefile
+sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=3380100/g' feeds/packages/libs/sqlite3/Makefile
+sed -i 's/PKG_HASH:=.*/PKG_HASH:=8e3a8ceb9794d968399590d2ddf9d5c044a97dd83d38b9613364a245ec8a2fc4/g' feeds/packages/libs/sqlite3/Makefile
 sed -i 's|PKG_SOURCE_URL:=.*|PKG_SOURCE_URL:=https://www.sqlite.org/2022/|g' feeds/packages/libs/sqlite3/Makefile
+sed -i '39d' feeds/packages/libs/sqlite3/Makefile
 
 # frp
-sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=0.39.1/g' feeds/packages/net/frp/Makefile
-sed -i 's/PKG_HASH:=.*/PKG_HASH:=858a4a1920f3f3c90161f7acba468eddcd1dbd1b18c3f4028a0f6eca77da9397/g' feeds/packages/net/frp/Makefile
+sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=0.40.0/g' feeds/packages/net/frp/Makefile
+sed -i 's/PKG_HASH:=.*/PKG_HASH:=2e69af788f6fda1c2dadc91118971adb612f763d05068c8d62ca6c5214fe248d/g' feeds/packages/net/frp/Makefile
+
+# openvpn
+sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=2.5.6/g' feeds/packages/net/openvpn/Makefile
+sed -i 's/PKG_HASH:=.*/PKG_HASH:=13c7c3dc399d1b571cabf189c4d34ae34656ee72b6bde2a8059c1e9bc61574ed/g' feeds/packages/net/openvpn/Makefile
+
+# php8
+sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=8.1.4/g' feeds/packages/lang/php8/Makefile
+sed -i 's/PKG_HASH:=.*/PKG_HASH:=05a8c0ac30008154fb38a305560543fc172ba79fb957084a99b8d3b10d5bdb4b/g' feeds/packages/lang/php8/Makefile
+
+# wolfSSL
+sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=5.2.0-stable/g' package/libs/wolfssl/Makefile
+sed -i 's/PKG_HASH:=.*/PKG_HASH:=409b4646c5f54f642de0e9f3544c3b83de7238134f5b1ff93fb44527bf119d05/g' package/libs/wolfssl/Makefile
 
 # netdata
-sed -i 's/DEPENDS:=.*/DEPENDS:=+zlib +libuuid +libuv +libmnl +libjson-c +liblz4/g' feeds/packages/admin/netdata/Makefile
+#sed -i 's/DEPENDS:=.*/DEPENDS:=+zlib +libuuid +libuv +libmnl +libjson-c +liblz4/g' feeds/packages/admin/netdata/Makefile
 
 # use upx for frp
 #sed -i '58 a\    $(STAGING_DIR_HOST)/bin/upx --lzma --best $$(1)/usr/bin/$(1) || true' feeds/packages/net/frp/Makefile
