@@ -13,7 +13,7 @@
 # 删除软件包
  #rm -rf feeds/packages/net/openssh
  #rm -rf feeds/packages/sound/fdk-aac
- #rm -rf feeds/packages/utils/lvm2
+ rm -rf feeds/packages/utils/lvm2
  #rm -rf feeds/packages/utils/tini
  #rm -rf feeds/packages/net/kcptun
  #rm -rf package/lean/ntfs3
@@ -157,7 +157,7 @@ svn co https://github.com/thinktip/luci-theme-neobird/trunk package/luci-theme-n
 #svn co https://github.com/openwrt/packages/trunk/sound/fdk-aac feeds/packages/sound/fdk-aac
 
 # lvm2
-#svn co https://github.com/openwrt/packages/trunk/utils/lvm2 feeds/packages/utils/lvm2
+svn co https://github.com/openwrt/packages/trunk/utils/lvm2 feeds/packages/utils/lvm2
 
 # tini
 #svn co https://github.com/openwrt/packages/trunk/utils/tini feeds/packages/utils/tini
@@ -705,7 +705,7 @@ rm -f target/linux/generic/backport-5.10/351-v5.13-NFSv4_2-Remove-ifdef-CONFIG_N
 cp -f $GITHUB_WORKSPACE/general/01-export-nfs_ssc.patch target/linux/generic/backport-5.15
 cp -f $GITHUB_WORKSPACE/general/003-add-module_supported_device-macro.patch target/linux/generic/backport-5.15
 cp -f $GITHUB_WORKSPACE/general/651-rt2x00-driver-compile-with-kernel-5.15.patch package/kernel/mac80211/patches/rt2x00
-rm -f target/linux/generic/pending-5.10/701-net-ethernet-mtk_eth_soc-add-ipv6-flow-offloading-support.patch
+#rm -f target/linux/generic/pending-5.10/701-net-ethernet-mtk_eth_soc-add-ipv6-flow-offloading-support.patch
 
 #replace coremark.sh with the new one
 #rm feeds/packages/utils/coremark/coremark.sh
