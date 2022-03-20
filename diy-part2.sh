@@ -706,6 +706,8 @@ cp -f $GITHUB_WORKSPACE/general/01-export-nfs_ssc.patch target/linux/generic/bac
 cp -f $GITHUB_WORKSPACE/general/003-add-module_supported_device-macro.patch target/linux/generic/backport-5.15
 cp -f $GITHUB_WORKSPACE/general/651-rt2x00-driver-compile-with-kernel-5.15.patch package/kernel/mac80211/patches/rt2x00
 #rm -f target/linux/generic/pending-5.10/701-net-ethernet-mtk_eth_soc-add-ipv6-flow-offloading-support.patch
+rm -f target/linux/generic/hack-5.10/220-gc_sections.patch
+cp -f $GITHUB_WORKSPACE/general/220-arm-gc_sections.patch target/linux/generic/hack-5.10
 
 #replace coremark.sh with the new one
 #rm feeds/packages/utils/coremark/coremark.sh
