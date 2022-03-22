@@ -782,7 +782,7 @@ sed -i 's|PKG_SOURCE_URL:=.*|PKG_SOURCE_URL:=https://www.sqlite.org/2022/|g' fee
 sed -i '39d' feeds/packages/libs/sqlite3/Makefile
 
 # zoneinfo
-cp -f $GITHUB_WORKSPACE/general/zoneinfo/Makefile feeds/packages/utils/zoneinfo
+#cp -f $GITHUB_WORKSPACE/general/zoneinfo/Makefile feeds/packages/utils/zoneinfo
 
 # adguardhome
 #sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=0.107.5/g' feeds/packages/net/adguardhome/Makefile
@@ -806,11 +806,6 @@ cp -f $GITHUB_WORKSPACE/general/luci-app-v2ray-server/luasrc/model/cbi/v2ray_ser
 # perl
 rm -rf feeds/packages/lang/perl
 cp -rf $GITHUB_WORKSPACE/general/perl feeds/packages/lang
-
-# mtr
-mkdir -pv feeds/packages/net/mtr/patches
-rm -f feeds/packages/net/mtr/patches/*.patch
-wget -P feeds/packages/net/mtr/patches https://github.com/traviscross/mtr/commit/aeb493e08eabcb4e6178bda0bb84e9cd01c9f213.patch
 
 ./scripts/feeds update -a
 ./scripts/feeds install -a
