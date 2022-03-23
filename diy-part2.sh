@@ -582,7 +582,7 @@ rm -rf feeds/packages/utils/pigz/patches
 # nano
 #sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=6.2/g' feeds/packages/utils/nano/Makefile
 #sed -i 's/PKG_HASH:=.*/PKG_HASH:=2bca1804bead6aaf4ad791f756e4749bb55ed860eec105a97fba864bc6a77cb3/g' feeds/packages/utils/nano/Makefile
-cp -rf $GITHUB_WORKSPACE/general/nano feeds/packages/utils
+#cp -rf $GITHUB_WORKSPACE/general/nano feeds/packages/utils
 
 # dnsproxy
 #rm -rf package/lean/dnsproxy
