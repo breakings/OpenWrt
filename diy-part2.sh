@@ -245,8 +245,8 @@ sed -i 's/PKG_GIT_SHORT_COMMIT:=459d0df/PKG_GIT_SHORT_COMMIT:=87a90dc/' feeds/pa
 sed -i 's/^\s*$[(]call\sEnsureVendoredVersion/#&/' feeds/packages/utils/dockerd/Makefile
 
 # docker-compose
-#sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=2.3.3/g' feeds/packages/utils/docker-compose/Makefile
-#sed -i 's/PKG_HASH:=.*/PKG_HASH:=bcca033859abfbb0949c4455725e5b01593f217f0b32b1d7f861c75c0b69f285/g' feeds/packages/utils/docker-compose/Makefile
+sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=2.3.4/g' feeds/packages/utils/docker-compose/Makefile
+sed -i 's/PKG_HASH:=.*/PKG_HASH:=10657bbca710b7bfe7e17f259a4ab6cf69b890e7ac4b3bfc2444ef3086bd89cb/g' feeds/packages/utils/docker-compose/Makefile
 
 # containerd
 sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=1.5.11/g' feeds/packages/utils/containerd/Makefile
@@ -764,8 +764,10 @@ sed -i 's/PKG_RELEASE:=.*/PKG_RELEASE:=1/g' feeds/packages/libs/libssh2/Makefile
 sed -i 's/PKG_HASH:=.*/PKG_HASH:=2d64e90f3ded394b91d3a2e774ca203a4179f69aebee03003e5a6fa621e41d51/g' feeds/packages/libs/libssh2/Makefile
 
 # gnutls
-sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=3.7.3/g' feeds/packages/libs/gnutls/Makefile
-sed -i 's/PKG_HASH:=.*/PKG_HASH:=fc59c43bc31ab20a6977ff083029277a31935b8355ce387b634fa433f8f6c49a/g' feeds/packages/libs/gnutls/Makefile
+#sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=3.7.3/g' feeds/packages/libs/gnutls/Makefile
+#sed -i 's/PKG_HASH:=.*/PKG_HASH:=fc59c43bc31ab20a6977ff083029277a31935b8355ce387b634fa433f8f6c49a/g' feeds/packages/libs/gnutls/Makefile
+rm -rf feeds/packages/libs/gnutls
+svn co https://github.com/breakings/packages/branches/gnutls/libs/gnutls feeds/packages/libs/gnutls
 
 # smartmontools
 sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=7.3/g' feeds/packages/utils/smartmontools/Makefile
@@ -793,7 +795,7 @@ sed -i '39d' feeds/packages/libs/sqlite3/Makefile
 #sed -i 's/PKG_HASH:=.*/PKG_HASH:=de8cb409fad61a0574f4cb07eb19ce1159707403ac2dc01b5d175e91240b7e5f/g' feeds/packages/net/iperf3/Makefile
 
 # fix luci-app-verysync not working
-cp -f $GITHUB_WORKSPACE/general/verysync feeds/luci/applications/luci-app-verysync/root/etc/init.d
+#cp -f $GITHUB_WORKSPACE/general/verysync feeds/luci/applications/luci-app-verysync/root/etc/init.d
 
 # fix luci-app-v2ray-server permission
 cp -f $GITHUB_WORKSPACE/general/luci-app-v2ray-server/luasrc/model/cbi/v2ray_server/api/app.lua feeds/luci/applications/luci-app-v2ray-server/luasrc/model/cbi/v2ray_server/api
