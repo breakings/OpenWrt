@@ -201,6 +201,8 @@ cp -f $GITHUB_WORKSPACE/general/libtorrent-rasterbar/Makefile feeds/packages/lib
 # golang
 #sed -i 's/GO_VERSION_PATCH:=.*/GO_VERSION_PATCH:=8/g' feeds/packages/lang/golang/golang/Makefile
 #sed -i 's/PKG_HASH:=.*/PKG_HASH:=2effcd898140da79a061f3784ca4f8d8b13d811fb2abe9dad2404442dabbdf7a/g' feeds/packages/lang/golang/golang/Makefile
+rm -rf feeds/packages/lang/golang
+cp -rf $GITHUB_WORKSPACE/general/golang feeds/packages/lang/golang
 
 # curl
 #sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=7.82.0/g' feeds/packages/net/curl/Makefile
@@ -245,8 +247,8 @@ sed -i 's/PKG_GIT_SHORT_COMMIT:=459d0df/PKG_GIT_SHORT_COMMIT:=87a90dc/' feeds/pa
 sed -i 's/^\s*$[(]call\sEnsureVendoredVersion/#&/' feeds/packages/utils/dockerd/Makefile
 
 # docker-compose
-sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=2.4.0/g' feeds/packages/utils/docker-compose/Makefile
-sed -i 's/PKG_HASH:=.*/PKG_HASH:=b0507aed3b86900f5199309dcfb8b2d4081d94e8ec045eec2bada8280dc9901b/g' feeds/packages/utils/docker-compose/Makefile
+sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=2.4.1/g' feeds/packages/utils/docker-compose/Makefile
+sed -i 's/PKG_HASH:=.*/PKG_HASH:=ebf56ab2f3912d49f4ef9a0e48b219cf9cbff958d20990a5ff9b7a8ced8e69fc/g' feeds/packages/utils/docker-compose/Makefile
 
 # containerd
 sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=1.5.11/g' feeds/packages/utils/containerd/Makefile
@@ -366,17 +368,8 @@ sed -i 's/PKG_HASH:=.*/PKG_HASH:=68fb519c14306fec9720a2a5b45bc9f0c8d1b9c72adf45c
 sed -i '22i\HOST_PYTHON3_PACKAGE_BUILD_DEPENDS:=Cython\n' feeds/packages/lang/python/python-yaml/Makefile
 
 # python-websocket-client
-#sed -i 's/PYPI_NAME:=.*/PYPI_NAME:=websocket-client/g' feeds/packages/lang/python/python-websocket-client/Makefile
-#sed -i 's/PKG_LICENSE:=*/PKG_LICENSE:=Apache-2.0/g' feeds/packages/lang/python/python-websocket-client/Makefile
-#sed -i 's/DEPENDS:=.*/DEPENDS:=+python3-light +python3-logging +python3-openssl/g' feeds/packages/lang/python/python-websocket-client/Makefile
-#sed -i '34i\define Py3Package/python3-websocket-client/filespec' feeds/packages/lang/python/python-websocket-client/Makefile
-#sed -i '35i\+|$(PYTHON3_PKG_DIR)' feeds/packages/lang/python/python-websocket-client/Makefile
-#sed -i '36i\-|$(PYTHON3_PKG_DIR)/websocket/tests' feeds/packages/lang/python/python-websocket-client/Makefile
-#sed -i '37i\endef\n' feeds/packages/lang/python/python-websocket-client/Makefile
-rm -f feeds/packages/lang/python/python-websocket-client/Makefile
-wget -P feeds/packages/lang/python/python-websocket-client https://raw.githubusercontent.com/openwrt/packages/master/lang/python/python-websocket-client/Makefile
-sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=1.3.2/g' feeds/packages/lang/python/python-websocket-client/Makefile
-sed -i 's/PKG_HASH:=.*/PKG_HASH:=50b21db0058f7a953d67cc0445be4b948d7fc196ecbeb8083d68d94628e4abf6/g' feeds/packages/lang/python/python-websocket-client/Makefile
+#sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=1.3.2/g' feeds/packages/lang/python/python-websocket-client/Makefile
+#sed -i 's/PKG_HASH:=.*/PKG_HASH:=50b21db0058f7a953d67cc0445be4b948d7fc196ecbeb8083d68d94628e4abf6/g' feeds/packages/lang/python/python-websocket-client/Makefile
 
 # python-texttable
 sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=1.6.4/g' feeds/packages/lang/python/python-texttable/Makefile
@@ -485,8 +478,8 @@ sed -i 's/PKG_RELEASE:=.*/PKG_RELEASE:=1/g' feeds/luci/applications/luci-app-n2n
 #sed -i 's/PKG_RELEASE:=.*/PKG_RELEASE:=1/g' feeds/packages/net/openssh/Makefile
 #sed -i 's/PKG_HASH:=.*/PKG_HASH:=fd497654b7ab1686dac672fb83dfb4ba4096e8b5ffcdaccd262380ae58bec5e7/g' feeds/packages/net/openssh/Makefile
 #sed -i '175i\	--with-sandbox=no \\' feeds/packages/net/openssh/Makefile
-#rm -rf feeds/packages/net/openssh
-#cp -rf $GITHUB_WORKSPACE/general/openssh feeds/packages/net
+rm -rf feeds/packages/net/openssh
+cp -rf $GITHUB_WORKSPACE/general/openssh feeds/packages/net
 
 # nss
 #sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=3.76/g' feeds/packages/libs/nss/Makefile
@@ -501,8 +494,8 @@ rm -rf feeds/packages/net/softethervpn5
 svn co https://github.com/openwrt/packages/trunk/net/softethervpn5 feeds/packages/net/softethervpn5
 
 # hwdata
-sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=0.357/g' feeds/packages/utils/hwdata/Makefile
-sed -i 's/PKG_HASH:=.*/PKG_HASH:=499999f6fc48cadd0d54706d7a83db6cf571bb3fdf4ebbba78833fa22a1c2170/g' feeds/packages/utils/hwdata/Makefile
+sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=0.358/g' feeds/packages/utils/hwdata/Makefile
+sed -i 's/PKG_HASH:=.*/PKG_HASH:=f0bb38588b9fcb43e15dac4ce8461b7580ef38ac20ecab83cef638413646decb/g' feeds/packages/utils/hwdata/Makefile
 
 # gawk
 sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=5.1.1/g' feeds/packages/utils/gawk/Makefile
@@ -653,8 +646,8 @@ sed -i 's/PKG_HASH:=.*/PKG_HASH:=d1f72f474e71bcaaf465dcc7e6f7b6a4705e4b1ed95c581
 
 # smartdns
 sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=1.2022.36/g' feeds/packages/net/smartdns/Makefile
-sed -i 's/PKG_SOURCE_VERSION:=.*/PKG_SOURCE_VERSION:=1efa1942cc7afaa57d12625305469a45bca13f60/g' feeds/packages/net/smartdns/Makefile
-sed -i 's/PKG_MIRROR_HASH:=.*/PKG_MIRROR_HASH:=2645060580b338440a7fa0d4ec6d045a72f2f93d79099be9ca0bd942fc826ba6/g' feeds/packages/net/smartdns/Makefile
+sed -i 's/PKG_SOURCE_VERSION:=.*/PKG_SOURCE_VERSION:=24661c2419a81e660b11a0e3d35a3bc269cd4bfa/g' feeds/packages/net/smartdns/Makefile
+sed -i 's/PKG_MIRROR_HASH:=.*/PKG_MIRROR_HASH:=0835be621f0359bec24fe2ec112f455aef8d403167be33a8366630db9fdbdbaa/g' feeds/packages/net/smartdns/Makefile
 
 # aliyundrive webdav
 #svn co https://github.com/messense/aliyundrive-webdav/trunk/openwrt/aliyundrive-webdav package/aliyundrive-webdav
@@ -692,8 +685,8 @@ sed -i 's/services/vpn/g'  feeds/luci/applications/luci-app-openvpn/luasrc/view/
 # NaïveProxy
 #sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=98.0.4758.80-2/g' package/naiveproxy/Makefile
 #sed -i 's/PKG_HASH:=.*/PKG_HASH:=687a1c43f5bff61b2c1857d65031a5234af358053cf00e20911b75b073e55df4/g' package/naiveproxy/Makefile
-rm -rf package/naiveproxy/patches
-cp -f $GITHUB_WORKSPACE/general/naiveproxy/Makefile package/naiveproxy
+#rm -rf package/naiveproxy/patches
+#cp -f $GITHUB_WORKSPACE/general/naiveproxy/Makefile package/naiveproxy
 
 #fix ntfs3 generating empty package
 #sed -i 's/KCONFIG:=CONFIG_NLS_DEFAULT="utf8"/#KCONFIG:=CONFIG_NLS_DEFAULT="utf8"/'g package/lean/ntfs3/Makefile
@@ -800,7 +793,8 @@ sed -i '39d' feeds/packages/libs/sqlite3/Makefile
 #cp -f $GITHUB_WORKSPACE/general/verysync feeds/luci/applications/luci-app-verysync/root/etc/init.d
 
 # fix luci-app-v2ray-server permission
-cp -f $GITHUB_WORKSPACE/general/luci-app-v2ray-server/luasrc/model/cbi/v2ray_server/api/app.lua feeds/luci/applications/luci-app-v2ray-server/luasrc/model/cbi/v2ray_server/api
+#cp -f $GITHUB_WORKSPACE/general/luci-app-v2ray-server/luasrc/model/cbi/v2ray_server/api/app.lua feeds/luci/applications/luci-app-v2ray-server/luasrc/model/cbi/v2ray_server/api
+chmod +x feeds/luci/applications/luci-app-v2ray-server/luasrc/model/cbi/v2ray_server/api/app.lua
 
 # haproxy
 #sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=2.4.15/g' feeds/packages/net/haproxy/Makefile
