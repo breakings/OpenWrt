@@ -262,8 +262,8 @@ sed -i 's/PKG_HASH:=.*/PKG_HASH:=11a34535c108b36fd59de58e7bef3a130444c9ea41e4b8b
 sed -i 's/PKG_SOURCE_VERSION:=.*/PKG_SOURCE_VERSION:=52de29d7e0f8c0899bd7efb8810dd07f0073fa87/g' feeds/packages/utils/runc/Makefile
 
 # bsdtar
-sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=3.6.0/g' feeds/packages/libs/libarchive/Makefile
-sed -i 's/PKG_HASH:=.*/PKG_HASH:=df283917799cb88659a5b33c0a598f04352d61936abcd8a48fe7b64e74950de7/g' feeds/packages/libs/libarchive/Makefile
+sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=3.6.1/g' feeds/packages/libs/libarchive/Makefile
+sed -i 's/PKG_HASH:=.*/PKG_HASH:=5a411aceb978f43e626f0c2d1812ddd8807b645ed892453acabd532376c148e6/g' feeds/packages/libs/libarchive/Makefile
 
 # pcre
 sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=8.45/g' package/libs/pcre/Makefile
