@@ -303,8 +303,8 @@ svn co https://github.com/coolsnowwolf/lede/trunk/package/lean/openwrt-fullconen
 
 # openssh
 #sed -i '175i\	--with-sandbox=rlimit \\' feeds/packages/net/openssh/Makefile
-#rm -rf feeds/packages/net/openssh
-#cp -rf $GITHUB_WORKSPACE/general/openssh feeds/packages/net
+rm -rf feeds/packages/net/openssh
+cp -rf $GITHUB_WORKSPACE/general/openssh feeds/packages/net
 
 # hdparm
 sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=9.63/g' feeds/packages/utils/hdparm/Makefile
@@ -325,8 +325,10 @@ sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=2.5.3/g' feeds/packages/libs/libseccomp/M
 sed -i 's/PKG_HASH:=.*/PKG_HASH:=59065c8733364725e9721ba48c3a99bbc52af921daf48df4b1e012fbc7b10a76/g' feeds/packages/libs/libseccomp/Makefile
 
 # node 
-sed -i "s/PKG_VERSION:=.*/PKG_VERSION:=v14.19.1/g" feeds/packages/lang/node/Makefile
-sed -i "s/PKG_HASH:=.*/PKG_HASH:=e1ae09dd861ab39af04483bb5c0fa54ddd82b6b15543be9a27ea6704a8ba9dd9/g" feeds/packages/lang/node/Makefile
+#sed -i "s/PKG_VERSION:=.*/PKG_VERSION:=v14.19.1/g" feeds/packages/lang/node/Makefile
+#sed -i "s/PKG_HASH:=.*/PKG_HASH:=e1ae09dd861ab39af04483bb5c0fa54ddd82b6b15543be9a27ea6704a8ba9dd9/g" feeds/packages/lang/node/Makefile
+rm -rf feeds/packages/lang/node
+cp -rf $GITHUB_WORKSPACE/general/node feeds/packages/lang
 
 # nss
 #sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=3.76/g' feeds/packages/libs/nss/Makefile
