@@ -31,7 +31,7 @@ rm -rf feeds/packages/net/xray-core
 #rm -rf package/libs/nettle
 #rm -rf package/libs/pcre
 rm -f tools/Makefile
-rm -f feeds/packages/net/dnsproxy/Makefile
+#rm -f feeds/packages/net/dnsproxy/Makefile
 rm -rf feeds/packages/net/trojan-go
 
 # Prepare
@@ -43,11 +43,12 @@ sed -i "s/enabled '0'/enabled '1'/g" feeds/packages/utils/irqbalance/files/irqba
 #rm -rf ./include/download.mk
 #wget -P scripts/ https://github.com/immortalwrt/immortalwrt/raw/master/scripts/download.pl
 #wget -P include/ https://github.com/immortalwrt/immortalwrt/raw/master/include/download.mk
-wget -P feeds/packages/net/dnsproxy https://raw.githubusercontent.com/coolsnowwolf/packages/master/net/dnsproxy/Makefile
+#wget -P feeds/packages/net/dnsproxy https://raw.githubusercontent.com/coolsnowwolf/packages/master/net/dnsproxy/Makefile
 
 # Important Patches
 # ARM64: Add CPU model name in proc cpuinfo
 wget -P target/linux/generic/pending-5.15 https://github.com/immortalwrt/immortalwrt/raw/master/target/linux/generic/hack-5.15/312-arm64-cpuinfo-Add-model-name-in-proc-cpuinfo-for-64bit-ta.patch
+wget -P target/linux/generic/pending-5.10 https://github.com/immortalwrt/immortalwrt/raw/master/target/linux/generic/hack-5.10/312-arm64-cpuinfo-Add-model-name-in-proc-cpuinfo-for-64bit-ta.patch
 
 # Patch jsonc
 #patch -p1 < $GITHUB_WORKSPACE/PATCH/new/package/use_json_object_new_int64.patch
@@ -56,6 +57,7 @@ wget -P target/linux/generic/pending-5.15 https://github.com/immortalwrt/immorta
 pushd target/linux/generic/hack-5.15
 wget https://raw.githubusercontent.com/coolsnowwolf/lede/master/target/linux/generic/hack-5.15/952-add-net-conntrack-events-support-multiple-registrant.patch
 popd
+wget -P target/linux/generic/hack-5.10 https://raw.githubusercontent.com/coolsnowwolf/lede/master/target/linux/generic/hack-5.15/952-net-conntrack-events-support-multiple-registrant.patch
 # Patch firewall to enable fullcone
 mkdir package/network/config/firewall/patches
 wget -P package/network/config/firewall/patches/ https://github.com/immortalwrt/immortalwrt/raw/ster/package/network/config/firewall/patches/fullconenat.patch
@@ -510,6 +512,9 @@ find package/*/ -maxdepth 2 -path "*/Makefile" | xargs -i sed -i 's/include\ \.\
 # fix nginx-ssl-util error (do not use fallthrough attribute)
 #rm feeds/packages/net/nginx-util/src/nginx-ssl-util.hpp
 #wget -P feeds/packages/net/nginx-util/src https://raw.githubusercontent.com/peter-stadler/packages/c102ecb4f59a3f76184cd3cc73a4e9653abdca84/net/nginx-util/src/nginx-ssl-util.hpp
+
+# kmod-usb-net-asix: fix build on kernel 5.15
+cp -f $GITHUB_WORKSPACE/general/usb.mk package/kernel/linux/modules
 
 ./scripts/feeds update -a
 ./scripts/feeds install -a
