@@ -146,7 +146,7 @@ define KernelPackage/mdio-devres
   HIDDEN:=1
   FILES:=\
 	$(LINUX_DIR)/drivers/net/phy/mdio_devres.ko \
-	$(LINUX_DIR)/drivers/net/mdio/of_mdio.ko
+	$(LINUX_DIR)/drivers/net/mdio/of_mdio.ko@ge5.10
   AUTOLOAD:=$(call AutoProbe,mdio-devres)
 endef
 
@@ -1058,7 +1058,7 @@ define KernelPackage/of-mdio
   DEPENDS:=+kmod-libphy +kmod-fixed-phy @!TARGET_x86
   KCONFIG:=CONFIG_OF_MDIO
   FILES:=\
-	$(LINUX_DIR)/drivers/net/mdio/of_mdio.ko \
+	$(LINUX_DIR)/drivers/net/mdio/of_mdio.ko@lt5.10 \
 	$(LINUX_DIR)/drivers/net/mdio/fwnode_mdio.ko
   AUTOLOAD:=$(call AutoLoad,41,of_mdio)
 endef
