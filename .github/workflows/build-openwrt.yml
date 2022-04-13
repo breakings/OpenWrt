@@ -210,11 +210,9 @@ jobs:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
     - name: Telegram notification
-      uses: appleboy/telegram-action@master
-      with:
-        to: ${{ secrets.TELEGRAM_TO }}
-        token: ${{ secrets.TELEGRAM_TOKEN }}
-        message: |
-          编译时间：${{ env.DATE }}
-          更新信息：${{ env.useVersionInfo }}
-          ${{ env.PRODUCT_NAME }} 编译完成
+      run:
+        curl "https://api.telegram.org/bot${{ secrets.TELEGRAM_TOKEN }}/sendMessage" \
+        -d "chat_id=${{ secrets.TELEGRAM_TO }}&text= \
+        %0A编译时间：${{ env.DATE }} \
+        %0AOpenWrt 更新信息：${{ env.useVersionInfo }} \
+        %0A${{ env.PRODUCT_NAME }} 编译完成"
