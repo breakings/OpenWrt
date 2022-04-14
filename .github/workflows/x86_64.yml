@@ -202,9 +202,10 @@ jobs:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
     - name: Telegram notification
-      run:
-        curl "https://api.telegram.org/bot${{ secrets.TELEGRAM_TOKEN }}/sendMessage" \
-        -d "chat_id=${{ secrets.TELEGRAM_TO }}&text= \
-        %0A编译时间：${{ env.DATE }} \
-        %0AOpenWrt 更新信息：${{ env.useVersionInfo }} \
-        %0A${{ env.PRODUCT_NAME }} 编译完成"
+      run: |
+        MSG="
+        编译时间：${{ env.DATE }}
+        OpenWrt 更新信息：${{ env.useVersionInfo }}
+        ${{ env.PRODUCT_NAME }} 编译完成
+        "
+        curl "https://api.telegram.org/bot${{ secrets.TELEGRAM_TOKEN }}/sendMessage?parse_mode=HTML" -d "chat_id=${{ secrets.TELEGRAM_TO }}&text=${MSG}"
