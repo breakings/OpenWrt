@@ -521,8 +521,8 @@ find package/*/ -maxdepth 2 -path "*/Makefile" | xargs -i sed -i 's/include\ \.\
 #wget -P feeds/packages/net/nginx-util/src https://raw.githubusercontent.com/peter-stadler/packages/c102ecb4f59a3f76184cd3cc73a4e9653abdca84/net/nginx-util/src/nginx-ssl-util.hpp
 
 # fix build on kernel 5.15
-cp -f $GITHUB_WORKSPACE/general/usb.mk package/kernel/linux/modules
-cp -f $GITHUB_WORKSPACE/general/netdevices.mk package/kernel/linux/modules
+#cp -f $GITHUB_WORKSPACE/general/usb.mk package/kernel/linux/modules
+#cp -f $GITHUB_WORKSPACE/general/netdevices.mk package/kernel/linux/modules
 
 # expat
 sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=2.4.8/g' feeds/packages/libs/expat/Makefile
