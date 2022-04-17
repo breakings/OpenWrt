@@ -806,5 +806,9 @@ cp -rf $GITHUB_WORKSPACE/general/perl feeds/packages/lang
 rm -rf package/libs/zlib
 svn co https://github.com/openwrt/openwrt/trunk/package/libs/zlib package/libs/zlib
 
+# tailscale
+sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=1.22.2/g' feeds/packages/net/tailscale/Makefile
+sed -i 's/PKG_HASH:=.*/PKG_HASH:=3e7b5b8073a7b94d84ff6677a9f110070b808c8d35c5b7da0c6e6fe639444e58/g' feeds/packages/net/tailscale/Makefile
+
 ./scripts/feeds update -a
 ./scripts/feeds install -a
