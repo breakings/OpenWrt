@@ -271,9 +271,9 @@ sed -i 's/PKG_RELEASE:=.*/PKG_RELEASE:=1/g' package/libs/pcre/Makefile
 sed -i 's/PKG_HASH:=.*/PKG_HASH:=4dae6fdcd2bb0bb6c37b5f97c33c2be954da743985369cddac3546e3218bffb8/g' package/libs/pcre/Makefile
 
 # pcre2
-sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=10.39/g' feeds/packages/libs/pcre2/Makefile
+sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=10.40/g' feeds/packages/libs/pcre2/Makefile
 sed -i 's|PKG_SOURCE_URL:=.*|PKG_SOURCE_URL:=https://github.com/PhilipHazel/pcre2/releases/download/$(PKG_NAME)-$(PKG_VERSION)|g' feeds/packages/libs/pcre2/Makefile
-sed -i 's/PKG_HASH:=.*/PKG_HASH:=0f03caf57f81d9ff362ac28cd389c055ec2bf0678d277349a1a4bee00ad6d440/g' feeds/packages/libs/pcre2/Makefile
+sed -i 's/PKG_HASH:=.*/PKG_HASH:=14e4b83c4783933dc17e964318e6324f7cae1bc75d8f3c79bc6969f00c159d68/g' feeds/packages/libs/pcre2/Makefile
 
 # libseccomp
 sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=2.5.3/g' feeds/packages/libs/libseccomp/Makefile
@@ -313,8 +313,8 @@ sed -i 's/PKG_HASH:=.*/PKG_HASH:=d916a26b62970e7c2f554110ed6af04c7ccff8e9f81ad17
 #sed -i 's/PKG_HASH:=.*/PKG_HASH:=f6a08f0fe75fa85d15f9c0c28182c69a5ad909229b4c230a8cbe38f91ba2d038/g' package/kcptun/Makefile
 
 # parted
-sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=3.4/g' feeds/packages/utils/parted/Makefile
-sed -i 's/PKG_MD5SUM:=.*/PKG_MD5SUM:=357d19387c6e7bc4a8a90fe2d015fe80/g' feeds/packages/utils/parted/Makefile
+sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=3.5/g' feeds/packages/utils/parted/Makefile
+sed -i 's/PKG_MD5SUM:=.*/PKG_MD5SUM:=336fde60786d5855b3876ee49ef1e6b2/g' feeds/packages/utils/parted/Makefile
 
 # wolfSSL
 sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=5.2.0-stable/g' package/libs/wolfssl/Makefile
@@ -809,6 +809,15 @@ svn co https://github.com/openwrt/openwrt/trunk/package/libs/zlib package/libs/z
 # tailscale
 sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=1.22.2/g' feeds/packages/net/tailscale/Makefile
 sed -i 's/PKG_HASH:=.*/PKG_HASH:=3e7b5b8073a7b94d84ff6677a9f110070b808c8d35c5b7da0c6e6fe639444e58/g' feeds/packages/net/tailscale/Makefile
+
+# ruby
+sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=3.0.4/g' feeds/packages/lang/ruby/Makefile
+sed -i 's/PKG_RELEASE:=.*/PKG_RELEASE:=1/g' feeds/packages/lang/ruby/Makefile
+sed -i 's/PKG_HASH:=.*/PKG_HASH:=8e22fc7304520435522253210ed0aa9a50545f8f13c959fe01a05aea06bef2f0/g' feeds/packages/lang/ruby/Makefile
+
+# libnetfilter-conntrack
+sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=1.0.9/g' package/libs/libnetfilter-conntrack/Makefile
+sed -i 's/PKG_HASH:=.*/PKG_HASH:=67bd9df49fe34e8b82144f6dfb93b320f384a8ea59727e92ff8d18b5f4b579a8/g' package/libs/libnetfilter-conntrack/Makefile
 
 ./scripts/feeds update -a
 ./scripts/feeds install -a
