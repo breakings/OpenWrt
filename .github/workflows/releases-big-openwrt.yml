@@ -73,7 +73,7 @@ jobs:
         PACKAGE_SOC: beikeyun_l1pro_s905d_s905x2_s905x3_s912_s922x_s922x-n2_vplus
         WHOAMI: breakings
         KERNEL_REPO_URL: https://github.com/breakings/OpenWrt/tree/main/opt/kernel
-        KERNEL_VERSION_NAME: 5.4.188_5.15.34_5.17.3
+        KERNEL_VERSION_NAME: 5.15.34_5.17.3
         #OPENWRT_VER: R21.12.1
         KERNEL_AUTO_LATEST: true
         GZIP_IMGS: .gz
