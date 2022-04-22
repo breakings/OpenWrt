@@ -238,6 +238,7 @@ sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=1.2022.36/g' feeds/luci/applications/luci
 # libtorrent-rasterbar
 #sed -i "s/PKG_VERSION:=.*/PKG_VERSION:=2.0.3/" package/lean/rblibtorrent/Makefile
 #sed -i "s/PKG_SOURCE_VERSION:=.*/PKG_SOURCE_VERSION:=af7a96c1df47fcc8fbe0d791c223b0ab8a7d2125/" package/lean/rblibtorrent/Makefile
+rm -rf feeds/packages/libs/libtorrent-rasterbar/patches
 cp -f $GITHUB_WORKSPACE/general/libtorrent-rasterbar/Makefile feeds/packages/libs/libtorrent-rasterbar
 
 # qBittorrent
@@ -311,9 +312,9 @@ sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=9.63/g' feeds/packages/utils/hdparm/Makef
 sed -i 's/PKG_HASH:=.*/PKG_HASH:=70785deaebba5877a89c123568b41dee990da55fc51420f13f609a1072899691/g' feeds/packages/utils/hdparm/Makefile
 
 # pcre2
-sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=10.39/g' feeds/packages/libs/pcre2/Makefile
+sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=10.40/g' feeds/packages/libs/pcre2/Makefile
 sed -i 's|PKG_SOURCE_URL:=.*|PKG_SOURCE_URL:=https://github.com/PhilipHazel/pcre2/releases/download/$(PKG_NAME)-$(PKG_VERSION)|g' feeds/packages/libs/pcre2/Makefile
-sed -i 's/PKG_HASH:=.*/PKG_HASH:=0f03caf57f81d9ff362ac28cd389c055ec2bf0678d277349a1a4bee00ad6d440/g' feeds/packages/libs/pcre2/Makefile
+sed -i 's/PKG_HASH:=.*/PKG_HASH:=14e4b83c4783933dc17e964318e6324f7cae1bc75d8f3c79bc6969f00c159d68/g' feeds/packages/libs/pcre2/Makefile
 
 # socat
 sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=1.7.4.3/g' feeds/packages/net/socat/Makefile
@@ -327,8 +328,8 @@ sed -i 's/PKG_HASH:=.*/PKG_HASH:=59065c8733364725e9721ba48c3a99bbc52af921daf48df
 # node 
 #sed -i "s/PKG_VERSION:=.*/PKG_VERSION:=v14.19.1/g" feeds/packages/lang/node/Makefile
 #sed -i "s/PKG_HASH:=.*/PKG_HASH:=e1ae09dd861ab39af04483bb5c0fa54ddd82b6b15543be9a27ea6704a8ba9dd9/g" feeds/packages/lang/node/Makefile
-rm -rf feeds/packages/lang/node
-cp -rf $GITHUB_WORKSPACE/general/node feeds/packages/lang
+#rm -rf feeds/packages/lang/node
+#cp -rf $GITHUB_WORKSPACE/general/node feeds/packages/lang
 
 # nss
 #sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=3.76/g' feeds/packages/libs/nss/Makefile
@@ -533,8 +534,8 @@ rm -rf feeds/packages/lang/perl
 cp -rf $GITHUB_WORKSPACE/general/perl feeds/packages/lang
 
 # zerotier
-rm -rf feeds/packages/net/zerotier
-cp -rf $GITHUB_WORKSPACE/general/zerotier feeds/packages/net
+#rm -rf feeds/packages/net/zerotier
+#cp -rf $GITHUB_WORKSPACE/general/zerotier feeds/packages/net
 
 ./scripts/feeds update -a
 ./scripts/feeds install -a
