@@ -391,8 +391,8 @@ sed -i 's|PKG_SOURCE_URL:=.*|PKG_SOURCE_URL:=https://www.sqlite.org/2022/|g' fee
 sed -i '39d' feeds/packages/libs/sqlite3/Makefile
 
 # frp
-sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=0.41.0/g' feeds/packages/net/frp/Makefile
-sed -i 's/PKG_HASH:=.*/PKG_HASH:=2655557d00a3d1bf7b8906586f4020db6cc7561faa8618a47640d8c67bac0c9e/g' feeds/packages/net/frp/Makefile
+sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=0.42.0/g' feeds/packages/net/frp/Makefile
+sed -i 's/PKG_HASH:=.*/PKG_HASH:=4bb815e9c9a4588fce20c6ef33168f0ceb1f420937c4dcf03ce085666328043a/g' feeds/packages/net/frp/Makefile
 
 # openvpn
 sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=2.5.6/g' feeds/packages/net/openvpn/Makefile
