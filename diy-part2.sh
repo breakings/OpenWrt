@@ -51,7 +51,7 @@ svn co https://github.com/iwrt/luci-app-ikoolproxy/trunk package/luci-app-ikoolp
 svn co https://github.com/ophub/luci-app-amlogic/trunk/luci-app-amlogic package/luci-app-amlogic
 #svn co https://github.com/breakings/OpenWrt/trunk/general/luci-app-cpufreq package/luci-app-cpufreq
 #svn co https://github.com/breakings/OpenWrt/trunk/general/ntfs3 package/lean/ntfs3
-#svn co https://github.com/Lienol/openwrt-package/trunk/luci-app-socat package/luci-app-socat
+svn co https://github.com/Lienol/openwrt-package/trunk/luci-app-socat package/luci-app-socat
 #svn co https://github.com/neheb/openwrt/branches/elf/package/libs/elfutils package/libs/elfutils
 #svn co https://github.com/breakings/OpenWrt/trunk/general/gnupg feeds/packages/utils/gnupg
 #svn co https://github.com/breakings/OpenWrt/trunk/general/n2n_v2 package/lean/n2n_v2
