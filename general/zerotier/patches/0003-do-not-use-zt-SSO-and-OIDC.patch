@@ -13,7 +13,7 @@ have that yet.
 
 --- a/make-linux.mk
 +++ b/make-linux.mk
-@@ -268,6 +268,10 @@ ifeq ($(ZT_IA32),1)
+@@ -275,6 +275,10 @@ ifeq ($(ZT_IA32),1)
  endif
  
  ifeq ($(ZT_SSO_SUPPORTED), 1)
@@ -21,12 +21,12 @@ have that yet.
 +endif
 +
 +ifeq ($(ZT_SSO_SUPPORTED), 1)
- 	ifeq ($(ZT_DEBUG),1)
- 		LDLIBS+=zeroidc/target/debug/libzeroidc.a -ldl -lssl -lcrypto
- 	else
+ 	ifeq ($(ZT_EMBEDDED),)
+ 		override DEFS+=-DZT_SSO_SUPPORTED=1
+ 		ifeq ($(ZT_DEBUG),1)
 --- a/node/Constants.hpp
 +++ b/node/Constants.hpp
-@@ -72,6 +72,9 @@
+@@ -73,6 +73,9 @@
  #include <machine/endian.h>
  #endif
  
@@ -34,5 +34,5 @@ have that yet.
 +#define OIDC_SUPPORTED 0
 +
  #if defined(__FreeBSD__) || defined(__OpenBSD__) || defined(__NetBSD__)
- #define OIDC_SUPPORTED 0
- #ifndef __UNIX_LIKE__
+ #ifdef ZT_SSO_SUPPORTED
+ #define ZT_SSO_ENABLED 0
