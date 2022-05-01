@@ -45,6 +45,8 @@ MAKE_FLAGS += ZT_DEBUG=1
 endif
 
 MAKE_FLAGS += \
+	ZT_EMBEDDED=1 \
+	ZT_SSO_SUPPORTED=0 \
 	DEFS="" \
 	OSTYPE="Linux" \
 
