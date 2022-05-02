@@ -349,9 +349,8 @@ sed -i 's/PKG_SOURCE_VERSION:=.*/PKG_SOURCE_VERSION:=4b2e1858f7a46ee678d5d1f3fa1
 sed -i 's/PKG_MIRROR_HASH:=.*/PKG_MIRROR_HASH:=ea014c295766e2efc7b890dc6a6940176ba9c5bdcf85a029090f2bb850e59708/g' feeds/packages/net/transmission-web-control/Makefile
 
 # htop
-#sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=3.1.2/g' feeds/packages/admin/htop/Makefile
-#sed -i 's/PKG_HASH:=.*/PKG_HASH:=fe9559637c8f21f5fd531a4c072048a404173806acbdad1359c6b82fd87aa001/g' feeds/packages/admin/htop/Makefile
-#rm -rf feeds/packages/admin/htop/patches
+sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=3.2.0/g' feeds/packages/admin/htop/Makefile
+sed -i 's/PKG_HASH:=.*/PKG_HASH:=1a1dd174cc828521fe5fd0e052cff8c30aa50809cf80d3ce3a481c37d476ac54/g' feeds/packages/admin/htop/Makefile
 
 # python3
 #sed -i 's/PYTHON3_VERSION_MICRO:=.*/PYTHON3_VERSION_MICRO:=10/g' feeds/packages/lang/python/python3-version.mk
@@ -688,7 +687,7 @@ sed -i 's/services/vpn/g'  feeds/luci/applications/luci-app-openvpn/luasrc/view/
 #sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=98.0.4758.80-2/g' package/naiveproxy/Makefile
 #sed -i 's/PKG_HASH:=.*/PKG_HASH:=687a1c43f5bff61b2c1857d65031a5234af358053cf00e20911b75b073e55df4/g' package/naiveproxy/Makefile
 #rm -rf package/naiveproxy/patches
-#cp -f $GITHUB_WORKSPACE/general/naiveproxy/Makefile package/naiveproxy
+cp -f $GITHUB_WORKSPACE/general/naiveproxy/Makefile package/naiveproxy
 
 #fix ntfs3 generating empty package
 #sed -i 's/KCONFIG:=CONFIG_NLS_DEFAULT="utf8"/#KCONFIG:=CONFIG_NLS_DEFAULT="utf8"/'g package/lean/ntfs3/Makefile
