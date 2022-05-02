@@ -174,8 +174,8 @@ svn co https://github.com/thinktip/luci-theme-neobird/trunk package/luci-theme-n
 #sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=5.0/g' feeds/packages/multimedia/ffmpeg/Makefile
 #sed -i 's/PKG_HASH:=.*/PKG_HASH:=51e919f7d205062c0fd4fae6243a84850391115104ccf1efc451733bc0ac7298/g' feeds/packages/multimedia/ffmpeg/Makefile
 #rm -f feeds/packages/multimedia/ffmpeg/patches/030-h264-mips.patch
-#rm -rf feeds/packages/multimedia/ffmpeg
-#cp -rf $GITHUB_WORKSPACE/general/ffmpeg feeds/packages/multimedia
+rm -rf feeds/packages/multimedia/ffmpeg
+cp -rf $GITHUB_WORKSPACE/general/ffmpeg feeds/packages/multimedia
 
 # 晶晨宝盒
 sed -i "s|https.*/amlogic-s9xxx-openwrt|https://github.com/breakings/OpenWrt|g" package/luci-app-amlogic/root/etc/config/amlogic
@@ -397,8 +397,8 @@ rm -rf feeds/packages/lang/python/python-pycparser
 svn co https://github.com/openwrt/packages/trunk/lang/python/python-pycparser feeds/packages/lang/python/python-pycparser
 
 # python-paramiko
-sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=2.10.3/g' feeds/packages/lang/python/python-paramiko/Makefile
-sed -i 's/PKG_HASH:=.*/PKG_HASH:=ddb1977853aef82804b35d72a0e597b244fa326c404c350bd00c5b01dbfee71a/g' feeds/packages/lang/python/python-paramiko/Makefile
+sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=2.10.4/g' feeds/packages/lang/python/python-paramiko/Makefile
+sed -i 's/PKG_HASH:=.*/PKG_HASH:=3d2e650b6812ce6d160abff701d6ef4434ec97934b13e95cf1ad3da70ffb5c58/g' feeds/packages/lang/python/python-paramiko/Makefile
 
 # python-lxml
 sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=4.8.0/g' feeds/packages/lang/python/python-lxml/Makefile
@@ -820,6 +820,10 @@ sed -i 's/PKG_HASH:=.*/PKG_HASH:=f1fe7770b4e372ace47c5b0ac4cbe21af95c3a6fb1828ee
 sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=1.0.9/g' package/libs/libnetfilter-conntrack/Makefile
 sed -i 's/PKG_HASH:=.*/PKG_HASH:=67bd9df49fe34e8b82144f6dfb93b320f384a8ea59727e92ff8d18b5f4b579a8/g' package/libs/libnetfilter-conntrack/Makefile
 cp -rf $GITHUB_WORKSPACE/general/libnetfilter-conntrack/patches package/libs/libnetfilter-conntrack
+
+# util-linux
+rm -rf package/utils/util-linux
+cp -rf $GITHUB_WORKSPACE/general/util-linux package/utils
 
 ./scripts/feeds update -a
 ./scripts/feeds install -a
