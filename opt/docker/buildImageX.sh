@@ -85,7 +85,7 @@ sed -e "s/:0:0:99999:7:::/:${ddd}:0:99999:7:::/" -i "${TMPDIR}/etc/shadow" && \
 sed -e "s/root::/root:\$1\$0yUsq67p\$RC5cEtaQpM6KHQfhUSIAl\.:/" -i "${TMPDIR}/etc/shadow"
 
 sed -i '/DISTRIB_REVISION/d' "${TMPDIR}/etc/openwrt_release" && \
-echo "DISTRIB_REVISION='R22.3.17'" >> "${TMPDIR}/etc/openwrt_release" && \
+echo "DISTRIB_REVISION='R22.5.5'" >> "${TMPDIR}/etc/openwrt_release" && \
 sed -i '/DISTRIB_DESCRIPTION/d' "${TMPDIR}/etc/openwrt_release" && \
 echo "DISTRIB_DESCRIPTION='OpenWrt'" >> "${TMPDIR}/etc/openwrt_release" && \
 
