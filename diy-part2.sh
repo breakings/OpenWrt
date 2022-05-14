@@ -201,8 +201,8 @@ rm -rf feeds/packages/libs/libtorrent-rasterbar/patches
 cp -f $GITHUB_WORKSPACE/general/libtorrent-rasterbar/Makefile feeds/packages/libs/libtorrent-rasterbar
 
 # golang
-#sed -i 's/GO_VERSION_PATCH:=.*/GO_VERSION_PATCH:=8/g' feeds/packages/lang/golang/golang/Makefile
-#sed -i 's/PKG_HASH:=.*/PKG_HASH:=2effcd898140da79a061f3784ca4f8d8b13d811fb2abe9dad2404442dabbdf7a/g' feeds/packages/lang/golang/golang/Makefile
+sed -i 's/GO_VERSION_PATCH:=.*/GO_VERSION_PATCH:=2/g' feeds/packages/lang/golang/golang/Makefile
+sed -i 's/PKG_HASH:=.*/PKG_HASH:=2c44d03ea2c34092137ab919ba602f2c261a038d08eb468528a3f3a28e5667e2/g' feeds/packages/lang/golang/golang/Makefile
 #rm -rf feeds/packages/lang/golang
 #cp -rf $GITHUB_WORKSPACE/general/golang feeds/packages/lang/golang
 
@@ -238,16 +238,16 @@ sed -i "s/PKG_HASH:=783ac443cd343dd6c68d2abcf7e59e7b978a6a428f6a6025f9b84918b769
 #sed -i 's/PKG_HASH:=.*/PKG_HASH:=294871ab1864a65d0b74325e9219d5bcd6e91c34a3c59270c357bb9ae4d5c393/g' package/libs/mbedtls/Makefile
 
 # docker
-#sed -i 's/PKG_VERSION:=20.10.14/PKG_VERSION:=20.10.15/g' feeds/packages/utils/docker/Makefile
+sed -i 's/PKG_VERSION:=20.10.15/PKG_VERSION:=20.10.16/g' feeds/packages/utils/docker/Makefile
 #sed -i 's/PKG_RELEASE:=.*/PKG_RELEASE:=1/g' feeds/packages/utils/docker/Makefile
-#sed -i 's/PKG_HASH:=.*/PKG_HASH:=54e1c03bdae208ec911966006df1f965e4d218dd4d8a96792139d845eaf4c2aa/g' feeds/packages/utils/docker/Makefile
-#sed -i 's/PKG_GIT_SHORT_COMMIT:=a224086/PKG_GIT_SHORT_COMMIT:=fd82621/g' feeds/packages/utils/docker/Makefile
+sed -i 's/PKG_HASH:=.*/PKG_HASH:=af34131b1f08a068906336092a4dc3dfd8921c8039528cb698b32491951c33e2/g' feeds/packages/utils/docker/Makefile
+sed -i 's/PKG_GIT_SHORT_COMMIT:=fd82621/PKG_GIT_SHORT_COMMIT:=aa7e414/g' feeds/packages/utils/docker/Makefile
 
 # dockerd
-#sed -i 's/PKG_VERSION:=20.10.14/PKG_VERSION:=20.10.15/g' feeds/packages/utils/dockerd/Makefile
+sed -i 's/PKG_VERSION:=20.10.15/PKG_VERSION:=20.10.16/g' feeds/packages/utils/dockerd/Makefile
 #sed -i 's/PKG_RELEASE:=.*/PKG_RELEASE:=1/g' feeds/packages/utils/dockerd/Makefile
-#sed -i 's/PKG_HASH:=.*/PKG_HASH:=cfb1029b48fd7ab2d03bddb55909a196e0f516b3e5495a033dfbfe00fe9fadad/g' feeds/packages/utils/dockerd/Makefile
-#sed -i 's/PKG_GIT_SHORT_COMMIT:=87a90dc/PKG_GIT_SHORT_COMMIT:=4433bf6/g' feeds/packages/utils/dockerd/Makefile
+sed -i 's/PKG_HASH:=.*/PKG_HASH:=2cd69e2cc67053300aa8d78988c92fd63ea0d0d84fe2071597191a149d5548f8/g' feeds/packages/utils/dockerd/Makefile
+sed -i 's/PKG_GIT_SHORT_COMMIT:=4433bf6/PKG_GIT_SHORT_COMMIT:=f756502/g' feeds/packages/utils/dockerd/Makefile
 sed -i 's/^\s*$[(]call\sEnsureVendoredVersion/#&/' feeds/packages/utils/dockerd/Makefile
 
 # docker-compose
@@ -802,9 +802,10 @@ sed -i '39d' feeds/packages/libs/sqlite3/Makefile
 #cp -f $GITHUB_WORKSPACE/general/verysync feeds/luci/applications/luci-app-verysync/root/etc/init.d
 
 # haproxy
-sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=2.4.16/g' feeds/packages/net/haproxy/Makefile
-sed -i 's/PKG_HASH:=.*/PKG_HASH:=8c5533779bb8125ef8dbd56a72b1d3fd47fa6bcdf2d257d3cc001269b059cee9/g' feeds/packages/net/haproxy/Makefile
-sed -i 's/BASE_TAG:=.*/BASE_TAG=v2.4.16/g' feeds/packages/net/haproxy/get-latest-patches.sh
+#sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=2.4.16/g' feeds/packages/net/haproxy/Makefile
+sed -i 's/PKG_RELEASE:=.*/PKG_RELEASE:=1/g' feeds/packages/net/haproxy/Makefile
+#sed -i 's/PKG_HASH:=.*/PKG_HASH:=8c5533779bb8125ef8dbd56a72b1d3fd47fa6bcdf2d257d3cc001269b059cee9/g' feeds/packages/net/haproxy/Makefile
+#sed -i 's/BASE_TAG:=.*/BASE_TAG=v2.4.16/g' feeds/packages/net/haproxy/get-latest-patches.sh
 
 # perl
 rm -rf feeds/packages/lang/perl
