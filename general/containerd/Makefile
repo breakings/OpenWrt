@@ -42,7 +42,8 @@ MAKE_PATH:=$(GO_PKG_WORK_DIR_NAME)/build/src/$(GO_PKG)
 MAKE_VARS += $(GO_PKG_VARS)
 MAKE_FLAGS += \
 	VERSION=$(PKG_VERSION) \
-	REVISION=$(PKG_SOURCE_VERSION)
+	REVISION=$(PKG_SOURCE_VERSION) \
+	PREFIX=""
 
 ifeq ($(CONFIG_SELINUX),y)
 MAKE_FLAGS += BUILDTAGS='selinux'
@@ -55,7 +56,7 @@ Build/Compile=$(call Build/Compile/Default)
 
 define Package/containerd/install
 	$(INSTALL_DIR) $(1)/usr/bin/
-	$(INSTALL_BIN) $(PKG_INSTALL_DIR)/usr/local/bin/{ctr,containerd,containerd-stress,containerd-shim,containerd-shim-runc-v1,containerd-shim-runc-v2} $(1)/usr/bin/
+	$(INSTALL_BIN) $(PKG_INSTALL_DIR)/bin/{ctr,containerd,containerd-stress,containerd-shim,containerd-shim-runc-v1,containerd-shim-runc-v2} $(1)/usr/bin/
 endef
 
 $(eval $(call BuildPackage,containerd))

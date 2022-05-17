@@ -273,16 +273,16 @@ sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=3.6.1/g' feeds/packages/libs/libarchive/M
 sed -i 's/PKG_HASH:=.*/PKG_HASH:=5a411aceb978f43e626f0c2d1812ddd8807b645ed892453acabd532376c148e6/g' feeds/packages/libs/libarchive/Makefile
 
 # docker
-sed -i 's/PKG_VERSION:=20.10.14/PKG_VERSION:=20.10.16/g' feeds/packages/utils/docker/Makefile
-sed -i 's/PKG_RELEASE:=.*/PKG_RELEASE:=1/g' feeds/packages/utils/docker/Makefile
-sed -i 's/PKG_HASH:=.*/PKG_HASH:=af34131b1f08a068906336092a4dc3dfd8921c8039528cb698b32491951c33e2/g' feeds/packages/utils/docker/Makefile
-sed -i 's/PKG_GIT_SHORT_COMMIT:=a224086/PKG_GIT_SHORT_COMMIT:=aa7e414/g' feeds/packages/utils/docker/Makefile
+#sed -i 's/PKG_VERSION:=20.10.14/PKG_VERSION:=20.10.16/g' feeds/packages/utils/docker/Makefile
+#sed -i 's/PKG_RELEASE:=.*/PKG_RELEASE:=1/g' feeds/packages/utils/docker/Makefile
+#sed -i 's/PKG_HASH:=.*/PKG_HASH:=af34131b1f08a068906336092a4dc3dfd8921c8039528cb698b32491951c33e2/g' feeds/packages/utils/docker/Makefile
+#sed -i 's/PKG_GIT_SHORT_COMMIT:=a224086/PKG_GIT_SHORT_COMMIT:=aa7e414/g' feeds/packages/utils/docker/Makefile
 
 # dockerd
-sed -i 's/PKG_VERSION:=20.10.14/PKG_VERSION:=20.10.16/g' feeds/packages/utils/dockerd/Makefile
-sed -i 's/PKG_RELEASE:=.*/PKG_RELEASE:=1/g' feeds/packages/utils/dockerd/Makefile
-sed -i 's/PKG_HASH:=.*/PKG_HASH:=2cd69e2cc67053300aa8d78988c92fd63ea0d0d84fe2071597191a149d5548f8/g' feeds/packages/utils/dockerd/Makefile
-sed -i 's/PKG_GIT_SHORT_COMMIT:=87a90dc/PKG_GIT_SHORT_COMMIT:=f756502/g' feeds/packages/utils/dockerd/Makefile
+#sed -i 's/PKG_VERSION:=20.10.14/PKG_VERSION:=20.10.16/g' feeds/packages/utils/dockerd/Makefile
+#sed -i 's/PKG_RELEASE:=.*/PKG_RELEASE:=1/g' feeds/packages/utils/dockerd/Makefile
+#sed -i 's/PKG_HASH:=.*/PKG_HASH:=2cd69e2cc67053300aa8d78988c92fd63ea0d0d84fe2071597191a149d5548f8/g' feeds/packages/utils/dockerd/Makefile
+#sed -i 's/PKG_GIT_SHORT_COMMIT:=87a90dc/PKG_GIT_SHORT_COMMIT:=f756502/g' feeds/packages/utils/dockerd/Makefile
 sed -i 's/^\s*$[(]call\sEnsureVendoredVersion/#&/' feeds/packages/utils/dockerd/Makefile
 
 # docker-compose
@@ -293,12 +293,12 @@ sed -i 's/^\s*$[(]call\sEnsureVendoredVersion/#&/' feeds/packages/utils/dockerd/
 #sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=1.5.11/g' feeds/packages/utils/containerd/Makefile
 #sed -i 's/PKG_HASH:=.*/PKG_HASH:=skip/g' feeds/packages/utils/containerd/Makefile
 #sed -i 's/PKG_SOURCE_VERSION:=.*/PKG_SOURCE_VERSION:=3df54a852345ae127d1fa3092b95168e4a88e2f8/g' feeds/packages/utils/containerd/Makefile
-cp -f $GITHUB_WORKSPACE/general/containerd/Makefile feeds/packages/utils/containerd
+#cp -f $GITHUB_WORKSPACE/general/containerd/Makefile feeds/packages/utils/containerd
 
 # runc
 sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=1.1.2/g' feeds/packages/utils/runc/Makefile
 sed -i 's/PKG_HASH:=.*/PKG_HASH:=0ccce82b1d9c058d8fd7443d261c96fd7a803f2775bcb1fec2bdb725bc7640f6/g' feeds/packages/utils/runc/Makefile
-sed -i 's/PKG_SOURCE_VERSION:=.*/PKG_SOURCE_VERSION:=a916309fff0f838eb94e928713dbc3c0d0ac7aa4/g' feeds/packages/utils/runc/Makefile
+#sed -i 's/PKG_SOURCE_VERSION:=.*/PKG_SOURCE_VERSION:=a916309fff0f838eb94e928713dbc3c0d0ac7aa4/g' feeds/packages/utils/runc/Makefile
 
 # openwrt-fullconenat
 svn co https://github.com/coolsnowwolf/lede/trunk/package/lean/openwrt-fullconenat package/openwrt-fullconenat
@@ -327,8 +327,8 @@ sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=2.5.3/g' feeds/packages/libs/libseccomp/M
 sed -i 's/PKG_HASH:=.*/PKG_HASH:=59065c8733364725e9721ba48c3a99bbc52af921daf48df4b1e012fbc7b10a76/g' feeds/packages/libs/libseccomp/Makefile
 
 # node 
-#sed -i "s/PKG_VERSION:=.*/PKG_VERSION:=v14.19.2/g" feeds/packages/lang/node/Makefile
-#sed -i "s/PKG_HASH:=.*/PKG_HASH:=ef4375a9152ff69f2823d7b20a3b53767a046164bbac7824429cb216d1688cf0/g" feeds/packages/lang/node/Makefile
+sed -i "s/PKG_VERSION:=.*/PKG_VERSION:=v16.15.0/g" feeds/packages/lang/node/Makefile
+sed -i "s/PKG_HASH:=.*/PKG_HASH:=a0f812efc43f78321eca08957960a48f5e6bf97004d5058c8dd3b03c646ea4f7/g" feeds/packages/lang/node/Makefile
 #rm -rf feeds/packages/lang/node
 #cp -rf $GITHUB_WORKSPACE/general/node feeds/packages/lang
 
@@ -547,9 +547,9 @@ sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=4.95.0/g' feeds/packages/utils/lsof/Makef
 sed -i 's/PKG_HASH:=.*/PKG_HASH:=e9faa0fbcc48638c1d1f143e93573ac43b65e76646150f83e24bd8c18786303c/g' feeds/packages/utils/lsof/Makefile
 
 # libnetwork
-sed -i 's/PKG_SOURCE_VERSION:=.*/PKG_SOURCE_VERSION:=339b972b464ee3d401b5788b2af9e31d09d6b7da/g' feeds/packages/utils/libnetwork/Makefile
-sed -i 's/PKG_SOURCE_DATE:=.*/PKG_SOURCE_DATE:=2022-03-16/g' feeds/packages/utils/libnetwork/Makefile
-sed -i 's/PKG_MIRROR_HASH:=.*/PKG_MIRROR_HASH:=0f99357acc839619d108d358da09e288fd741f299fe5cf500bb5e8267f64aad1/g' feeds/packages/utils/libnetwork/Makefile
+#sed -i 's/PKG_SOURCE_VERSION:=.*/PKG_SOURCE_VERSION:=339b972b464ee3d401b5788b2af9e31d09d6b7da/g' feeds/packages/#utils/libnetwork/Makefile
+#sed -i 's/PKG_SOURCE_DATE:=.*/PKG_SOURCE_DATE:=2022-03-16/g' feeds/packages/utils/libnetwork/Makefile
+#sed -i 's/PKG_MIRROR_HASH:=.*/PKG_MIRROR_HASH:=0f99357acc839619d108d358da09e288fd741f299fe5cf500bb5e8267f64aad1/g' feeds/packages/utils/libnetwork/Makefile
 
 # zsh
 sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=5.9/g' feeds/packages/utils/zsh/Makefile
