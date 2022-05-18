@@ -33,7 +33,7 @@ env:
 
 jobs:
   build:
-    runs-on: ubuntu-20.04
+    runs-on: ubuntu-22.04
     if: github.event.repository.owner.id == github.event.sender.id
 
     steps:
@@ -106,7 +106,7 @@ jobs:
         body: |
           - 默认IP：192.168.1.1 默认密码：password (WiFi密码同）
           - 当前使用版本:【编译前的最后一次➦[主源码](https://github.com/coolsnowwolf/lede)更新记录】
-          - 高大全版取消了➦[Node](https://github.com/breakings/OpenWrt/releases/download/openwrt_armvirt/node_v14.19.0-1_aarch64_cortex-a53.ipk)，目前仅➦[网易云解锁NodeJS](https://github.com/breakings/OpenWrt/releases/download/openwrt_armvirt/netease.tar.gz)版受影响，可单独下载ipk安装。
+          - 高大全版取消了➦[Node](https://github.com/breakings/OpenWrt/releases/download/openwrt_armvirt/node_v16.15.0-1_aarch64_cortex-a53.ipk)，目前仅➦[网易云解锁NodeJS](https://github.com/breakings/OpenWrt/releases/download/openwrt_armvirt/netease.tar.gz)版受影响，可单独下载ipk安装。
           - 此版仍然**精简**了部分F大本人集成的插件，故依旧推荐使用F大本人发布的➦[正式版本](https://github.com/breakings/OpenWrt/releases/tag/flippy_openwrt)。
           - 此版仅满足部分喜欢追新的群友方便在线更新固件使用。
           - 此版因集成插件比自用精简版更多，无法做到每日更新。
