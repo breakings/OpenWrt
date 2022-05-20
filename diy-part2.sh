@@ -251,8 +251,8 @@ sed -i "s/PKG_HASH:=783ac443cd343dd6c68d2abcf7e59e7b978a6a428f6a6025f9b84918b769
 sed -i 's/^\s*$[(]call\sEnsureVendoredVersion/#&/' feeds/packages/utils/dockerd/Makefile
 
 # docker-compose
-#sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=2.5.0/g' feeds/packages/utils/docker-compose/Makefile
-#sed -i 's/PKG_HASH:=.*/PKG_HASH:=e002f4f50bfb1b3c937dc0a86a8a59395182fe1288e4ed3429db5771f68f7320/g' feeds/packages/utils/docker-compose/Makefile
+sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=2.5.1/g' feeds/packages/utils/docker-compose/Makefile
+sed -i 's/PKG_HASH:=.*/PKG_HASH:=f3eeaac99d2467fe482f499787ae38f66738bc0641dbf34a6045f34aaab893b7/g' feeds/packages/utils/docker-compose/Makefile
 
 # containerd
 #sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=1.5.11/g' feeds/packages/utils/containerd/Makefile
@@ -401,8 +401,8 @@ rm -rf feeds/packages/lang/python/python-pycparser
 svn co https://github.com/openwrt/packages/trunk/lang/python/python-pycparser feeds/packages/lang/python/python-pycparser
 
 # python-paramiko
-sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=2.10.4/g' feeds/packages/lang/python/python-paramiko/Makefile
-sed -i 's/PKG_HASH:=.*/PKG_HASH:=3d2e650b6812ce6d160abff701d6ef4434ec97934b13e95cf1ad3da70ffb5c58/g' feeds/packages/lang/python/python-paramiko/Makefile
+sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=2.11.0/g' feeds/packages/lang/python/python-paramiko/Makefile
+sed -i 's/PKG_HASH:=.*/PKG_HASH:=003e6bee7c034c21fbb051bf83dc0a9ee4106204dd3c53054c71452cc4ec3938/g' feeds/packages/lang/python/python-paramiko/Makefile
 
 # python-lxml
 sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=4.8.0/g' feeds/packages/lang/python/python-lxml/Makefile
@@ -711,7 +711,7 @@ cp -f $GITHUB_WORKSPACE/general/003-add-module_supported_device-macro.patch targ
 #rm -f target/linux/generic/hack-5.10/220-gc_sections.patch
 #cp -f $GITHUB_WORKSPACE/general/220-arm-gc_sections.patch target/linux/generic/hack-5.10
 #cp -f $GITHUB_WORKSPACE/general/781-dsa-register-every-port-with-of_platform.patch target/linux/generic/hack-5.10
-cp -f $GITHUB_WORKSPACE/general/900-regulator-consumer-Add-missing-stubs-to-regulator-co.patch target/linux/generic/backport-5.10
+#cp -f $GITHUB_WORKSPACE/general/900-regulator-consumer-Add-missing-stubs-to-regulator-co.patch target/linux/generic/backport-5.10
 
 #replace coremark.sh with the new one
 #rm feeds/packages/utils/coremark/coremark.sh
