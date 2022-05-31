@@ -113,7 +113,6 @@ CONFIGURE_ARGS += \
 	$(if $(CONFIG_SQLITE3_FTS3),--enable-fts3,--disable-fts3) \
 	$(if $(CONFIG_SQLITE3_FTS3),--enable-fts4,--disable-fts4) \
 	$(if $(CONFIG_SQLITE3_FTS3),--enable-fts5,--disable-fts5) \
-	$(if $(CONFIG_SQLITE3_JSON1),--enable-json1,--disable-json1) \
 	$(if $(CONFIG_SQLITE3_RTREE),--enable-rtree,--disable-rtree) \
 	$(if $(CONFIG_SQLITE3_SESSION),--enable-session,--disable-session)
 
