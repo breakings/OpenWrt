@@ -213,12 +213,12 @@ rm -f feeds/packages/net/curl/patches/0001-wolfssl-fix-compiler-error-without-IP
 #wget -P feeds/packages/net/curl https://raw.githubusercontent.com/openwrt/packages/master/net/curl/Makefile
 
 # Qt5 -qtbase
-sed -i "s/PKG_BUGFIX:=.*/PKG_BUGFIX:=4/g" feeds/packages/libs/qtbase/Makefile
-sed -i "s/PKG_HASH:=.*/PKG_HASH:=f93207bbf86663bd7abd16fac91deb4c753c1c133d3ac768fe61464b17ae8a18/g" feeds/packages/libs/qtbase/Makefile
+#sed -i "s/PKG_BUGFIX:=.*/PKG_BUGFIX:=4/g" feeds/packages/libs/qtbase/Makefile
+#sed -i "s/PKG_HASH:=.*/PKG_HASH:=f93207bbf86663bd7abd16fac91deb4c753c1c133d3ac768fe61464b17ae8a18/g" feeds/packages/libs/qtbase/Makefile
 
 # Qt5 -qttools
-sed -i "s/PKG_BUGFIX:=.*/PKG_BUGFIX:=4/g" feeds/packages/libs/qttools/Makefile
-sed -i "s/PKG_HASH:=.*/PKG_HASH:=4c5ccf8fdae70f3d4c731419935f456203950f9f4fce325d81b686f05e60b333/g" feeds/packages/libs/qttools/Makefile
+#sed -i "s/PKG_BUGFIX:=.*/PKG_BUGFIX:=4/g" feeds/packages/libs/qttools/Makefile
+#sed -i "s/PKG_HASH:=.*/PKG_HASH:=4c5ccf8fdae70f3d4c731419935f456203950f9f4fce325d81b686f05e60b333/g" feeds/packages/libs/qttools/Makefile
 
 #fix speedtest-cli
 #sed -i "s/PKG_VERSION:=.*/PKG_VERSION:=2.1.3/g" feeds/packages/lang/python/python3-speedtest-cli/Makefile
@@ -300,8 +300,8 @@ sed -i 's/PKG_HASH:=.*/PKG_HASH:=d82902400405cf0068574ef3dc1fe5f5926207543ba1ae6
 # php8
 #rm -rf feeds/packages/lang/php8
 #svn co https://github.com/openwrt/packages/trunk/lang/php8 feeds/packages/lang/php8
-sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=8.1.6/g' feeds/packages/lang/php8/Makefile
-sed -i 's/PKG_HASH:=.*/PKG_HASH:=da38d65bb0d5dd56f711cd478204f2b62a74a2c2b0d2d523a78d6eb865b2364c/g' feeds/packages/lang/php8/Makefile
+#sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=8.1.6/g' feeds/packages/lang/php8/Makefile
+#sed -i 's/PKG_HASH:=.*/PKG_HASH:=da38d65bb0d5dd56f711cd478204f2b62a74a2c2b0d2d523a78d6eb865b2364c/g' feeds/packages/lang/php8/Makefile
 
 # python-docker
 sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=5.0.3/g' feeds/packages/lang/python/python-docker/Makefile
@@ -652,8 +652,8 @@ sed -i 's/PKG_HASH:=.*/PKG_HASH:=d1f72f474e71bcaaf465dcc7e6f7b6a4705e4b1ed95c581
 
 # smartdns
 sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=1.2022.36.1/g' feeds/packages/net/smartdns/Makefile
-sed -i 's/PKG_SOURCE_VERSION:=.*/PKG_SOURCE_VERSION:=bc68d5979ccf4beb2721e1e466539da550236f68/g' feeds/packages/net/smartdns/Makefile
-sed -i 's/PKG_MIRROR_HASH:=.*/PKG_MIRROR_HASH:=cb1d041064d40cdd67ba0cd87ebb238b7da4a7f62dad886b9ebb1121aca91678/g' feeds/packages/net/smartdns/Makefile
+sed -i 's/PKG_SOURCE_VERSION:=.*/PKG_SOURCE_VERSION:=848c9e6cf22dcc99c45497420dace0ed48351533/g' feeds/packages/net/smartdns/Makefile
+sed -i 's/PKG_MIRROR_HASH:=.*/PKG_MIRROR_HASH:=a2dd277f5bc4be10ae8fe60d9810df9c7285317ee0bca6fe940e590409f09573/g' feeds/packages/net/smartdns/Makefile
 sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=1.2022.36/g' package/luci-app-smartdns/Makefile
 
 # aliyundrive webdav
@@ -783,13 +783,14 @@ sed -i 's/libzstd/zstd/g' feeds/packages/libs/gnutls/Makefile
 #sed -i 's/PKG_HASH:=.*/PKG_HASH:=a544f8808d0c58cfb0e7424ca1841cb858a974922b035d505d4e4c248be3a22b/g' feeds/packages/utils/smartmontools/Makefile
 
 # libxml2
-cp -f $GITHUB_WORKSPACE/general/libxml2/Makefile feeds/packages/libs/libxml2
+#cp -f $GITHUB_WORKSPACE/general/libxml2/Makefile feeds/packages/libs/libxml2
 
 # sqlite3
-sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=3380500/g' feeds/packages/libs/sqlite3/Makefile
-sed -i 's/PKG_HASH:=.*/PKG_HASH:=5af07de982ba658fd91a03170c945f99c971f6955bc79df3266544373e39869c/g' feeds/packages/libs/sqlite3/Makefile
-sed -i 's|PKG_SOURCE_URL:=.*|PKG_SOURCE_URL:=https://www.sqlite.org/2022/|g' feeds/packages/libs/sqlite3/Makefile
-sed -i '39d' feeds/packages/libs/sqlite3/Makefile
+#sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=3380500/g' feeds/packages/libs/sqlite3/Makefile
+#sed -i 's/PKG_HASH:=.*/PKG_HASH:=5af07de982ba658fd91a03170c945f99c971f6955bc79df3266544373e39869c/g' feeds/packages/libs/sqlite3/Makefile
+#sed -i 's|PKG_SOURCE_URL:=.*|PKG_SOURCE_URL:=https://www.sqlite.org/2022/|g' feeds/packages/libs/sqlite3/Makefile
+#sed -i '39d' feeds/packages/libs/sqlite3/Makefile
+cp -rf $GITHUB_WORKSPACE/general/sqlite3 feeds/packages/libs
 
 # zoneinfo
 #cp -f $GITHUB_WORKSPACE/general/zoneinfo/Makefile feeds/packages/utils/zoneinfo
