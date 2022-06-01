@@ -101,6 +101,7 @@ CMAKE_OPTIONS+= \
 	-DFEATURE_concurrent=$(if $(CONFIG_PACKAGE_libQt6Concurrent),ON,OFF) \
 	-DFEATURE_dbus=$(if $(CONFIG_PACKAGE_libQt6DBus),ON,OFF) \
 	-DFEATURE_gui=$(if $(CONFIG_PACKAGE_libQt6Gui),ON,OFF) \
+	-DFEATURE_fontconfig=OFF \
 	-DFEATURE_system_freetype=ON \
 	-DFEATURE_accessibility=OFF \
 	-DFEATURE_harfbuzz=OFF \
