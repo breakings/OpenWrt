@@ -359,8 +359,8 @@ sed -i 's/PKG_SOURCE_VERSION:=.*/PKG_SOURCE_VERSION:=4b2e1858f7a46ee678d5d1f3fa1
 sed -i 's/PKG_MIRROR_HASH:=.*/PKG_MIRROR_HASH:=ea014c295766e2efc7b890dc6a6940176ba9c5bdcf85a029090f2bb850e59708/g' feeds/packages/net/transmission-web-control/Makefile
 
 # htop
-#sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=3.2.0/g' feeds/packages/admin/htop/Makefile
-#sed -i 's/PKG_HASH:=.*/PKG_HASH:=1a1dd174cc828521fe5fd0e052cff8c30aa50809cf80d3ce3a481c37d476ac54/g' feeds/packages/admin/htop/Makefile
+sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=3.2.1/g' feeds/packages/admin/htop/Makefile
+sed -i 's/PKG_HASH:=.*/PKG_HASH:=b5ffac1949a8daaabcffa659c0964360b5008782aae4dfa7702d2323cfb4f438/g' feeds/packages/admin/htop/Makefile
 
 # python3
 #sed -i 's/PYTHON3_VERSION_MICRO:=.*/PYTHON3_VERSION_MICRO:=10/g' feeds/packages/lang/python/python3-version.mk
@@ -410,8 +410,8 @@ sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=2.11.0/g' feeds/packages/lang/python/pyth
 sed -i 's/PKG_HASH:=.*/PKG_HASH:=003e6bee7c034c21fbb051bf83dc0a9ee4106204dd3c53054c71452cc4ec3938/g' feeds/packages/lang/python/python-paramiko/Makefile
 
 # python-lxml
-sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=4.8.0/g' feeds/packages/lang/python/python-lxml/Makefile
-sed -i 's/PKG_HASH:=.*/PKG_HASH:=f63f62fc60e6228a4ca9abae28228f35e1bd3ce675013d1dfb828688d50c6e23/g' feeds/packages/lang/python/python-lxml/Makefile
+sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=4.9.0/g' feeds/packages/lang/python/python-lxml/Makefile
+sed -i 's/PKG_HASH:=.*/PKG_HASH:=520461c36727268a989790aef08884347cd41f2d8ae855489ccf40b50321d8d7/g' feeds/packages/lang/python/python-lxml/Makefile
 
 # python-idna
 sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=3.3/g' feeds/packages/lang/python/python-idna/Makefile
@@ -423,8 +423,8 @@ sed -i 's/PYPI_SOURCE_EXT:=.*/PYPI_SOURCE_EXT:=tar.gz/g' feeds/packages/lang/pyt
 sed -i 's/PKG_HASH:=.*/PKG_HASH:=0f7569a4a6ff151958b64304071d370daa3243d15941a7beedf0c9fe5105603e/g' feeds/packages/lang/python/python-dns/Makefile
 
 # python-certifi
-sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=2021.10.8/g' feeds/packages/lang/python/python-certifi/Makefile
-sed -i 's/PKG_HASH:=.*/PKG_HASH:=78884e7c1d4b00ce3cea67b44566851c4343c120abd683433ce934a68ea58872/g' feeds/packages/lang/python/python-certifi/Makefile
+sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=2022.5.18.1/g' feeds/packages/lang/python/python-certifi/Makefile
+sed -i 's/PKG_HASH:=.*/PKG_HASH:=9c5705e395cd70084351dd8ad5c41e65655e08ce46f2ec9cf6c2c08390f71eb7/g' feeds/packages/lang/python/python-certifi/Makefile
 
 # bcrypt
 sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=3.2.2/g' feeds/packages/lang/python/bcrypt/Makefile
@@ -454,8 +454,11 @@ sed -i 's/PKG_RELEASE:=.*/PKG_RELEASE:=1/g' feeds/packages/lang/python/python-da
 sed -i 's/PKG_HASH:=.*/PKG_HASH:=0123cacc1627ae19ddf3c27a5de5bd67ee4586fbdd6440d9748f8abb483d3e86/g' feeds/packages/lang/python/python-dateutil/Makefile
 
 # python-requests
-rm -rf feeds/packages/lang/python/python-requests
-svn co https://github.com/openwrt/packages/trunk/lang/python/python-requests feeds/packages/lang/python/python-requests
+rm -rf feeds/packages/lang/python/python-requests/patches
+#svn co https://github.com/openwrt/packages/trunk/lang/python/python-requests feeds/packages/lang/python/python-requests
+sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=2.27.1/g' feeds/packages/lang/python/python-requests/Makefile
+sed -i 's/PKG_RELEASE:=.*/PKG_RELEASE:=1/g' feeds/packages/lang/python/python-requests/Makefile
+sed -i 's/PKG_HASH:=.*/PKG_HASH:=68d7c56fd5a8999887728ef304a6d12edc7be74f1cfa47714fc8b414525c9a61/g' feeds/packages/lang/python/python-requests/Makefile
 
 # host-pip-requirements
 #sed -i 's/cffi==1.14.5 --hash=sha256:fd78e5fee591709f32ef6edb9a015b4aa1a5022598e36227500c8f4e02328d9c/cffi==1.15.0 --hash=sha256:920f0d66a896c2d99f0adbb391f990a84091179542c205fa53ce5787aff87954/g' feeds/packages/lang/python/host-pip-requirements/cffi.txt
@@ -851,6 +854,10 @@ sed -i 's/PKG_HASH:=.*/PKG_HASH:=e9faa0fbcc48638c1d1f143e93573ac43b65e76646150f8
 #sed -i 's/PKG_SOURCE_VERSION:=.*/PKG_SOURCE_VERSION:=339b972b464ee3d401b5788b2af9e31d09d6b7da/g' feeds/packages/utils/libnetwork/Makefile
 #sed -i 's/PKG_SOURCE_DATE:=.*/PKG_SOURCE_DATE:=2022-03-16/g' feeds/packages/utils/libnetwork/Makefile
 #sed -i 's/PKG_MIRROR_HASH:=.*/PKG_MIRROR_HASH:=0f99357acc839619d108d358da09e288fd741f299fe5cf500bb5e8267f64aad1/g' feeds/packages/utils/libnetwork/Makefile
+
+# iptables
+rm -rf package/network/utils/iptables
+cp -rf $GITHUB_WORKSPACE/general/iptables package/network/utils
 
 ./scripts/feeds update -a
 ./scripts/feeds install -a

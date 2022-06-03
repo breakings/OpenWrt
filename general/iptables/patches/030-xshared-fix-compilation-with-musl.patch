@@ -1,0 +1,30 @@
+From 29d5a2eb44d5a9726d76ffc4e4c5d5d20f5fa10b Mon Sep 17 00:00:00 2001
+From: Nick Hainke <vincent@systemli.org>
+Date: Sat, 14 May 2022 17:57:05 +0200
+Subject: [PATCH 2/2] xshared: fix compilation with musl
+
+Gcc complains about missing types. Include <sys/types.h> to fix it.
+
+Fixes errors in the form of:
+In file included from xtables-legacy-multi.c:5:
+xshared.h:83:56: error: unknown type name 'u_int16_t'; did you mean 'uint16_t'?
+   83 | set_option(unsigned int *options, unsigned int option, u_int16_t *invflg,
+      |                                                        ^~~~~~~~~
+      |                                                        uint16_t
+make[6]: *** [Makefile:712: xtables_legacy_multi-xtables-legacy-multi.o] Error 1
+
+Signed-off-by: Nick Hainke <vincent@systemli.org>
+---
+ iptables/xshared.h | 1 +
+ 1 file changed, 1 insertion(+)
+
+--- a/iptables/xshared.h
++++ b/iptables/xshared.h
+@@ -4,6 +4,7 @@
+ #include <limits.h>
+ #include <stdbool.h>
+ #include <stdint.h>
++#include <sys/types.h>
+ #include <netinet/in.h>
+ #include <net/if.h>
+ #include <linux/netfilter_arp/arp_tables.h>
