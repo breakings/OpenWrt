@@ -450,7 +450,7 @@ $(eval $(call KernelPackage,crypto-kpp))
 define KernelPackage/crypto-lib-blake2s
   TITLE:=BLAKE2s hash function library
   KCONFIG:=CONFIG_CRYPTO_LIB_BLAKE2S
-  HIDDEN:=1
+  DEPENDS:=@(LINUX_5_4||LINUX_5_10)
   FILES:= \
 	$(LINUX_DIR)/lib/crypto/libblake2s.ko \
 	$(LINUX_DIR)/lib/crypto/libblake2s-generic.ko

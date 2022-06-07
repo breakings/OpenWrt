@@ -873,5 +873,8 @@ sed -i 's/PKG_HASH:=.*/PKG_HASH:=68271951324554c34501b85190f22f2221056db69f493af
 sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=1.17/g' package/libs/libiconv-full/Makefile
 sed -i 's/PKG_HASH:=.*/PKG_HASH:=8f74213b56238c85a50a5329f77e06198771e70dd9a739779f4c02f65d971313/g' package/libs/libiconv-full/Makefile
 
+# sagernet-core
+sed -i 's|$(LN) v2ray $(1)/usr/bin/xray|#$(LN) v2ray $(1)/usr/bin/xray|g' package/sagernet-core/Makefile
+
 ./scripts/feeds update -a
 ./scripts/feeds install -a
