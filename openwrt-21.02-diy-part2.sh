@@ -328,8 +328,8 @@ sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=2.5.4/g' feeds/packages/libs/libseccomp/M
 sed -i 's/PKG_HASH:=.*/PKG_HASH:=d82902400405cf0068574ef3dc1fe5f5926207543ba1ae6f8e7a1576351dcbdb/g' feeds/packages/libs/libseccomp/Makefile
 
 # node 
-sed -i "s/PKG_VERSION:=.*/PKG_VERSION:=v16.15.0/g" feeds/packages/lang/node/Makefile
-sed -i "s/PKG_HASH:=.*/PKG_HASH:=a0f812efc43f78321eca08957960a48f5e6bf97004d5058c8dd3b03c646ea4f7/g" feeds/packages/lang/node/Makefile
+#sed -i "s/PKG_VERSION:=.*/PKG_VERSION:=v16.15.0/g" feeds/packages/lang/node/Makefile
+#sed -i "s/PKG_HASH:=.*/PKG_HASH:=a0f812efc43f78321eca08957960a48f5e6bf97004d5058c8dd3b03c646ea4f7/g" feeds/packages/lang/node/Makefile
 #rm -rf feeds/packages/lang/node
 #cp -rf $GITHUB_WORKSPACE/general/node feeds/packages/lang
 
@@ -387,10 +387,11 @@ sed -i 's/libzstd/zstd/g' feeds/packages/libs/gnutls/Makefile
 cp -f $GITHUB_WORKSPACE/general/libxml2/Makefile feeds/packages/libs/libxml2
 
 # sqlite3
-sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=3380500/g' feeds/packages/libs/sqlite3/Makefile
-sed -i 's/PKG_HASH:=.*/PKG_HASH:=5af07de982ba658fd91a03170c945f99c971f6955bc79df3266544373e39869c/g' feeds/packages/libs/sqlite3/Makefile
-sed -i 's|PKG_SOURCE_URL:=.*|PKG_SOURCE_URL:=https://www.sqlite.org/2022/|g' feeds/packages/libs/sqlite3/Makefile
-sed -i '39d' feeds/packages/libs/sqlite3/Makefile
+#sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=3380500/g' feeds/packages/libs/sqlite3/Makefile
+#sed -i 's/PKG_HASH:=.*/PKG_HASH:=5af07de982ba658fd91a03170c945f99c971f6955bc79df3266544373e39869c/g' feeds/packages/libs/sqlite3/Makefile
+#sed -i 's|PKG_SOURCE_URL:=.*|PKG_SOURCE_URL:=https://www.sqlite.org/2022/|g' feeds/packages/libs/sqlite3/Makefile
+#sed -i '39d' feeds/packages/libs/sqlite3/Makefile
+cp -rf $GITHUB_WORKSPACE/general/sqlite3 feeds/packages/libs
 
 # frp
 #sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=0.42.0/g' feeds/packages/net/frp/Makefile
