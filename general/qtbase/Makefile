@@ -169,7 +169,7 @@ endef
 $(eval $(call DefineQt6Package,Concurrent,Core,))
 $(eval $(call DefineQt6Package,Core,,+libpcre2-16))
 $(eval $(call DefineQt6Package,DBus,Core,))
-$(eval $(call DefineQt6Package,Gui,DBus,+libfreetype))
+$(eval $(call DefineQt6Package,Gui,DBus,+libdrm +libfreetype))
 $(eval $(call DefineQt6Package,Network,Core,+libopenssl +krb5-libs))
 $(eval $(call DefineQt6Package,PrintSupport,Widgets,))
 $(eval $(call DefineQt6Package,Sql,Core,+libsqlite3))
