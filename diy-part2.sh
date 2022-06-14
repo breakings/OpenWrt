@@ -861,8 +861,8 @@ sed -i 's/PKG_HASH:=.*/PKG_HASH:=e9faa0fbcc48638c1d1f143e93573ac43b65e76646150f8
 #sed -i 's/PKG_MIRROR_HASH:=.*/PKG_MIRROR_HASH:=92a23ff620c3cf3b05bc01a06721a9f78dfb6bc5b048dbcf70ea9542cec8e7a2/g' feeds/packages/utils/libnetwork/Makefile
 
 # iptables
-rm -rf package/network/utils/iptables
-cp -rf $GITHUB_WORKSPACE/general/iptables package/network/utils
+#rm -rf package/network/utils/iptables
+#cp -rf $GITHUB_WORKSPACE/general/iptables package/network/utils
 
 # nghttp2
 sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=1.47.0/g' feeds/packages/libs/nghttp2/Makefile
