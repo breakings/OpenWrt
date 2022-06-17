@@ -531,7 +531,6 @@ sed -i 's/PKG_HASH:=.*/PKG_HASH:=de75b6136958173fdfc530d38a0145b72342cf0d3842bf7
 #sed -i 's/PKG_MIRROR_HASH:=.*/PKG_MIRROR_HASH=93f7f99c4242dbc5218907981e32f74ddb5e09c5b7922617c8d84c16920f488d/g' feeds/packages/utils/at/Makefile
 rm -rf feeds/packages/utils/at
 cp -rf $GITHUB_WORKSPACE/general/at feeds/packages/utils
-cp -rf $GITHUB_WORKSPACE/general/at_3.2.5.orig.tar.gz $GITHUB_WORKSPACE/dl
 
 # mmc-utils
 #rm -rf feeds/packages/utils/mmc-utils
