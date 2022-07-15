@@ -441,8 +441,8 @@ sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=1.15.0/g' feeds/packages/lang/python/pyth
 sed -i 's/PKG_HASH:=.*/PKG_HASH:=920f0d66a896c2d99f0adbb391f990a84091179542c205fa53ce5787aff87954/g' feeds/packages/lang/python/python-cffi/Makefile
 
 # python-cryptography
-#rm -rf feeds/packages/lang/python/python-cryptography
-#svn co https://github.com/openwrt/packages/trunk/lang/python/python-cryptography feeds/packages/lang/python/python-cryptography
+rm -rf feeds/packages/lang/python/python-cryptography
+svn co https://github.com/openwrt/packages/trunk/lang/python/python-cryptography feeds/packages/lang/python/python-cryptography
 
 # python-distro
 sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=1.7.0/g' feeds/packages/lang/python/python-distro/Makefile
@@ -764,8 +764,8 @@ sed -i 's/PKG_HASH:=.*/PKG_HASH:=c4d91be36fc8e54deae7575241e03f4211eb102afb3fc07
 #cp -r $GITHUB_WORKSPACE/general/coreutils feeds/packages/utils
 
 # frp
-sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=0.43.0/g' feeds/packages/net/frp/Makefile
-sed -i 's/PKG_HASH:=.*/PKG_HASH:=8e243ab85a0e70b94eec60f6fd9bae23d45d742739cfb9406de5f3fd7f317b03/g' feeds/packages/net/frp/Makefile
+sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=0.44.0/g' feeds/packages/net/frp/Makefile
+sed -i 's/PKG_HASH:=.*/PKG_HASH:=51a908c12ddf5cab0f3223f09ba7b8ff0890075d399fd2b51839abcf57b9d159/g' feeds/packages/net/frp/Makefile
 
 # openconnect
 #sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=8.20/g' feeds/packages/net/openconnect/Makefile
