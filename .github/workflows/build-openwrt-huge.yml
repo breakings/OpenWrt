@@ -91,7 +91,10 @@ jobs:
     - name: Cache Toolchain
       uses: klever1988/cachewrtbuild@main
       with:
-        ccache: 'false'
+        ccache: false
+        skip: true
+        toolchain: true
+        clean: false
         prefix: ${{ github.workspace }}/openwrt
 
     - name: Load custom feeds
