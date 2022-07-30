@@ -69,6 +69,7 @@ CMAKE_SHARED_LDFLAGS:=$(filter-out -Wl$(comma)-Bsymbolic-functions,$(CMAKE_SHARE
 CMAKE_HOST_OPTIONS+= \
 	-DBUILD_SHARED_LIBS=OFF \
 	-DFEATURE_optimize_full=ON \
+	-DFEATURE_glib=OFF \
 	-DFEATURE_zstd=OFF \
 	-DFEATURE_concurrent=OFF \
 	-DFEATURE_dbus=ON \
