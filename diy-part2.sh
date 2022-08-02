@@ -255,8 +255,8 @@ sed -i "s/PKG_HASH:=783ac443cd343dd6c68d2abcf7e59e7b978a6a428f6a6025f9b84918b769
 #sed -i 's/^\s*$[(]call\sEnsureVendoredVersion/#&/' feeds/packages/utils/dockerd/Makefile
 
 # docker-compose
-sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=2.8.0/g' feeds/packages/utils/docker-compose/Makefile
-sed -i 's/PKG_HASH:=.*/PKG_HASH:=fa3e7242c0f3a2158e6ccc20b05dd5a5124cfe8ed96a76b16bb32145f410728d/g' feeds/packages/utils/docker-compose/Makefile
+sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=2.9.0/g' feeds/packages/utils/docker-compose/Makefile
+sed -i 's/PKG_HASH:=.*/PKG_HASH:=582f3dacb3e96e9a07ff3b9d137b508377a769309b84f6faa8722d7f5a226353/g' feeds/packages/utils/docker-compose/Makefile
 
 # containerd
 #sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=1.5.11/g' feeds/packages/utils/containerd/Makefile
@@ -385,7 +385,7 @@ sed -i 's/PKG_HASH:=.*/PKG_HASH:=42ee7b9e15f7b225747c3fa08f43c5d6c83bc899f80ff9b
 
 # python-urllib3
 sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=1.26.11/g' feeds/packages/lang/python/python-urllib3/Makefile
-sed -i 's/PKG_HASH:=.*/PKG_HASH:=ea6e8fb210b19d950fab93b60c9009226c63a28808bc8386e05301e25883ac0a6/g' feeds/packages/lang/python/python-urllib3/Makefile
+sed -i 's/PKG_HASH:=.*/PKG_HASH:=ea6e8fb210b19d950fab93b60c9009226c63a28808bc8386e05301e25883ac0a/g' feeds/packages/lang/python/python-urllib3/Makefile
 
 # python-sqlalchemy
 sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=1.4.39/g' feeds/packages/lang/python/python-sqlalchemy/Makefile
