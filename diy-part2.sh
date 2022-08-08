@@ -660,10 +660,10 @@ sed -i 's/PKG_HASH:=.*/PKG_HASH:=d1f72f474e71bcaaf465dcc7e6f7b6a4705e4b1ed95c581
 #find package/*/ -maxdepth 2 -path "*/Makefile" | xargs -i sed -i 's|include\ \.\.\/\.\.\/devel/meson/meson.mk|include \$(INCLUDE_DIR)\/meson.mk|g' {}
 
 # smartdns
-sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=1.2022.36.1/g' feeds/packages/net/smartdns/Makefile
+sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=1.2022.37/g' feeds/packages/net/smartdns/Makefile
 sed -i 's/PKG_SOURCE_VERSION:=.*/PKG_SOURCE_VERSION:=5a2559f0648198c290bb8839b9f6a0adab8ebcdc/g' feeds/packages/net/smartdns/Makefile
-sed -i 's/PKG_MIRROR_HASH:=.*/PKG_MIRROR_HASH:=39760cb768706aa9ec6347abbe0a0f739ad2643824ed7e8cb671367e3bc3d142/g' feeds/packages/net/smartdns/Makefile
-sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=1.2022.36/g' package/luci-app-smartdns/Makefile
+sed -i 's/PKG_MIRROR_HASH:=.*/PKG_MIRROR_HASH:=fbe68affb4a7e3d81216c09ef9bc8d8ebc83c95aad82a4aec88b226dc4e79c3b/g' feeds/packages/net/smartdns/Makefile
+sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=1.2022.37/g' package/luci-app-smartdns/Makefile
 
 # aliyundrive webdav
 #svn co https://github.com/messense/aliyundrive-webdav/trunk/openwrt/aliyundrive-webdav package/aliyundrive-webdav
@@ -783,8 +783,8 @@ sed -i 's/PKG_RELEASE:=.*/PKG_RELEASE:=1/g' feeds/packages/libs/libssh2/Makefile
 sed -i 's/PKG_HASH:=.*/PKG_HASH:=2d64e90f3ded394b91d3a2e774ca203a4179f69aebee03003e5a6fa621e41d51/g' feeds/packages/libs/libssh2/Makefile
 
 # gnutls
-#sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=3.7.6/g' feeds/packages/libs/gnutls/Makefile
-#sed -i 's/PKG_HASH:=.*/PKG_HASH:=77065719a345bfb18faa250134be4c53bef70c1bd61f6c0c23ceb8b44f0262ff/g' feeds/packages/libs/gnutls/Makefile
+sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=3.7.7/g' feeds/packages/libs/gnutls/Makefile
+sed -i 's/PKG_HASH:=.*/PKG_HASH:=be9143d0d58eab64dba9b77114aaafac529b6c0d7e81de6bdf1c9b59027d2106/g' feeds/packages/libs/gnutls/Makefile
 #sed -i 's/libzstd/zstd/g' feeds/packages/libs/gnutls/Makefile
 #rm -rf feeds/packages/libs/gnutls
 #svn co https://github.com/breakings/packages/branches/gnutls/libs/gnutls feeds/packages/libs/gnutls

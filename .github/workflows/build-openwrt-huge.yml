@@ -88,14 +88,14 @@ jobs:
         echo "DATE=$(date "+%Y-%m-%d %H:%M:%S")" >> $GITHUB_ENV
         echo "DATE1=$(date "+%Y-%m-%d")" >> $GITHUB_ENV
         
-    - name: Cache Toolchain
-      uses: klever1988/cachewrtbuild@main
-      with:
-        ccache: false
-        skip: true
-        toolchain: true
-        clean: false
-        prefix: ${{ github.workspace }}/openwrt
+    #- name: Cache Toolchain
+      #uses: klever1988/cachewrtbuild@main
+      #with:
+        #ccache: false
+        #skip: true
+        #toolchain: true
+        #clean: false
+        #prefix: ${{ github.workspace }}/openwrt
 
     - name: Load custom feeds
       run: |
