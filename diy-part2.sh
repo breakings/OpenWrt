@@ -712,13 +712,14 @@ sed -i 's/services/vpn/g'  feeds/luci/applications/luci-app-openvpn/luasrc/view/
 sed -i 's/DEPENDS:=.*/DEPENDS:=@(LINUX_5_4||LINUX_5_10) +kmod-nls-utf8/g' package/lean/ntfs3-oot/Makefile
 
 # fix kernel modules missing nfs_ssc.ko
-cp -f $GITHUB_WORKSPACE/general/fs.mk package/kernel/linux/modules
-rm -f target/linux/generic/backport-5.10/350-v5.12-NFSv4_2-SSC-helper-should-use-its-own-config.patch
-rm -f target/linux/generic/backport-5.10/351-v5.13-NFSv4_2-Remove-ifdef-CONFIG_NFSD-from-client-SSC.patch
-cp -f $GITHUB_WORKSPACE/general/01-export-nfs_ssc.patch target/linux/generic/backport-5.15
+##cp -f $GITHUB_WORKSPACE/general/fs.mk package/kernel/linux/modules
+##rm -f target/linux/generic/backport-5.10/350-v5.12-NFSv4_2-SSC-helper-should-use-its-own-config.patch
+##rm -f target/linux/generic/backport-5.10/351-v5.13-NFSv4_2-Remove-ifdef-CONFIG_NFSD-from-client-SSC.patch
+##cp -f $GITHUB_WORKSPACE/general/01-export-nfs_ssc.patch target/linux/generic/backport-5.15
 cp -f $GITHUB_WORKSPACE/general/003-add-module_supported_device-macro.patch target/linux/generic/backport-5.15
 #cp -f $GITHUB_WORKSPACE/general/crypto.mk package/kernel/linux/modules
 #cp -f $GITHUB_WORKSPACE/general/netsupport.mk package/kernel/linux/modules
+cp -f $GITHUB_WORKSPACE/general/netdevices.mk package/kernel/linux/modules
 #cp -f $GITHUB_WORKSPACE/general/651-rt2x00-driver-compile-with-kernel-5.15.patch package/kernel/mac80211/patches/rt2x00
 #rm -f target/linux/generic/pending-5.10/701-net-ethernet-mtk_eth_soc-add-ipv6-flow-offloading-support.patch
 #rm -f target/linux/generic/hack-5.10/220-gc_sections.patch
