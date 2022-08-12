@@ -726,6 +726,7 @@ cp -f $GITHUB_WORKSPACE/general/netdevices.mk package/kernel/linux/modules
 #cp -f $GITHUB_WORKSPACE/general/220-arm-gc_sections.patch target/linux/generic/hack-5.10
 #cp -f $GITHUB_WORKSPACE/general/781-dsa-register-every-port-with-of_platform.patch target/linux/generic/hack-5.10
 #cp -f $GITHUB_WORKSPACE/general/900-regulator-consumer-Add-missing-stubs-to-regulator-co.patch target/linux/generic/backport-5.10
+rm -f package/kernel/mac80211/patches/brcm/999-backport-to-linux-5.18.patch
 
 #replace coremark.sh with the new one
 #rm feeds/packages/utils/coremark/coremark.sh
