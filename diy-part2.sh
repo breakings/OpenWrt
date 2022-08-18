@@ -187,8 +187,8 @@ sed -i "s|s9xxx_lede|ARMv8|g" package/luci-app-amlogic/root/etc/config/amlogic
 #sed -i "s|.img.gz|..OPENWRT_SUFFIX|g" package/luci-app-amlogic/root/etc/config/amlogic
 
 # btrfs-progs
-sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=5.18/g' feeds/packages/utils/btrfs-progs/Makefile
-sed -i 's/PKG_HASH:=.*/PKG_HASH:=1de6107622b0be2f6d77261f97a2bdd40291dbb682aac7dce08632d171f7a134/g' feeds/packages/utils/btrfs-progs/Makefile
+sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=5.19/g' feeds/packages/utils/btrfs-progs/Makefile
+sed -i 's/PKG_HASH:=.*/PKG_HASH:=1fbcf06e4b2f80e7a127fd687ed4625a5b74fa674fe212c836ff70e0edfcccf9/g' feeds/packages/utils/btrfs-progs/Makefile
 rm -rf feeds/packages/utils/btrfs-progs/patches
 #sed -i '68i\	--disable-libudev \\' feeds/packages/utils/btrfs-progs/Makefile
 
@@ -879,8 +879,8 @@ sed -i 's|$(LN) v2ray $(1)/usr/bin/xray|#$(LN) v2ray $(1)/usr/bin/xray|g' packag
 sed -i 's|CONFLICTS:=v2ray-core xray-core|#CONFLICTS:=v2ray-core xray-core|g' package/sagernet-core/Makefile
 
 # bind
-sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=9.18.5/g' feeds/packages/net/bind/Makefile
-sed -i 's/PKG_HASH:=.*/PKG_HASH:=0cee078d74f0bdc4ec374435026b25de7892f26540a18b22a02ef728a11dcae7/g' feeds/packages/net/bind/Makefile
+sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=9.18.6/g' feeds/packages/net/bind/Makefile
+sed -i 's/PKG_HASH:=.*/PKG_HASH:=d43a0fed03c774d1685d203598218c0b7774a88fcc390a0170710d5feb7fbff1/g' feeds/packages/net/bind/Makefile
 
 # libwebp
 sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=1.2.4/g' feeds/packages/libs/libwebp/Makefile
@@ -889,6 +889,10 @@ sed -i 's/PKG_HASH:=.*/PKG_HASH:=7bf5a8a28cc69bcfa8cb214f2c3095703c6b73ac5fba4d5
 # lighttpd
 sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=1.4.66/g' feeds/packages/net/lighttpd/Makefile
 sed -i 's/PKG_HASH:=.*/PKG_HASH:=47ac6e60271aa0196e65472d02d019556dc7c6d09df3b65df2c1ab6866348e3b/g' feeds/packages/net/lighttpd/Makefile
+
+# ariang
+sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=1.2.4/g' feeds/packages/net/ariang/Makefile
+sed -i 's/PKG_HASH:=.*/PKG_HASH:=a72dc5d7640e864c2dd528c88db493a3056087412537e87c6c5a98141a482380/g' feeds/packages/net/ariang/Makefile
 
 ./scripts/feeds update -a
 ./scripts/feeds install -a
