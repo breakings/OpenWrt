@@ -644,8 +644,8 @@ sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=5.42/g' feeds/packages/libs/file/Makefile
 sed -i 's/PKG_HASH:=.*/PKG_HASH:=c076fb4d029c74073f15c43361ef572cfb868407d347190ba834af3b1639b0e4/g' feeds/packages/libs/file/Makefile
 
 # ariang
-#rm -rf feeds/packages/net/ariang
-#svn co https://github.com/openwrt/packages/trunk/net/ariang feeds/packages/net/ariang
+rm -rf feeds/packages/net/ariang
+svn co https://github.com/openwrt/packages/trunk/net/ariang feeds/packages/net/ariang
 
 # nginx
 sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=1.21.4/g' feeds/packages/net/nginx/Makefile
@@ -661,9 +661,9 @@ sed -i 's/PKG_HASH:=.*/PKG_HASH:=d1f72f474e71bcaaf465dcc7e6f7b6a4705e4b1ed95c581
 #find package/*/ -maxdepth 2 -path "*/Makefile" | xargs -i sed -i 's|include\ \.\.\/\.\.\/devel/meson/meson.mk|include \$(INCLUDE_DIR)\/meson.mk|g' {}
 
 # smartdns
-sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=1.2022.37/g' feeds/packages/net/smartdns/Makefile
-sed -i 's/PKG_SOURCE_VERSION:=.*/PKG_SOURCE_VERSION:=5a2559f0648198c290bb8839b9f6a0adab8ebcdc/g' feeds/packages/net/smartdns/Makefile
-sed -i 's/PKG_MIRROR_HASH:=.*/PKG_MIRROR_HASH:=fbe68affb4a7e3d81216c09ef9bc8d8ebc83c95aad82a4aec88b226dc4e79c3b/g' feeds/packages/net/smartdns/Makefile
+sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=1.2022.37.1/g' feeds/packages/net/smartdns/Makefile
+sed -i 's/PKG_SOURCE_VERSION:=.*/PKG_SOURCE_VERSION:=96d3deb595eae4f849cb2a51c69a9be89947fa0d/g' feeds/packages/net/smartdns/Makefile
+sed -i 's/PKG_MIRROR_HASH:=.*/PKG_MIRROR_HASH:=8a1b92fec63b9ce4084c7cb2713f7418a54b7713a9f609528fab6c951ef05cfd/g' feeds/packages/net/smartdns/Makefile
 sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=1.2022.37/g' package/luci-app-smartdns/Makefile
 
 # aliyundrive webdav
@@ -808,7 +808,7 @@ sed -i 's/PKG_HASH:=.*/PKG_HASH:=be9143d0d58eab64dba9b77114aaafac529b6c0d7e81de6
 cp -rf $GITHUB_WORKSPACE/general/sqlite3 feeds/packages/libs
 
 # zoneinfo
-#cp -f $GITHUB_WORKSPACE/general/zoneinfo/Makefile feeds/packages/utils/zoneinfo
+cp -f $GITHUB_WORKSPACE/general/zoneinfo/Makefile feeds/packages/utils/zoneinfo
 
 # adguardhome
 #sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=0.107.5/g' feeds/packages/net/adguardhome/Makefile
@@ -889,10 +889,6 @@ sed -i 's/PKG_HASH:=.*/PKG_HASH:=7bf5a8a28cc69bcfa8cb214f2c3095703c6b73ac5fba4d5
 # lighttpd
 sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=1.4.66/g' feeds/packages/net/lighttpd/Makefile
 sed -i 's/PKG_HASH:=.*/PKG_HASH:=47ac6e60271aa0196e65472d02d019556dc7c6d09df3b65df2c1ab6866348e3b/g' feeds/packages/net/lighttpd/Makefile
-
-# ariang
-sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=1.2.4/g' feeds/packages/net/ariang/Makefile
-sed -i 's/PKG_HASH:=.*/PKG_HASH:=a72dc5d7640e864c2dd528c88db493a3056087412537e87c6c5a98141a482380/g' feeds/packages/net/ariang/Makefile
 
 ./scripts/feeds update -a
 ./scripts/feeds install -a
