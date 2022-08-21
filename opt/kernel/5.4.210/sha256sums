@@ -1,5 +1,5 @@
-db9897cc83cfd6517c3e72e435f192d7ffddce8c3cd2e18e500a3063fc7b3bbc  boot-5.4.210-flippy-75+o.tar.gz
-a7e3ef7d02df5dbfa9dbdea0ad2e6450e48a01bbc0bfa7e07c2d51c08077018a  dtb-allwinner-5.4.210-flippy-75+o.tar.gz
-8df0fd81ce13ededda9025942ba620248531c585ec01989d37d254c72d415fd5  dtb-amlogic-5.4.210-flippy-75+o.tar.gz
-b6805171f680599a074a8a3f6fb3af6bde43746baa53a051fe46f0b2a11e53e8  dtb-rockchip-5.4.210-flippy-75+o.tar.gz
-d6cf911f79b75f723d7342b6403631572efa7b06ced5af42b34236bc3b5a33c6  modules-5.4.210-flippy-75+o.tar.gz
+2357b96d538b6015f4da933310192133fe85cb63debf9b13f994567e4d4a0dd1  boot-5.4.210-flippy-75+o.tar.gz
+be3664e48bd7ad1af8eb635b1115bcbf71b49c1fd16b0c0df252746a5421856c  dtb-allwinner-5.4.210-flippy-75+o.tar.gz
+bb32807f8b12858a164d488c9d1f9f4a38bd8aa07e79a94be64e82eed52e373b  dtb-amlogic-5.4.210-flippy-75+o.tar.gz
+9a46cd850c18fcb2ff65bad6e329c19e07170b4e673e6d61714197d89815060c  dtb-rockchip-5.4.210-flippy-75+o.tar.gz
+706841e9c360ff362b597263a612319ba9d520282e2f6ba92b837120c39cee52  modules-5.4.210-flippy-75+o.tar.gz
