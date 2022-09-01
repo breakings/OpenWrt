@@ -210,8 +210,9 @@ cp -f $GITHUB_WORKSPACE/general/libtorrent-rasterbar/Makefile feeds/packages/lib
 #cp -rf $GITHUB_WORKSPACE/general/golang feeds/packages/lang/golang
 
 # curl
-sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=7.84.0/g' feeds/packages/net/curl/Makefile
-sed -i 's/PKG_HASH:=.*/PKG_HASH:=2d118b43f547bfe5bae806d8d47b4e596ea5b25a6c1f080aef49fbcd817c5db8/g' feeds/packages/net/curl/Makefile
+sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=7.85.0/g' feeds/packages/net/curl/Makefile
+sed -i 's/PKG_HASH:=.*/PKG_HASH:=88b54a6d4b9a48cb4d873c7056dcba997ddd5b7be5a2d537a4acb55c20b04be6/g' feeds/packages/net/curl/Makefile
+rm -f feeds/packages/net/curl/patches/100-wolfssl.patch
 
 # Qt5 -qtbase
 #sed -i "s/PKG_BUGFIX:=.*/PKG_BUGFIX:=4/g" feeds/packages/libs/qtbase/Makefile
