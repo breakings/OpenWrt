@@ -204,8 +204,9 @@ rm -rf feeds/packages/libs/libtorrent-rasterbar/patches
 cp -f $GITHUB_WORKSPACE/general/libtorrent-rasterbar/Makefile feeds/packages/libs/libtorrent-rasterbar
 
 # golang
-#sed -i 's/GO_VERSION_PATCH:=.*/GO_VERSION_PATCH:=2/g' feeds/packages/lang/golang/golang/Makefile
-#sed -i 's/PKG_HASH:=.*/PKG_HASH:=2c44d03ea2c34092137ab919ba602f2c261a038d08eb468528a3f3a28e5667e2/g' feeds/packages/lang/golang/golang/Makefile
+sed -i 's/GO_VERSION_MAJOR_MINOR:=.*/GO_VERSION_MAJOR_MINOR:=1.19/g' feeds/packages/lang/golang/golang/Makefile
+sed -i 's/GO_VERSION_PATCH:=.*/GO_VERSION_PATCH:=/g' feeds/packages/lang/golang/golang/Makefile
+sed -i 's/PKG_HASH:=.*/PKG_HASH:=9419cc70dc5a2523f29a77053cafff658ed21ef3561d9b6b020280ebceab28b9/g' feeds/packages/lang/golang/golang/Makefile
 #rm -rf feeds/packages/lang/golang
 #cp -rf $GITHUB_WORKSPACE/general/golang feeds/packages/lang/golang
 
@@ -305,8 +306,8 @@ sed -i 's/PKG_HASH:=.*/PKG_HASH:=d82902400405cf0068574ef3dc1fe5f5926207543ba1ae6
 # php8
 #rm -rf feeds/packages/lang/php8
 #svn co https://github.com/openwrt/packages/trunk/lang/php8 feeds/packages/lang/php8
-sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=8.1.9/g' feeds/packages/lang/php8/Makefile
-sed -i 's/PKG_HASH:=.*/PKG_HASH:=53477e73e6254dc942b68913a58d815ffdbf6946baf61a1f8ef854de524c27bf/g' feeds/packages/lang/php8/Makefile
+sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=8.1.10/g' feeds/packages/lang/php8/Makefile
+sed -i 's/PKG_HASH:=.*/PKG_HASH:=90e7120c77ee83630e6ac928d23bc6396603d62d83a3cf5df8a450d2e3070162/g' feeds/packages/lang/php8/Makefile
 
 # python-docker
 sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=5.0.3/g' feeds/packages/lang/python/python-docker/Makefile
@@ -378,24 +379,24 @@ sed -i 's/PKG_HASH:=.*/PKG_HASH:=68fb519c14306fec9720a2a5b45bc9f0c8d1b9c72adf45c
 sed -i '22i\HOST_PYTHON3_PACKAGE_BUILD_DEPENDS:=Cython\n' feeds/packages/lang/python/python-yaml/Makefile
 
 # python-websocket-client
-sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=1.3.3/g' feeds/packages/lang/python/python-websocket-client/Makefile
-sed -i 's/PKG_HASH:=.*/PKG_HASH:=d58c5f284d6a9bf8379dab423259fe8f85b70d5fa5d2916d5791a84594b122b1/g' feeds/packages/lang/python/python-websocket-client/Makefile
+sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=1.4.0/g' feeds/packages/lang/python/python-websocket-client/Makefile
+sed -i 's/PKG_HASH:=.*/PKG_HASH:=79d730c9776f4f112f33b10b78c8d209f23b5806d9a783e296b3813fc5add2f1/g' feeds/packages/lang/python/python-websocket-client/Makefile
 
 # python-texttable
 sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=1.6.4/g' feeds/packages/lang/python/python-texttable/Makefile
 sed -i 's/PKG_HASH:=.*/PKG_HASH:=42ee7b9e15f7b225747c3fa08f43c5d6c83bc899f80ff9bae9319334824076e9/g' feeds/packages/lang/python/python-texttable/Makefile
 
 # python-urllib3
-sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=1.26.11/g' feeds/packages/lang/python/python-urllib3/Makefile
-sed -i 's/PKG_HASH:=.*/PKG_HASH:=ea6e8fb210b19d950fab93b60c9009226c63a28808bc8386e05301e25883ac0a/g' feeds/packages/lang/python/python-urllib3/Makefile
+sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=1.26.12/g' feeds/packages/lang/python/python-urllib3/Makefile
+sed -i 's/PKG_HASH:=.*/PKG_HASH:=3fa96cf423e6987997fc326ae8df396db2a8b7c667747d47ddd8ecba91f4a74e/g' feeds/packages/lang/python/python-urllib3/Makefile
 
 # python-sqlalchemy
-sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=1.4.39/g' feeds/packages/lang/python/python-sqlalchemy/Makefile
-sed -i 's/PKG_HASH:=.*/PKG_HASH:=8194896038753b46b08a0b0ae89a5d80c897fb601dd51e243ed5720f1f155d27/g' feeds/packages/lang/python/python-sqlalchemy/Makefile
+sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=1.4.40/g' feeds/packages/lang/python/python-sqlalchemy/Makefile
+sed -i 's/PKG_HASH:=.*/PKG_HASH:=44a660506080cc975e1dfa5776fe5f6315ddc626a77b50bf0eee18b0389ea265/g' feeds/packages/lang/python/python-sqlalchemy/Makefile
 
 # python-simplejson
-sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=3.17.6/g' feeds/packages/lang/python/python-simplejson/Makefile
-sed -i 's/PKG_HASH:=.*/PKG_HASH:=cf98038d2abf63a1ada5730e91e84c642ba6c225b0198c3684151b1f80c5f8a6/g' feeds/packages/lang/python/python-simplejson/Makefile
+sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=3.17.7/g' feeds/packages/lang/python/python-simplejson/Makefile
+sed -i 's/PKG_HASH:=.*/PKG_HASH:=801cfa251ef54b707f16256546f84f4e29156177875838c8f33e2c1527f62b47/g' feeds/packages/lang/python/python-simplejson/Makefile
 
 # python-pyrsistent
 sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=0.18.1/g' feeds/packages/lang/python/python-pyrsistent/Makefile
@@ -662,10 +663,10 @@ sed -i 's/PKG_HASH:=.*/PKG_HASH:=d1f72f474e71bcaaf465dcc7e6f7b6a4705e4b1ed95c581
 #find package/*/ -maxdepth 2 -path "*/Makefile" | xargs -i sed -i 's|include\ \.\.\/\.\.\/devel/meson/meson.mk|include \$(INCLUDE_DIR)\/meson.mk|g' {}
 
 # smartdns
-sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=1.2022.37.1/g' feeds/packages/net/smartdns/Makefile
-sed -i 's/PKG_SOURCE_VERSION:=.*/PKG_SOURCE_VERSION:=96d3deb595eae4f849cb2a51c69a9be89947fa0d/g' feeds/packages/net/smartdns/Makefile
-sed -i 's/PKG_MIRROR_HASH:=.*/PKG_MIRROR_HASH:=8a1b92fec63b9ce4084c7cb2713f7418a54b7713a9f609528fab6c951ef05cfd/g' feeds/packages/net/smartdns/Makefile
-sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=1.2022.37/g' package/luci-app-smartdns/Makefile
+sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=1.2022.37.2/g' feeds/packages/net/smartdns/Makefile
+sed -i 's/PKG_SOURCE_VERSION:=.*/PKG_SOURCE_VERSION:=822f02bab9f1607395ba8f4f113865bd56f99dcf/g' feeds/packages/net/smartdns/Makefile
+sed -i 's/PKG_MIRROR_HASH:=.*/PKG_MIRROR_HASH:=1b5906fd6d052e3079259392d8c90c0b6308e4e7b4245d7e92de1d5728c07602/g' feeds/packages/net/smartdns/Makefile
+sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=1.2022.37.2/g' package/luci-app-smartdns/Makefile
 
 # aliyundrive webdav
 #svn co https://github.com/messense/aliyundrive-webdav/trunk/openwrt/aliyundrive-webdav package/aliyundrive-webdav
@@ -837,8 +838,8 @@ rm -rf package/libs/zlib
 svn co https://github.com/openwrt/openwrt/trunk/package/libs/zlib package/libs/zlib
 
 # tailscale
-#sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=1.28.0/g' feeds/packages/net/tailscale/Makefile
-#sed -i 's/PKG_HASH:=.*/PKG_HASH:=49a301db994a77b793874a39b7e7b7e84a73371e1fa93f9f8675a68a93a7fdb8/g' feeds/packages/net/tailscale/Makefile
+sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=1.30.0/g' feeds/packages/net/tailscale/Makefile
+sed -i 's/PKG_HASH:=.*/PKG_HASH:=30ad1bf2d6ab915da75b2eb659a55ab42c821e49071cdcb23719e2586d6f876e/g' feeds/packages/net/tailscale/Makefile
 
 # ruby
 #sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=3.0.4/g' feeds/packages/lang/ruby/Makefile
