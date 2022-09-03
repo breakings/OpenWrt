@@ -255,7 +255,7 @@ cp -rf $GITHUB_WORKSPACE/general/qttools feeds/packages/libs
 #sed -i 's/PKG_RELEASE:=.*/PKG_RELEASE:=1/g' feeds/packages/utils/dockerd/Makefile
 #sed -i 's/PKG_HASH:=.*/PKG_HASH:=061cf8579aa3c813c353c80fa480744e2f6cca2e6392f546bd0942a6a10c7a14/g' feeds/packages/utils/dockerd/Makefile
 #sed -i 's/PKG_GIT_SHORT_COMMIT:=f756502/PKG_GIT_SHORT_COMMIT:=a89b842/g' feeds/packages/utils/dockerd/Makefile
-#sed -i 's/^\s*$[(]call\sEnsureVendoredVersion/#&/' feeds/packages/utils/dockerd/Makefile
+sed -i 's/^\s*$[(]call\sEnsureVendoredVersion/#&/' feeds/packages/utils/dockerd/Makefile
 
 # docker-compose
 sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=2.10.2/g' feeds/packages/utils/docker-compose/Makefile
@@ -268,9 +268,9 @@ sed -i 's/PKG_HASH:=.*/PKG_HASH:=74c86d544fcfb80bb2d3b58187bd017adb0e62863d22114
 cp -f $GITHUB_WORKSPACE/general/containerd/Makefile feeds/packages/utils/containerd
 
 # runc
-#sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=1.1.3/g' feeds/packages/utils/runc/Makefile
-#sed -i 's/PKG_HASH:=.*/PKG_HASH:=fc1c70e095d662e38a5889bc6de41857762ce022caaf8be2852663198c533a63/g' feeds/packages/utils/runc/Makefile
-#sed -i 's/PKG_SOURCE_VERSION:=.*/PKG_SOURCE_VERSION:=6724737f999df9ee0d8ca5c6d7b81f97adc34374/g' feeds/packages/utils/runc/Makefile
+sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=1.1.4/g' feeds/packages/utils/runc/Makefile
+sed -i 's/PKG_HASH:=.*/PKG_HASH:=4f02077432642eebd768fc857318ae7929290b3a3511eb1be338005e360cfa34/g' feeds/packages/utils/runc/Makefile
+sed -i 's/PKG_SOURCE_VERSION:=.*/PKG_SOURCE_VERSION:=5fd4c4d144137e991c4acebb2146ab1483a97925/g' feeds/packages/utils/runc/Makefile
 #sed -i '12d' feeds/packages/utils/runc/Makefile
 
 # bsdtar
@@ -330,9 +330,8 @@ sed -i 's/PKG_HASH:=.*/PKG_HASH:=4938dd5c1c125f6c78b1f4b3e297526f18ee74aa43d45c2
 # wolfSSL
 #sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=5.4.0-stable/g' package/libs/wolfssl/Makefile
 #sed -i 's/PKG_HASH:=.*/PKG_HASH:=dc36cc19dad197253e5c2ecaa490c7eef579ad448706e55d73d79396e814098b/g' package/libs/wolfssl/Makefile
-#rm -rf package/libs/wolfssl
-#cp -rf $GITHUB_WORKSPACE/general/wolfssl package/libs
-#rm -f package/libs/wolfssl/patches/300*.patch
+rm -rf package/libs/wolfssl
+cp -rf $GITHUB_WORKSPACE/general/wolfssl package/libs
 
 # ustream-ssl
 #sed -i 's/PKG_RELEASE:=.*/PKG_RELEASE:=1/g' package/libs/ustream-ssl/Makefile
@@ -595,9 +594,8 @@ rm -rf feeds/packages/utils/pigz/patches
 #cp -rf $GITHUB_WORKSPACE/general/nano feeds/packages/utils
 
 # dnsproxy
-#rm -rf package/lean/dnsproxy
-#sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=0.39.13/g' package/lean/dnsproxy/Makefile
-#sed -i 's/PKG_HASH:=.*/PKG_HASH:=a6f865dd6970b3c6a3c34adbec6817535d33c48c93f9ab540280433d10c7169b/g' package/lean/dnsproxy/Makefile
+sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=0.44.0/g' feeds/packages/net/dnsproxy/Makefile
+sed -i 's/PKG_HASH:=.*/PKG_HASH:=a9617296fe668296d121baa266bd6beba5582834fce3bf9375d084de683cd664/g' feeds/packages/net/dnsproxy/Makefile
 
 # libnl-tiny
 #sed -i 's/PKG_RELEASE:=.*/PKG_RELEASE:=1/g' package/libs/libnl-tiny/Makefile
