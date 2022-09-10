@@ -516,8 +516,8 @@ sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=0.362/g' feeds/packages/utils/hwdata/Make
 sed -i 's/PKG_HASH:=.*/PKG_HASH:=9e4e5ee09aa10eae88d096d2012f85a7c47b2b19adc1aeb70f97e5b60b6628a6/g' feeds/packages/utils/hwdata/Makefile
 
 # gawk
-sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=5.1.1/g' feeds/packages/utils/gawk/Makefile
-sed -i 's/PKG_HASH:=.*/PKG_HASH:=d87629386e894bbea11a5e00515fc909dc9b7249529dad9e6a3a2c77085f7ea2/g' feeds/packages/utils/gawk/Makefile
+sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=5.2.0/g' feeds/packages/utils/gawk/Makefile
+sed -i 's/PKG_HASH:=.*/PKG_HASH:=e4ddbad1c2ef10e8e815ca80208d0162d4c983e6cca16f925e8418632d639018/g' feeds/packages/utils/gawk/Makefile
 
 # ocserv
 sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=1.1.6/g' feeds/packages/net/ocserv/Makefile
