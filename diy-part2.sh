@@ -663,10 +663,10 @@ sed -i 's/PKG_HASH:=.*/PKG_HASH:=d1f72f474e71bcaaf465dcc7e6f7b6a4705e4b1ed95c581
 #find package/*/ -maxdepth 2 -path "*/Makefile" | xargs -i sed -i 's|include\ \.\.\/\.\.\/devel/meson/meson.mk|include \$(INCLUDE_DIR)\/meson.mk|g' {}
 
 # smartdns
-sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=1.2022.37.2/g' feeds/packages/net/smartdns/Makefile
-sed -i 's/PKG_SOURCE_VERSION:=.*/PKG_SOURCE_VERSION:=822f02bab9f1607395ba8f4f113865bd56f99dcf/g' feeds/packages/net/smartdns/Makefile
-sed -i 's/PKG_MIRROR_HASH:=.*/PKG_MIRROR_HASH:=1b5906fd6d052e3079259392d8c90c0b6308e4e7b4245d7e92de1d5728c07602/g' feeds/packages/net/smartdns/Makefile
-sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=1.2022.37.2/g' package/luci-app-smartdns/Makefile
+sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=1.2022.38/g' feeds/packages/net/smartdns/Makefile
+sed -i 's/PKG_SOURCE_VERSION:=.*/PKG_SOURCE_VERSION:=1991a0b102e891f149647b162897bf4403f8f66c/g' feeds/packages/net/smartdns/Makefile
+sed -i 's/PKG_MIRROR_HASH:=.*/PKG_MIRROR_HASH:=8017fd769d8128af5b54ce7935f4801cc798c6608dd54fa3e3a7d230ec8f1b64/g' feeds/packages/net/smartdns/Makefile
+sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=1.2022.38/g' package/luci-app-smartdns/Makefile
 
 # aliyundrive webdav
 #svn co https://github.com/messense/aliyundrive-webdav/trunk/openwrt/aliyundrive-webdav package/aliyundrive-webdav
