@@ -25,7 +25,7 @@ PKG_LICENSE:=LGPL-2.1
 PKG_LICENSE_FILES:=COPYING
 PKG_CPE_ID:=cpe:/a:qt:qt
 
-HOST_BUILD_DEPENDS:=qtbase/host libxml2/host
+HOST_BUILD_DEPENDS:=qtbase/host
 HOST_BUILD_PARALLEL:=1
 PKG_HOST_ONLY:=1
 
@@ -46,6 +46,7 @@ CMAKE_HOST_OPTIONS+= \
 	-DINPUT_assistant=no \
 	-DINPUT_designer=no \
 	-DINPUT_clang=no \
+	-DINPUT_clangcpp=no \
 	-DINPUT_distancefieldgenerator=no \
 	-DINPUT_kmap2qmap=no \
 	-DINPUT_pixeltool=no \
@@ -53,7 +54,13 @@ CMAKE_HOST_OPTIONS+= \
 	-DINPUT_qev=no \
 	-DINPUT_qtattributionsscanner=no \
 	-DINPUT_qtplugininfo=no \
-	-DINPUT_qtdiag=no
+	-DINPUT_qtdiag=no \
+	-DCMAKE_DISABLE_FIND_PACKAGE_Clang=TRUE \
+	-DCMAKE_DISABLE_FIND_PACKAGE_WrapLibClang=TRUE
+
+define Host/Configure
+	cd $(HOST_BUILD_DIR) && $(STAGING_DIR_HOSTPKG)/bin/qt-configure-module . $(HOST_CONFIGURE_ARGS)
+endef
 
 $(eval $(call BuildPackage,qt6tools))
 $(eval $(call HostBuild))
