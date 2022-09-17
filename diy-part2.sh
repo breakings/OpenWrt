@@ -197,7 +197,7 @@ rm -rf feeds/packages/utils/btrfs-progs/patches
 #sed -i 's/PKG_HASH:=.*/PKG_HASH:=da240744c6cc5953d7c4d298a02a0cf36d2c8897931819f1e6459bd5270a7c5c/g' feeds/packages/net/qBittorrent/Makefile
 #sed -i '41i\		+qt5-sql \\' feeds/packages/net/qBittorrent/Makefile
 #cp -f $GITHUB_WORKSPACE/general/qBittorrent/Makefile feeds/packages/net/qBittorrent
-cp -f $GITHUB_WORKSPACE/general/qBittorrent/Makefile.qt6 feeds/packages/net/qBittorrent/Makefile
+cp -f $GITHUB_WORKSPACE/general/qBittorrent/Makefile feeds/packages/net/qBittorrent/Makefile
 
 # libtorrent-rasterbar_v2
 rm -rf feeds/packages/libs/libtorrent-rasterbar/patches
@@ -216,16 +216,16 @@ sed -i 's/PKG_HASH:=.*/PKG_HASH:=88b54a6d4b9a48cb4d873c7056dcba997ddd5b7be5a2d53
 rm -f feeds/packages/net/curl/patches/100-wolfssl.patch
 
 # Qt5 -qtbase
-#sed -i "s/PKG_BUGFIX:=.*/PKG_BUGFIX:=4/g" feeds/packages/libs/qtbase/Makefile
-#sed -i "s/PKG_HASH:=.*/PKG_HASH:=f93207bbf86663bd7abd16fac91deb4c753c1c133d3ac768fe61464b17ae8a18/g" feeds/packages/libs/qtbase/Makefile
-rm -rf feeds/packages/libs/qtbase
-cp -rf $GITHUB_WORKSPACE/general/qtbase feeds/packages/libs
+sed -i "s/PKG_BUGFIX:=.*/PKG_BUGFIX:=6/g" feeds/packages/libs/qtbase/Makefile
+sed -i "s/PKG_HASH:=.*/PKG_HASH:=396bc6b0d773ac6a7c691a4c3d901999f571e3e7033d7fd6f65e4ef2b6eb7340/g" feeds/packages/libs/qtbase/Makefile
+rm -rf feeds/packages/libs/qtbase/patches
+#cp -rf $GITHUB_WORKSPACE/general/qtbase feeds/packages/libs
 
 # Qt5 -qttools
-#sed -i "s/PKG_BUGFIX:=.*/PKG_BUGFIX:=4/g" feeds/packages/libs/qttools/Makefile
-#sed -i "s/PKG_HASH:=.*/PKG_HASH:=4c5ccf8fdae70f3d4c731419935f456203950f9f4fce325d81b686f05e60b333/g" feeds/packages/libs/qttools/Makefile
-rm -rf feeds/packages/libs/qttools
-cp -rf $GITHUB_WORKSPACE/general/qttools feeds/packages/libs
+sed -i "s/PKG_BUGFIX:=.*/PKG_BUGFIX:=6/g" feeds/packages/libs/qttools/Makefile
+sed -i "s/PKG_HASH:=.*/PKG_HASH:=2c1486ab7e6dad76fb34642cd4f91d533e5dfeec0ee527129c2c2ed4ab283c3b/g" feeds/packages/libs/qttools/Makefile
+#rm -rf feeds/packages/libs/qttools
+#cp -rf $GITHUB_WORKSPACE/general/qttools feeds/packages/libs
 
 #fix speedtest-cli
 #sed -i "s/PKG_VERSION:=.*/PKG_VERSION:=2.1.3/g" feeds/packages/lang/python/python3-speedtest-cli/Makefile
@@ -427,8 +427,8 @@ sed -i 's/PYPI_SOURCE_EXT:=.*/PYPI_SOURCE_EXT:=tar.gz/g' feeds/packages/lang/pyt
 sed -i 's/PKG_HASH:=.*/PKG_HASH:=0f7569a4a6ff151958b64304071d370daa3243d15941a7beedf0c9fe5105603e/g' feeds/packages/lang/python/python-dns/Makefile
 
 # python-certifi
-sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=2022.6.15/g' feeds/packages/lang/python/python-certifi/Makefile
-sed -i 's/PKG_HASH:=.*/PKG_HASH:=84c85a9078b11105f04f3036a9482ae10e4621616db313fe045dd24743a0820d/g' feeds/packages/lang/python/python-certifi/Makefile
+sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=2022.9.14/g' feeds/packages/lang/python/python-certifi/Makefile
+sed -i 's/PKG_HASH:=.*/PKG_HASH:=36973885b9542e6bd01dea287b2b4b3b21236307c56324fcc3f1160f2d655ed5/g' feeds/packages/lang/python/python-certifi/Makefile
 
 # bcrypt
 sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=3.2.2/g' feeds/packages/lang/python/bcrypt/Makefile
@@ -642,8 +642,8 @@ sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=1.14.12/g' feeds/packages/libs/libupnp/Ma
 sed -i 's/PKG_HASH:=.*/PKG_HASH:=091c80aada1e939c2294245c122be2f5e337cc932af7f7d40504751680b5b5ac/g' feeds/packages/libs/libupnp/Makefile
 
 # file
-sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=5.42/g' feeds/packages/libs/file/Makefile
-sed -i 's/PKG_HASH:=.*/PKG_HASH:=c076fb4d029c74073f15c43361ef572cfb868407d347190ba834af3b1639b0e4/g' feeds/packages/libs/file/Makefile
+sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=5.43/g' feeds/packages/libs/file/Makefile
+sed -i 's/PKG_HASH:=.*/PKG_HASH:=8c8015e91ae0e8d0321d94c78239892ef9dbc70c4ade0008c0e95894abfb1991/g' feeds/packages/libs/file/Makefile
 
 # ariang
 #rm -rf feeds/packages/net/ariang
@@ -838,8 +838,8 @@ rm -rf package/libs/zlib
 svn co https://github.com/openwrt/openwrt/trunk/package/libs/zlib package/libs/zlib
 
 # tailscale
-sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=1.30.1/g' feeds/packages/net/tailscale/Makefile
-sed -i 's/PKG_HASH:=.*/PKG_HASH:=afe563ad86b4c788e8b107f9d14ffb0611d920740a0cbda87970f1c1bb850a06/g' feeds/packages/net/tailscale/Makefile
+sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=1.30.2/g' feeds/packages/net/tailscale/Makefile
+sed -i 's/PKG_HASH:=.*/PKG_HASH:=4e5ee37ae734b8312153d4f8da340295e9a6a455e3f3943a62199b16d89c8bb5/g' feeds/packages/net/tailscale/Makefile
 
 # ruby
 #sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=3.0.4/g' feeds/packages/lang/ruby/Makefile
