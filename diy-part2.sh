@@ -187,8 +187,8 @@ sed -i "s|s9xxx_lede|ARMv8|g" package/luci-app-amlogic/root/etc/config/amlogic
 #sed -i "s|.img.gz|..OPENWRT_SUFFIX|g" package/luci-app-amlogic/root/etc/config/amlogic
 
 # btrfs-progs
-sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=5.19/g' feeds/packages/utils/btrfs-progs/Makefile
-sed -i 's/PKG_HASH:=.*/PKG_HASH:=1fbcf06e4b2f80e7a127fd687ed4625a5b74fa674fe212c836ff70e0edfcccf9/g' feeds/packages/utils/btrfs-progs/Makefile
+sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=5.19.1/g' feeds/packages/utils/btrfs-progs/Makefile
+sed -i 's/PKG_HASH:=.*/PKG_HASH:=26429e540343ccc7f5d4b3f8f42b916713280e898c5471da705026ef6d2c10a6/g' feeds/packages/utils/btrfs-progs/Makefile
 rm -rf feeds/packages/utils/btrfs-progs/patches
 #sed -i '68i\	--disable-libudev \\' feeds/packages/utils/btrfs-progs/Makefile
 
@@ -211,9 +211,9 @@ sed -i 's/PKG_HASH:=.*/PKG_HASH:=27871baa490f3401414ad793fba49086f6c855b1c584385
 #cp -rf $GITHUB_WORKSPACE/general/golang feeds/packages/lang/golang
 
 # curl
-sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=7.85.0/g' feeds/packages/net/curl/Makefile
-sed -i 's/PKG_HASH:=.*/PKG_HASH:=88b54a6d4b9a48cb4d873c7056dcba997ddd5b7be5a2d537a4acb55c20b04be6/g' feeds/packages/net/curl/Makefile
-rm -f feeds/packages/net/curl/patches/100-wolfssl.patch
+#sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=7.85.0/g' feeds/packages/net/curl/Makefile
+#sed -i 's/PKG_HASH:=.*/PKG_HASH:=88b54a6d4b9a48cb4d873c7056dcba997ddd5b7be5a2d537a4acb55c20b04be6/g' feeds/packages/net/curl/Makefile
+#rm -f feeds/packages/net/curl/patches/100-wolfssl.patch
 
 # Qt5 -qtbase
 sed -i "s/PKG_BUGFIX:=.*/PKG_BUGFIX:=6/g" feeds/packages/libs/qtbase/Makefile
@@ -283,9 +283,9 @@ sed -i 's/PKG_RELEASE:=.*/PKG_RELEASE:=1/g' package/libs/pcre/Makefile
 sed -i 's/PKG_HASH:=.*/PKG_HASH:=4dae6fdcd2bb0bb6c37b5f97c33c2be954da743985369cddac3546e3218bffb8/g' package/libs/pcre/Makefile
 
 # pcre2
-#sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=10.40/g' feeds/packages/libs/pcre2/Makefile
-#sed -i 's|PKG_SOURCE_URL:=.*|PKG_SOURCE_URL:=https://github.com/PCRE2Project/pcre2/releases/download/$(PKG_NAME)-$(PKG_VERSION)|g' feeds/packages/libs/pcre2/Makefile
-#sed -i 's/PKG_HASH:=.*/PKG_HASH:=14e4b83c4783933dc17e964318e6324f7cae1bc75d8f3c79bc6969f00c159d68/g' feeds/packages/libs/pcre2/Makefile
+sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=10.40/g' feeds/packages/libs/pcre2/Makefile
+sed -i 's|PKG_SOURCE_URL:=.*|PKG_SOURCE_URL:=https://github.com/PCRE2Project/pcre2/releases/download/$(PKG_NAME)-$(PKG_VERSION)|g' feeds/packages/libs/pcre2/Makefile
+sed -i 's/PKG_HASH:=.*/PKG_HASH:=14e4b83c4783933dc17e964318e6324f7cae1bc75d8f3c79bc6969f00c159d68/g' feeds/packages/libs/pcre2/Makefile
 #sed -i '58i\	-DPCRE2_SUPPORT_UNICODE=ON \\' feeds/packages/libs/pcre2/Makefile
 
 # libseccomp
@@ -664,7 +664,7 @@ sed -i 's/PKG_HASH:=.*/PKG_HASH:=d1f72f474e71bcaaf465dcc7e6f7b6a4705e4b1ed95c581
 
 # smartdns
 sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=1.2022.38/g' feeds/packages/net/smartdns/Makefile
-sed -i 's/PKG_SOURCE_VERSION:=.*/PKG_SOURCE_VERSION:=1991a0b102e891f149647b162897bf4403f8f66c/g' feeds/packages/net/smartdns/Makefile
+sed -i 's/PKG_SOURCE_VERSION:=.*/PKG_SOURCE_VERSION:=33ead3afbdf7d2bcf124da6cb48d46124703a7b2/g' feeds/packages/net/smartdns/Makefile
 sed -i 's/PKG_MIRROR_HASH:=.*/PKG_MIRROR_HASH:=8017fd769d8128af5b54ce7935f4801cc798c6608dd54fa3e3a7d230ec8f1b64/g' feeds/packages/net/smartdns/Makefile
 sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=1.2022.38/g' package/luci-app-smartdns/Makefile
 
@@ -910,9 +910,12 @@ sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=8.1.3/g' feeds/packages/lang/python/click
 sed -i 's/PKG_HASH:=.*/PKG_HASH:=7682dc8afb30297001674575ea00d1814d808d6a36af415a82bd481d37ba7b8e/g' feeds/packages/lang/python/click/Makefile
 
 # rsync
-sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=3.2.6/g' feeds/packages/net/rsync/Makefile
-sed -i 's/PKG_HASH:=.*/PKG_HASH:=fb3365bab27837d41feaf42e967c57bd3a47bc8f10765a3671efd6a3835454d3/g' feeds/packages/net/rsync/Makefile
+#sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=3.2.6/g' feeds/packages/net/rsync/Makefile
+#sed -i 's/PKG_HASH:=.*/PKG_HASH:=fb3365bab27837d41feaf42e967c57bd3a47bc8f10765a3671efd6a3835454d3/g' feeds/packages/net/rsync/Makefile
 
+# python-jsonschema
+rm -rf feeds/packages/lang/python/python-jsonschema
+svn co https://github.com/openwrt/packages/trunk/lang/python/python-jsonschema feeds/packages/lang/python/python-jsonschema
 
 ./scripts/feeds update -a
 ./scripts/feeds install -a
