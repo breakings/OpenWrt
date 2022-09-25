@@ -258,8 +258,8 @@ sed -i "s/PKG_HASH:=.*/PKG_HASH:=2c1486ab7e6dad76fb34642cd4f91d533e5dfeec0ee5271
 #sed -i 's/^\s*$[(]call\sEnsureVendoredVersion/#&/' feeds/packages/utils/dockerd/Makefile
 
 # docker-compose
-sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=2.11.0/g' feeds/packages/utils/docker-compose/Makefile
-sed -i 's/PKG_HASH:=.*/PKG_HASH:=fe01c85ad31767c22d5f6ea24e6809f5b675c9253d534138ee4095428dfcb96a/g' feeds/packages/utils/docker-compose/Makefile
+sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=2.11.1/g' feeds/packages/utils/docker-compose/Makefile
+sed -i 's/PKG_HASH:=.*/PKG_HASH:=16c5fa92bdabc1f39526e40319c0975e37246bc87a873c92bf960fece47e2c3e/g' feeds/packages/utils/docker-compose/Makefile
 
 # containerd
 #sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=1.5.11/g' feeds/packages/utils/containerd/Makefile
@@ -800,7 +800,7 @@ sed -i 's/PKG_HASH:=.*/PKG_HASH:=c4d91be36fc8e54deae7575241e03f4211eb102afb3fc07
 #sed -i 's/PKG_HASH:=.*/PKG_HASH:=a544f8808d0c58cfb0e7424ca1841cb858a974922b035d505d4e4c248be3a22b/g' feeds/packages/utils/smartmontools/Makefile
 
 # libxml2
-#cp -f $GITHUB_WORKSPACE/general/libxml2/Makefile feeds/packages/libs/libxml2
+cp -f $GITHUB_WORKSPACE/general/libxml2/Makefile feeds/packages/libs/libxml2
 
 # sqlite3
 #sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=3380500/g' feeds/packages/libs/sqlite3/Makefile
@@ -810,7 +810,7 @@ sed -i 's/PKG_HASH:=.*/PKG_HASH:=c4d91be36fc8e54deae7575241e03f4211eb102afb3fc07
 cp -rf $GITHUB_WORKSPACE/general/sqlite3 feeds/packages/libs
 
 # zoneinfo
-#cp -f $GITHUB_WORKSPACE/general/zoneinfo/Makefile feeds/packages/utils/zoneinfo
+cp -f $GITHUB_WORKSPACE/general/zoneinfo/Makefile feeds/packages/utils/zoneinfo
 
 # adguardhome
 #sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=0.107.5/g' feeds/packages/net/adguardhome/Makefile
@@ -824,10 +824,10 @@ cp -rf $GITHUB_WORKSPACE/general/sqlite3 feeds/packages/libs
 #cp -f $GITHUB_WORKSPACE/general/verysync feeds/luci/applications/luci-app-verysync/root/etc/init.d
 
 # haproxy
-sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=2.6.5/g' feeds/packages/net/haproxy/Makefile
+sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=2.6.6/g' feeds/packages/net/haproxy/Makefile
 sed -i 's/PKG_RELEASE:=.*/PKG_RELEASE:=1/g' feeds/packages/net/haproxy/Makefile
-sed -i 's/PKG_HASH:=.*/PKG_HASH:=ce9e19ebfcdd43e51af8a6090f1df8d512d972ddf742fa648a643bbb19056605/g' feeds/packages/net/haproxy/Makefile
-sed -i 's/BASE_TAG:=.*/BASE_TAG=v2.6.5/g' feeds/packages/net/haproxy/get-latest-patches.sh
+sed -i 's/PKG_HASH:=.*/PKG_HASH:=d0c80c90c04ae79598b58b9749d53787f00f7b515175e7d8203f2796e6a6594d/g' feeds/packages/net/haproxy/Makefile
+sed -i 's/BASE_TAG:=.*/BASE_TAG=v2.6.6/g' feeds/packages/net/haproxy/get-latest-patches.sh
 
 # perl
 rm -rf feeds/packages/lang/perl
@@ -869,8 +869,8 @@ sed -i 's/PKG_HASH:=.*/PKG_HASH:=e9faa0fbcc48638c1d1f143e93573ac43b65e76646150f8
 #cp -rf $GITHUB_WORKSPACE/general/iptables package/network/utils
 
 # nghttp2
-sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=1.49.0/g' feeds/packages/libs/nghttp2/Makefile
-sed -i 's/PKG_HASH:=.*/PKG_HASH:=b0cfd492bbf0b131c472e8f6501c9f4ee82b51b68130f47b278c0b7c9848a66e/g' feeds/packages/libs/nghttp2/Makefile
+sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=1.50.0/g' feeds/packages/libs/nghttp2/Makefile
+sed -i 's/PKG_HASH:=.*/PKG_HASH:=af24007e34c18c782393a1dc3685f8fd5b50283e90a9191d25488eb50aa2c825/g' feeds/packages/libs/nghttp2/Makefile
 
 # libiconv-full
 sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=1.17/g' package/libs/libiconv-full/Makefile
