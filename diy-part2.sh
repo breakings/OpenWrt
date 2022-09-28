@@ -898,8 +898,8 @@ sed -i 's/PKG_RELEASE:=.*/PKG_RELEASE:=1/g' feeds/packages/utils/xz/Makefile
 sed -i 's/PKG_HASH:=.*/PKG_HASH:=e076ba3439cb7cfc45b908c869f51a8c89f3c9ee9ee982fde28849c015e723a7/g' feeds/packages/utils/xz/Makefile
 
 # vim
-rm -rf feeds/packages/utils/vim
-cp -rf $GITHUB_WORKSPACE/general/vim feeds/packages/utils
+#rm -rf feeds/packages/utils/vim
+#cp -rf $GITHUB_WORKSPACE/general/vim feeds/packages/utils
 
 # python-packaging
 sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=21.3/g' feeds/packages/lang/python/python-packaging/Makefile
@@ -916,6 +916,9 @@ sed -i 's/PKG_HASH:=.*/PKG_HASH:=7682dc8afb30297001674575ea00d1814d808d6a36af415
 # python-jsonschema
 rm -rf feeds/packages/lang/python/python-jsonschema
 svn co https://github.com/openwrt/packages/trunk/lang/python/python-jsonschema feeds/packages/lang/python/python-jsonschema
+
+# jd
+sed -i 's/PKG_HASH:=.*/PKG_HASH:=5de8c8e29aaa3fb9cc6b47bb27299f271354ebb72514e3accadc7d38b5bbaa72/g' feeds/packages/utils/jd/Makefile
 
 ./scripts/feeds update -a
 ./scripts/feeds install -a
