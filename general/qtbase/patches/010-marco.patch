@@ -1,6 +1,6 @@
 --- a/src/corelib/plugin/qelfparser_p.cpp
 +++ b/src/corelib/plugin/qelfparser_p.cpp
-@@ -408,7 +408,9 @@
+@@ -374,7 +374,9 @@
      // list definitely not exhaustive!
      case EM_NONE:       d << ", no machine"; break;
      case EM_ARM:        d << ", ARM"; break;

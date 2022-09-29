@@ -8,8 +8,8 @@
 include $(TOPDIR)/rules.mk
 
 PKG_NAME:=qt6base
-PKG_BASE:=6.3
-PKG_BUGFIX:=2
+PKG_BASE:=6.4
+PKG_BUGFIX:=0
 PKG_VERSION:=$(PKG_BASE).$(PKG_BUGFIX)
 PKG_RELEASE:=$(AUTORELEASE)
 
@@ -17,7 +17,7 @@ PKG_SOURCE:=qtbase-everywhere-src-$(PKG_VERSION).tar.xz
 PKG_SOURCE_URL:=https://mirrors.tencent.com/qt/archive/qt/$(PKG_BASE)/$(PKG_VERSION)/submodules/ \
 		  https://mirrors.aliyun.com/qt/archive/qt/$(PKG_BASE)/$(PKG_VERSION)/submodules/ \
 		  http://download.qt-project.org/archive/qt/$(PKG_BASE)/$(PKG_VERSION)/submodules/
-PKG_HASH:=7929ba4df870b6b30870bc0aed2525cfc606ed7091107b23cf7ed7e434caa9a6
+PKG_HASH:=cb6475a0bd8567c49f7ffbb072a05516ee6671171bed55db75b22b94ead9b37d
 
 HOST_BUILD_DIR:=$(BUILD_DIR_HOST)/qtbase-everywhere-src-$(PKG_VERSION)
 PKG_BUILD_DIR:=$(BUILD_DIR)/qtbase-everywhere-src-$(PKG_VERSION)
@@ -55,7 +55,6 @@ endef
 define Package/libQt6/install
 endef
 
-TARGET_CFLAGS+= -I$(STAGING_DIR)/usr/include/libdrm
 ifdef CONFIG_USE_GLIBC
   ifeq ($(ARCH),x86_64)
     TARGET_LDFLAGS += -Wl,--sysroot=$(TOOLCHAIN_DIR)
@@ -70,7 +69,6 @@ CMAKE_SHARED_LDFLAGS:=$(filter-out -Wl$(comma)-Bsymbolic-functions,$(CMAKE_SHARE
 CMAKE_HOST_OPTIONS+= \
 	-DBUILD_SHARED_LIBS=OFF \
 	-DFEATURE_optimize_full=ON \
-	-DFEATURE_glib=OFF \
 	-DFEATURE_zstd=OFF \
 	-DFEATURE_concurrent=OFF \
 	-DFEATURE_dbus=ON \
@@ -87,6 +85,7 @@ CMAKE_OPTIONS+= \
 	-DQT_HOST_PATH=$(STAGING_DIR_HOSTPKG) \
 	-DINSTALL_PLUGINSDIR=/usr/lib/qt6plugins \
 	-DQT_QMAKE_TARGET_MKSPEC=devices/linux-generic-g++ \
+	-DQT_QMAKE_DEVICE_OPTIONS=CROSS_COMPILE="$(TARGET_CROSS);COMPILER_FLAGS=$(TARGET_CFLAGS) $(EXTRA_CFLAGS) $(TARGET_CPPFLAGS) $(EXTRA_CPPFLAGS);LINKER_FLAGS=$(TARGET_LDFLAGS) $(EXTRA_LDFLAGS)" \
 	-DQT_BUILD_EXAMPLES=OFF \
 	-DQT_BUILD_TESTS=OFF \
 	-DQT_BUILD_TOOLS_WHEN_CROSSCOMPILING=OFF \

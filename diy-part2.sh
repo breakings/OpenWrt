@@ -197,7 +197,7 @@ rm -rf feeds/packages/utils/btrfs-progs/patches
 #sed -i 's/PKG_HASH:=.*/PKG_HASH:=da240744c6cc5953d7c4d298a02a0cf36d2c8897931819f1e6459bd5270a7c5c/g' feeds/packages/net/qBittorrent/Makefile
 #sed -i '41i\		+qt5-sql \\' feeds/packages/net/qBittorrent/Makefile
 #cp -f $GITHUB_WORKSPACE/general/qBittorrent/Makefile feeds/packages/net/qBittorrent
-cp -f $GITHUB_WORKSPACE/general/qBittorrent/Makefile feeds/packages/net/qBittorrent/Makefile
+cp -f $GITHUB_WORKSPACE/general/qBittorrent/Makefile.qt6 feeds/packages/net/qBittorrent/Makefile
 
 # libtorrent-rasterbar_v2
 rm -rf feeds/packages/libs/libtorrent-rasterbar/patches
@@ -216,16 +216,16 @@ sed -i 's/PKG_HASH:=.*/PKG_HASH:=27871baa490f3401414ad793fba49086f6c855b1c584385
 #rm -f feeds/packages/net/curl/patches/100-wolfssl.patch
 
 # Qt5 -qtbase
-sed -i "s/PKG_BUGFIX:=.*/PKG_BUGFIX:=6/g" feeds/packages/libs/qtbase/Makefile
-sed -i "s/PKG_HASH:=.*/PKG_HASH:=396bc6b0d773ac6a7c691a4c3d901999f571e3e7033d7fd6f65e4ef2b6eb7340/g" feeds/packages/libs/qtbase/Makefile
-rm -rf feeds/packages/libs/qtbase/patches
-#cp -rf $GITHUB_WORKSPACE/general/qtbase feeds/packages/libs
+#sed -i "s/PKG_BUGFIX:=.*/PKG_BUGFIX:=6/g" feeds/packages/libs/qtbase/Makefile
+#sed -i "s/PKG_HASH:=.*/PKG_HASH:=396bc6b0d773ac6a7c691a4c3d901999f571e3e7033d7fd6f65e4ef2b6eb7340/g" feeds/packages/libs/qtbase/Makefile
+rm -rf feeds/packages/libs/qtbase
+cp -rf $GITHUB_WORKSPACE/general/qtbase feeds/packages/libs
 
 # Qt5 -qttools
-sed -i "s/PKG_BUGFIX:=.*/PKG_BUGFIX:=6/g" feeds/packages/libs/qttools/Makefile
-sed -i "s/PKG_HASH:=.*/PKG_HASH:=2c1486ab7e6dad76fb34642cd4f91d533e5dfeec0ee527129c2c2ed4ab283c3b/g" feeds/packages/libs/qttools/Makefile
-#rm -rf feeds/packages/libs/qttools
-#cp -rf $GITHUB_WORKSPACE/general/qttools feeds/packages/libs
+#sed -i "s/PKG_BUGFIX:=.*/PKG_BUGFIX:=6/g" feeds/packages/libs/qttools/Makefile
+#sed -i "s/PKG_HASH:=.*/PKG_HASH:=2c1486ab7e6dad76fb34642cd4f91d533e5dfeec0ee527129c2c2ed4ab283c3b/g" feeds/packages/libs/qttools/Makefile
+rm -rf feeds/packages/libs/qttools
+cp -rf $GITHUB_WORKSPACE/general/qttools feeds/packages/libs
 
 #fix speedtest-cli
 #sed -i "s/PKG_VERSION:=.*/PKG_VERSION:=2.1.3/g" feeds/packages/lang/python/python3-speedtest-cli/Makefile
