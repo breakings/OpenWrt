@@ -1,0 +1,5 @@
+29b5ee59b266de7fd93f21568e6afb437daf19582eb03e5d9b2b218bfead20f8  boot-5.15.72-flippy-77+o.tar.gz
+53cc22123eb12461a3960a889e8484237cea379bb0f387aae84d4c031b2650d9  dtb-allwinner-5.15.72-flippy-77+o.tar.gz
+dca1e9fc44efe6080a54bc465b55ff880e8a7af9da02cba0ffaa8b00d934b4fc  dtb-amlogic-5.15.72-flippy-77+o.tar.gz
+79ddfa5a320ea5fe19565a838b6fb3e9fab239e3f9fef7e2c94b7ff6e1e6531b  dtb-rockchip-5.15.72-flippy-77+o.tar.gz
+c50e582c0766382a9a4b7f4a3a245fdfb538e370ba59fa9a7a7bafd00e528782  modules-5.15.72-flippy-77+o.tar.gz
