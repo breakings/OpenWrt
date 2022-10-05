@@ -25,7 +25,7 @@ PKG_LICENSE:=LGPL-2.1
 PKG_LICENSE_FILES:=COPYING
 PKG_CPE_ID:=cpe:/a:qt:qt
 
-HOST_BUILD_DEPENDS:=qt6base/host libxml2/host
+HOST_BUILD_DEPENDS:=qt6base/host
 HOST_BUILD_PARALLEL:=1
 PKG_HOST_ONLY:=1
 
@@ -39,7 +39,7 @@ define Package/qt6tools
   SUBMENU:=Qt6
   TITLE:=Qt6 Tools
   URL:=http://qt-project.org
-  HIDDEN:=1
+  BUILDONLY:=1
 endef
 
 CMAKE_HOST_OPTIONS+= \
