@@ -772,8 +772,8 @@ sed -i 's/PKG_HASH:=.*/PKG_HASH:=c4d91be36fc8e54deae7575241e03f4211eb102afb3fc07
 #cp -r $GITHUB_WORKSPACE/general/coreutils feeds/packages/utils
 
 # frp
-#sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=0.44.0/g' feeds/packages/net/frp/Makefile
-#sed -i 's/PKG_HASH:=.*/PKG_HASH:=51a908c12ddf5cab0f3223f09ba7b8ff0890075d399fd2b51839abcf57b9d159/g' feeds/packages/net/frp/Makefile
+sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=0.45.0/g' feeds/packages/net/frp/Makefile
+sed -i 's/PKG_HASH:=.*/PKG_HASH:=829cf9f14861ab1b074de6995282f30292f53513824372cfec4084a2e8de7123/g' feeds/packages/net/frp/Makefile
 
 # openconnect
 #sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=8.20/g' feeds/packages/net/openconnect/Makefile
