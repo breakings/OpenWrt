@@ -180,7 +180,7 @@ svn co https://github.com/openwrt/packages/trunk/net/samba4 feeds/packages/net/s
 #sed -i 's/PKG_HASH:=.*/PKG_HASH:=95bf3ff8c496511e71e958fb249e663c8c9c3de583c5bebc0f5a9745abbc0435/g' feeds/packages/multimedia/ffmpeg/Makefile
 #rm -f feeds/packages/multimedia/ffmpeg/patches/030-h264-mips.patch
 #rm -rf feeds/packages/multimedia/ffmpeg
-#cp -rf $GITHUB_WORKSPACE/general/ffmpeg feeds/packages/multimedia
+cp -rf $GITHUB_WORKSPACE/general/ffmpeg feeds/packages/multimedia
 
 # 晶晨宝盒
 sed -i "s|https.*/amlogic-s9xxx-openwrt|https://github.com/breakings/OpenWrt|g" package/luci-app-amlogic/root/etc/config/amlogic
