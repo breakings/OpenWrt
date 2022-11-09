@@ -139,11 +139,11 @@ jobs:
         echo "FILE_DATE=_$(date +"%Y%m%d%H%M")" >> $GITHUB_ENV
 
     - name: Clean up server space
-        if: ${{ steps.compile.outputs.status }} == 'success' && !cancelled()
-        run: |
-          cd openwrt/
-          rm -rf $(ls . | grep -v "^bin$" | xargs) 2>/dev/null
-          df -hT ${PWD}
+      if: steps.compile.outputs.status == 'success' && !cancelled()
+      run: |
+        cd openwrt/
+        rm -rf $(ls . | grep -v "^bin$" | xargs) 2>/dev/null
+        df -hT ${PWD}
 
     - name: Upload bin directory
       uses: actions/upload-artifact@main
