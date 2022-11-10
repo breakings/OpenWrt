@@ -76,7 +76,7 @@ jobs:
         sudo timedatectl set-timezone "$TZ"
         sudo mkdir -p /workdir
         sudo chown $USER:$GROUPS /workdir
-        echo "status=success" >> ${GITHUB_OUTPUT
+        echo "status=success" >> ${GITHUB_OUTPUT}
         df -Th
 
     - name: Clone source code
