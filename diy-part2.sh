@@ -107,7 +107,7 @@ git clone https://github.com/tty228/luci-app-serverchan.git package/luci-app-ser
 svn co https://github.com/fw876/helloworld/trunk/luci-app-ssr-plus package/luci-app-ssr-plus
 #svn co https://github.com/fw876/helloworld/trunk/naiveproxy package/naiveproxy
 svn co https://github.com/xiaorouji/openwrt-passwall/trunk/naiveproxy package/naiveproxy
-git clone https://github.com/semigodking/redsocks.git package/redsocks2
+svn co https://github.com/fw876/helloworld/trunk/redsocks2 package/redsocks2
 svn co https://github.com/rufengsuixing/luci-app-adguardhome/trunk package/luci-app-adguardhome
 svn co https://github.com/Lienol/openwrt-package/trunk/luci-app-filebrowser package/luci-app-filebrowser
 svn co https://github.com/Lienol/openwrt-package/trunk/luci-app-ssr-mudb-server package/luci-app-ssr-mudb-server
@@ -652,8 +652,8 @@ sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=5.43/g' feeds/packages/libs/file/Makefile
 sed -i 's/PKG_HASH:=.*/PKG_HASH:=8c8015e91ae0e8d0321d94c78239892ef9dbc70c4ade0008c0e95894abfb1991/g' feeds/packages/libs/file/Makefile
 
 # ariang
-#rm -rf feeds/packages/net/ariang
-#svn co https://github.com/openwrt/packages/trunk/net/ariang feeds/packages/net/ariang
+sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=1.3.2/g' feeds/packages/net/ariang
+sed -i 's/PKG_HASH:=.*/PKG_HASH:=2186dacf57c9d1650e00084c0454f2227e910f3203d89c6190f547b40cac7243/g' feeds/packages/net/ariang
 
 # nginx
 sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=1.21.4/g' feeds/packages/net/nginx/Makefile
@@ -712,8 +712,8 @@ sed -i 's/services/vpn/g'  feeds/luci/applications/luci-app-openvpn/luasrc/view/
 # NaïveProxy
 #sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=98.0.4758.80-2/g' package/naiveproxy/Makefile
 #sed -i 's/PKG_HASH:=.*/PKG_HASH:=687a1c43f5bff61b2c1857d65031a5234af358053cf00e20911b75b073e55df4/g' package/naiveproxy/Makefile
-#rm -rf package/naiveproxy/patches
-#cp -rf $GITHUB_WORKSPACE/general/naiveproxy package/naiveproxy
+rm -rf package/naiveproxy
+cp -rf $GITHUB_WORKSPACE/general/naiveproxy package/naiveproxy
 
 #fix ntfs3 generating empty package
 #sed -i 's/KCONFIG:=CONFIG_NLS_DEFAULT="utf8"/#KCONFIG:=CONFIG_NLS_DEFAULT="utf8"/'g package/lean/ntfs3/Makefile
@@ -826,8 +826,9 @@ cp -rf $GITHUB_WORKSPACE/general/sqlite3 feeds/packages/libs
 #sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=3.12/g' feeds/packages/net/iperf3/Makefile
 #sed -i 's/PKG_HASH:=.*/PKG_HASH:=72034ecfb6a7d6d67e384e19fb6efff3236ca4f7ed4c518d7db649c447e1ffd6/g' feeds/packages/net/iperf3/Makefile
 
-# fix luci-app-verysync not working
-#cp -f $GITHUB_WORKSPACE/general/verysync feeds/luci/applications/luci-app-verysync/root/etc/init.d
+# verysync
+rm -rf feeds/packages/net/verysync
+svn co https://github.com/immortalwrt/packages/trunk/net/verysync feeds/packages/net/verysync
 
 # haproxy
 #sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=2.6.6/g' feeds/packages/net/haproxy/Makefile
@@ -853,9 +854,9 @@ sed -i 's/PKG_HASH:=.*/PKG_HASH:=46ad6de7a4c712497b5886bcb7ca8347239e2aaf8c58432
 #sed -i 's/PKG_HASH:=.*/PKG_HASH:=8e22fc7304520435522253210ed0aa9a50545f8f13c959fe01a05aea06bef2f0/g' feeds/packages/lang/ruby/Makefile
 
 # libnetfilter-conntrack
-sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=1.0.9/g' package/libs/libnetfilter-conntrack/Makefile
-sed -i 's/PKG_HASH:=.*/PKG_HASH:=67bd9df49fe34e8b82144f6dfb93b320f384a8ea59727e92ff8d18b5f4b579a8/g' package/libs/libnetfilter-conntrack/Makefile
-cp -rf $GITHUB_WORKSPACE/general/libnetfilter-conntrack/patches package/libs/libnetfilter-conntrack
+#sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=1.0.9/g' package/libs/libnetfilter-conntrack/Makefile
+#sed -i 's/PKG_HASH:=.*/PKG_HASH:=67bd9df49fe34e8b82144f6dfb93b320f384a8ea59727e92ff8d18b5f4b579a8/g' package/libs/libnetfilter-conntrack/Makefile
+#cp -rf $GITHUB_WORKSPACE/general/libnetfilter-conntrack/patches package/libs/libnetfilter-conntrack
 
 # util-linux
 rm -rf package/utils/util-linux
@@ -899,9 +900,9 @@ sed -i 's/PKG_HASH:=.*/PKG_HASH:=0e3c3ab9378db84ba0f37073d67ba125ae4f2ff8daf366c
 #sed -i 's/PKG_HASH:=.*/PKG_HASH:=47ac6e60271aa0196e65472d02d019556dc7c6d09df3b65df2c1ab6866348e3b/g' feeds/packages/net/lighttpd/Makefile
 
 # xz
-#sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=5.2.7/g' feeds/packages/utils/xz/Makefile
+sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=5.2.8/g' feeds/packages/utils/xz/Makefile
 #sed -i 's/PKG_RELEASE:=.*/PKG_RELEASE:=1/g' feeds/packages/utils/xz/Makefile
-#sed -i 's/PKG_HASH:=.*/PKG_HASH:=8712e9acb0b6b49a97d443458a3067dc5c08a025e02dc5f773176c51dd7cfc69/g' feeds/packages/utils/xz/Makefile
+sed -i 's/PKG_HASH:=.*/PKG_HASH:=2424b2711b1d40d2129645d550363896c6853c97528f085f7765092fe68679d4/g' feeds/packages/utils/xz/Makefile
 
 # vim
 rm -rf feeds/packages/utils/vim
@@ -923,8 +924,11 @@ sed -i 's/PKG_HASH:=.*/PKG_HASH:=7682dc8afb30297001674575ea00d1814d808d6a36af415
 sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=4.17.0/g' feeds/packages/lang/python/python-jsonschema/Makefile
 sed -i 's/PKG_HASH:=.*/PKG_HASH:=5bfcf2bca16a087ade17e02b282d34af7ccd749ef76241e7f9bd7c0cb8a9424d/g' feeds/packages/lang/python/python-jsonschema/Makefile
 
-# jd
-#sed -i 's/PKG_HASH:=.*/PKG_HASH:=5de8c8e29aaa3fb9cc6b47bb27299f271354ebb72514e3accadc7d38b5bbaa72/g' feeds/packages/utils/jd/Makefile
+# ttyd
+sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=1.7.2/g' feeds/packages/utils/ttyd/Makefile
+sed -i 's/PKG_RELEASE:=.*/PKG_RELEASE:=1/g' feeds/packages/utils/ttyd/Makefile
+sed -i 's/PKG_HASH:=.*/PKG_HASH:=edc44cd5319c0c9d0858081496cae36fc5c54ee7722e0a547dde39537dfb63de/g' feeds/packages/utils/ttyd/Makefile
+rm -f feeds/packages/utils/ttyd/patches/090*.patch
 
 ./scripts/feeds update -a
 ./scripts/feeds install -a
