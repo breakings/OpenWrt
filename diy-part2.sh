@@ -261,8 +261,8 @@ sed -i 's/PKG_GIT_SHORT_COMMIT:=a89b842/PKG_GIT_SHORT_COMMIT:=3056208/g' feeds/p
 #sed -i 's/^\s*$[(]call\sEnsureVendoredVersion/#&/' feeds/packages/utils/dockerd/Makefile
 
 # docker-compose
-sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=2.13.0/g' feeds/packages/utils/docker-compose/Makefile
-sed -i 's/PKG_HASH:=.*/PKG_HASH:=b24ca9b04ad511412af6595a7c3d6a3c119c920b7429545b4e6f70be07523007/g' feeds/packages/utils/docker-compose/Makefile
+sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=2.14.0/g' feeds/packages/utils/docker-compose/Makefile
+sed -i 's/PKG_HASH:=.*/PKG_HASH:=003efb3139298aa4795f7a9fa4723ef43c12b401c235fe0c93dd23cc2c6b5f2e/g' feeds/packages/utils/docker-compose/Makefile
 
 # containerd
 #sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=1.5.11/g' feeds/packages/utils/containerd/Makefile
@@ -504,10 +504,8 @@ rm -rf feeds/packages/net/openssh
 cp -rf $GITHUB_WORKSPACE/general/openssh feeds/packages/net
 
 # nss
-#sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=3.84/g' feeds/packages/libs/nss/Makefile
-#sed -i 's/PKG_HASH:=.*/PKG_HASH:=9a387ffe350ff14f001d943f96cc0c064891551d71e1a97a5ddbffe7f1207a25/g' feeds/packages/libs/nss/Makefile
-#rm -f feeds/packages/libs/nss/patches/020-getopt.patch
-#wget -P feeds/packages/libs/nss/patches https://raw.githubusercontent.com/openwrt/packages/master/libs/nss/patches/020-getopt.patch
+sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=3.85/g' feeds/packages/libs/nss/Makefile
+sed -i 's/PKG_HASH:=.*/PKG_HASH:=afd9d64510b1154debbd6cab3571e9ff64a3373898e03483e4c85cdada13d297/g' feeds/packages/libs/nss/Makefile
 
 # nspr
 #sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=4.33/g' feeds/packages/libs/nspr/Makefile
@@ -933,6 +931,11 @@ rm -f feeds/packages/utils/ttyd/patches/090*.patch
 # sed
 sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=4.8/g' tools/sed/Makefile
 sed -i 's/PKG_HASH:=.*/PKG_HASH:=f79b0cfea71b37a8eeec8490db6c5f7ae7719c35587f21edb0617f370eeff633/g' tools/sed/Makefile
+
+# fullcone patch from lede(Non-public)
+cp -f $GITHUB_WORKSPACE/general/101-bcm-fullconenat.patch package/network/config/firewall/patches
+cp -f $GITHUB_WORKSPACE/general/900-bcm-fullconenat.patch package/network/utils/iptables/patches
+cp -f $GITHUB_WORKSPACE/general/982-add-bcm-fullconenat-support.patch target/linux/generic/hack-5.15
 
 ./scripts/feeds update -a
 ./scripts/feeds install -a
