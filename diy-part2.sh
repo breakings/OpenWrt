@@ -745,8 +745,8 @@ sed -i 's/DEPENDS:=.*/DEPENDS:=@(LINUX_5_4||LINUX_5_10) +kmod-nls-utf8/g' packag
 cp -f $GITHUB_WORKSPACE/general/openwrt_banner package/base-files/files/etc/banner
 
 # boost
-rm -rf feeds/packages/libs/boost
-cp -r $GITHUB_WORKSPACE/general/boost feeds/packages/libs
+#rm -rf feeds/packages/libs/boost
+#cp -r $GITHUB_WORKSPACE/general/boost feeds/packages/libs
 
 # wxbase
 #rm -rf feeds/packages/libs/wxbase

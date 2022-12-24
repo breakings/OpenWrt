@@ -1,0 +1,5 @@
+76d5aef66941a08d4dbf4469a98f2c83c85dd40e8a195b13130d105e1b9c857f  boot-5.15.85-flippy-80+o.tar.gz
+eb101a18c3f654f00d14c97e37a0350658828dd4b6ab7edf19b08390de434e3b  dtb-allwinner-5.15.85-flippy-80+o.tar.gz
+1be4445deadf7e82c70e0bb7db251b5ca96c99cd115de2ab143bae9e150170dd  dtb-amlogic-5.15.85-flippy-80+o.tar.gz
+d4802166f26c805abb4dd439b7ce14827f319c851f10ecaf229d177c66785c06  dtb-rockchip-5.15.85-flippy-80+o.tar.gz
+b5223deaa12eae0e6b0ab7ca555f506dacf4fe07af83884e94b20b00bc0648cd  modules-5.15.85-flippy-80+o.tar.gz

@@ -78,6 +78,7 @@ jobs:
         #OPENWRT_VER: R21.12.1
         KERNEL_AUTO_LATEST: true
         GZIP_IMGS: .gz
+        GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
     - name: SSH connection to Actions @ Ctrl+C to enter, Ctrl+D to exit
       uses: P3TERX/ssh2actions@main
