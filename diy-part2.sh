@@ -96,7 +96,6 @@ svn co https://github.com/xiaorouji/openwrt-passwall/trunk/simple-obfs package/s
 svn co https://github.com/xiaorouji/openwrt-passwall/trunk/trojan package/trojan
 svn co https://github.com/xiaorouji/openwrt-passwall/trunk/hysteria package/hysteria
 #svn co https://github.com/xiaorouji/openwrt-passwall/trunk/dns2tcp package/dns2tcp
-svn co https://github.com/xiaorouji/openwrt-passwall/trunk/sagernet-core package/sagernet-core
 
 svn co https://github.com/fw876/helloworld/trunk/dns2tcp package/dns2tcp
 svn co https://github.com/fw876/helloworld/trunk/v2ray-geodata package/v2ray-geodata
@@ -829,7 +828,7 @@ rm -rf feeds/packages/libs/sqlite3
 cp -rf $GITHUB_WORKSPACE/general/sqlite3 feeds/packages/libs
 
 # zoneinfo
-#cp -f $GITHUB_WORKSPACE/general/zoneinfo/Makefile feeds/packages/utils/zoneinfo
+cp -f $GITHUB_WORKSPACE/general/zoneinfo/Makefile feeds/packages/utils/zoneinfo
 
 # adguardhome
 #sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=0.107.5/g' feeds/packages/net/adguardhome/Makefile
@@ -844,10 +843,10 @@ cp -rf $GITHUB_WORKSPACE/general/sqlite3 feeds/packages/libs
 #svn co https://github.com/immortalwrt/packages/trunk/net/verysync feeds/packages/net/verysync
 
 # haproxy
-sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=2.6.11/g' feeds/packages/net/haproxy/Makefile
+sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=2.6.12/g' feeds/packages/net/haproxy/Makefile
 sed -i 's/PKG_RELEASE:=.*/PKG_RELEASE:=1/g' feeds/packages/net/haproxy/Makefile
-sed -i 's/PKG_HASH:=.*/PKG_HASH:=e0bc430ac407747b077bc88ee6922b4616fa55a9e0f3ec84438dfb055eb9a715/g' feeds/packages/net/haproxy/Makefile
-sed -i 's/BASE_TAG:=.*/BASE_TAG=v2.6.11/g' feeds/packages/net/haproxy/get-latest-patches.sh
+sed -i 's/PKG_HASH:=.*/PKG_HASH:=58f9edb26bf3288f4b502658399281cc5d6478468bd178eafe579c8f41895854/g' feeds/packages/net/haproxy/Makefile
+sed -i 's/BASE_TAG:=.*/BASE_TAG=v2.6.12/g' feeds/packages/net/haproxy/get-latest-patches.sh
 
 # perl
 rm -rf feeds/packages/lang/perl
@@ -897,10 +896,6 @@ sed -i 's/PKG_HASH:=.*/PKG_HASH:=3ea9f0439e60469ad4d39cb349938684ffb929dd7e8e06a
 # libiconv-full
 #sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=1.17/g' package/libs/libiconv-full/Makefile
 #sed -i 's/PKG_HASH:=.*/PKG_HASH:=8f74213b56238c85a50a5329f77e06198771e70dd9a739779f4c02f65d971313/g' package/libs/libiconv-full/Makefile
-
-# sagernet-core
-sed -i 's|$(LN) v2ray $(1)/usr/bin/xray|#$(LN) v2ray $(1)/usr/bin/xray|g' package/sagernet-core/Makefile
-sed -i 's|CONFLICTS:=v2ray-core xray-core|#CONFLICTS:=v2ray-core xray-core|g' package/sagernet-core/Makefile
 
 # bind
 sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=9.18.13/g' feeds/packages/net/bind/Makefile
