@@ -272,8 +272,8 @@ rm -rf feeds/packages/utils/dockerd
 cp -rf $GITHUB_WORKSPACE/general/dockerd feeds/packages/utils/dockerd
 
 # docker-compose
-sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=2.17.1/g' feeds/packages/utils/docker-compose/Makefile
-sed -i 's/PKG_HASH:=.*/PKG_HASH:=7b56f480166db25c4ef22d1f8c015a4789a6374dcd802d54eebf7b50c516be51/g' feeds/packages/utils/docker-compose/Makefile
+sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=2.17.2/g' feeds/packages/utils/docker-compose/Makefile
+sed -i 's/PKG_HASH:=.*/PKG_HASH:=d6e6de858ecdb0104991c86c66dde5dd4fb6a1160d707308d8ad3167450c8094/g' feeds/packages/utils/docker-compose/Makefile
 
 # containerd
 #sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=1.5.11/g' feeds/packages/utils/containerd/Makefile
@@ -321,8 +321,8 @@ sed -i 's/PKG_MIRROR_HASH:=.*/PKG_MIRROR_HASH:=45e0c37b8e275c8d088506f953aa25b30
 # php8
 #rm -rf feeds/packages/lang/php8
 #svn co https://github.com/openwrt/packages/trunk/lang/php8 feeds/packages/lang/php8
-sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=8.2.3/g' feeds/packages/lang/php8/Makefile
-sed -i 's/PKG_HASH:=.*/PKG_HASH:=b9b566686e351125d67568a33291650eb8dfa26614d205d70d82e6e92613d457/g' feeds/packages/lang/php8/Makefile
+sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=8.2.4/g' feeds/packages/lang/php8/Makefile
+sed -i 's/PKG_HASH:=.*/PKG_HASH:=bc7bf4ca7ed0dd17647e3ea870b6f062fcb56b243bfdef3f59ff7f94e96176a8/g' feeds/packages/lang/php8/Makefile
 
 # python-docker
 #sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=6.0.1/g' feeds/packages/lang/python/python-docker/Makefile
