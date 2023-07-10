@@ -1,5 +1,5 @@
 #
-# Copyright (C) 2018, 2020 Jeffery To
+# Copyright (C) 2018-2023 Jeffery To
 #
 # This is free software, licensed under the GNU General Public License v2.
 # See /LICENSE for more information.
@@ -29,6 +29,7 @@ unexport \
   GOOS \
   GOPATH \
   GOROOT \
+  GOTOOLCHAIN \
   GOTMPDIR \
   GOWORK
 # Unmodified:
@@ -201,7 +202,7 @@ endif
 
 # Target Go
 
-GO_ARCH_DEPENDS:=@(aarch64||arm||i386||i686||mips||mips64||mips64el||mipsel||powerpc64||x86_64)
+GO_ARCH_DEPENDS:=@(aarch64||arm||i386||i686||mips||mips64||mips64el||mipsel||powerpc64||riscv64||x86_64)
 
 
 # ASLR/PIE
@@ -219,7 +220,7 @@ GO_PIE_SUPPORTED_OS_ARCH:= \
   \
   aix_ppc64 \
   \
-  linux_ppc64le linux_riscv64 linux_s390x
+  linux_loong64 linux_ppc64le linux_riscv64 linux_s390x
 
 # From https://go.dev/src/cmd/go/internal/work/init.go
 go_pie_install_suffix=$(if $(filter $(1),aix_ppc64 windows_386 windows_amd64 windows_arm windows_arm64),,shared)
