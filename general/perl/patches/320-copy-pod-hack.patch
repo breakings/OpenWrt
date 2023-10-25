@@ -29,7 +29,7 @@
      if ($^O eq 'VMS') {
          @paths = map { m{ [.] PL \z }xms ? $_ : $_ . '.com' } @paths;
      }
-@@ -99,8 +112,8 @@ my %metadata     = (
+@@ -101,8 +114,8 @@ my %metadata = (
  
      # Override the files that generate section 1 man pages.
      MAN1PODS => {

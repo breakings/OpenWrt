@@ -5,24 +5,31 @@
 include $(TOPDIR)/rules.mk
 
 PKG_NAME:=naiveproxy
-PKG_VERSION:=118.0.5993.65-1
+PKG_VERSION:=121.0.6167.71-1
 PKG_RELEASE:=1
 
 PKG_SOURCE:=$(PKG_NAME)-$(PKG_VERSION).tar.gz
 PKG_SOURCE_URL:=https://codeload.github.com/klzgrad/naiveproxy/tar.gz/v$(PKG_VERSION)?
-PKG_HASH:=d97193d82e346ec2f753151cee52d00495e2df7688d60a5b4395b8cd39399734
+PKG_HASH:=8e6d3029a0249140595fab3d668103881689f6c7ef7c65230191f674a370b309
 
 PKG_LICENSE:=BSD 3-Clause
 PKG_LICENSE_FILES:=LICENSE
 PKG_MAINTAINER:=Tianling Shen <cnsztl@immortalwrt.org>
 
-ifneq ($(wildcard $(TOPDIR)/feeds/packages/devel/ninja/ninja.mk),)
-PKG_BUILD_DEPENDS+= ninja/host
-endif
-NINJA ?= ninja
 PKG_USE_MIPS16:=0
 PKG_BUILD_PARALLEL:=1
 PKG_BUILD_FLAGS:=no-mips16
+
+ifeq ($(strip $(NINJA)),)
+ifneq ($(wildcard $(TOPDIR)/feeds/packages/devel/ninja/ninja.mk),)
+PKG_BUILD_DEPENDS+=ninja/host
+NINJA = \
+	MAKEFLAGS="$(MAKE_JOBSERVER)" \
+	$(STAGING_DIR_HOSTPKG)/bin/ninja \
+		$(if $(findstring c,$(OPENWRT_VERBOSE)),-v) \
+		$(if $(MAKE_JOBSERVER),,-j1)
+endif
+endif
 
 ifneq ($(CONFIG_CPU_TYPE)," ")
   CPU_TYPE:=$(word 1, $(subst +," ,$(CONFIG_CPU_TYPE)))
@@ -43,7 +50,7 @@ define Package/naiveproxy
   SUBMENU:=Web Servers/Proxies
   TITLE:=Make a fortune quietly
   URL:=https://github.com/klzgrad/naiveproxy
-  DEPENDS:=@!(arc||armeb||mips||mips64||powerpc||riscv64||TARGET_gemini) +libatomic
+  DEPENDS:=@!(arc||armeb||mips||mips64||powerpc||TARGET_gemini) +libatomic
 endef
 
 define Package/naiveproxy/description
@@ -59,31 +66,31 @@ ifneq ($(CONFIG_CCACHE),)
   export naive_ccache_flags=cc_wrapper="$(CCACHE)"
 endif
 
-CLANG_VER:=17-init-16420-g0c545a44-8
+CLANG_VER:=18-init-12938-geb1d5065-1
 CLANG_FILE:=clang-llvmorg-$(CLANG_VER).tgz
 define Download/CLANG
 	URL:=https://commondatastorage.googleapis.com/chromium-browser-clang/Linux_x64
 	URL_FILE:=$(CLANG_FILE)
 	FILE:=$(CLANG_FILE)
-	HASH:=3c84d6673efd5a0d40785c9fd510ce347c9a4acf9ffb3b503c707857f5ca8398
+	HASH:=fd1628fdb22157a7328c25802a745f17f92f5210a8b62591202deb92413f52e5
 endef
 
-GN_VER:=182a6eb05d15cc76d2302f7928fdb4f645d52c53
+GN_VER:=a2e2717ea670249a34b0de4b3e54f268d320bdfa
 GN_FILE:=gn-git_revision-$(GN_VER).zip
 define Download/GN_TOOL
 	URL:=https://chrome-infra-packages.appspot.com/dl/gn/gn/linux-amd64/+
 	URL_FILE:=git_revision:$(GN_VER)
 	FILE:=$(GN_FILE)
-	HASH:=46ecff76a97070c7cb6b37501ca5bc664a62665d3ad3c4a28b2d81fd936f481a
+	HASH:=1be663e638a1c79a939f01f0f4f5d32d6bb6b1e32b1e341dba468696873f35e6
 endef
 
-PGO_VER:=5993-1696528594-5b0dc009ef20f14165590ea16444c1ee3dca372e
+PGO_VER:=6167-1705427108-cb39f8a22759d3159f79efc273ac8b13a0f3882a
 PGO_FILE:=chrome-linux-$(PGO_VER).profdata
 define Download/PGO_PROF
 	URL:=https://storage.googleapis.com/chromium-optimization-profiles/pgo_profiles
 	URL_FILE:=$(PGO_FILE)
 	FILE:=$(PGO_FILE)
-	HASH:=1d6b4d7d2dab529ae179097e508d63fc28fd459ee3fe7511e5ed5b329707e0b5
+	HASH:=7632c875db539cb1d4a0df6eb3acc9e155d2d477376dec1f815081bbae7cdd4f
 endef
 
 define Build/Prepare

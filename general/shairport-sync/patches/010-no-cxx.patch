@@ -1,0 +1,34 @@
+--- a/Makefile.am
++++ b/Makefile.am
+@@ -55,10 +55,6 @@
+ CLEANFILES += $(BUILT_SOURCES)
+ endif
+ 
+-if USE_APPLE_ALAC
+-  shairport_sync_SOURCES += apple_alac.cpp
+-endif
+-
+ if USE_CUSTOMPIDDIR
+ AM_CFLAGS+= \
+ 	-DPIDDIR=\"$(CUSTOM_PID_DIR)\"
+@@ -116,11 +112,6 @@
+ shairport_sync_SOURCES += audio_pw.c
+ endif
+ 
+-if USE_CONVOLUTION
+-shairport_sync_SOURCES += FFTConvolver/AudioFFT.cpp FFTConvolver/FFTConvolver.cpp FFTConvolver/Utilities.cpp FFTConvolver/convolver.cpp
+-AM_CXXFLAGS += -std=c++11
+-endif
+-
+ if USE_DNS_SD
+ shairport_sync_SOURCES += mdns_dns_sd.c
+ endif
+--- a/configure.ac
++++ b/configure.ac
+@@ -32,7 +32,6 @@
+ 
+ # Checks for programs.
+ AC_PROG_CC
+-AC_PROG_CXX
+ AC_CHECK_TOOL(AR, ar, :)
+ AC_PROG_INSTALL

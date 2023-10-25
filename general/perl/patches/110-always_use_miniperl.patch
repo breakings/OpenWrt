@@ -1,6 +1,6 @@
 --- a/Makefile.SH
 +++ b/Makefile.SH
-@@ -353,22 +353,11 @@ PERL_EXE_LDFLAGS=$exeldflags
+@@ -360,22 +360,11 @@ PERL_EXE_LDFLAGS=$exeldflags
  	;;
  esac
  
