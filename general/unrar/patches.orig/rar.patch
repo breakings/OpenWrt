@@ -1,0 +1,33 @@
+--- /home/jack/openwrt/lede/feeds/packages/utils/unrar/patches.orig/makefile.orig	2024-02-29 10:04:22.157597691 +0800
++++ /home/jack/openwrt/lede/feeds/packages/utils/unrar/patches.orig/makefile	2024-02-29 10:10:53.697516735 +0800
+@@ -2,14 +2,14 @@
+ # Makefile for UNIX - unrar
+ 
+ # Linux using GCC
+-CXX=c++
+-CXXFLAGS=-march=native -O2 -std=c++11 -Wno-logical-op-parentheses -Wno-switch -Wno-dangling-else
+-LIBFLAGS=-fPIC
++CXX?=c++
++CXXFLAGS?=-march=native -O2 -std=c++11 -Wno-logical-op-parentheses -Wno-switch -Wno-dangling-else
++LIBFLAGS?=-fPIC
+ DEFINES=-D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -DRAR_SMP
+-STRIP=strip
+-AR=ar
+-LDFLAGS=-pthread
+-DESTDIR=/usr
++STRIP?=strip
++AR?=ar
++LDFLAGS?=-lpthread
++DESTDIR?=/usr
+ 
+ ##########################
+ 
+@@ -69,7 +69,7 @@
+ 			rm -f $(DESTDIR)/bin/unrar
+ 
+ install-lib:
+-		install libunrar.so $(DESTDIR)/lib
++		install -D libunrar.so $(DESTDIR)/lib/libunrar.so
+ 		install libunrar.a $(DESTDIR)/lib
+ 
+ uninstall-lib:
