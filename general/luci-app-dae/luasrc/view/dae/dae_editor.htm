@@ -1,0 +1,21 @@
+<%+cbi/valueheader%>
+	<script src="/luci-static/resources/dae/lib/codemirror.js"></script>
+	<script src="/luci-static/resources/dae/addon/fold/foldcode.js"></script>
+	<script src="/luci-static/resources/dae/addon/fold/foldgutter.js"></script>
+	<script src="/luci-static/resources/dae/addon/fold/indent-fold.js"></script>
+	<script src="/luci-static/resources/dae/mode/yaml/yaml.js"></script>
+	<link rel="stylesheet" href="/luci-static/resources/dae/addon/fold/foldgutter.css" />
+	<link rel="stylesheet" href="/luci-static/resources/dae/lib/codemirror.css" />
+	<link rel="stylesheet" href="/luci-static/resources/dae/theme/dracula.css" />
+	<script type="text/javascript">//<![CDATA[
+		var editor = CodeMirror.fromTextArea(document.getElementById("cbid.dae.config.daeconf"), {
+			mode: "text/yaml",
+			styleActiveLine: true,
+			lineNumbers: true,
+			theme: "dracula",
+			lineWrapping: true,
+			matchBrackets: true
+		}
+		);//]]>
+	</script>
+<%+cbi/valuefooter%>

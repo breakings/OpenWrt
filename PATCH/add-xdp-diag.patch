@@ -1,0 +1,43 @@
+diff --git a/config/Config-kernel.in b/config/Config-kernel.in
+index bab46169b..fa9088944 100644
+--- a/config/Config-kernel.in
++++ b/config/Config-kernel.in
+@@ -1135,6 +1135,12 @@ config KERNEL_NET_L3_MASTER_DEV
+ 	  This module provides glue between core networking code and device
+ 	  drivers to support L3 master devices like VRF.
+ 
++config KERNEL_XDP_SOCKETS
++       bool "XDP sockets support"
++       help
++         XDP sockets allows a channel between XDP programs and
++         userspace applications.
++
+ config KERNEL_PAGE_POOL
+ 	def_bool n
+ 
+diff --git a/package/kernel/linux/modules/netsupport.mk b/package/kernel/linux/modules/netsupport.mk
+index 70d60daaa..0b57eb40e 100644
+--- a/package/kernel/linux/modules/netsupport.mk
++++ b/package/kernel/linux/modules/netsupport.mk
+@@ -1479,6 +1479,21 @@ endef
+ 
+ $(eval $(call KernelPackage,inet-mptcp-diag))
+ 
++define KernelPackage/xdp-sockets-diag
++  SUBMENU:=$(NETWORK_SUPPORT_MENU)
++  TITLE:=PF_XDP sockets monitoring interface support for ss utility
++  DEPENDS:=@KERNEL_XDP_SOCKETS
++  KCONFIG:=CONFIG_XDP_SOCKETS_DIAG
++  FILES:=$(LINUX_DIR)/net/xdp/xsk_diag.ko
++  AUTOLOAD:=$(call AutoLoad,31,xsk_diag)
++endef
++
++define KernelPackage/xdp-sockets-diag/description
++ Support for PF_XDP sockets monitoring interface used by the ss tool
++endef
++
++$(eval $(call KernelPackage,xdp-sockets-diag))
++
+ 
+ define KernelPackage/wireguard
+   SUBMENU:=$(NETWORK_SUPPORT_MENU)

@@ -1,0 +1,26 @@
+msgid "DAE"
+msgstr ""
+
+msgid "A Linux high-performance transparent proxy solution based on eBPF."
+msgstr "一个基于 eBPF 的 Linux 高性能透明代理解决方案。"
+
+msgid "RUNNING"
+msgstr "运行中"
+
+msgid "NOT RUNNING"
+msgstr "未运行"
+
+msgid "Collecting data..."
+msgstr "收集数据..."
+
+msgid "Enabled"
+msgstr "启用"
+
+msgid "Reload Service"
+msgstr "重载服务"
+
+msgid "Reload the service effective configuration file."
+msgstr "重载服务生效配置文件。"
+
+msgid "Configuration Editor"
+msgstr "配置编辑器"
