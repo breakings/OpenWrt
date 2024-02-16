@@ -1,0 +1,26 @@
+<script type="text/javascript">//<![CDATA[
+	XHR.poll(5, '<%=url("admin/services/dae/status")%>', null,
+		function(x, data)
+		{
+			var tb = document.getElementById('dae_status');
+			if (data && tb)
+			{
+				if (data.running)
+				{
+					tb.innerHTML = '<em style=\"color:green\"><b><%:DAE%> <%:RUNNING%></b></em>';
+				}
+				else
+				{
+					tb.innerHTML = '<em style=\"color:red\"><b><%:DAE%> <%:NOT RUNNING%></b></em>';
+				}
+			}
+		}
+	);
+//]]></script>
+
+<style>.mar-10 {margin-left: 50px; margin-right: 10px;}</style>
+<fieldset class="cbi-section">
+	<p id="dae_status">
+		<em><b><%:Collecting data...%></b></em>
+	</p>
+</fieldset>

@@ -1,0 +1,45 @@
+--- a/option/rule.go
++++ b/option/rule.go
+@@ -95,6 +95,7 @@ type DefaultRule struct {
+ 	WIFIBSSID                Listable[string] `json:"wifi_bssid,omitempty"`
+ 	RuleSet                  Listable[string] `json:"rule_set,omitempty"`
+ 	RuleSetIPCIDRMatchSource bool             `json:"rule_set_ipcidr_match_source,omitempty"`
++	RuleSetAlias             string           `json:"rule_set_alias,omitempty"`
+ 	Invert                   bool             `json:"invert,omitempty"`
+ 	Outbound                 string           `json:"outbound,omitempty"`
+ }
+--- a/route/rule_abstract.go
++++ b/route/rule_abstract.go
+@@ -20,6 +20,7 @@ type abstractDefaultRule struct {
+ 	ruleSetItem             RuleItem
+ 	invert                  bool
+ 	outbound                string
++	ruleSetAlias            string
+ }
+ 
+ func (r *abstractDefaultRule) Type() string {
+@@ -129,6 +130,14 @@ func (r *abstractDefaultRule) Outbound()
+ }
+ 
+ func (r *abstractDefaultRule) String() string {
++	if r.ruleSetAlias != "" {
++		if !r.invert {
++			return "rule_set="+ r.ruleSetAlias
++		} else {
++			return "!(rule_set="+ r.ruleSetAlias + ")"
++		}
++	}
++
+ 	if !r.invert {
+ 		return strings.Join(F.MapToString(r.allItems), " ")
+ 	} else {
+--- a/route/rule_default.go
++++ b/route/rule_default.go
+@@ -47,6 +47,7 @@ func NewDefaultRule(router adapter.Route
+ 		abstractDefaultRule{
+ 			invert:   options.Invert,
+ 			outbound: options.Outbound,
++			ruleSetAlias: options.RuleSetAlias,
+ 		},
+ 	}
+ 	if len(options.Inbound) > 0 {

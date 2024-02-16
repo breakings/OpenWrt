@@ -1,0 +1,48 @@
+--- a/adapter/inbound.go
++++ b/adapter/inbound.go
+@@ -48,6 +48,7 @@ type InboundContext struct {
+ 	ProcessInfo          *process.Info
+ 	QueryType            uint16
+ 	FakeIP               bool
++	SniffOverrideDestination bool
+ 
+ 	// rule cache
+ 
+--- a/outbound/default.go
++++ b/outbound/default.go
+@@ -61,7 +61,7 @@ func NewConnection(ctx context.Context,
+ 	ctx = adapter.WithContext(ctx, &metadata)
+ 	var outConn net.Conn
+ 	var err error
+-	if len(metadata.DestinationAddresses) > 0 {
++	if len(metadata.DestinationAddresses) > 0 && !metadata.SniffOverrideDestination {
+ 		outConn, err = N.DialSerial(ctx, this, N.NetworkTCP, metadata.Destination, metadata.DestinationAddresses)
+ 	} else {
+ 		outConn, err = this.DialContext(ctx, N.NetworkTCP, metadata.Destination)
+@@ -109,7 +109,7 @@ func NewPacketConnection(ctx context.Con
+ 	var outConn net.PacketConn
+ 	var destinationAddress netip.Addr
+ 	var err error
+-	if len(metadata.DestinationAddresses) > 0 {
++	if len(metadata.DestinationAddresses) > 0 && !metadata.SniffOverrideDestination {
+ 		outConn, destinationAddress, err = N.ListenSerial(ctx, this, metadata.Destination, metadata.DestinationAddresses)
+ 	} else {
+ 		outConn, err = this.ListenPacket(ctx, metadata.Destination)
+--- a/route/router.go
++++ b/route/router.go
+@@ -780,6 +780,7 @@ func (r *Router) RouteConnection(ctx con
+ 			metadata.Protocol = sniffMetadata.Protocol
+ 			metadata.Domain = sniffMetadata.Domain
+ 			if metadata.InboundOptions.SniffOverrideDestination && M.IsDomainName(metadata.Domain) {
++				metadata.SniffOverrideDestination = true
+ 				metadata.Destination = M.Socksaddr{
+ 					Fqdn: metadata.Domain,
+ 					Port: metadata.Destination.Port,
+@@ -907,6 +908,7 @@ func (r *Router) RoutePacketConnection(c
+ 				metadata.Protocol = sniffMetadata.Protocol
+ 				metadata.Domain = sniffMetadata.Domain
+ 				if metadata.InboundOptions.SniffOverrideDestination && M.IsDomainName(metadata.Domain) {
++					metadata.SniffOverrideDestination = true
+ 					metadata.Destination = M.Socksaddr{
+ 						Fqdn: metadata.Domain,
+ 						Port: metadata.Destination.Port,
