@@ -71,8 +71,8 @@ jobs:
       uses: ophub/flippy-openwrt-actions@main
       env:
         OPENWRT_ARMVIRT: https://github.com/breakings/OpenWrt/releases/download/ARMv8_ROOTFS/openwrt-armvirt-64-generic-rootfs.tar.gz
-        PACKAGE_SOC: all
-        WHOAMI: breakings
+        PACKAGE_SOC: s905d_vplus
+        WHOAMI: gdstchdr
         #KERNEL_REPO_URL: https://github.com/breakings/OpenWrt/tree/main/opt
         KERNEL_VERSION_NAME: 5.15.100_6.1.18
         #OPENWRT_VER: R23.5.1
