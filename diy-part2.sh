@@ -63,7 +63,7 @@ sed -i 's/DEPENDS:=@(.*/DEPENDS:=@(TARGET_bcm27xx||TARGET_bcm53xx||TARGET_ipq40x
 #cp -rf $GITHUB_WORKSPACE/PATCH/new/script/cputemp.sh ./package/base-files/files/bin/cputemp.sh
 
 # Modify default IP
-sed -i 's/192.168.1.1/192.168.10.8/g' package/base-files/files/bin/config_generate
+sed -i 's/192.168.1.1/192.168.5.8/g' package/base-files/files/bin/config_generate
 
 #添加额外软件包
 #git clone https://github.com/immortalwrt/luci-app-unblockneteasemusic package/luci-app-unblockneteasemusic
