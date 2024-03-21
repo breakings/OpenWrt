@@ -15,7 +15,7 @@ on:
         required: false
         default: 'false'
   schedule:
-    - cron: '35 5 * * *'
+    - cron: '15 22 * * *'
 
 env:
   REPO_URL: https://github.com/coolsnowwolf/lede
@@ -106,7 +106,7 @@ jobs:
         token: ${{ secrets.ACTIONS_TRIGGER_PAT }}
         artifacts: ${{ env.PACKAGED_OUTPUTPATH }}/*
         body: |
-          - 默认IP：192.168.1.1 默认密码：password (WiFi密码同）
+          - 默认IP：192.168.5.8 默认密码：password (WiFi密码同）
           - 当前使用版本:【编译前的最后一次➦[主源码](https://github.com/coolsnowwolf/lede)更新记录】
           - 取消了➦[Node](https://github.com/breakings/OpenWrt/releases/download/openwrt_armvirt/node_v16.19.1-1_aarch64_cortex-a53.ipk)，目前仅➦[网易云解锁NodeJS](https://github.com/breakings/OpenWrt/releases/download/openwrt_armvirt/netease.tar.gz)版受影响，可单独下载ipk安装。
           - 此为**自用精简包**，和F大本人集成的插件有**较大**差异。求稳用户推荐使用F大编译的➦[正式版本](https://github.com/breakings/OpenWrt/releases/tag/flippy_openwrt)
