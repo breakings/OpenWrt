@@ -216,7 +216,7 @@ merge_package https://github.com/openwrt/packages packages/net/nginx-util
 #rm -rf lean/luci-app-docker/root/www
 
 # unblockneteasemusic
-sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=2.14-3/g' feeds/luci/applications/luci-app-unblockneteasemusic/Makefile
+sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=2.14-3/g' feeds/packages/luci-app-unblockneteasemusic/Makefile
 
 # samba4
 #sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=4.14.13/g' feeds/packages/net/samba4/Makefile
