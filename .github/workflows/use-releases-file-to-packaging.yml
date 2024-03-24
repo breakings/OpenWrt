@@ -74,7 +74,7 @@ jobs:
         PACKAGE_SOC: all
         WHOAMI: breakings
         #KERNEL_REPO_URL: https://github.com/breakings/OpenWrt/tree/main/opt
-        KERNEL_VERSION_NAME: 5.15.100_6.1.18
+        KERNEL_VERSION_NAME: 6.1.86_6.6.27
         #OPENWRT_VER: R23.5.1
         KERNEL_AUTO_LATEST: true
         GZIP_IMGS: .gz
@@ -95,7 +95,7 @@ jobs:
 
     - name: Upload OpenWrt Firmware to Release
       id: release
-      uses: ncipollo/release-action@v1
+      uses: ncipollo/release-action@main
       if: env.PACKAGED_STATUS == 'success' && env.UPLOAD_RELEASE == 'true' && !cancelled()
       with:
         name: R${{ env.DATE }} for ${{ env.FILE_NAME }}
@@ -124,7 +124,7 @@ jobs:
         keep_minimum_runs: 60
 
     - name: Remove old Releases
-      uses: dev-drprasad/delete-older-releases@v0.2.0
+      uses: dev-drprasad/delete-older-releases@v0.3.3
       if: env.UPLOAD_RELEASE == 'true' && !cancelled()
       with:
         repo:

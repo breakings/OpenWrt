@@ -5,12 +5,12 @@
 include $(TOPDIR)/rules.mk
 
 PKG_NAME:=naiveproxy
-PKG_VERSION:=122.0.6261.43-1
+PKG_VERSION:=124.0.6367.54-1
 PKG_RELEASE:=1
 
 PKG_SOURCE:=$(PKG_NAME)-$(PKG_VERSION).tar.gz
 PKG_SOURCE_URL:=https://codeload.github.com/klzgrad/naiveproxy/tar.gz/v$(PKG_VERSION)?
-PKG_HASH:=c45fbec6390791678490b7f5df7441c120eda4af92c1aaa6c15dbe5b4ca649b6
+PKG_HASH:=1b85ff1924c2e6cc645c1f44cd4139ef86075c6b82ce8ddb4ef339767089aefa
 
 PKG_LICENSE:=BSD 3-Clause
 PKG_LICENSE_FILES:=LICENSE
@@ -66,31 +66,31 @@ ifneq ($(CONFIG_CCACHE),)
   export naive_ccache_flags=cc_wrapper="$(CCACHE)"
 endif
 
-CLANG_VER:=18-init-16072-gc4146121e940-5
+CLANG_VER:=19-init-2941-ga0b3dbaf-22
 CLANG_FILE:=clang-llvmorg-$(CLANG_VER).tgz
 define Download/CLANG
 	URL:=https://commondatastorage.googleapis.com/chromium-browser-clang/Linux_x64
 	URL_FILE:=$(CLANG_FILE)
 	FILE:=$(CLANG_FILE)
-	HASH:=63009892f985488f9152bc064b43e9d3be197c437f2469b83efce6293887442b
+	HASH:=6741cc1083f935795330b6e04617ac891a7b5d2b5647b664c5b0fccc354adb43
 endef
 
-GN_VER:=5787e994aa4cb6cdb09c2c72ae6f1c6a7f1cf91a
+GN_VER:=155c53952ec2dc324b0438ce5b9bd4a286577d25
 GN_FILE:=gn-git_revision-$(GN_VER).zip
 define Download/GN_TOOL
 	URL:=https://chrome-infra-packages.appspot.com/dl/gn/gn/linux-amd64/+
 	URL_FILE:=git_revision:$(GN_VER)
 	FILE:=$(GN_FILE)
-	HASH:=b60489716e6b4969934e114f84344ffc6893bc9984317c328f25b72dfd1ae9c0
+	HASH:=5a2afa175d93df2e8616ed4fa8026f42d991360d66d5cf122baf0d2de81649be
 endef
 
-PGO_VER:=6261-1707846690-1391fcc4772c0b31e214f533af5cafa87e4ccf40
+PGO_VER:=6367-1712914789-36623db069723c624e3493cb591ef002f569ac07-6fd0ad4338d3d9993dc892b5bc43c5f64866b48d
 PGO_FILE:=chrome-linux-$(PGO_VER).profdata
 define Download/PGO_PROF
 	URL:=https://storage.googleapis.com/chromium-optimization-profiles/pgo_profiles
 	URL_FILE:=$(PGO_FILE)
 	FILE:=$(PGO_FILE)
-	HASH:=3ee58646307e2b06c5c12eb7995b0a017c981aa7eec64a85f0be5140f8d24d9f
+	HASH:=2d4f2ef0d6235c4ca617d22b2b1ba28d042518a1811c0378896b6ed79913a7b9
 endef
 
 define Build/Prepare
