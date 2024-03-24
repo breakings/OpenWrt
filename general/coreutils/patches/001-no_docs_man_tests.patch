@@ -64,15 +64,15 @@
  mandir = @mandir@
  mandir_c = @mandir_c@
  mandir_c_make = @mandir_c_make@
-@@ -6230,7 +6226,7 @@ top_build_prefix = @top_build_prefix@
+@@ -6600,7 +6600,7 @@
  top_builddir = @top_builddir@
  top_srcdir = @top_srcdir@
  ALL_RECURSIVE_TARGETS = distcheck-hook check-root
 -SUBDIRS = po . gnulib-tests
 +SUBDIRS = po
- 
- #if GNU_MAKE
- #	[nicer features that work only with GNU Make]
+ EXTRA_DIST = .mailmap .prev-version .version .vg-suppressions \
+ 	README-install THANKS.in THANKS-to-translators THANKStt.in \
+ 	bootstrap bootstrap.conf build-aux/gen-lists-of-programs.sh \
 @@ -8437,7 +8433,7 @@ all: $(BUILT_SOURCES)
  .SUFFIXES: .1 .c .dvi .log .o .obj .pl .pl$(EXEEXT) .ps .sh .sh$(EXEEXT) .trs .x .xpl .xpl$(EXEEXT) .y
  am--refresh: Makefile

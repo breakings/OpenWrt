@@ -8,11 +8,11 @@
 include $(TOPDIR)/rules.mk
 
 PKG_NAME:=sqlite
-PKG_VERSION:=3450100
+PKG_VERSION:=3450200
 PKG_RELEASE:=1
 
 PKG_SOURCE:=$(PKG_NAME)-autoconf-$(PKG_VERSION).tar.gz
-PKG_HASH:=cd9c27841b7a5932c9897651e20b86c701dd740556989b01ca596fcfa3d49a0a
+PKG_HASH:=bc9067442eedf3dd39989b5c5cfbfff37ae66cc9c99274e0c3052dc4d4a8f6ae
 PKG_SOURCE_URL:=https://www.sqlite.org/2024/
 
 PKG_CPE_ID:=cpe:/a:sqlite:sqlite

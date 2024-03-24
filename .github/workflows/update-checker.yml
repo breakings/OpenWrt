@@ -34,7 +34,7 @@ jobs:
 
     - name: Compare Commit Hash
       id: cacheHash
-      uses: actions/cache@v2
+      uses: actions/cache@v4
       with:
         path: .commitHash
         key: HEAD-${{ steps.getHash.outputs.commitHash }}
@@ -46,7 +46,7 @@ jobs:
 
     - name: Trigger build
       if: steps.cacheHash.outputs.cache-hit != 'true'
-      uses: peter-evans/repository-dispatch@v1
+      uses: peter-evans/repository-dispatch@v3
       with:
         token: ${{ secrets.ACTIONS_TRIGGER_PAT }}
         event-type: Source Code Update

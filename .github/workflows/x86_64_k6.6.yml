@@ -22,12 +22,12 @@ on:
     - cron: 15 16 * * 6
 
 env:
-  REPO_URL: https://github.com/coolsnowwolf/lede
+  REPO_URL: https://github.com/openwrt/openwrt
   REPO_BRANCH: master
-  FEEDS_CONF: feeds.conf.default
-  CONFIG_FILE: x86/lede-x86_k6.6.config
+  FEEDS_CONF: official.feeds.conf.default
+  CONFIG_FILE: x86/official-x86.config
   DIY_P1_SH: diy-part1.sh
-  DIY_P2_SH: diy-part2.sh
+  DIY_P2_SH: openwrt-21.02-diy-part2.sh
   UPLOAD_BIN_DIR: false
   UPLOAD_FIRMWARE: false
   UPLOAD_RELEASE: true
@@ -66,28 +66,47 @@ jobs:
       env:
         DEBIAN_FRONTEND: noninteractive
       run: |
-        docker rmi `docker images -q`
+        docker rmi $(docker images -q) 2>/dev/null
         sudo rm -rf /usr/share/dotnet /etc/apt/sources.list.d /usr/local/lib/android 2>/dev/null
         sudo -E apt -y purge azure-cli ghc* zulu* texlive* firefox google* dotnet* powershell openjdk* mongodb* moby* || true
         [[ -n "${AGENT_TOOLSDIRECTORY}" ]] && sudo rm -rf "${AGENT_TOOLSDIRECTORY}"
+        sudo swapoff -a
+        sudo rm -f /swapfile /mnt/swapfile
         sudo -E apt update
         sudo -E apt -y install $(curl -fsSL https://is.gd/depends_ubuntu_2204)
         sudo -E apt -y install clang llvm lld
         sudo -E apt -y autoremove --purge
         sudo -E systemctl daemon-reload
         sudo -E apt clean && sudo -E apt autoclean
+        sudo sed -i '/NVM_DIR/d;/skel/d' /root/{.bashrc,.profile}
+        sudo rm -rf ~/{.cargo,.dotnet,.rustup}
         sudo timedatectl set-timezone "$TZ"
-        sudo mkdir -p /mnt/workdir
-        sudo chown $USER:$GROUPS /mnt/workdir
         echo "status=success" >> ${GITHUB_OUTPUT}
+        
+    - name: Create simulated physical disk
+      run: |
+        mnt_size=$(expr $(df -h /mnt | tail -1 | awk '{print $4}' | sed 's/[[:alpha:]]//g' | sed 's/\..*//') - 1)
+        root_size=$(expr $(df -h / | tail -1 | awk '{print $4}' | sed 's/[[:alpha:]]//g' | sed 's/\..*//') - 4)
+        sudo truncate -s "${mnt_size}"G /mnt/mnt.img
+        sudo truncate -s "${root_size}"G /root.img
+        sudo losetup /dev/loop6 /mnt/mnt.img
+        sudo losetup /dev/loop7 /root.img
+        sudo pvcreate /dev/loop6
+        sudo pvcreate /dev/loop7
+        sudo vgcreate github /dev/loop6 /dev/loop7
+        sudo lvcreate -n runner -l 100%FREE github
+        sudo mkfs.xfs /dev/github/runner
+        sudo mkdir -p /builder
+        sudo mount /dev/github/runner /builder
+        sudo chown -R runner.runner /builder
         df -Th
 
     - name: Clone source code
-      working-directory: /mnt/workdir
+      working-directory: /builder
       run: |
         df -hT $PWD
         git clone $REPO_URL -b $REPO_BRANCH openwrt
-        ln -sf /mnt/workdir/openwrt $GITHUB_WORKSPACE/openwrt
+        ln -sf /builder/openwrt $GITHUB_WORKSPACE/openwrt
         cd openwrt
         useVersionInfo=$(git show -s --date=short --format="Author: %an<br/>date: %cd<br/>commit: %s<br/>commit hash: %H")
         echo "useVersionInfo=$useVersionInfo" >> $GITHUB_ENV
@@ -130,8 +149,6 @@ jobs:
         make download -j8
         find dl -size -1024c -exec ls -l {} \;
         find dl -size -1024c -exec rm -f {} \;
-        rm -rf $GITHUB_WORKSPACE/.git
-        rm -rf $GITHUB_WORKSPACE/opt
         df -Th
 
     - name: Compile the firmware
@@ -139,7 +156,7 @@ jobs:
       run: |
         cd openwrt
         echo -e "$(nproc) thread compile"
-        make -j$(nproc) || make -j1 || make -j1 V=s
+        make -j$(($(nproc) + 1)) || make -j1 || make -j1 V=s
         echo "status=success" >> ${GITHUB_OUTPUT}
         grep '^CONFIG_TARGET.*DEVICE.*=y' .config | sed -r 's/.*DEVICE_(.*)=y/\1/' > DEVICE_NAME
         [ -s DEVICE_NAME ] && echo "DEVICE_NAME=_$(cat DEVICE_NAME)" >> $GITHUB_ENV
@@ -180,7 +197,7 @@ jobs:
 
     - name: Create release
       id: release
-      uses: ncipollo/release-action@v1
+      uses: ncipollo/release-action@main
       with:
         name: R${{ env.DATE }} for ${{ env.PRODUCT_NAME }}
         allowUpdates: true
@@ -191,7 +208,7 @@ jobs:
         body: |
           - X86_64_k6.6 分支测试平台每周六自动更新发布固件
           - 默认IP：192.168.1.1 默认密码：password
-          - 当前使用版本:【编译前的最后一次[➦主源码](https://github.com/coolsnowwolf/lede)更新记录】
+          - 当前使用版本:【编译前的最后一次[➦主源码](https://github.com/openwrt/openwrt)更新记录】
           ${{ env.useVersionInfo }}
         artifacts: ${{ env.FIRMWARE }}/*
 
@@ -204,7 +221,7 @@ jobs:
         keep_minimum_runs: 60
 
     - name: Remove old Releases
-      uses: dev-drprasad/delete-older-releases@v0.2.0
+      uses: dev-drprasad/delete-older-releases@v0.3.3
       if: env.UPLOAD_RELEASE == 'true' && !cancelled()
       with:
         keep_latest: 30

@@ -1,7 +1,7 @@
 include $(TOPDIR)/rules.mk
 
 PKG_NAME:=docker
-PKG_VERSION:=25.0.4
+PKG_VERSION:=26.1.3
 PKG_RELEASE:=1
 PKG_LICENSE:=Apache-2.0
 PKG_LICENSE_FILES:=LICENSE
@@ -10,8 +10,8 @@ PKG_SOURCE:=$(PKG_NAME)-$(PKG_VERSION).tar.gz
 PKG_GIT_URL:=github.com/docker/cli
 PKG_GIT_REF:=v$(PKG_VERSION)
 PKG_SOURCE_URL:=https://codeload.$(PKG_GIT_URL)/tar.gz/$(PKG_GIT_REF)?
-PKG_HASH:=e29bcd588142981f0a8f7955628863441099cead1c860dc5040f5af0156de71a
-PKG_GIT_SHORT_COMMIT:=1a576c5 # SHA1 used within the docker executables
+PKG_HASH:=d361896cd02deb3bd160c627401eba2cd8e2513a085c55427319bea8c6412ad4
+PKG_GIT_SHORT_COMMIT:=b72abbb # SHA1 used within the docker executables
 
 PKG_MAINTAINER:=Gerard Ryan <G.M0N3Y.2503@gmail.com>
 
@@ -36,11 +36,13 @@ define Package/docker/description
 The CLI used in the Docker CE and Docker EE products.
 endef
 
-GO_PKG_BUILD_VARS += GO111MODULE=auto
+GO_PKG_INSTALL_EXTRA:=\
+	cli/compose/schema/data \
+	vendor/google.golang.org/protobuf/internal/editiondefaults/editions_defaults.binpb
+
 TAR_OPTIONS:=--strip-components 1 $(TAR_OPTIONS)
 TAR_CMD=$(HOST_TAR) -C $(1) $(TAR_OPTIONS)
 TARGET_LDFLAGS += $(if $(CONFIG_USE_GLIBC),-lc -lgcc_eh)
-GO_PKG_INSTALL_EXTRA:=cli/compose/schema/data
 
 define Build/Prepare
 	$(Build/Prepare/Default)

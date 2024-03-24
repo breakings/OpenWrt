@@ -16,13 +16,13 @@
 #git clone --single-branch -b openwrt-21.02 https://github.com/openwrt/openwrt
 
 #移除不用软件包    
-rm -rf feeds/packages/libs/libgd-full
-rm -rf feeds/luci/collections/luci-lib-docker
+#rm -rf feeds/packages/libs/libgd-full
+#rm -rf feeds/luci/collections/luci-lib-docker
 #rm -rf package/network
-rm -rf feeds/luci/themes/luci-theme-argon
-rm -rf package/libs/mbedtls
+#rm -rf feeds/luci/themes/luci-theme-argon
+#rm -rf package/libs/mbedtls
 #rm -rf feeds/packages/net/kcptun
-rm -rf feeds/packages/net/xray-core
+#rm -rf feeds/packages/net/xray-core
 #rm -rf feeds/packages/devel/ninja
 #rm -rf package/libs/elfutils
 #rm -rf package/libs/libcap
@@ -30,9 +30,9 @@ rm -rf feeds/packages/net/xray-core
 #rm -rf package/libs/libpcap
 #rm -rf package/libs/nettle
 #rm -rf package/libs/pcre
-rm -f tools/Makefile
+#rm -f tools/Makefile
 #rm -f feeds/packages/net/dnsproxy/Makefile
-rm -rf feeds/packages/net/trojan-go
+#rm -rf feeds/packages/net/trojan-go
 
 # Prepare
 
@@ -47,8 +47,8 @@ sed -i "s/enabled '0'/enabled '1'/g" feeds/packages/utils/irqbalance/files/irqba
 
 # Important Patches
 # ARM64: Add CPU model name in proc cpuinfo
-wget -P target/linux/generic/pending-5.15 https://github.com/immortalwrt/immortalwrt/raw/master/target/linux/generic/hack-5.15/312-arm64-cpuinfo-Add-model-name-in-proc-cpuinfo-for-64bit-ta.patch
-wget -P target/linux/generic/pending-5.10 https://github.com/immortalwrt/immortalwrt/raw/master/target/linux/generic/hack-5.10/312-arm64-cpuinfo-Add-model-name-in-proc-cpuinfo-for-64bit-ta.patch
+#wget -P target/linux/generic/pending-5.15 https://github.com/immortalwrt/immortalwrt/raw/master/target/linux/generic/hack-5.15/312-arm64-cpuinfo-Add-model-name-in-proc-cpuinfo-for-64bit-ta.patch
+#wget -P target/linux/generic/pending-5.10 https://github.com/immortalwrt/immortalwrt/raw/master/target/linux/generic/hack-5.10/312-arm64-cpuinfo-Add-model-name-in-proc-cpuinfo-for-64bit-ta.patch
 
 # Patch jsonc
 #patch -p1 < $GITHUB_WORKSPACE/PATCH/new/package/use_json_object_new_int64.patch
@@ -59,19 +59,19 @@ wget https://raw.githubusercontent.com/coolsnowwolf/lede/master/target/linux/gen
 popd
 wget -P target/linux/generic/hack-5.10 https://raw.githubusercontent.com/coolsnowwolf/lede/master/target/linux/generic/hack-5.15/952-net-conntrack-events-support-multiple-registrant.patch
 # Patch firewall to enable fullcone
-mkdir package/network/config/firewall/patches
-wget -P package/network/config/firewall/patches/ https://github.com/immortalwrt/immortalwrt/raw/ster/package/network/config/firewall/patches/fullconenat.patch
+#mkdir package/network/config/firewall/patches
+#wget -P package/network/config/firewall/patches/ https://github.com/immortalwrt/immortalwrt/raw/ster/package/network/config/firewall/patches/fullconenat.patch
 # Patch LuCI to add fullcone button
-patch -p1 < $GITHUB_WORKSPACE/PATCH/new/package/luci-app-firewall_add_fullcone.patch
+#patch -p1 < $GITHUB_WORKSPACE/PATCH/new/package/luci-app-firewall_add_fullcone.patch
 # FullCone modules
 #cp -rf $GITHUB_WORKSPACE/PATCH/duplicate/fullconenat ./package/network/fullconenat
 
 #添加额外软件包
 #svn co https://github.com/immortalwrt/immortalwrt/branches/openwrt-21.02/package/libs/mbedtls package/libs/mbedtls
-svn co https://github.com/coolsnowwolf/lede/trunk/package/libs/mbedtls package/libs/mbedtls
+#svn co https://github.com/coolsnowwolf/lede/trunk/package/libs/mbedtls package/libs/mbedtls
 #svn co https://github.com/coolsnowwolf/packages/trunk/devel/ninja feeds/packages/devel/ninja
-svn co https://github.com/coolsnowwolf/lede/trunk/package/lean/ntfs3-mount package/lean/ntfs3-mount
-svn co https://github.com/coolsnowwolf/lede/trunk/package/lean/ntfs3-oot package/lean/ntfs3-oot
+#svn co https://github.com/coolsnowwolf/lede/trunk/package/lean/ntfs3-mount package/lean/ntfs3-mount
+#svn co https://github.com/coolsnowwolf/lede/trunk/package/lean/ntfs3-oot package/lean/ntfs3-oot
 #svn co https://github.com/breakings/OpenWrt/trunk/general/ntfs3 package/lean/ntfs3
 #svn co https://github.com/coolsnowwolf/lede/trunk/package/libs/elfutils package/libs/elfutils
 #svn co https://github.com/coolsnowwolf/lede/trunk/package/libs/libcap package/libs/libcap
@@ -79,14 +79,14 @@ svn co https://github.com/coolsnowwolf/lede/trunk/package/lean/ntfs3-oot package
 #svn co https://github.com/coolsnowwolf/lede/trunk/package/libs/libpcap package/libs/libpcap
 #svn co https://github.com/coolsnowwolf/lede/trunk/package/libs/nettle package/libs/nettle
 #svn co https://github.com/coolsnowwolf/lede/trunk/package/libs/pcre package/libs/pcre
-svn co https://github.com/coolsnowwolf/lede/trunk/package/lean/upx tools/upx
-svn co https://github.com/coolsnowwolf/lede/trunk/package/lean/ucl tools/ucl
-wget -P tools https://raw.githubusercontent.com/breakings/OpenWrt/main/general/tools/Makefile
+#svn co https://github.com/coolsnowwolf/lede/trunk/package/lean/upx tools/upx
+#svn co https://github.com/coolsnowwolf/lede/trunk/package/lean/ucl tools/ucl
+#wget -P tools https://raw.githubusercontent.com/breakings/OpenWrt/main/general/tools/Makefile
 
 # Extra Packages
 # AutoCore
 #svn co https://github.com/immortalwrt/immortalwrt/branches/openwrt-21.02/package/emortal/autocore package/lean/autocore
-svn co https://github.com/breakings/OpenWrt/trunk/general/autocore package/lean/autocore
+cp -rf $GITHUB_WORKSPACE/general/autocore package/autocore
 #svn co https://github.com/coolsnowwolf/lede/trunk/package/lean/autocore package/lean/autocore
 #rm -rf ./feeds/packages/utils/coremark
 #svn co https://github.com/immortalwrt/packages/trunk/utils/coremark feeds/packages/utils/coremark
@@ -95,69 +95,30 @@ svn co https://github.com/breakings/OpenWrt/trunk/general/autocore package/lean/
 #svn co https://github.com/coolsnowwolf/lede/trunk/package/libs/libdouble-conversion package/libs/libdouble-conversion
 #svn co https://github.com/Lienol/openwrt/branches/21.02/package/lean/qt5 package/lean/qt5
 #svn co https://github.com/coolsnowwolf/lede/trunk/package/lean/qt5 package/lean/qt5
-svn co https://github.com/coolsnowwolf/packages/trunk/libs/qtbase package/lean/qtbase
-svn co https://github.com/coolsnowwolf/packages/trunk/libs/qttools package/lean/qttools
-svn co https://github.com/coolsnowwolf/lede/trunk/package/lean/shortcut-fe package/lean/shortcut-fe
-svn co https://github.com/coolsnowwolf/packages/trunk/net/qBittorrent-static package/qBittorrent-static
+cp -rf $GITHUB_WORKSPACE/general/qtbase package/qtbase
+cp -rf $GITHUB_WORKSPACE/general/qttools package/qttools
+#svn co https://github.com/coolsnowwolf/lede/trunk/package/lean/shortcut-fe package/lean/shortcut-fe
+#svn co https://github.com/coolsnowwolf/packages/trunk/net/qBittorrent-static package/qBittorrent-static
 
 #git clone https://github.com/jerrykuku/luci-app-jd-dailybonus.git package/luci-app-jd-dailybonus
-svn co https://github.com/jerrykuku/lua-maxminddb/trunk package/lua-maxminddb
-svn co https://github.com/vernesong/OpenClash/trunk/luci-app-openclash package/luci-app-openclash
+git clone https://github.com/jerrykuku/lua-maxminddb.git package/lua-maxminddb
+git clone --depth=1 https://github.com/vernesong/OpenClash.git package/OpenClash
 #git clone https://github.com/project-lede/luci-app-godproxy package/luci-app-godproxy
 svn co https://github.com/iwrt/luci-app-ikoolproxy/trunk package/luci-app-ikoolproxy
 #svn co https://github.com/immortalwrt/immortalwrt/branches/openwrt-21.02/package/lean/luci-app-haproxy-tcp package/lean/luci-app-haproxy-tcp
 #svn co https://github.com/immortalwrt/luci/branches/openwrt-21.02/applications/luci-app-haproxy-tcp package/lean/luci-app-haproxy-tcp
 # 编译 po2lmo (如果有po2lmo可跳过)
-pushd package/luci-app-openclash/tools/po2lmo
+pushd package/OpenClash/luci-app-openclash/tools/po2lmo
 make && sudo make install
 popd
-svn co https://github.com/xiaorouji/openwrt-passwall/trunk/brook package/brook
-svn co https://github.com/xiaorouji/openwrt-passwall/trunk/chinadns-ng package/chinadns-ng
-svn co https://github.com/xiaorouji/openwrt-passwall/trunk/tcping package/tcping
-svn co https://github.com/xiaorouji/openwrt-passwall/trunk/trojan-go package/trojan-go
-svn co https://github.com/xiaorouji/openwrt-passwall/trunk/trojan-plus package/trojan-plus
-#svn co https://github.com/project-openwrt/openwrt/trunk/package/ctcgfw/luci-app-filebrowser package/luci-app-filebrowser
-#svn co https://github.com/project-openwrt/openwrt/trunk/package/ctcgfw/filebrowser package/filebrowser
-#svn co https://github.com/project-openwrt/openwrt/trunk/package/lienol/luci-app-fileassistant package/luci-app-fileassistant
-svn co https://github.com/xiaorouji/openwrt-passwall/branches/luci/luci-app-passwall package/luci-app-passwall
-#cp -rf $GITHUB_WORKSPACE/general/luci-app-passwall package/luci-app-passwall
-svn co https://github.com/xiaorouji/openwrt-passwall/trunk/shadowsocks-rust package/shadowsocks-rust
-#svn co https://github.com/fw876/helloworld/trunk/shadowsocks-rust package/shadowsocks-rust
-svn co https://github.com/xiaorouji/openwrt-passwall/trunk/xray-core package/xray-core
-#svn co https://github.com/1715173329/packages-official/branches/xray-2102/net/xray-core feeds/packages/net/xray-core
-svn co https://github.com/xiaorouji/openwrt-passwall/trunk/xray-plugin package/xray-plugin
-svn co https://github.com/xiaorouji/openwrt-passwall/trunk/v2ray-core package/v2ray-core
-svn co https://github.com/xiaorouji/openwrt-passwall/trunk/v2ray-geodata package/v2ray-geodata
-svn co https://github.com/xiaorouji/openwrt-passwall/trunk/v2ray-plugin package/v2ray-plugin
-#svn co https://github.com/fw876/helloworld/trunk/v2ray-plugin package/v2ray-plugin
-svn co https://github.com/xiaorouji/openwrt-passwall/trunk/ssocks package/ssocks
-svn co https://github.com/xiaorouji/openwrt-passwall/trunk/dns2socks package/dns2socks
-svn co https://github.com/xiaorouji/openwrt-passwall/trunk/ipt2socks package/ipt2socks
-svn co https://github.com/xiaorouji/openwrt-passwall/trunk/microsocks package/microsocks 
-svn co https://github.com/xiaorouji/openwrt-passwall/trunk/pdnsd-alt package/pdnsd-alt
-#svn co https://github.com/xiaorouji/openwrt-passwall/trunk/shadowsocksr-libev package/shadowsocksr-libev
-svn co https://github.com/fw876/helloworld/trunk/shadowsocksr-libev package/shadowsocksr-libev
-svn co https://github.com/xiaorouji/openwrt-passwall/trunk/simple-obfs package/simple-obfs
-#svn co https://github.com/xiaorouji/openwrt-passwall/trunk/kcptun package/kcptun
-svn co https://github.com/xiaorouji/openwrt-passwall/trunk/trojan package/trojan
-#svn co https://github.com/xiaorouji/openwrt-passwall/trunk/naiveproxy package/naiveproxy
-cp -rf $GITHUB_WORKSPACE/general/naiveproxy package/naiveproxy
-svn co https://github.com/xiaorouji/openwrt-passwall/trunk/hysteria package/hysteria
-svn co https://github.com/xiaorouji/openwrt-passwall/trunk/dns2tcp package/dns2tcp
-svn co https://github.com/xiaorouji/openwrt-passwall/trunk/sagernet-core package/sagernet-core
-#svn co https://github.com/fw876/helloworld/trunk/naiveproxy package/naiveproxy
-#mkdir package/xray-core/patches
-#wget -P package/xray-core/patches https://raw.githubusercontent.com/openwrt/packages/master/net/xray-core/patches/100-go-1.17-deps.patch
-svn co https://github.com/coolsnowwolf/packages/trunk/net/dnsforwarder package/lean/dnsforwarder
-svn co https://github.com/immortalwrt/immortalwrt/trunk/package/utils/mhz package/mhz
 
 #菜单定制
-git clone https://github.com/immortalwrt/luci-app-unblockneteasemusic package/luci-app-unblockneteasemusic
+#git clone https://github.com/immortalwrt/luci-app-unblockneteasemusic package/luci-app-unblockneteasemusic
 #svn co https://github.com/Lienol/openwrt/branches/21.02/package/network package/network
 #svn co https://github.com/immortalwrt/immortalwrt/branches/openwrt-21.02/package/lean/qBittorrent-Enhanced-Edition package/lean/qBittorrent-Enhanced-Edition
-svn co https://github.com/coolsnowwolf/packages/trunk/net/qBittorrent package/lean/qBittorrent
-svn co https://github.com/coolsnowwolf/packages/trunk/libs/rblibtorrent package/lean/rblibtorrent
-svn co https://github.com/coolsnowwolf/luci/trunk/applications/luci-app-qbittorrent package/lean/luci-app-qbittorrent
+#svn co https://github.com/coolsnowwolf/packages/trunk/net/qBittorrent package/lean/qBittorrent
+#svn co https://github.com/coolsnowwolf/packages/trunk/libs/rblibtorrent package/lean/rblibtorrent
+cp -rf $GITHUB_WORKSPACE/general/luci-app-qbittorrent package/luci-app-qbittorrent
 #svn co https://github.com/coolsnowwolf/lede/trunk/package/lean/luci-app-qbittorrent package/lean/luci-app-qbittorrent
 #svn co https://github.com/immortalwrt/immortalwrt/branches/openwrt-21.02/package/lean/luci-app-qbittorrent package/lean/luci-app-qbittorrent
 svn co https://github.com/immortalwrt/luci/branches/openwrt-21.02/applications/luci-app-cpufreq package/lean/luci-app-cpufreq
@@ -174,14 +135,14 @@ svn co https://github.com/immortalwrt/luci/branches/openwrt-21.02/applications/l
 svn co https://github.com/breakings/OpenWrt/trunk/general/luci-app-netdata package/lean/luci-app-netdata
 svn co https://github.com/immortalwrt/luci/branches/openwrt-21.02/applications/luci-app-usb-printer package/lean/luci-app-usb-printer
 svn co https://github.com/immortalwrt/luci/branches/openwrt-21.02/applications/luci-app-filetransfer package/lean/luci-app-filetransfer
-svn co https://github.com/immortalwrt/luci/branches/openwrt-21.02/libs/luci-lib-fs package/lean/luci-lib-fs
-svn co https://github.com/immortalwrt/luci/trunk/applications/luci-app-zerotier package/luci-app-zerotier
+#svn co https://github.com/immortalwrt/luci/branches/openwrt-21.02/libs/luci-lib-fs package/lean/luci-lib-fs
+#svn co https://github.com/immortalwrt/luci/trunk/applications/luci-app-zerotier package/luci-app-zerotier
 #svn co https://github.com/coolsnowwolf/lede/trunk/package/lean/coremark package/lean/coremark
 #svn co https://github.com/Lienol/openwrt/branches/21.02/package/network/fullconenat package/network/fullconenat 
 #svn co https://github.com/coolsnowwolf/lede/trunk/package/lean/luci-app-docker package/lean/luci-app-docker
 #svn co https://github.com/coolsnowwolf/packages/trunk/utils/docker-ce package/utils/docker-ce
 #svn co https://github.com/Lienol/openwrt/trunk/package/diy/luci-lib-docker package/luci-lib-docker
-svn co https://github.com/lisaac/luci-lib-docker/trunk/collections/luci-lib-docker package/luci-lib-docker
+#svn co https://github.com/lisaac/luci-lib-docker/trunk/collections/luci-lib-docker package/luci-lib-docker
 
 svn co https://github.com/immortalwrt/luci/branches/openwrt-21.02/applications/luci-app-openvpn-server package/lean/luci-app-openvpn-server
 svn co https://github.com/immortalwrt/luci/branches/openwrt-21.02/applications/luci-app-autoreboot package/lean/luci-app-autoreboot
@@ -191,7 +152,7 @@ svn co https://github.com/immortalwrt/luci/branches/openwrt-21.02/applications/l
 svn co https://github.com/immortalwrt/luci/branches/openwrt-21.02/applications/luci-app-guest-wifi package/lean/luci-app-guest-wifi
 #svn co https://github.com/Lienol/openwrt/branches/21.02/package/diy/parted package/parted
 #svn co https://github.com/immortalwrt/immortalwrt/branches/openwrt-21.02/package/lean/default-settings package/lean/default-settings
-svn co https://github.com/breakings/OpenWrt/trunk/general/default-settings package/lean/default-settings
+#svn co https://github.com/breakings/OpenWrt/trunk/general/default-settings package/lean/default-settings
 #rm -f package/lean/default-settings/files/zzz-default-settings
 #cp -f $GITHUB_WORKSPACE/general/zzz-default-settings package/lean/default-settings/files/
 
@@ -202,7 +163,7 @@ svn co https://github.com/breakings/OpenWrt/trunk/general/default-settings packa
 #svn co https://github.com/project-openwrt/openwrt/trunk/package/ctcgfw/luci-app-gost package/luci-app-gost
 #svn co https://github.com/project-openwrt/openwrt/trunk/package/ctcgfw/gost package/gost
 #svn co https://github.com/kenzok8/openwrt-packages/trunk/luci-app-eqos package/luci-app-eqos
-git clone https://github.com/tty228/luci-app-serverchan.git package/luci-app-serverchan
+#git clone https://github.com/tty228/luci-app-serverchan.git package/luci-app-serverchan
 svn co https://github.com/fw876/helloworld/trunk/luci-app-ssr-plus package/lean/luci-app-ssr-plus
 svn co https://github.com/fw876/helloworld/trunk/lua-neturl package/lua-neturl
 #pushd package/lean
@@ -249,12 +210,13 @@ cp -f $GITHUB_WORKSPACE/general/libtorrent-rasterbar/Makefile feeds/packages/lib
 # qBittorrent
 #sed -i "s/PKG_VERSION:=.*/PKG_VERSION:=4.4.1/" package/lean/qBittorrent/Makefile
 #sed -i "s/PKG_HASH:=.*/PKG_HASH:=144a609514a7b516e65c4a4e32e49529b5e3949a713daf86332cd95867c991ba/" package/lean/qBittorrent/Makefile
-cp -f $GITHUB_WORKSPACE/general/qBittorrent/Makefile package/lean/qBittorrent
+mkdir -pv package/qBittorrent
+cp -rf $GITHUB_WORKSPACE/general/qBittorrent/Makefile.qt6 package/qBittorrent/Makefile
 
 # Qt5 -qtbase
 #sed -i "s/PKG_BUGFIX:=.*/PKG_BUGFIX:=6/" package/lean/qtbase/Makefile
 #sed -i "s/PKG_HASH:=.*/PKG_HASH:=396bc6b0d773ac6a7c691a4c3d901999f571e3e7033d7fd6f65e4ef2b6eb7340/" package/lean/qtbase/Makefile
-rm -rf package/lean/qtbase/patches
+#rm -rf package/lean/qtbase/patches
 
 # Qt5 -qttools
 #sed -i "s/PKG_BUGFIX:=.*/PKG_BUGFIX:=6/" package/lean/qttools/Makefile
@@ -269,13 +231,13 @@ rm -rf package/lean/qtbase/patches
 #sed -i 's/PKG_HASH:=.*/PKG_HASH:=eadbad9e9ab30b25f5520fbfde99fae4a92a1ae3c0257a8d68569a4651e30e02/' feeds/packages/multimedia/ffmpeg/Makefile
 
 # btrfs-progs
-sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=6.2.2/' feeds/packages/utils/btrfs-progs/Makefile
-sed -i 's/PKG_HASH:=.*/PKG_HASH:=e4888db8637d92e667448386992d0856b954cf2515b98d39b667da43c482d693/' feeds/packages/utils/btrfs-progs/Makefile
-rm -rf feeds/packages/utils/btrfs-progs/patches
+sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=6.8/' feeds/packages/utils/btrfs-progs/Makefile
+sed -i 's/PKG_HASH:=.*/PKG_HASH:=9c21645feac182611e28b47769d5f613cb9e2ecab58ece60b10e6c55a9ead575/' feeds/packages/utils/btrfs-progs/Makefile
+#rm -rf feeds/packages/utils/btrfs-progs/patches
 
 # bsdtar
-sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=3.6.1/g' feeds/packages/libs/libarchive/Makefile
-sed -i 's/PKG_HASH:=.*/PKG_HASH:=5a411aceb978f43e626f0c2d1812ddd8807b645ed892453acabd532376c148e6/g' feeds/packages/libs/libarchive/Makefile
+#sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=3.6.1/g' feeds/packages/libs/libarchive/Makefile
+#sed -i 's/PKG_HASH:=.*/PKG_HASH:=5a411aceb978f43e626f0c2d1812ddd8807b645ed892453acabd532376c148e6/g' feeds/packages/libs/libarchive/Makefile
 
 # docker
 #sed -i 's/PKG_VERSION:=20.10.14/PKG_VERSION:=20.10.16/g' feeds/packages/utils/docker/Makefile
@@ -288,7 +250,7 @@ sed -i 's/PKG_HASH:=.*/PKG_HASH:=5a411aceb978f43e626f0c2d1812ddd8807b645ed892453
 #sed -i 's/PKG_RELEASE:=.*/PKG_RELEASE:=1/g' feeds/packages/utils/dockerd/Makefile
 #sed -i 's/PKG_HASH:=.*/PKG_HASH:=2cd69e2cc67053300aa8d78988c92fd63ea0d0d84fe2071597191a149d5548f8/g' feeds/packages/utils/dockerd/Makefile
 #sed -i 's/PKG_GIT_SHORT_COMMIT:=87a90dc/PKG_GIT_SHORT_COMMIT:=f756502/g' feeds/packages/utils/dockerd/Makefile
-sed -i 's/^\s*$[(]call\sEnsureVendoredVersion/#&/' feeds/packages/utils/dockerd/Makefile
+#sed -i 's/^\s*$[(]call\sEnsureVendoredVersion/#&/' feeds/packages/utils/dockerd/Makefile
 
 # docker-compose
 #sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=2.5.1/' feeds/packages/utils/docker-compose/Makefile
@@ -306,25 +268,25 @@ sed -i 's/^\s*$[(]call\sEnsureVendoredVersion/#&/' feeds/packages/utils/dockerd/
 #sed -i 's/PKG_SOURCE_VERSION:=.*/PKG_SOURCE_VERSION:=a916309fff0f838eb94e928713dbc3c0d0ac7aa4/g' feeds/packages/utils/runc/Makefile
 
 # openwrt-fullconenat
-svn co https://github.com/coolsnowwolf/lede/trunk/package/network/services/fullconenat package/fullconenat
+#svn co https://github.com/coolsnowwolf/lede/trunk/package/network/services/fullconenat package/fullconenat
 
 # openssh
 #sed -i '175i\	--with-sandbox=rlimit \\' feeds/packages/net/openssh/Makefile
-rm -rf feeds/packages/net/openssh
-cp -rf $GITHUB_WORKSPACE/general/openssh feeds/packages/net
+#rm -rf feeds/packages/net/openssh
+#cp -rf $GITHUB_WORKSPACE/general/openssh feeds/packages/net
 
 # hdparm
 sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=9.65/g' feeds/packages/utils/hdparm/Makefile
 sed -i 's/PKG_HASH:=.*/PKG_HASH:=d14929f910d060932e717e9382425d47c2e7144235a53713d55a94f7de535a4b/g' feeds/packages/utils/hdparm/Makefile
 
 # pcre2
-sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=10.40/g' feeds/packages/libs/pcre2/Makefile
-sed -i 's|PKG_SOURCE_URL:=.*|PKG_SOURCE_URL:=https://github.com/PhilipHazel/pcre2/releases/download/$(PKG_NAME)-$(PKG_VERSION)|g' feeds/packages/libs/pcre2/Makefile
-sed -i 's/PKG_HASH:=.*/PKG_HASH:=14e4b83c4783933dc17e964318e6324f7cae1bc75d8f3c79bc6969f00c159d68/g' feeds/packages/libs/pcre2/Makefile
+#sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=10.40/g' feeds/packages/libs/pcre2/Makefile
+#sed -i 's|PKG_SOURCE_URL:=.*|PKG_SOURCE_URL:=https://github.com/PhilipHazel/pcre2/releases/download/$(PKG_NAME)-$(PKG_VERSION)|g' feeds/packages/libs/pcre2/Makefile
+#sed -i 's/PKG_HASH:=.*/PKG_HASH:=14e4b83c4783933dc17e964318e6324f7cae1bc75d8f3c79bc6969f00c159d68/g' feeds/packages/libs/pcre2/Makefile
 
 # socat
-sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=1.7.4.4/g' feeds/packages/net/socat/Makefile
-sed -i 's/PKG_HASH:=.*/PKG_HASH:=fbd42bd2f0e54a3af6d01bdf15385384ab82dbc0e4f1a5e153b3e0be1b6380ac/g' feeds/packages/net/socat/Makefile
+#sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=1.7.4.4/g' feeds/packages/net/socat/Makefile
+#sed -i 's/PKG_HASH:=.*/PKG_HASH:=fbd42bd2f0e54a3af6d01bdf15385384ab82dbc0e4f1a5e153b3e0be1b6380ac/g' feeds/packages/net/socat/Makefile
 #sed -i '75i\	  sc_cv_getprotobynumber_r=2 \\' feeds/packages/net/socat/Makefile
 
 # libseccomp
@@ -346,22 +308,22 @@ sed -i 's/PKG_HASH:=.*/PKG_HASH:=d82902400405cf0068574ef3dc1fe5f5926207543ba1ae6
 #sed -i 's/PKG_HASH:=.*/PKG_HASH:=b23ee315be0e50c2fb1aa374d17f2d2d9146a835b1a79c1918ea15d075a693d7/g' feeds/packages/libs/nspr/Makefile
 
 # unrar
-sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=6.2.6/g' feeds/packages/utils/unrar/Makefile
-sed -i 's/PKG_HASH:=.*/PKG_HASH:=0c2d4cbc8b34d0e3bec7b474e0f52bbcc6c4320ec089b4141223ee355f63c318/g' feeds/packages/utils/unrar/Makefile
+#sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=6.2.6/g' feeds/packages/utils/unrar/Makefile
+#sed -i 's/PKG_HASH:=.*/PKG_HASH:=0c2d4cbc8b34d0e3bec7b474e0f52bbcc6c4320ec089b4141223ee355f63c318/g' feeds/packages/utils/unrar/Makefile
 
 # zstd
 #sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=1.5.2/g' feeds/packages/utils/zstd/Makefile
 #sed -i 's/PKG_HASH:=.*/PKG_HASH:=3ea06164971edec7caa2045a1932d757c1815858e4c2b68c7ef812647535c23f/g' feeds/packages/utils/zstd/Makefile
 
 # pigz
-sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=2.7/g' feeds/packages/utils/pigz/Makefile
-sed -i 's/PKG_HASH:=.*/PKG_HASH:=b4c9e60344a08d5db37ca7ad00a5b2c76ccb9556354b722d56d55ca7e8b1c707/g' feeds/packages/utils/pigz/Makefile
-rm -rf feeds/packages/utils/pigz/patches
+#sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=2.7/g' feeds/packages/utils/pigz/Makefile
+#sed -i 's/PKG_HASH:=.*/PKG_HASH:=b4c9e60344a08d5db37ca7ad00a5b2c76ccb9556354b722d56d55ca7e8b1c707/g' feeds/packages/utils/pigz/Makefile
+#rm -rf feeds/packages/utils/pigz/patches
 
 # gzip
-sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=1.12/g' feeds/packages/utils/gzip/Makefile
-sed -i 's/PKG_RELEASE:=.*/PKG_RELEASE:=1/g' feeds/packages/utils/gzip/Makefile
-sed -i 's/PKG_HASH:=.*/PKG_HASH:=ce5e03e519f637e1f814011ace35c4f87b33c0bbabeec35baf5fbd3479e91956/g' feeds/packages/utils/gzip/Makefile
+#sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=1.12/g' feeds/packages/utils/gzip/Makefile
+#sed -i 's/PKG_RELEASE:=.*/PKG_RELEASE:=1/g' feeds/packages/utils/gzip/Makefile
+#sed -i 's/PKG_HASH:=.*/PKG_HASH:=ce5e03e519f637e1f814011ace35c4f87b33c0bbabeec35baf5fbd3479e91956/g' feeds/packages/utils/gzip/Makefile
 
 # replace banner
 #cp -f $GITHUB_WORKSPACE/general/openwrt_banner package/base-files/files/etc/banner
@@ -370,6 +332,8 @@ sed -i 's/PKG_HASH:=.*/PKG_HASH:=ce5e03e519f637e1f814011ace35c4f87b33c0bbabeec35
 #sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=3.19/g' feeds/packages/net/xtables-addons/Makefile
 #sed -i 's/PKG_RELEASE:=.*/PKG_RELEASE:=1/g' feeds/packages/net/xtables-addons/Makefile
 #sed -i 's/PKG_HASH:=.*/PKG_HASH:=5e36ea027ab15a84d9af1f3f8e84a78b80a617093657f08089bd44657722f661/g' feeds/packages/net/xtables-addons/Makefile
+rm -rf feeds/packages/net/xtables-addons
+cp -rf $GITHUB_WORKSPACE/general/xtables-addons feeds/packages/net
 
 # libssh2
 #sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=1.10.0/g' feeds/packages/libs/libssh2/Makefile
@@ -388,18 +352,18 @@ sed -i 's/PKG_HASH:=.*/PKG_HASH:=ce5e03e519f637e1f814011ace35c4f87b33c0bbabeec35
 #sed -i 's/PKG_HASH:=.*/PKG_HASH:=a544f8808d0c58cfb0e7424ca1841cb858a974922b035d505d4e4c248be3a22b/g' feeds/packages/utils/smartmontools/Makefile
 
 # libxml2
-cp -f $GITHUB_WORKSPACE/general/libxml2/Makefile feeds/packages/libs/libxml2
+#cp -f $GITHUB_WORKSPACE/general/libxml2/Makefile feeds/packages/libs/libxml2
 
 # sqlite3
 #sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=3380500/g' feeds/packages/libs/sqlite3/Makefile
 #sed -i 's/PKG_HASH:=.*/PKG_HASH:=5af07de982ba658fd91a03170c945f99c971f6955bc79df3266544373e39869c/g' feeds/packages/libs/sqlite3/Makefile
 #sed -i 's|PKG_SOURCE_URL:=.*|PKG_SOURCE_URL:=https://www.sqlite.org/2022/|g' feeds/packages/libs/sqlite3/Makefile
 #sed -i '39d' feeds/packages/libs/sqlite3/Makefile
-cp -rf $GITHUB_WORKSPACE/general/sqlite3 feeds/packages/libs
+#cp -rf $GITHUB_WORKSPACE/general/sqlite3 feeds/packages/libs
 
 # frp
 #sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=0.42.0/g' feeds/packages/net/frp/Makefile
-#sed -i 's/PKG_HASH:=.*/PKG_HASH:=4bb815e9c9a4588fce20c6ef33168f0ceb1f420937c4dcf03ce085666328043a/g' feeds/packages/net/frp/Makefile
+#sed -i 's/PKG_HASH:=.*/PKG_HASCONFIG_PACKAGE_kmod-crypto-sha3H:=4bb815e9c9a4588fce20c6ef33168f0ceb1f420937c4dcf03ce085666328043a/g' feeds/packages/net/frp/Makefile
 
 # openvpn
 #sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=2.5.6/g' feeds/packages/net/openvpn/Makefile
@@ -427,7 +391,7 @@ cp -rf $GITHUB_WORKSPACE/general/sqlite3 feeds/packages/libs
 #git clone https://github.com/Leo-Jo-My/luci-theme-opentomcat.git package/luci-theme-opentomcat
 #git clone https://github.com/kevin-morgan/luci-theme-argon-dark.git package/luci-theme-argon-dark
 #svn co https://github.com/openwrt/luci/trunk/themes/luci-theme-openwrt-2020 package/luci-theme-openwrt-2020
-git clone https://github.com/jerrykuku/luci-theme-argon.git package/luci-theme-argon
+#git clone https://github.com/jerrykuku/luci-theme-argon.git package/luci-theme-argon
 #git clone https://github.com/jerrykuku/luci-app-argon-config.git package/luci-app-argon-config
 
 # readd cpufreq for aarch64
@@ -461,6 +425,9 @@ sed -i 's/发送/Transmission/g' feeds/luci/applications/luci-app-transmission/p
 # p910nd
 sed -i 's/p910nd - 打印服务器/打印服务器/g' feeds/luci/applications/luci-app-p910nd/po/zh_Hans/p910nd.po
 
+# frp
+sed -i 's/frp 客户端/FRP 客户端/g' feeds/luci/applications/luci-app-frpc/po/zh_Hans/frpc.po
+
 # fix NaïveProxy typo error
 #sed -i 's/Na茂veProxy/NaïveProxy/g' package/naiveproxy/Makefile
 
@@ -480,9 +447,9 @@ sed -i -e 's/^\(.\).*vermagic$/\1cp $(TOPDIR)\/.vermagic $(LINUX_DIR)\/.vermagic
 COMMENT
 
 # Vermagic 2203 SNAPSHOT ONLY
-wget https://downloads.openwrt.org/releases/22.03-SNAPSHOT/targets/armvirt/64/packages/Packages.gz
-zgrep -m 1 "Depends: kernel (=.*)$" Packages.gz | sed -e 's/.*-\(.*\))/\1/' > .vermagic
-sed -i -e 's/^\(.\).*vermagic$/\1cp $(TOPDIR)\/.vermagic $(LINUX_DIR)\/.vermagic/' include/kernel-defaults.mk
+#wget https://downloads.openwrt.org/releases/22.03-SNAPSHOT/targets/armvirt/64/packages/Packages.gz
+#zgrep -m 1 "Depends: kernel (=.*)$" Packages.gz | sed -e 's/.*-\(.*\))/\1/' > .vermagic
+#sed -i -e 's/^\(.\).*vermagic$/\1cp $(TOPDIR)\/.vermagic $(LINUX_DIR)\/.vermagic/' include/kernel-defaults.mk
 
 # Crypto and Devfreq
 
@@ -537,8 +504,8 @@ find package/*/ -maxdepth 2 -path "*/Makefile" | xargs -i sed -i 's/include\ \.\
 #sed -i 's/PKG_HASH:=.*/PKG_HASH:=f79b8f904b749e3e0d20afeadecf8249c55b2e32d4ebb089ae378df479dcaf25/g' feeds/packages/libs/expat/Makefile
 
 # perl
-rm -rf feeds/packages/lang/perl
-cp -rf $GITHUB_WORKSPACE/general/perl feeds/packages/lang
+#rm -rf feeds/packages/lang/perl
+#cp -rf $GITHUB_WORKSPACE/general/perl feeds/packages/lang
 
 # zerotier
 #rm -rf feeds/packages/net/zerotier
@@ -549,17 +516,47 @@ rm -rf package/utils/util-linux
 cp -rf $GITHUB_WORKSPACE/general/util-linux package/utils
 
 # lsof
-sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=4.95.0/g' feeds/packages/utils/lsof/Makefile
-sed -i 's/PKG_HASH:=.*/PKG_HASH:=e9faa0fbcc48638c1d1f143e93573ac43b65e76646150f83e24bd8c18786303c/g' feeds/packages/utils/lsof/Makefile
-
-# libnetwork
-#sed -i 's/PKG_SOURCE_VERSION:=.*/PKG_SOURCE_VERSION:=339b972b464ee3d401b5788b2af9e31d09d6b7da/g' feeds/packages/#utils/libnetwork/Makefile
-#sed -i 's/PKG_SOURCE_DATE:=.*/PKG_SOURCE_DATE:=2022-03-16/g' feeds/packages/utils/libnetwork/Makefile
-#sed -i 's/PKG_MIRROR_HASH:=.*/PKG_MIRROR_HASH:=0f99357acc839619d108d358da09e288fd741f299fe5cf500bb5e8267f64aad1/g' feeds/packages/utils/libnetwork/Makefile
+#sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=4.95.0/g' feeds/packages/utils/lsof/Makefile
+#sed -i 's/PKG_HASH:=.*/PKG_HASH:=e9faa0fbcc48638c1d1f143e93573ac43b65e76646150f83e24bd8c18786303c/g' feeds/packages/utils/lsof/Makefile
 
 # zsh
 #sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=5.9/g' feeds/packages/utils/zsh/Makefile
 #sed -i 's/PKG_HASH:=.*/PKG_HASH:=9b8d1ecedd5b5e81fbf1918e876752a7dd948e05c1a0dba10ab863842d45acd5/g' feeds/packages/utils/zsh/Makefile
+
+# helloworld
+git clone --depth=1 https://github.com/fw876/helloworld.git package/helloworld
+#wget -P package/helloworld/shadowsocksr-libev/patches https://raw.githubusercontent.com/sbwml/openwrt_helloworld/v5/shadowsocksr-libev/patches/104-pointer-used-after-free.patch
+
+# passwall
+git clone https://github.com/xiaorouji/openwrt-passwall.git package/openwrt-passwall
+git clone https://github.com/xiaorouji/openwrt-passwall2.git package/openwrt-passwall2
+git clone https://github.com/xiaorouji/openwrt-passwall-packages.git package/openwrt-passwall-packages
+rm -rf package/openwrt-passwall-packages/shadowsocksr-libev
+
+# sing-box
+rm -rf feeds/packages/net/sing-box
+cp -rf $GITHUB_WORKSPACE/general/sing-box feeds/packages/net/sing-box
+
+# Optimization level -Ofast
+if [ "$platform" = "x86_64" ]; then
+    curl -s https://raw.githubusercontent.com/sbwml/r4s_build_script/master/openwrt/patch/target-modify_for_x86_64.patch | patch -p1
+fi
+
+# x86 - disable intel_pstate
+sed -i 's/noinitrd/noinitrd intel_pstate=disable/g' target/linux/x86/image/grub-efi.cfg
+
+# libpfring
+rm -rf feeds/packages/libs/libpfring
+cp -rf $GITHUB_WORKSPACE/general/libpfring feeds/packages/libs/libpfring
+
+# bash
+if [ "$platform" = "x86_64" ]; then
+sed -i 's#ash#bash#g' package/base-files/files/etc/passwd
+fi
+sed -i 's#\\u@\\h:\\w\\\$#\\[\\e[32;1m\\][\\u@\\h\\[\\e[0m\\] \\[\\033[01;34m\\]\\W\\[\\033[00m\\]\\[\\e[32;1m\\]]\\[\\e[0m\\]\\\$#g' package/base-files/files/etc/profile
+mkdir -pv files/root
+curl -so files/root/.bash_profile https://raw.githubusercontent.com/sbwml/r4s_build_script/master/openwrt/files/root/.bash_profile
+curl -so files/root/.bashrc https://raw.githubusercontent.com/sbwml/r4s_build_script/master/openwrt/files/root/.bashrc
 
 ./scripts/feeds update -a
 ./scripts/feeds install -a
