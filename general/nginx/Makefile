@@ -8,12 +8,12 @@
 include $(TOPDIR)/rules.mk
 
 PKG_NAME:=nginx
-PKG_VERSION:=1.25.3
+PKG_VERSION:=1.25.4
 PKG_RELEASE:=1
 
 PKG_SOURCE:=nginx-$(PKG_VERSION).tar.gz
 PKG_SOURCE_URL:=https://nginx.org/download/
-PKG_HASH:=64c5b975ca287939e828303fa857d22f142b251f17808dfe41733512d9cded86
+PKG_HASH:=760729901acbaa517996e681ee6ea259032985e37c2768beef80df3a877deed9
 
 PKG_MAINTAINER:=Thomas Heil <heil@terminal-consulting.de> \
 				Christian Marangi <ansuelsmth@gmail.com>
@@ -23,7 +23,7 @@ PKG_CPE_ID:=cpe:/a:nginx:nginx
 PKG_FIXUP:=autoreconf
 PKG_BUILD_PARALLEL:=1
 PKG_INSTALL:=1
-PKG_BUILD_FLAGS:=gc-sections
+PKG_BUILD_FLAGS:=gc-sections lto
 
 # 3rd-party modules
 PKG_MOD_EXTRA := \
@@ -82,6 +82,7 @@ PKG_CONFIG_DEPENDS := \
 	CONFIG_NGINX_PCRE \
 	CONFIG_NGINX_HTTP_REAL_IP \
 	CONFIG_NGINX_HTTP_SECURE_LINK \
+	CONFIG_NGINX_STREAM_REAL_IP \
 	CONFIG_OPENSSL_ENGINE \
 	CONFIG_OPENSSL_WITH_NPN \
 	$(foreach m,$(PKG_MOD_EXTRA),CONFIG_PACKAGE_$(m))
@@ -210,7 +211,7 @@ endef
 
 define Package/nginx-mod-lua-resty-lrucache
   $(call Package/nginx/default)
-  DEPENDS:=+luajit2
+  DEPENDS:=@HAS_LUAJIT_ARCH +luajit2
   TITLE:=Nginx Lua OpenResty lrucache module
 endef
 
@@ -449,6 +450,7 @@ CONFIGURE_ARGS += \
 	$(if $(call IsEnabled,NGINX_HTTP_SECURE_LINK),--with-http_secure_link_module) \
 	$(if $(call IsEnabled,NGINX_HTTP_SUB),--with-http_sub_module) \
 	$(if $(CONFIG_PACKAGE_nginx-mod-stream),--with-stream=dynamic --with-stream_ssl_module --with-stream_ssl_preread_module) \
+	$(if $(call IsEnabled,NGINX_STREAM_REAL_IP),--with-stream_realip_module) \
 	$(if $(CONFIG_PACKAGE_nginx-mod-naxsi),--add-dynamic-module=$(PKG_BUILD_DIR)/nginx-mod-naxsi/naxsi_src) \
 	$(foreach m,$(filter-out lua-resty-core lua-resty-lrucache naxsi,$(PKG_MOD_EXTRA)), \
 		$(if $(CONFIG_PACKAGE_nginx-mod-$(m)),--add-dynamic-module=$(PKG_BUILD_DIR)/nginx-mod-$(m)))

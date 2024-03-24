@@ -234,8 +234,8 @@ rm -rf feeds/packages/multimedia/ffmpeg
 cp -rf $GITHUB_WORKSPACE/general/ffmpeg feeds/packages/multimedia
 
 # btrfs-progs
-sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=6.7.1/g' feeds/packages/utils/btrfs-progs/Makefile
-sed -i 's/PKG_HASH:=.*/PKG_HASH:=24dc7b974f0a57ba0eca80f97440b840dfa85b0f1cb2c01bdfd97659a480b200/g' feeds/packages/utils/btrfs-progs/Makefile
+sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=6.8/g' feeds/packages/utils/btrfs-progs/Makefile
+sed -i 's/PKG_HASH:=.*/PKG_HASH:=9c21645feac182611e28b47769d5f613cb9e2ecab58ece60b10e6c55a9ead575/g' feeds/packages/utils/btrfs-progs/Makefile
 rm -rf feeds/packages/utils/btrfs-progs/patches
 #sed -i '68i\	--disable-libudev \\' feeds/packages/utils/btrfs-progs/Makefile
 
@@ -266,14 +266,14 @@ sed -i 's/PKG_RELEASE:=.*/PKG_RELEASE:=1/g' feeds/packages/net/curl/Makefile
 #merge_package https://github.com/openwrt/packages packages/net/curl
 
 # Qt5 -qtbase
-sed -i "s/PKG_BUGFIX:=.*/PKG_BUGFIX:=12/g" feeds/packages/libs/qtbase/Makefile
-sed -i "s/PKG_HASH:=.*/PKG_HASH:=4c01b7b0f1f3c1e05ae6bf53c66e49c65c6b3872475bac26b0fb228136914af0/g" feeds/packages/libs/qtbase/Makefile
+sed -i "s/PKG_BUGFIX:=.*/PKG_BUGFIX:=13/g" feeds/packages/libs/qtbase/Makefile
+sed -i "s/PKG_HASH:=.*/PKG_HASH:=4cca51dcc1f22ceeee6b3e33cd1c3a60b14e85e24644dca3af89a2c2989ab809/g" feeds/packages/libs/qtbase/Makefile
 #rm -rf feeds/packages/libs/qtbase
 #cp -rf $GITHUB_WORKSPACE/general/qt6base feeds/packages/libs
 
 # Qt5 -qttools
-sed -i "s/PKG_BUGFIX:=.*/PKG_BUGFIX:=12/g" feeds/packages/libs/qttools/Makefile
-sed -i "s/PKG_HASH:=.*/PKG_HASH:=9a4084fee80a2acebb6415efa5a28dd666960129895a0bb7d97468a9f0c66506/g" feeds/packages/libs/qttools/Makefile
+sed -i "s/PKG_BUGFIX:=.*/PKG_BUGFIX:=13/g" feeds/packages/libs/qttools/Makefile
+sed -i "s/PKG_HASH:=.*/PKG_HASH:=57c9794c572c4e02871f2e7581525752b0cf85ea16cfab23a4ac9ba7b39a5d34/g" feeds/packages/libs/qttools/Makefile
 #rm -rf feeds/packages/libs/qttools
 #cp -rf $GITHUB_WORKSPACE/general/qt6tools feeds/packages/libs
 
@@ -312,8 +312,8 @@ rm -rf feeds/packages/utils/dockerd
 cp -rf $GITHUB_WORKSPACE/general/dockerd feeds/packages/utils/dockerd
 
 # docker-compose
-sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=2.25.0/g' feeds/packages/utils/docker-compose/Makefile
-sed -i 's/PKG_HASH:=.*/PKG_HASH:=9c8185f241911f5d8bdb25d8c735fb1f37f3573c17e25d5b1a942df2e78e49ea/g' feeds/packages/utils/docker-compose/Makefile
+sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=2.26.1/g' feeds/packages/utils/docker-compose/Makefile
+sed -i 's/PKG_HASH:=.*/PKG_HASH:=081ad40241f8e144cad088a65e6fd0ec588e3d36931e5baabb3dc5ab068ceb60/g' feeds/packages/utils/docker-compose/Makefile
 
 # containerd
 #sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=1.5.11/g' feeds/packages/utils/containerd/Makefile
@@ -658,8 +658,8 @@ sed -i 's/PKG_HASH:=.*/PKG_HASH:=eb872b4f0e1f0ebe59c9f7bd8c506c4204893ba6a8492de
 #cp -rf $GITHUB_WORKSPACE/general/nano feeds/packages/utils
 
 # dnsproxy
-sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=0.66.0/g' feeds/packages/net/dnsproxy/Makefile
-sed -i 's/PKG_HASH:=.*/PKG_HASH:=6928b109fb1080fec2aadc0cad20d0c08d13b5ff5db1a7c82ecfe200eec21326/g' feeds/packages/net/dnsproxy/Makefile
+sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=0.68.0/g' feeds/packages/net/dnsproxy/Makefile
+sed -i 's/PKG_HASH:=.*/PKG_HASH:=d8dddcf24ffca259125e50a83b320baefc5fcc2703a2aea0d50847846f6d08f4/g' feeds/packages/net/dnsproxy/Makefile
 
 # libnl-tiny
 #sed -i 's/PKG_RELEASE:=.*/PKG_RELEASE:=1/g' package/libs/libnl-tiny/Makefile
@@ -960,8 +960,8 @@ sed -i 's/PKG_HASH:=.*/PKG_HASH:=9210b0113109f43be526ac5835d58a701411821a4d39e15
 #sed -i 's/PKG_HASH:=.*/PKG_HASH:=8f74213b56238c85a50a5329f77e06198771e70dd9a739779f4c02f65d971313/g' package/libs/libiconv-full/Makefile
 
 # bind
-sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=9.18.24/g' feeds/packages/net/bind/Makefile
-sed -i 's/PKG_HASH:=.*/PKG_HASH:=709d73023c9115ddad3bab65b6c8c79a590196d0d114f5d0ca2533dbd52ddf66/g' feeds/packages/net/bind/Makefile
+sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=9.18.25/g' feeds/packages/net/bind/Makefile
+sed -i 's/PKG_HASH:=.*/PKG_HASH:=5a4a70432a33d009f0e6e9dbb328aae7a5e27507e98e28bf3c0c6b250ccb2ab3/g' feeds/packages/net/bind/Makefile
 sed -i 's/PKG_RELEASE:=.*/PKG_RELEASE:=1/g' feeds/packages/net/bind/Makefile
 
 # libwebp
@@ -973,10 +973,10 @@ sed -i 's/PKG_HASH:=.*/PKG_HASH:=2a499607df669e40258e53d0ade8035ba4ec0175244869d
 #sed -i 's/PKG_HASH:=.*/PKG_HASH:=47ac6e60271aa0196e65472d02d019556dc7c6d09df3b65df2c1ab6866348e3b/g' feeds/packages/net/lighttpd/Makefile
 
 # xz
-sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=5.6.0/g' feeds/packages/utils/xz/Makefile
+sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=5.4.6/g' feeds/packages/utils/xz/Makefile
 sed -i 's/PKG_RELEASE:=.*/PKG_RELEASE:=1/g' feeds/packages/utils/xz/Makefile
-sed -i 's|PKG_SOURCE_URL:=.*|PKG_SOURCE_URL:=https://github.com/tukaani-project/xz/releases/download/v$(PKG_VERSION)|g' feeds/packages/utils/xz/Makefile
-sed -i 's/PKG_HASH:=.*/PKG_HASH:=88c8631cefba91664fdc47b14bb753e1876f4964a07db650821d203992b1e1ea/g' feeds/packages/utils/xz/Makefile
+#sed -i 's|PKG_SOURCE_URL:=.*|PKG_SOURCE_URL:=https://github.com/tukaani-project/xz/releases/download/v$(PKG_VERSION)|g' feeds/packages/utils/xz/Makefile
+sed -i 's/PKG_HASH:=.*/PKG_HASH:=913851b274e8e1d31781ec949f1c23e8dbcf0ecf6e73a2436dc21769dd3e6f49/g' feeds/packages/utils/xz/Makefile
 
 # vim
 rm -rf feeds/packages/utils/vim

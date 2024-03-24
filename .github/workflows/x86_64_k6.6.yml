@@ -22,12 +22,12 @@ on:
     - cron: 15 16 * * 6
 
 env:
-  REPO_URL: https://github.com/coolsnowwolf/lede
+  REPO_URL: https://github.com/openwrt/openwrt
   REPO_BRANCH: master
-  FEEDS_CONF: feeds.conf.default
-  CONFIG_FILE: x86/lede-x86_k6.6.config
+  FEEDS_CONF: official.feeds.conf.default
+  CONFIG_FILE: x86/official-x86.config
   DIY_P1_SH: diy-part1.sh
-  DIY_P2_SH: diy-part2.sh
+  DIY_P2_SH: openwrt-21.02-diy-part2.sh
   UPLOAD_BIN_DIR: false
   UPLOAD_FIRMWARE: false
   UPLOAD_RELEASE: true
@@ -191,7 +191,7 @@ jobs:
         body: |
           - X86_64_k6.6 分支测试平台每周六自动更新发布固件
           - 默认IP：192.168.1.1 默认密码：password
-          - 当前使用版本:【编译前的最后一次[➦主源码](https://github.com/coolsnowwolf/lede)更新记录】
+          - 当前使用版本:【编译前的最后一次[➦主源码](https://github.com/openwrt/openwrt)更新记录】
           ${{ env.useVersionInfo }}
         artifacts: ${{ env.FIRMWARE }}/*
 
