@@ -187,10 +187,10 @@ jobs:
         removeArtifacts: true
         tag: ${{ env.FILE_NAME }}
         commit: main
-        token: ${{ secrets.RELEASES_TOKEN }}
+        token: ${{ secrets.ACTIONS_TRIGGER_PAT }}
         body: |
           - X86_64 平台每周六自动更新发布固件
-          - 默认IP：192.168.1.1 默认密码：password
+          - 默认IP：192.168.10.3 默认密码：password
           - 当前使用版本:【编译前的最后一次[➦主源码](https://github.com/coolsnowwolf/lede)更新记录】
           ${{ env.useVersionInfo }}
         artifacts: ${{ env.FIRMWARE }}/*
