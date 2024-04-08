@@ -66,7 +66,7 @@ sed -i 's/DEPENDS:=@(.*/DEPENDS:=@(TARGET_bcm27xx||TARGET_bcm53xx||TARGET_ipq40x
 sed -i 's/192.168.1.1/192.168.10.3/g' package/base-files/files/bin/config_generate
 
 #添加额外软件包
-git clone https://github.com/UnblockNeteaseMusic/luci-app-unblockneteasemusic.git package/luci-app-unblockneteasemusic
+git clone --branch master https://github.com/UnblockNeteaseMusic/luci-app-unblockneteasemusic.git package/luci-app-unblockneteasemusic
 #git clone https://github.com/jerrykuku/luci-app-jd-dailybonus.git package/luci-app-jd-dailybonus
 #git clone https://github.com/jerrykuku/lua-maxminddb.git package/lua-maxminddb
 merge_package https://github.com/jerrykuku/lua-maxminddb lua-maxminddb
