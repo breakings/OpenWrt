@@ -15,7 +15,7 @@
 
 #git clone --single-branch -b openwrt-21.02 https://github.com/openwrt/openwrt
 
-#移除不用软件包    
+#移除不用软件包
 #rm -rf feeds/packages/libs/libgd-full
 #rm -rf feeds/luci/collections/luci-lib-docker
 #rm -rf package/network
@@ -72,7 +72,7 @@ wget -P target/linux/generic/hack-5.10 https://raw.githubusercontent.com/coolsno
 #svn co https://github.com/coolsnowwolf/packages/trunk/devel/ninja feeds/packages/devel/ninja
 #svn co https://github.com/coolsnowwolf/lede/trunk/package/lean/ntfs3-mount package/lean/ntfs3-mount
 #svn co https://github.com/coolsnowwolf/lede/trunk/package/lean/ntfs3-oot package/lean/ntfs3-oot
-#svn co https://github.com/breakings/OpenWrt/trunk/general/ntfs3 package/lean/ntfs3
+#svn co https://github.com/FlameMida/OpenWrt/trunk/general/ntfs3 package/lean/ntfs3
 #svn co https://github.com/coolsnowwolf/lede/trunk/package/libs/elfutils package/libs/elfutils
 #svn co https://github.com/coolsnowwolf/lede/trunk/package/libs/libcap package/libs/libcap
 #svn co https://github.com/coolsnowwolf/lede/trunk/package/libs/libnftnl package/libs/libnftnl
@@ -126,19 +126,19 @@ svn co https://github.com/immortalwrt/luci/branches/openwrt-21.02/applications/l
 svn co https://github.com/immortalwrt/luci/branches/openwrt-21.02/applications/luci-app-airplay2 package/lean/luci-app-airplay2
 #svn co https://github.com/immortalwrt/immortalwrt/branches/openwrt-21.02/package/lean/luci-app-flowoffload package/lean/luci-app-flowoffload
 #svn co https://github.com/Lienol/openwrt/branches/21.02/package/lean/luci-app-flowoffload package/lean/luci-app-flowoffload
-svn co https://github.com/breakings/OpenWrt/trunk/general/luci-app-flowoffload package/lean/luci-app-flowoffload
-svn co https://github.com/breakings/OpenWrt/trunk/general/luci-app-turboacc package/lean/luci-app-turboacc
+svn co https://github.com/FlameMida/OpenWrt/trunk/general/luci-app-flowoffload package/lean/luci-app-flowoffload
+svn co https://github.com/FlameMida/OpenWrt/trunk/general/luci-app-turboacc package/lean/luci-app-turboacc
 #svn co https://github.com/immortalwrt/luci/trunk/applications/luci-app-turboacc package/lean/turboacc
 svn co https://github.com/immortalwrt/luci/branches/openwrt-21.02/applications/luci-app-cifs-mount package/lean/luci-app-cifs-mount
 svn co https://github.com/immortalwrt/luci/branches/openwrt-21.02/applications/luci-app-nfs package/lean/luci-app-nfs
 #svn co https://github.com/Lienol/openwrt/branches/21.02/package/lean/luci-app-netdata package/lean/luci-app-netdata
-svn co https://github.com/breakings/OpenWrt/trunk/general/luci-app-netdata package/lean/luci-app-netdata
+svn co https://github.com/FlameMida/OpenWrt/trunk/general/luci-app-netdata package/lean/luci-app-netdata
 svn co https://github.com/immortalwrt/luci/branches/openwrt-21.02/applications/luci-app-usb-printer package/lean/luci-app-usb-printer
 svn co https://github.com/immortalwrt/luci/branches/openwrt-21.02/applications/luci-app-filetransfer package/lean/luci-app-filetransfer
 #svn co https://github.com/immortalwrt/luci/branches/openwrt-21.02/libs/luci-lib-fs package/lean/luci-lib-fs
 #svn co https://github.com/immortalwrt/luci/trunk/applications/luci-app-zerotier package/luci-app-zerotier
 #svn co https://github.com/coolsnowwolf/lede/trunk/package/lean/coremark package/lean/coremark
-#svn co https://github.com/Lienol/openwrt/branches/21.02/package/network/fullconenat package/network/fullconenat 
+#svn co https://github.com/Lienol/openwrt/branches/21.02/package/network/fullconenat package/network/fullconenat
 #svn co https://github.com/coolsnowwolf/lede/trunk/package/lean/luci-app-docker package/lean/luci-app-docker
 #svn co https://github.com/coolsnowwolf/packages/trunk/utils/docker-ce package/utils/docker-ce
 #svn co https://github.com/Lienol/openwrt/trunk/package/diy/luci-lib-docker package/luci-lib-docker
@@ -152,7 +152,7 @@ svn co https://github.com/immortalwrt/luci/branches/openwrt-21.02/applications/l
 svn co https://github.com/immortalwrt/luci/branches/openwrt-21.02/applications/luci-app-guest-wifi package/lean/luci-app-guest-wifi
 #svn co https://github.com/Lienol/openwrt/branches/21.02/package/diy/parted package/parted
 #svn co https://github.com/immortalwrt/immortalwrt/branches/openwrt-21.02/package/lean/default-settings package/lean/default-settings
-#svn co https://github.com/breakings/OpenWrt/trunk/general/default-settings package/lean/default-settings
+#svn co https://github.com/FlameMida/OpenWrt/trunk/general/default-settings package/lean/default-settings
 #rm -f package/lean/default-settings/files/zzz-default-settings
 #cp -f $GITHUB_WORKSPACE/general/zzz-default-settings package/lean/default-settings/files/
 
@@ -293,7 +293,7 @@ sed -i 's/PKG_HASH:=.*/PKG_HASH:=d14929f910d060932e717e9382425d47c2e7144235a5371
 sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=2.5.4/g' feeds/packages/libs/libseccomp/Makefile
 sed -i 's/PKG_HASH:=.*/PKG_HASH:=d82902400405cf0068574ef3dc1fe5f5926207543ba1ae6f8e7a1576351dcbdb/g' feeds/packages/libs/libseccomp/Makefile
 
-# node 
+# node
 #sed -i "s/PKG_VERSION:=.*/PKG_VERSION:=v16.15.0/g" feeds/packages/lang/node/Makefile
 #sed -i "s/PKG_HASH:=.*/PKG_HASH:=a0f812efc43f78321eca08957960a48f5e6bf97004d5058c8dd3b03c646ea4f7/g" feeds/packages/lang/node/Makefile
 #rm -rf feeds/packages/lang/node
@@ -482,7 +482,7 @@ COMMENT
 #cd kerner-version
 #svn up kernel-version.mk
 
-# Fix n2n_v2 luci 
+# Fix n2n_v2 luci
 #sed -e 's/page..acl_depends/page.acl_depends/' -i package/lean/luci-app-n2n_v2/luasrc/controller/n2n_v2.lua
 
 # 修改makefile
