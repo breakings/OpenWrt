@@ -78,14 +78,12 @@ jobs:
         #OPENWRT_VER: R23.5.1
         KERNEL_AUTO_LATEST: true
         GZIP_IMGS: .gz
-        GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        GH_TOKEN: ${{ secrets.TOKEN }}
 
     - name: SSH connection to Actions @ Ctrl+C to enter, Ctrl+D to exit
       uses: P3TERX/ssh2actions@main
       if: (github.event.inputs.ssh == 'true' && github.event.inputs.ssh  != 'false') || contains(github.event.action, 'ssh')
-      env:
-        TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
-        TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+  
 
     - name: Upload artifact to Actions
       uses: kittaakos/upload-artifact-as-is@master
@@ -120,7 +118,7 @@ jobs:
     - name: Delete workflow runs
       uses: GitRML/delete-workflow-runs@main
       with:
-        token: ${{ secrets.GITHUB_TOKEN }}
+        token: ${{ secrets.TOKEN }}
         repository: ${{ github.repository }}
         retain_days: 60
         keep_minimum_runs: 60
@@ -134,13 +132,4 @@ jobs:
         delete_tag_pattern:
         delete_tags: true
       env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
-    - name: Telegram notification
-      run: |
-        MSG="
-        打包时间：${{ env.DATE }}
-        OpenWrt 更新信息：${{ env.useVersionInfo }}
-        ${{ env.PRODUCT_NAME }} 打包完成
-        "
-        curl "https://api.telegram.org/bot${{ secrets.TELEGRAM_TOKEN }}/sendMessage" -d "chat_id=${{ secrets.TELEGRAM_TO }}&text=${MSG}"
+        GITHUB_TOKEN: ${{ secrets.TOKEN }}
