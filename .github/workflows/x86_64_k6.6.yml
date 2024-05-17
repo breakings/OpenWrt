@@ -204,7 +204,7 @@ jobs:
         token: ${{ secrets.RELEASES_TOKEN }}
         body: |
           - X86_64_k6.6 分支测试平台每周六自动更新发布固件
-          - 默认IP：192.168.1.1 默认密码：password
+          - 默认IP：192.168.100.1 默认密码：password
           - 当前使用版本:【编译前的最后一次[➦主源码](https://github.com/openwrt/openwrt)更新记录】
           ${{ env.useVersionInfo }}
         artifacts: ${{ env.FIRMWARE }}/*

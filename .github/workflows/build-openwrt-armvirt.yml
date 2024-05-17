@@ -31,8 +31,8 @@ env:
   UPLOAD_RELEASE: true
   RECENT_LASTEST: 30
   TZ: Asia/Shanghai
-  FILE_NAME: openwrt_armvirt
-  PRODUCT_NAME: openwrt_armvirt
+  FILE_NAME: openwrt_armvirt_gcc11
+  PRODUCT_NAME: openwrt_armvirt_gcc11
 
 jobs:
   build:
@@ -180,7 +180,7 @@ jobs:
         token: ${{ secrets.RELEASES_TOKEN }}
         artifacts: ${{ env.PACKAGED_OUTPUTPATH }}/*
         body: |
-          默认IP： 192.168.1.1 默认密码： password
+          默认IP： 192.168.100.1 默认密码： password
           当前使用版本:【编译前的最后一次[➦主源码](https://github.com/coolsnowwolf/lede)更新记录】
           ${{ env.useVersionInfo }}
 

@@ -81,7 +81,7 @@ wget -P target/linux/generic/hack-5.10 https://raw.githubusercontent.com/coolsno
 #svn co https://github.com/coolsnowwolf/lede/trunk/package/libs/pcre package/libs/pcre
 #svn co https://github.com/coolsnowwolf/lede/trunk/package/lean/upx tools/upx
 #svn co https://github.com/coolsnowwolf/lede/trunk/package/lean/ucl tools/ucl
-#wget -P tools https://raw.githubusercontent.com/breakings/OpenWrt/main/general/tools/Makefile
+#wget -P tools https://raw.githubusercontent.com/FlameMida/OpenWrt/main/general/tools/Makefile
 
 # Extra Packages
 # AutoCore

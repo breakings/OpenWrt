@@ -151,7 +151,7 @@ jobs:
       with:
         tag_name: ${{ steps.tag.outputs.release_tag }}
         body: |
-          默认IP：192.168.1.1 默认密码：password
+          默认IP：192.168.100.1 默认密码：password
           当前使用版本:【编译前的最后一次[➦主源码](https://github.com/openwrt/openwrt)更新记录】
           ${{ env.useVersionInfo }}
         files: ${{ env.FIRMWARE }}/*
