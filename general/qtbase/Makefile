@@ -9,7 +9,7 @@ include $(TOPDIR)/rules.mk
 
 PKG_NAME:=qt6base
 PKG_BASE:=6.7
-PKG_BUGFIX:=0
+PKG_BUGFIX:=2
 PKG_VERSION:=$(PKG_BASE).$(PKG_BUGFIX)
 PKG_RELEASE:=1
 
@@ -17,7 +17,7 @@ PKG_SOURCE:=qtbase-everywhere-src-$(PKG_VERSION).tar.xz
 PKG_SOURCE_URL:=https://mirrors.tencent.com/qt/archive/qt/$(PKG_BASE)/$(PKG_VERSION)/submodules/ \
 		  https://mirrors.aliyun.com/qt/archive/qt/$(PKG_BASE)/$(PKG_VERSION)/submodules/ \
 		  http://download.qt-project.org/archive/qt/$(PKG_BASE)/$(PKG_VERSION)/submodules/
-PKG_HASH:=11b2e29e2e52fb0e3b453ea13bbe51a10fdff36e1c192d8868c5a40233b8b254
+PKG_HASH:=c5f22a5e10fb162895ded7de0963328e7307611c688487b5d152c9ee64767599
 
 HOST_BUILD_DIR:=$(BUILD_DIR_HOST)/qtbase-everywhere-src-$(PKG_VERSION)
 PKG_BUILD_DIR:=$(BUILD_DIR)/qtbase-everywhere-src-$(PKG_VERSION)
@@ -30,6 +30,7 @@ PKG_CPE_ID:=cpe:/a:qt:qt
 PKG_BUILD_DEPENDS:=qtbase/host
 PKG_BUILD_PARALLEL:=1
 PKG_USE_MIPS16:=0
+PKG_BUILD_FLAGS:=no-mips16
 CMAKE_INSTALL:=1
 
 include $(INCLUDE_DIR)/package.mk
@@ -55,6 +56,7 @@ endef
 define Package/libQt6/install
 endef
 
+TARGET_CFLAGS+= -I$(STAGING_DIR)/usr/include/libdrm
 ifdef CONFIG_USE_GLIBC
   ifeq ($(ARCH),x86_64)
     TARGET_LDFLAGS += -Wl,--sysroot=$(TOOLCHAIN_DIR)
@@ -67,8 +69,10 @@ TARGET_LDFLAGS += -Wl,--gc-sections,--as-needed -flto
 CMAKE_SHARED_LDFLAGS:=$(filter-out -Wl$(comma)-Bsymbolic-functions,$(CMAKE_SHARED_LDFLAGS))
 
 CMAKE_HOST_OPTIONS+= \
+	-DQT_FORCE_MIN_CMAKE_VERSION_FOR_BUILDING_QT=3.19 \
 	-DBUILD_SHARED_LIBS=OFF \
 	-DFEATURE_optimize_full=ON \
+	-DFEATURE_glib=OFF \
 	-DFEATURE_zstd=OFF \
 	-DFEATURE_concurrent=OFF \
 	-DFEATURE_dbus=ON \
@@ -80,6 +84,8 @@ CMAKE_HOST_OPTIONS+= \
 	-DFEATURE_xml=ON
 
 CMAKE_OPTIONS+= \
+	-DQT_FORCE_MIN_CMAKE_VERSION_FOR_BUILDING_QT=3.19 \
+	-DQT_FORCE_MIN_CMAKE_VERSION_FOR_USING_QT=3.19 \
 	-DBUILD_SHARED_LIBS=ON \
 	-DCMAKE_SYSROOT=$(STAGING_DIR) \
 	-DQT_HOST_PATH=$(STAGING_DIR_HOSTPKG) \

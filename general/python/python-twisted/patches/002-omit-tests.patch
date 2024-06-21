@@ -1,0 +1,10 @@
+--- a/pyproject.toml
++++ b/pyproject.toml
+@@ -182,6 +182,7 @@ exclude = [
+     "*.pxi",
+     "*.pyx",
+     "build.bat",
++    "test",
+ ]
+ 
+ [tool.hatch.build.targets.sdist]
