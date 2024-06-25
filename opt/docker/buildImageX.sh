@@ -6,7 +6,7 @@ if [ ! -z "$1" ];then
 fi
 
 WORKDIR=${PWD}
-SRC_IMG=${WORKDIR}/openwrt-armvirt-64-default-rootfs.tar.gz
+SRC_IMG=${WORKDIR}/openwrt-armvirt-64-generic-rootfs.tar.gz
 TMPDIR=openwrt_rootfs
 OUTDIR=dockerimgs/docker
 IMG_NAME=baltimore/openwrt-aarch64
@@ -16,7 +16,7 @@ IMG_NAME=baltimore/openwrt-aarch64
 
 #mkdir -p "$TMPDIR"  && \
 #mkdir -p "$OUTDIR"  && \
-#gzip -dc openwrt-armvirt-64-default-rootfs.tar.gz | ( cd "$TMPDIR" && tar xf - ) && \
+#gzip -dc openwrt-armvirt-64-generic-rootfs.tar.gz | ( cd "$TMPDIR" && tar xf - ) && \
 mkdir -p "$TMPDIR" && gzip -dc ${SRC_IMG} | ( cd "$TMPDIR" && tar xf - && rm -rf ./lib/firmware/* && rm -rf ./lib/modules/*)
 
 [ -x $TMPDIR/bin/bash ] && \
@@ -90,17 +90,17 @@ sed -e "s/:0:0:99999:7:::/:${ddd}:0:99999:7:::/" -i "${TMPDIR}/etc/shadow" && \
 sed -e "s/root::/root:\$1\$0yUsq67p\$RC5cEtaQpM6KHQfhUSIAl\.:/" -i "${TMPDIR}/etc/shadow"
 
 sed -i '/DISTRIB_REVISION/d' "${TMPDIR}/etc/openwrt_release" && \
-echo "DISTRIB_REVISION='R23.4.4'" >> "${TMPDIR}/etc/openwrt_release" && \
+echo "DISTRIB_REVISION='R24.7.7'" >> "${TMPDIR}/etc/openwrt_release" && \
 sed -i '/DISTRIB_DESCRIPTION/d' "${TMPDIR}/etc/openwrt_release" && \
 echo "DISTRIB_DESCRIPTION='OpenWrt'" >> "${TMPDIR}/etc/openwrt_release" && \
 
 #echo "17 3 * * * /etc/coremark.sh" >> "$TMPDIR/etc/crontabs/root" && \
 #rm -rf "$TMPDIR/lib/firmware/*" "$TMPDIR/lib/modules/*" && \
 
-(cd "$TMPDIR" && tar cf ../openwrt-armvirt-64-default-rootfs.tar .) && \
+(cd "$TMPDIR" && tar cf ../openwrt-armvirt-64-generic-rootfs.tar .) && \
 rm -f DockerImg-OpenwrtArm64-${TAG}.gz && \
 #docker build -t ${IMG_NAME}:${TAG} . && \
 docker buildx build --no-cache --platform=linux/arm64 -o type=docker -t ${IMG_NAME}:${TAG} . && \
-rm -f  openwrt-armvirt-64-default-rootfs.tar && \
+rm -f  openwrt-armvirt-64-generic-rootfs.tar && \
 rm -rf "$TMPDIR" && \
 docker save ${IMG_NAME}:${TAG} | pigz -9 > $OUTDIR/docker-img-openwrt-aarch64-${TAG}.gz
