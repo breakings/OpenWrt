@@ -8,12 +8,12 @@
 include $(TOPDIR)/rules.mk
 
 PKG_NAME:=xfsprogs
-PKG_VERSION:=6.6.0
+PKG_VERSION:=6.8.0
 PKG_RELEASE:=1
 
 PKG_SOURCE:=$(PKG_NAME)-$(PKG_VERSION).tar.xz
 PKG_SOURCE_URL:=@KERNEL/linux/utils/fs/xfs/xfsprogs
-PKG_HASH:=50ca2f4676df8fab4cb4c3ef3dd512d5551e6844d40a65a31d5b8e03593d22df
+PKG_HASH:=78b6ab776eebe5ab52e0884a70fa1b3633e64a282b1ecfae91f5dd1d9ec5f07d
 
 PKG_MAINTAINER:=
 PKG_LICENSE:=GPL-2.0-only
@@ -43,12 +43,13 @@ endef
 define Package/xfs-mkfs
 $(call Package/xfsprogs/default)
   TITLE:=Utility for creating XFS filesystems
-  DEPENDS+=+libinih
+  DEPENDS+=+libinih +libblkid
 endef
 
 define Package/xfs-fsck
 $(call Package/xfsprogs/default)
   TITLE:=Utilities for checking and repairing XFS filesystems
+  DEPENDS+=+libblkid
 endef
 
 define Package/xfs-growfs
