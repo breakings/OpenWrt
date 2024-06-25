@@ -66,7 +66,7 @@ jobs:
       env:
         DEBIAN_FRONTEND: noninteractive
       run: |
-        #docker rmi `docker images -q`
+        # docker rmi `docker images -q`
         sudo swapoff -a
         sudo rm -f /swapfile /mnt/swapfile
         sudo docker image prune -a -f
@@ -83,8 +83,8 @@ jobs:
         sudo -E systemctl daemon-reload
         sudo -E apt clean && sudo -E apt autoclean
         sudo timedatectl set-timezone "$TZ"
-        #sudo mkdir -p /builder
-        #sudo chown $USER:$GROUPS /builder
+        # sudo mkdir -p /builder
+        # sudo chown $USER:$GROUPS /builder
         echo "status=success" >> ${GITHUB_OUTPUT}
         df -Th
         
@@ -113,7 +113,7 @@ jobs:
         sudo mount /dev/github/runner /builder
         sudo chown -R runner.runner /builder
         df -Th
-        
+
     - name: Clone source code
       working-directory: /builder
       run: |
@@ -230,6 +230,7 @@ jobs:
         token: ${{ secrets.RELEASES_TOKEN }}
         body: |
           - 此为高大全底包，非完整固件，每日自动编译
+          - 默认IP：192.168.1.1 默认密码：password
           - 当前使用版本:【编译前的最后一次[➦主源码](https://github.com/coolsnowwolf/lede)更新记录】
           ${{ env.useVersionInfo }}
         artifacts: ${{ env.FIRMWARE }}/*
