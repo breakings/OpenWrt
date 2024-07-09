@@ -25,9 +25,8 @@ env:
   REPO_URL: https://github.com/coolsnowwolf/lede
   REPO_BRANCH: master
   FEEDS_CONF: feeds.conf.default
-  CONFIG_FILE: ARMv8/lede-huge.config
-  DIY_P1_SH: diy-part1.sh
-  DIY_P2_SH: diy-part2.sh
+  CONFIG_FILE: .config
+  DIY_SCRIPT: scripts/diy.sh
   UPLOAD_BIN_DIR: false
   UPLOAD_FIRMWARE: false
   UPLOAD_RELEASE: true
@@ -44,24 +43,6 @@ jobs:
     - name: Checkout
       uses: actions/checkout@main
       
-    - name: Check server configuration
-      run: |
-        echo "警告⚠"
-        echo "若分配的服务器性能不足，务必及时取消，重新运行！"
-        echo "已知编译成功CPU型号：8370C,8171M"
-        echo "已知性能不足CPU型号：8272CL"
-        echo -e "-------------- ------------CPU信息------------------------------------------\n"
-        echo "CPU物理数量:$(cat /proc/cpuinfo| grep "physical id"| sort| uniq| wc -l)"
-        echo -e "CPU核心及版本信息：$(cat /proc/cpuinfo | grep name | cut -f2 -d: | uniq -c) \n"
-        echo "-------------------------------内存信息-------------------------------------------"
-        echo "已安装内存详细信息："
-        sudo lshw -short -C memory | grep GiB
-        echo -e "\n"
-        echo "-----------------------------硬盘信息---------------------------------------------"
-        echo -e  "硬盘数量：$(ls /dev/sd* | grep -v [1-9] | wc -l) \n"
-        echo "硬盘详情："
-        df -Th
-
     - name: Initialization environment
       env:
         DEBIAN_FRONTEND: noninteractive
@@ -135,13 +116,6 @@ jobs:
         #clean: false
         #prefix: ${{ github.workspace }}/openwrt
 
-    - name: Load custom feeds
-      run: |
-        [ -e $FEEDS_CONF ] && mv $FEEDS_CONF openwrt/feeds.conf.default
-        chmod +x $DIY_P1_SH
-        cd openwrt
-        $GITHUB_WORKSPACE/$DIY_P1_SH
-
     - name: Update feeds
       run: cd openwrt && ./scripts/feeds update -a
 
@@ -152,9 +126,11 @@ jobs:
       run: |
         [ -e files ] && mv files openwrt/files
         [ -e $CONFIG_FILE ] && mv $CONFIG_FILE openwrt/.config
-        chmod +x $DIY_P2_SH
+        chmod +x $DIY_SCRIPT
+        chmod +x $GITHUB_WORKSPACE/scripts/*.sh
         cd openwrt
-        $GITHUB_WORKSPACE/$DIY_P2_SH
+        $GITHUB_WORKSPACE/$DIY_SCRIPT
+        $GITHUB_WORKSPACE/scripts/preset-terminal-tools.sh
 
     - name: SSH connection to Actions
       uses: P3TERX/ssh2actions@v1.0.0
@@ -227,10 +203,8 @@ jobs:
         allowUpdates: true
         tag: ${{ env.FILE_NAME }}
         commit: main
-        token: ${{ secrets.RELEASES_TOKEN }}
+        token: ${{ secrets.R_TOKEN }}
         body: |
-          - 此为高大全底包，非完整固件，每日自动编译
-          - 默认IP：192.168.1.1 默认密码：password
           - 当前使用版本:【编译前的最后一次[➦主源码](https://github.com/coolsnowwolf/lede)更新记录】
           ${{ env.useVersionInfo }}
         artifacts: ${{ env.FIRMWARE }}/*
@@ -238,7 +212,7 @@ jobs:
     - name: Delete workflow runs
       uses: GitRML/delete-workflow-runs@main
       with:
-        token: ${{ secrets.GITHUB_TOKEN }}
+        token: ${{ secrets.R_TOKEN }}
         repository: ${{ github.repository }}
         retain_days: 60
         keep_minimum_runs: 60
@@ -252,7 +226,7 @@ jobs:
         delete_tag_pattern:
         delete_tags: true
       env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        GITHUB_TOKEN: ${{ secrets.R_TOKEN }}
 
     - name: Telegram notification
       run: |
@@ -261,4 +235,4 @@ jobs:
         OpenWrt 更新信息：${{ env.useVersionInfo }}
         ${{ env.PRODUCT_NAME }} 编译完成
         "
-        curl "https://api.telegram.org/bot${{ secrets.TELEGRAM_TOKEN }}/sendMessage" -d "chat_id=${{ secrets.TELEGRAM_TO }}&text=${MSG}"
+        curl "https://api.telegram.org/bot${{ secrets.TELEGRAM_BOT_TOKEN }}/sendMessage" -d "chat_id=${{ secrets.TELEGRAM_CHAT_ID }}&text=${MSG}"

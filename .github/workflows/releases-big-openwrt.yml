@@ -70,15 +70,17 @@ jobs:
       if: (!cancelled())
       uses: ophub/flippy-openwrt-actions@main
       env:
-        OPENWRT_ARMVIRT: https://github.com/breakings/OpenWrt/releases/download/openwrt_armvirt/openwrt-armvirt-64-generic-rootfs.tar.gz
-        PACKAGE_SOC: all
-        WHOAMI: breakings
+        OPENWRT_ARMVIRT: https://github.com/Shi0ri00/OpenWrt/releases/download/openwrt_armvirt/openwrt-armvirt-64-generic-rootfs.tar.gz
+        PACKAGE_SOC: s905d
+        WHOAMI: SHIORI
         #KERNEL_REPO_URL: https://github.com/breakings/OpenWrt/tree/main/opt
         KERNEL_VERSION_NAME: 6.1.86_6.6.27
         #OPENWRT_VER: R23.5.1
         KERNEL_AUTO_LATEST: true
         GZIP_IMGS: .gz
-        GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        R_TOKEN: ${{ secrets.R_TOKEN }}
+        DISTRIB_REVISION: R${{ env.DATE1 }} by Shiori
+
 
     - name: SSH connection to Actions @ Ctrl+C to enter, Ctrl+D to exit
       uses: P3TERX/ssh2actions@main
@@ -103,24 +105,17 @@ jobs:
         removeArtifacts: true
         tag: ${{ env.FILE_NAME }}
         commit: main
-        token: ${{ secrets.RELEASES_TOKEN }}
+        token: ${{ secrets.R_TOKEN }}
         artifacts: ${{ env.PACKAGED_OUTPUTPATH }}/*
         body: |
-          - 默认IP：192.168.1.1 默认密码：password (WiFi密码同）
+          - 默认IP：10.0.0.2 默认密码：password
           - 当前使用版本:【编译前的最后一次➦[主源码](https://github.com/coolsnowwolf/lede)更新记录】
-          - 高大全版取消了➦[Node](https://github.com/breakings/OpenWrt/releases/download/openwrt_armvirt/node_v16.19.1-1_aarch64_cortex-a53.ipk)，目前仅➦[网易云解锁NodeJS](https://github.com/breakings/OpenWrt/releases/download/openwrt_armvirt/netease.tar.gz)版受影响，可单独下载ipk安装。
-          - 此版仍然**精简**了部分F大本人集成的插件，故依旧推荐使用F大本人发布的➦[正式版本](https://github.com/breakings/OpenWrt/releases/tag/flippy_openwrt)。
-          - 此版仅满足部分喜欢追新的群友方便在线更新固件使用。
-          - 此版因集成插件比自用精简版更多，无法做到每日更新。
-          - 因变动较大，从60或以下版本升级到61或更高版本建议**全新刷入**或者**不保留配置**进行升级。
-          - 常见问题及注意事项请参考恩山F大➦[最新帖](https://www.right.com.cn/forum/thread-4076037-1-1.html)
-          - 需要**自用精简版**请到 精简版➦[下载](https://github.com/breakings/OpenWrt/releases/tag/armv8_mini)
           ${{ env.useVersionInfo }}
 
     - name: Delete workflow runs
       uses: GitRML/delete-workflow-runs@main
       with:
-        token: ${{ secrets.GITHUB_TOKEN }}
+        token: ${{ secrets.R_TOKEN }}
         repository: ${{ github.repository }}
         retain_days: 60
         keep_minimum_runs: 60
@@ -134,7 +129,7 @@ jobs:
         delete_tag_pattern:
         delete_tags: true
       env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        GITHUB_TOKEN: ${{ secrets.R_TOKEN }}
 
     - name: Telegram notification
       run: |
@@ -143,4 +138,4 @@ jobs:
         OpenWrt 更新信息：${{ env.useVersionInfo }}
         ${{ env.PRODUCT_NAME }} 打包完成
         "
-        curl "https://api.telegram.org/bot${{ secrets.TELEGRAM_TOKEN }}/sendMessage" -d "chat_id=${{ secrets.TELEGRAM_TO }}&text=${MSG}"
+        curl "https://api.telegram.org/bot${{ secrets.TELEGRAM_BOT_TOKEN }}/sendMessage" -d "chat_id=${{ secrets.TELEGRAM_CHAT_ID }}&text=${MSG}"

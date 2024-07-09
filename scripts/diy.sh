@@ -10,8 +10,12 @@
 # Description: OpenWrt DIY script part 2 (After Update feeds)
 #
 
-echo "开始 DIY2 配置……"
+echo "开始 DIY 配置……"
 echo "========================="
+
+
+# TTYD 免登录
+sed -i 's|/bin/login|/bin/login -f root|g' feeds/packages/utils/ttyd/files/ttyd.config
 
 function merge_package(){
     repo=`echo $1 | rev | cut -d'/' -f 1 | rev`
@@ -1074,8 +1078,8 @@ cp -rf $GITHUB_WORKSPACE/general/xfsprogs feeds/packages/utils
 cp -rf $GITHUB_WORKSPACE/general/shadowsocks-rust package/shadowsocks-rust
 
 # 晶晨宝盒
-sed -i "s|https.*/amlogic-s9xxx-openwrt|https://github.com/breakings/OpenWrt|g" package/custom/luci-app-amlogic/luci-app-amlogic/root/etc/config/amlogic
-sed -i "s|http.*/library|https://github.com/breakings/OpenWrt|g" package/custom/luci-app-amlogic/luci-app-amlogic/root/etc/config/amlogic
+sed -i "s|https.*/amlogic-s9xxx-openwrt|https://github.com/Shi0ri00/OpenWrt|g" package/custom/luci-app-amlogic/luci-app-amlogic/root/etc/config/amlogic
+sed -i "s|http.*/library|https://github.com/Shi0ri00/OpenWrt|g" package/custom/luci-app-amlogic/luci-app-amlogic/root/etc/config/amlogic
 sed -i "s|s9xxx_lede|ARMv8|g" package/custom/luci-app-amlogic/luci-app-amlogic/root/etc/config/amlogic
 #sed -i "s|.img.gz|..OPENWRT_SUFFIX|g" package/custom/luci-app-amlogic/luci-app-amlogic/root/etc/config/amlogic
 
@@ -1130,4 +1134,4 @@ cp -rf $GITHUB_WORKSPACE/general/lrzsz feeds/packages/utils
 ./scripts/feeds install -a
 
 echo "========================="
-echo " DIY2 配置完成……"
+echo " DIY 配置完成……"
