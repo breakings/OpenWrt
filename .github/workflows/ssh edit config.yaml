@@ -1,4 +1,4 @@
-name: Build OpenWrt Huge
+name: make .config
 
 on:
   repository_dispatch:
