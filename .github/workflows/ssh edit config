@@ -1,0 +1,133 @@
+name: Build OpenWrt Huge
+
+on:
+  repository_dispatch:
+  workflow_dispatch:
+    inputs:
+      ssh:
+        description: 'SSH connection to Actions'
+        required: false
+        default: 'true'
+env:
+  REPO_URL: https://github.com/coolsnowwolf/lede
+  REPO_BRANCH: master
+  FEEDS_CONF: feeds.conf.default
+  CONFIG_FILE: .config
+  DIY_SCRIPT: scripts/diy.sh
+  UPLOAD_BIN_DIR: false
+  UPLOAD_FIRMWARE: false
+  UPLOAD_RELEASE: true
+  TZ: Asia/Shanghai
+  FILE_NAME: openwrt_armvirt
+  PRODUCT_NAME: openwrt_armvirt
+
+jobs:
+  build:
+    runs-on: ubuntu-22.04
+    if: github.event.repository.owner.id == github.event.sender.id || ! github.event.sender.id
+
+    steps:
+    - name: Checkout
+      uses: actions/checkout@main
+      
+    - name: Initialization environment
+      env:
+        DEBIAN_FRONTEND: noninteractive
+      run: |
+        # docker rmi `docker images -q`
+        sudo swapoff -a
+        sudo rm -f /swapfile /mnt/swapfile
+        sudo docker image prune -a -f
+        sudo systemctl stop docker
+        sudo snap set system refresh.retain=2
+        sudo rm -rf /usr/share/dotnet /etc/apt/sources.list.d /usr/local/lib/android 2>/dev/null
+        sudo sed -i '/NVM_DIR/d;/skel/d' /root/{.bashrc,.profile}
+        sudo -E apt -y purge azure-cli ghc* zulu* texlive* firefox google* dotnet* powershell openjdk* mongodb* moby* || true
+        [[ -n "${AGENT_TOOLSDIRECTORY}" ]] && sudo rm -rf "${AGENT_TOOLSDIRECTORY}"
+        sudo -E apt update
+        sudo -E apt -y install $(curl -fsSL https://is.gd/depends_ubuntu_2204)
+        sudo -E apt -y install clang llvm lld
+        sudo -E apt -y autoremove --purge
+        sudo -E systemctl daemon-reload
+        sudo -E apt clean && sudo -E apt autoclean
+        sudo timedatectl set-timezone "$TZ"
+        # sudo mkdir -p /builder
+        # sudo chown $USER:$GROUPS /builder
+        echo "status=success" >> ${GITHUB_OUTPUT}
+        df -Th
+        
+    - name: Create Swap
+      run: |
+        sudo dd if=/dev/zero of=/mnt/swapfile bs=1M count=8192
+        sudo chmod 600 /mnt/swapfile
+        sudo mkswap /mnt/swapfile
+        sudo swapon /mnt/swapfile
+        free -h | grep -i swap
+
+    - name: Create simulated physical disk
+      run: |
+        mnt_size=$(expr $(df -h /mnt | tail -1 | awk '{print $4}' | sed 's/[[:alpha:]]//g' | sed 's/\..*//') - 1)
+        root_size=$(expr $(df -h / | tail -1 | awk '{print $4}' | sed 's/[[:alpha:]]//g' | sed 's/\..*//') - 4)
+        sudo truncate -s "${mnt_size}"G /mnt/mnt.img
+        sudo truncate -s "${root_size}"G /root.img
+        sudo losetup /dev/loop6 /mnt/mnt.img
+        sudo losetup /dev/loop7 /root.img
+        sudo pvcreate /dev/loop6
+        sudo pvcreate /dev/loop7
+        sudo vgcreate github /dev/loop6 /dev/loop7
+        sudo lvcreate -n runner -l 100%FREE github
+        sudo mkfs.xfs /dev/github/runner
+        sudo mkdir -p /builder
+        sudo mount /dev/github/runner /builder
+        sudo chown -R runner.runner /builder
+        df -Th
+
+    - name: Clone source code
+      working-directory: /builder
+      run: |
+        df -hT $PWD
+        git clone $REPO_URL -b $REPO_BRANCH openwrt
+        ln -sf /builder/openwrt $GITHUB_WORKSPACE/openwrt
+        cd openwrt
+        useVersionInfo=$(git show -s --date=short --format="Author: %an<br/>date: %cd<br/>commit: %s<br/>commit hash: %H")
+        echo "useVersionInfo=$useVersionInfo" >> $GITHUB_ENV
+        echo "DATE=$(date "+%Y-%m-%d %H:%M:%S")" >> $GITHUB_ENV
+        echo "DATE1=$(date "+%Y-%m-%d")" >> $GITHUB_ENV
+        
+    #- name: Cache Toolchain
+      #uses: klever1988/cachewrtbuild@main
+      #with:
+        #ccache: false
+        #skip: true
+        #toolchain: true
+        #clean: false
+        #prefix: ${{ github.workspace }}/openwrt
+
+    - name: Update feeds
+      run: cd openwrt && ./scripts/feeds update -a
+
+    - name: Install feeds
+      run: cd openwrt && ./scripts/feeds install -a
+
+    - name: Load custom configuration
+      run: |
+        [ -e files ] && mv files openwrt/files
+        [ -e $CONFIG_FILE ] && mv $CONFIG_FILE openwrt/.config
+        chmod +x $DIY_SCRIPT
+        chmod +x $GITHUB_WORKSPACE/scripts/*.sh
+        cd openwrt
+        $GITHUB_WORKSPACE/$DIY_SCRIPT
+        $GITHUB_WORKSPACE/scripts/preset-terminal-tools.sh
+
+    - name: SSH connection to Actions
+      uses: P3TERX/ssh2actions@v1.0.0
+      if: (github.event.inputs.ssh == 'true' && github.event.inputs.ssh  != 'false') || contains(github.event.action, 'ssh')
+      env:
+        TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+        TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+
+    - name: save seed.config
+      uses: actions/upload-artifact@v4
+      with:
+        name: .config
+        path: /home/runner/seed.config
