@@ -9,14 +9,6 @@ name: Releases big openwrt
 on:
   repository_dispatch:
   workflow_dispatch:
-    inputs:
-      ssh:
-        description: 'SSH connection'
-        required: false
-        default: 'false'
-  schedule:
-    - cron: '45 23 * * *'
-
 env:
   REPO_URL: https://github.com/coolsnowwolf/lede
   REPO_BRANCH: master
@@ -93,25 +85,6 @@ jobs:
           - 默认IP：10.0.0.2 默认密码：password
           - 当前使用版本:【编译前的最后一次➦[主源码](https://github.com/coolsnowwolf/lede)更新记录】
           ${{ env.useVersionInfo }}
-
-    - name: Delete workflow runs
-      uses: GitRML/delete-workflow-runs@main
-      with:
-        token: ${{ secrets.R_TOKEN }}
-        repository: ${{ github.repository }}
-        retain_days: 60
-        keep_minimum_runs: 60
-
-    - name: Remove old Releases
-      uses: dev-drprasad/delete-older-releases@v0.3.3
-      if: env.UPLOAD_RELEASE == 'true' && !cancelled()
-      with:
-        repo:
-        keep_latest: 30
-        delete_tag_pattern:
-        delete_tags: true
-      env:
-        GITHUB_TOKEN: ${{ secrets.R_TOKEN }}
 
     - name: Telegram notification
       run: |

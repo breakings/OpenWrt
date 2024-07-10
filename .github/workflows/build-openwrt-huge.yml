@@ -8,7 +8,7 @@
 # Description: Build OpenWrt using GitHub Actions
 #
 
-name: Build OpenWrt Huge
+name: Build OpenWrt
 
 on:
   repository_dispatch:
@@ -35,7 +35,7 @@ env:
   PRODUCT_NAME: openwrt_armvirt
 
 jobs:
-  build:
+  Build:
     runs-on: ubuntu-22.04
     if: github.event.repository.owner.id == github.event.sender.id || ! github.event.sender.id
 
@@ -209,25 +209,6 @@ jobs:
           ${{ env.useVersionInfo }}
         artifacts: ${{ env.FIRMWARE }}/*
 
-    - name: Delete workflow runs
-      uses: GitRML/delete-workflow-runs@main
-      with:
-        token: ${{ secrets.R_TOKEN }}
-        repository: ${{ github.repository }}
-        retain_days: 60
-        keep_minimum_runs: 60
-
-    - name: Remove old Releases
-      uses: dev-drprasad/delete-older-releases@v0.3.3
-      if: env.UPLOAD_RELEASE == 'true' && !cancelled()
-      with:
-        repo:
-        keep_latest: 30
-        delete_tag_pattern:
-        delete_tags: true
-      env:
-        GITHUB_TOKEN: ${{ secrets.R_TOKEN }}
-
     - name: Telegram notification
       run: |
         MSG="
@@ -236,3 +217,80 @@ jobs:
         ${{ env.PRODUCT_NAME }} 编译完成
         "
         curl "https://api.telegram.org/bot${{ secrets.TELEGRAM_BOT_TOKEN }}/sendMessage" -d "chat_id=${{ secrets.TELEGRAM_CHAT_ID }}&text=${MSG}"
+
+  Package:
+    needs: [Build]
+    runs-on: ubuntu-22.04
+
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v2
+
+    - name: Initialization environment
+      env:
+        DEBIAN_FRONTEND: noninteractive
+      run: |
+        docker rmi `docker images -q`
+        sudo rm -rf /etc/apt/sources.list.d/* /usr/share/dotnet /usr/local/lib/android /opt/ghc
+        sudo -E apt-get -qq update
+        sudo -E apt-get -qq install $(curl -fsSL https://is.gd/depends_ubuntu_2204)
+        sudo -E apt-get -qq autoremove --purge
+        sudo -E apt-get -qq clean
+        sudo timedatectl set-timezone "$TZ"
+        sudo mkdir -p /workdir
+        sudo chown $USER:$GROUPS /workdir
+
+    - name: Clone source code
+      working-directory: /workdir
+      run: |
+        df -hT $PWD
+        git clone $REPO_URL -b $REPO_BRANCH openwrt
+        ln -sf /workdir/openwrt $GITHUB_WORKSPACE/openwrt
+        cd openwrt
+        useVersionInfo=$(git show -s --date=short --format="Author: %an<br/>date: %cd<br/>commit: %s<br/>commit hash: %H")
+        echo "useVersionInfo=$useVersionInfo" >> $GITHUB_ENV
+        echo "DATE=$(date "+%Y-%m-%d %H:%M:%S")" >> $GITHUB_ENV
+        echo "DATE1=$(date "+%Y-%m-%d")" >> $GITHUB_ENV
+
+    - name: Package Armvirt as OpenWrt
+      if: (!cancelled())
+      uses: ophub/flippy-openwrt-actions@main
+      env:
+        OPENWRT_ARMVIRT: https://github.com/Shi0ri00/OpenWrt/releases/download/openwrt_armvirt/openwrt-armvirt-64-generic-rootfs.tar.gz
+        PACKAGE_SOC: s905d
+        WHOAMI: SHIORI
+        #KERNEL_REPO_URL: https://github.com/breakings/OpenWrt/tree/main/opt
+        KERNEL_VERSION_NAME: 6.1.86_6.6.27
+        #OPENWRT_VER: R23.5.1
+        KERNEL_AUTO_LATEST: true
+        GZIP_IMGS: .gz
+        R_TOKEN: ${{ secrets.R_TOKEN }}
+        DISTRIB_REVISION: R${{ env.DATE1 }} by Shiori
+
+    - name: Upload OpenWrt Firmware to Release
+      id: release
+      uses: ncipollo/release-action@main
+      if: env.PACKAGED_STATUS == 'success' && env.UPLOAD_RELEASE == 'true' && !cancelled()
+      with:
+        name: R${{ env.DATE }} for ${{ env.FILE_NAME }}
+        allowUpdates: true
+        removeArtifacts: true
+        tag: ${{ env.FILE_NAME }}
+        commit: main
+        token: ${{ secrets.R_TOKEN }}
+        artifacts: ${{ env.PACKAGED_OUTPUTPATH }}/*
+        body: |
+          - 默认IP：10.0.0.2 默认密码：password
+          - 当前使用版本:【编译前的最后一次➦[主源码](https://github.com/coolsnowwolf/lede)更新记录】
+          ${{ env.useVersionInfo }}
+
+    - name: Telegram notification
+      run: |
+        MSG="
+        打包时间：${{ env.DATE }}
+        OpenWrt 更新信息：${{ env.useVersionInfo }}
+        ${{ env.PRODUCT_NAME }} 打包完成
+        "
+        curl "https://api.telegram.org/bot${{ secrets.TELEGRAM_BOT_TOKEN }}/sendMessage" -d "chat_id=${{ secrets.TELEGRAM_CHAT_ID }}&text=${MSG}"
+
+
