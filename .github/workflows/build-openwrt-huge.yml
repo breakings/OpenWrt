@@ -221,7 +221,17 @@ jobs:
   Package:
     needs: [Build]
     runs-on: ubuntu-22.04
-
+    
+    env:
+      REPO_URL: https://github.com/coolsnowwolf/lede
+      REPO_BRANCH: master
+      FEEDS_CONF: feeds.conf.default
+      UPLOAD_RELEASE: true
+      RECENT_LASTEST: 30
+      TZ: Asia/Shanghai
+      FILE_NAME: ARMv8
+      PRODUCT_NAME: ARMv8
+      
     steps:
     - name: Checkout
       uses: actions/checkout@v4
