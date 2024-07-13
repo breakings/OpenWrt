@@ -246,8 +246,8 @@ rm -rf feeds/packages/multimedia/ffmpeg
 cp -rf $GITHUB_WORKSPACE/general/ffmpeg feeds/packages/multimedia
 
 # btrfs-progs
-sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=6.9/g' feeds/packages/utils/btrfs-progs/Makefile
-sed -i 's/PKG_HASH:=.*/PKG_HASH:=7e14a5d597f323dd7d1b453e3a4e661a7e9f07ea060efbff4f76ff8315917de8/g' feeds/packages/utils/btrfs-progs/Makefile
+sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=6.9.2/g' feeds/packages/utils/btrfs-progs/Makefile
+sed -i 's/PKG_HASH:=.*/PKG_HASH:=43865bb272dc0ab2585de3605434d81ba217578f0897bf700cd36c14ac40652a/g' feeds/packages/utils/btrfs-progs/Makefile
 rm -rf feeds/packages/utils/btrfs-progs/patches
 #sed -i '68i\	--disable-libudev \\' feeds/packages/utils/btrfs-progs/Makefile
 
@@ -377,8 +377,8 @@ sed -i 's/PKG_MIRROR_HASH:=.*/PKG_MIRROR_HASH:=ac817f63605508779ebebf612fcb7d594
 # php8
 #rm -rf feeds/packages/lang/php8
 #svn co https://github.com/openwrt/packages/trunk/lang/php8 feeds/packages/lang/php8
-sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=8.3.8/g' feeds/packages/lang/php8/Makefile
-sed -i 's/PKG_HASH:=.*/PKG_HASH:=aea358b56186f943c2bbd350c9005b9359133d47e954cfc561385319ae5bb8d7/g' feeds/packages/lang/php8/Makefile
+sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=8.3.9/g' feeds/packages/lang/php8/Makefile
+sed -i 's/PKG_HASH:=.*/PKG_HASH:=bf4d7b8ea60a356064f88485278bd6f941a230ec16f0fc401574ce1445ad6c77/g' feeds/packages/lang/php8/Makefile
 
 # python-docker
 sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=7.1.0/g' feeds/packages/lang/python/python-docker/Makefile
@@ -857,8 +857,8 @@ rm -rf feeds/packages/utils/coreutils
 cp -r $GITHUB_WORKSPACE/general/coreutils feeds/packages/utils
 
 # frp
-sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=0.58.1/g' feeds/packages/net/frp/Makefile
-sed -i 's/PKG_HASH:=.*/PKG_HASH:=c6eabdc2bf39bdb4a7ab7794a4b2ad94be5e0cab50b6cc540a6431e61208b1e6/g' feeds/packages/net/frp/Makefile
+sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=0.59.0/g' feeds/packages/net/frp/Makefile
+sed -i 's/PKG_HASH:=.*/PKG_HASH:=eb4848119a9684b7762171d7633aa5ee29d195e63f53e89e7b549096bdf4a5a9/g' feeds/packages/net/frp/Makefile
 
 # openconnect
 #sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=8.20/g' feeds/packages/net/openconnect/Makefile
@@ -916,10 +916,10 @@ sed -i 's/PKG_HASH:=.*/PKG_HASH:=84404ca8431b595e86c473d8f23d8bb102810001f15feaf
 #svn co https://github.com/immortalwrt/packages/trunk/net/verysync feeds/packages/net/verysync
 
 # haproxy
-sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=3.0.2/g' feeds/packages/net/haproxy/Makefile
+sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=3.0.3/g' feeds/packages/net/haproxy/Makefile
 #sed -i 's/PKG_RELEASE:=.*/PKG_RELEASE:=1/g' feeds/packages/net/haproxy/Makefile
-sed -i 's/PKG_HASH:=.*/PKG_HASH:=9672ee43b109f19356c35d72687b222dcf82b879360c6e82677397376cf5dc36/g' feeds/packages/net/haproxy/Makefile
-sed -i 's/BASE_TAG:=.*/BASE_TAG=v3.0.2/g' feeds/packages/net/haproxy/get-latest-patches.sh
+sed -i 's/PKG_HASH:=.*/PKG_HASH:=39a73c187a0b00d2602cb3ffca52d1b59d90f09032734fe8c03eb2e29a7d19df/g' feeds/packages/net/haproxy/Makefile
+sed -i 's/BASE_TAG:=.*/BASE_TAG=v3.0.3/g' feeds/packages/net/haproxy/get-latest-patches.sh
 #sed -i 's|PKG_SOURCE_URL:=.*|PKG_SOURCE_URL:=https://www.haproxy.org/download/2.8/src|g' feeds/packages/net/haproxy/Makefile
 
 # perl
@@ -1129,6 +1129,9 @@ cp -rf $GITHUB_WORKSPACE/general/uugamebooster feeds/packages/net
 
 rm -rf feeds/packages/utils/lrzsz
 cp -rf $GITHUB_WORKSPACE/general/lrzsz feeds/packages/utils
+
+rm -rf feeds/packages/net/wget
+cp -rf $GITHUB_WORKSPACE/general/wget feeds/packages/net/wget
 
 ./scripts/feeds update -a
 ./scripts/feeds install -a
