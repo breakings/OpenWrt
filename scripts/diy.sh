@@ -76,6 +76,7 @@ sed -i 's/192.168.1.1/10.0.0.2/g' package/base-files/files/bin/config_generate
 merge_package https://github.com/jerrykuku/lua-maxminddb lua-maxminddb
 merge_package https://github.com/xiangfeidexiaohuo/extra-ipk extra-ipk/patch/wall-luci/luci-app-vssr
 merge_package https://github.com/vernesong/OpenClash OpenClash/luci-app-openclash
+merge_package https://github.com/nosignals/neko luci-app-neko
 #git clone https://github.com/project-lede/luci-app-godproxy package/luci-app-godproxy
 merge_package https://github.com/ilxp/luci-app-ikoolproxy luci-app-ikoolproxy
 #svn co https://github.com/openwrt/luci/trunk/modules/luci-mod-dashboard feeds/luci/modules/luci-mod-dashboard
@@ -89,6 +90,7 @@ merge_package https://github.com/ophub/luci-app-amlogic luci-app-amlogic
 merge_package https://github.com/openwrt/openwrt.git openwrt/package/libs/elfutils
 #svn co https://github.com/breakings/OpenWrt/trunk/general/gnupg feeds/packages/utils/gnupg
 #svn co https://github.com/breakings/OpenWrt/trunk/general/n2n_v2 package/lean/n2n_v2
+
 
 # 编译 po2lmo (如果有po2lmo可跳过)
 pushd package/custom/luci-app-openclash/tools/po2lmo
