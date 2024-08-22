@@ -163,7 +163,7 @@ merge_package https://github.com/kenzok8/openwrt-packages openwrt-packages/luci-
 #mosdns
 rm -rf feeds/packages/net/mosdns
 rm -rf feeds/luci/applications/luci-app-mosdns
-merge_package https://github.com/sbwml/luci-app-mosdns luci-app-mosdns
+git clone -b v5-lua https://github.com/sbwml/luci-app-mosdns package/luci-app-mosdns
 merge_package https://github.com/sbwml/luci-app-mosdns luci-app-mosdns/mosdns
 
 #修改bypass的makefile
@@ -1032,7 +1032,7 @@ cp -rf $GITHUB_WORKSPACE/general/libpfring feeds/packages/libs/libpfring
 
 # alist
 merge_package https://github.com/sbwml/luci-app-alist luci-app-alist/alist
-merge_package https://github.com/sbwml/luci-app-alist luci-app-alist/luci-app-alist
+git clone -b lua https://github.com/sbwml/luci-app-alist package/luci-app-alist
 #sed -i 's/PKG_HASH:=.*/PKG_HASH:=b7d1929d9aef511b263673dba8e5b787f695e1b4fa4555fe562f8060ee0bdea4/g' package/alist/Makefile
 
 # luajit2
