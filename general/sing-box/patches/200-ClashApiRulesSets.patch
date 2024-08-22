@@ -10,7 +10,7 @@
  }
 --- a/route/rule_abstract.go
 +++ b/route/rule_abstract.go
-@@ -20,6 +20,7 @@ type abstractDefaultRule struct {
+@@ -21,6 +21,7 @@ type abstractDefaultRule struct {
  	ruleSetItem             RuleItem
  	invert                  bool
  	outbound                string
@@ -18,7 +18,7 @@
  }
  
  func (r *abstractDefaultRule) Type() string {
-@@ -129,6 +130,14 @@ func (r *abstractDefaultRule) Outbound()
+@@ -151,6 +152,14 @@ func (r *abstractDefaultRule) Outbound()
  }
  
  func (r *abstractDefaultRule) String() string {

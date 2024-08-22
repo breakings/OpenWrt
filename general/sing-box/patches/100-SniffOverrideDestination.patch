@@ -1,3 +1,9 @@
+---
+ adapter/inbound.go  |    1 +
+ outbound/default.go |    4 ++--
+ route/router.go     |    2 ++
+ 3 files changed, 5 insertions(+), 2 deletions(-)
+
 --- a/adapter/inbound.go
 +++ b/adapter/inbound.go
 @@ -48,6 +48,7 @@ type InboundContext struct {
@@ -30,7 +36,7 @@
  		outConn, err = this.ListenPacket(ctx, metadata.Destination)
 --- a/route/router.go
 +++ b/route/router.go
-@@ -780,6 +780,7 @@ func (r *Router) RouteConnection(ctx con
+@@ -839,6 +839,7 @@ func (r *Router) RouteConnection(ctx con
  			metadata.Protocol = sniffMetadata.Protocol
  			metadata.Domain = sniffMetadata.Domain
  			if metadata.InboundOptions.SniffOverrideDestination && M.IsDomainName(metadata.Domain) {
@@ -38,11 +44,11 @@
  				metadata.Destination = M.Socksaddr{
  					Fqdn: metadata.Domain,
  					Port: metadata.Destination.Port,
-@@ -907,6 +908,7 @@ func (r *Router) RoutePacketConnection(c
- 				metadata.Protocol = sniffMetadata.Protocol
- 				metadata.Domain = sniffMetadata.Domain
- 				if metadata.InboundOptions.SniffOverrideDestination && M.IsDomainName(metadata.Domain) {
-+					metadata.SniffOverrideDestination = true
- 					metadata.Destination = M.Socksaddr{
- 						Fqdn: metadata.Domain,
- 						Port: metadata.Destination.Port,
+@@ -988,6 +989,7 @@ func (r *Router) RoutePacketConnection(c
+ 					metadata.Protocol = sniffMetadata.Protocol
+ 					metadata.Domain = sniffMetadata.Domain
+ 					if metadata.InboundOptions.SniffOverrideDestination && M.IsDomainName(metadata.Domain) {
++						metadata.SniffOverrideDestination = true
+ 						metadata.Destination = M.Socksaddr{
+ 							Fqdn: metadata.Domain,
+ 							Port: metadata.Destination.Port,
