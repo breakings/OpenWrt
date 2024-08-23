@@ -669,8 +669,8 @@ rm -rf feeds/packages/utils/nano
 cp -rf $GITHUB_WORKSPACE/general/nano feeds/packages/utils
 
 # dnsproxy
-sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=0.73.0/g' feeds/packages/net/dnsproxy/Makefile
-sed -i 's/PKG_HASH:=.*/PKG_HASH:=e735faf47b066d348d70ecddabd1c37e3f06050c5a7e83ff932c552f0775b375/g' feeds/packages/net/dnsproxy/Makefile
+sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=0.73.1/g' feeds/packages/net/dnsproxy/Makefile
+sed -i 's/PKG_HASH:=.*/PKG_HASH:=189462fe1255b4f58d39d4ea3c1696200fa65596fcb58e1a35c0545ba6b80618/g' feeds/packages/net/dnsproxy/Makefile
 
 # libnl-tiny
 #sed -i 's/PKG_RELEASE:=.*/PKG_RELEASE:=1/g' package/libs/libnl-tiny/Makefile
@@ -696,6 +696,8 @@ sed -i 's/PKG_HASH:=.*/PKG_HASH:=e735faf47b066d348d70ecddabd1c37e3f06050c5a7e83f
 # exfatprogs
 #sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=1.1.3/g' feeds/packages/utils/exfatprogs/Makefile
 #sed -i 's/PKG_HASH:=.*/PKG_HASH:=e3ee4fb5af4abc9335aed7a749c319917c652ac1af687ba40aabd04a6b71f1ca/g' feeds/packages/utils/exfatprogs/Makefile
+rm -rf feeds/packages/utils/exfatprogs
+cp -rf $GITHUB_WORKSPACE/general/exfatprogs feeds/packages/utils
 
 # shairport-sync
 #sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=4.3.2/g' feeds/packages/sound/shairport-sync/Makefile
@@ -971,9 +973,11 @@ sed -i 's/PKG_HASH:=.*/PKG_HASH:=2345d4dc136fda28ce243e0bb21f2e7e8ef6293d62c799a
 #sed -i 's/PKG_HASH:=.*/PKG_HASH:=8f74213b56238c85a50a5329f77e06198771e70dd9a739779f4c02f65d971313/g' package/libs/libiconv-full/Makefile
 
 # bind
-sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=9.18.28/g' feeds/packages/net/bind/Makefile
-sed -i 's/PKG_HASH:=.*/PKG_HASH:=e7cce9a165f7b619eefc4832f0a8dc16b005d29e3890aed6008c506ea286a5e7/g' feeds/packages/net/bind/Makefile
+sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=9.18.29/g' feeds/packages/net/bind/Makefile
+sed -i 's/PKG_HASH:=.*/PKG_HASH:=c39ce5d09a8cb10108116fa533445de9f7fdfe0063e8d7c4c46ba1fd20d7bf6d/g' feeds/packages/net/bind/Makefile
 sed -i 's/PKG_RELEASE:=.*/PKG_RELEASE:=1/g' feeds/packages/net/bind/Makefile
+#rm -rf feeds/packages/net/bind
+#cp -rf $GITHUB_WORKSPACE/general/bind feeds/packages/net
 
 # libwebp
 sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=1.3.2/g' feeds/packages/libs/libwebp/Makefile
@@ -1129,6 +1133,15 @@ cp -rf $GITHUB_WORKSPACE/general/lrzsz feeds/packages/utils
 
 rm -rf feeds/packages/net/wget
 cp -rf $GITHUB_WORKSPACE/general/wget feeds/packages/net/wget
+
+# liburcu
+sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=0.14.0/g' feeds/packages/libs/liburcu/Makefile
+sed -i 's/PKG_HASH:=.*/PKG_HASH:=ca43bf261d4d392cff20dfae440836603bf009fce24fdc9b2697d837a2239d4f/g' feeds/packages/libs/liburcu/Makefile
+
+# afalg_engine
+sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=1.2.1/g' feeds/packages/libs/afalg_engine/Makefile
+sed -i 's/PKG_RELEASE:=.*/PKG_RELEASE:=1/g' feeds/packages/libs/afalg_engine/Makefile
+sed -i 's/PKG_HASH:=.*/PKG_HASH:=3f0f6ee9ea7a5ea9c668ec16f8c492aa024a82dca78d0fbe30fd256f9da95d65/g' feeds/packages/libs/afalg_engine/Makefile
 
 ./scripts/feeds update -a
 ./scripts/feeds install -a
