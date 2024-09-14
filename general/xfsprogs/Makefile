@@ -8,19 +8,19 @@
 include $(TOPDIR)/rules.mk
 
 PKG_NAME:=xfsprogs
-PKG_VERSION:=6.8.0
+PKG_VERSION:=6.10.1
 PKG_RELEASE:=1
 
 PKG_SOURCE:=$(PKG_NAME)-$(PKG_VERSION).tar.xz
 PKG_SOURCE_URL:=@KERNEL/linux/utils/fs/xfs/xfsprogs
-PKG_HASH:=78b6ab776eebe5ab52e0884a70fa1b3633e64a282b1ecfae91f5dd1d9ec5f07d
+PKG_HASH:=6cb839be1a9535f8352441b3f6eea521ead5c5c7c913e8106cdfac96aa117041
 
 PKG_MAINTAINER:=
 PKG_LICENSE:=GPL-2.0-only
 PKG_LICENSE_FILES:=LICENSES/GPL-2.0
 PKG_CPE_ID:=cpe:/a:sgi:xfsprogs
 
-PKG_BUILD_DEPENDS:=inih
+PKG_BUILD_DEPENDS:=inih attr
 PKG_BUILD_FLAGS:=no-mips16
 PKG_BUILD_PARALLEL:=1
 PKG_INSTALL:=1
@@ -31,8 +31,8 @@ define Package/xfsprogs/default
   SECTION:=utils
   CATEGORY:=Utilities
   SUBMENU:=Filesystem
-  DEPENDS:=+liburcu +libuuid +libpthread
-  URL:=https://xfs.org/
+  DEPENDS:=+liburcu +libuuid +libpthread +libblkid
+  URL:=https://xfs.wiki.kernel.org/
 endef
 
 define Package/xfs-admin
@@ -43,13 +43,12 @@ endef
 define Package/xfs-mkfs
 $(call Package/xfsprogs/default)
   TITLE:=Utility for creating XFS filesystems
-  DEPENDS+=+libinih +libblkid
+  DEPENDS+=+libinih
 endef
 
 define Package/xfs-fsck
 $(call Package/xfsprogs/default)
   TITLE:=Utilities for checking and repairing XFS filesystems
-  DEPENDS+=+libblkid
 endef
 
 define Package/xfs-growfs
@@ -58,18 +57,16 @@ $(call Package/xfsprogs/default)
 endef
 
 CONFIGURE_ARGS += \
+	--enable-lto \
 	--disable-gettext \
-	--disable-blkid \
-	--disable-readline \
-	--disable-editline \
-	--disable-termcap \
 	--disable-lib64 \
 	--disable-librt \
-	--disable-ubisan \
-	--disable-addrsan \
-	--disable-threadsan \
 	--disable-scrub \
 	--disable-libicu
+
+CONFIGURE_VARS += \
+	DEBUG=-DNDEBUG \
+	OPTIMIZER="$(TARGET_OPTIMIZATION)"
 
 TARGET_CFLAGS += -DHAVE_MAP_SYNC $(if $(CONFIG_USE_MUSL),-D_LARGEFILE64_SOURCE)
 TARGET_LDFLAGS += $(if $(CONFIG_USE_GLIBC),-lrt)
@@ -82,12 +79,12 @@ endef
 
 define Package/xfs-mkfs/install
 	$(INSTALL_DIR) $(1)/usr/sbin
-	$(INSTALL_BIN) $(PKG_INSTALL_DIR)/sbin/mkfs.xfs $(1)/usr/sbin
+	$(INSTALL_BIN) $(PKG_INSTALL_DIR)/usr/sbin/mkfs.xfs $(1)/usr/sbin
 endef
 
 define Package/xfs-fsck/install
 	$(INSTALL_DIR) $(1)/usr/sbin
-	$(INSTALL_BIN) $(PKG_INSTALL_DIR)/sbin/xfs_repair $(1)/usr/sbin
+	$(INSTALL_BIN) $(PKG_INSTALL_DIR)/usr/sbin/xfs_repair $(1)/usr/sbin
 	$(INSTALL_BIN) $(PKG_INSTALL_DIR)/usr/sbin/xfs_db $(1)/usr/sbin
 endef
 
