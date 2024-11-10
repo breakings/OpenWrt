@@ -322,8 +322,8 @@ rm -rf feeds/packages/utils/dockerd
 cp -rf $GITHUB_WORKSPACE/general/dockerd feeds/packages/utils/dockerd
 
 # docker-compose
-sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=2.29.7/g' feeds/packages/utils/docker-compose/Makefile
-sed -i 's/PKG_HASH:=.*/PKG_HASH:=01b759bc7c301096079dd51c5573751fe7b08ebcc7fde46b40d318539b0d4d8a/g' feeds/packages/utils/docker-compose/Makefile
+sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=2.30.3/g' feeds/packages/utils/docker-compose/Makefile
+sed -i 's/PKG_HASH:=.*/PKG_HASH:=b9b6f45ccad892a3f9353a03b6bdf3f79ea15ee2076f98bf013ef1db40034378/g' feeds/packages/utils/docker-compose/Makefile
 
 # containerd
 #sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=1.5.11/g' feeds/packages/utils/containerd/Makefile
@@ -332,9 +332,9 @@ sed -i 's/PKG_HASH:=.*/PKG_HASH:=01b759bc7c301096079dd51c5573751fe7b08ebcc7fde46
 cp -f $GITHUB_WORKSPACE/general/containerd/Makefile feeds/packages/utils/containerd
 
 # runc
-sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=1.1.13/g' feeds/packages/utils/runc/Makefile
-sed -i 's/PKG_HASH:=.*/PKG_HASH:=789d5749a08ef1fbe5d1999b67883206a68a4e58e6ca0151c411d678f3480b25/g' feeds/packages/utils/runc/Makefile
-sed -i 's/PKG_SOURCE_VERSION:=.*/PKG_SOURCE_VERSION:=58aa9203c123022138b22cf96540c284876a7910/g' feeds/packages/utils/runc/Makefile
+sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=1.1.14/g' feeds/packages/utils/runc/Makefile
+sed -i 's/PKG_HASH:=.*/PKG_HASH:=563cf57c38d2e7149234dbe6f63ca0751eb55ef8f586ed12a543dedc1aceba68/g' feeds/packages/utils/runc/Makefile
+sed -i 's/PKG_SOURCE_VERSION:=.*/PKG_SOURCE_VERSION:=2c9f5602f0ba3d9da1c2596322dfc4e156844890/g' feeds/packages/utils/runc/Makefile
 #sed -i '12d' feeds/packages/utils/runc/Makefile
 
 # bsdtar
@@ -374,8 +374,8 @@ sed -i 's/PKG_MIRROR_HASH:=.*/PKG_MIRROR_HASH:=ac817f63605508779ebebf612fcb7d594
 # php8
 #rm -rf feeds/packages/lang/php8
 #svn co https://github.com/openwrt/packages/trunk/lang/php8 feeds/packages/lang/php8
-sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=8.3.10/g' feeds/packages/lang/php8/Makefile
-sed -i 's/PKG_HASH:=.*/PKG_HASH:=a0f2179d00931fe7631a12cbc3428f898ca3d99fe564260c115af381d2a1978d/g' feeds/packages/lang/php8/Makefile
+sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=8.3.12/g' feeds/packages/lang/php8/Makefile
+sed -i 's/PKG_HASH:=.*/PKG_HASH:=f774e28633e26fc8c5197f4dae58ec9e3ff87d1b4311cbc61ab05a7ad24bd131/g' feeds/packages/lang/php8/Makefile
 
 # python-docker
 sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=7.1.0/g' feeds/packages/lang/python/python-docker/Makefile
@@ -669,8 +669,8 @@ rm -rf feeds/packages/utils/nano
 cp -rf $GITHUB_WORKSPACE/general/nano feeds/packages/utils
 
 # dnsproxy
-sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=0.73.1/g' feeds/packages/net/dnsproxy/Makefile
-sed -i 's/PKG_HASH:=.*/PKG_HASH:=189462fe1255b4f58d39d4ea3c1696200fa65596fcb58e1a35c0545ba6b80618/g' feeds/packages/net/dnsproxy/Makefile
+sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=0.73.3/g' feeds/packages/net/dnsproxy/Makefile
+sed -i 's/PKG_HASH:=.*/PKG_HASH:=9eb2b1e88e74d3a4237b50977aa52cd19ea1bb6c896535e7dd4b2df4d6aa469c/g' feeds/packages/net/dnsproxy/Makefile
 
 # libnl-tiny
 #sed -i 's/PKG_RELEASE:=.*/PKG_RELEASE:=1/g' package/libs/libnl-tiny/Makefile
@@ -856,8 +856,8 @@ rm -rf feeds/packages/utils/coreutils
 cp -r $GITHUB_WORKSPACE/general/coreutils feeds/packages/utils
 
 # frp
-sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=0.60.0/g' feeds/packages/net/frp/Makefile
-sed -i 's/PKG_HASH:=.*/PKG_HASH:=8feaf56fc3f583a51a59afcab1676f4ccd39c1d16ece08d849f8dc5c1e5bff55/g' feeds/packages/net/frp/Makefile
+sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=0.61.0/g' feeds/packages/net/frp/Makefile
+sed -i 's/PKG_HASH:=.*/PKG_HASH:=c06a11982ef548372038ec99a6b01cf4f7817a9b88ee5064e41e5132d0ccb7e1/g' feeds/packages/net/frp/Makefile
 
 # openconnect
 #sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=8.20/g' feeds/packages/net/openconnect/Makefile

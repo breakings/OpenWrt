@@ -18,8 +18,8 @@ on:
         description: 'SSH connection to Actions'
         required: false
         default: 'false'
-  schedule:
-    - cron: 0 16 * * 6
+  #schedule:
+    #- cron: 0 16 * * 6
 
 env:
   REPO_URL: https://github.com/openwrt/openwrt
